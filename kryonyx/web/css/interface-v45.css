@@ -1,0 +1,21 @@
+/* v45: no layout changes when opening More in the icon rail. */
+body.ui-v45.workspace-rail #sideMore31 summary::after{display:none}
+body.ui-v45 #sideMore31 summary{gap:12px;justify-content:flex-start}
+body.ui-v45 #sideMore31 summary>span{flex:1}
+body.ui-v45 #sideMore31 summary>svg{width:22px;height:22px;flex:none}
+body.ui-v45.workspace-rail #sideMore31 .nav{padding:12px 0!important;justify-content:center!important;gap:0!important;min-width:0}
+body.ui-v45.workspace-rail #sideMore31 .nav>span{display:none!important}
+body.ui-v45.workspace-rail #sideMore31 summary>svg{display:block!important}
+body.ui-v45 #sideMore31 summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+body.ui-v45 .workspace-nav-bar{backdrop-filter:none!important}
+/* The old visualizer-only tooltip is replaced by one delegated preview. */
+body.ui-v45 #vTip{display:none!important}
+.seek-preview45{position:fixed;z-index:2147483645;transform:translate(-50%,-100%);pointer-events:none;background:#222228;color:#fff;border:1px solid #ffffff22;border-radius:10px;padding:4px 10px;font:500 13px/1.4 system-ui;white-space:nowrap;font-variant-numeric:tabular-nums;box-shadow:0 4px 12px #0004}
+.seek-preview45[hidden]{display:none}
+.karaoke-menu45{position:absolute;right:12px;top:62px;width:340px;max-width:calc(var(--layout-vw37,1vw)*100 - 24px);padding:18px;display:flex;flex-direction:column;gap:12px;background:var(--bg-2);border:1px solid #ffffff1c;border-radius:18px;box-shadow:0 14px 40px #0006;color:var(--text);text-align:left;z-index:90;max-height:calc(var(--layout-vh37,1vh)*100 - 100px);overflow:auto}
+.karaoke-menu45[hidden]{display:none!important}.karaoke-menu45>button{text-align:left;min-height:44px;white-space:normal}.karaoke-menu45 p{margin:0;font-size:14px;line-height:1.5}.karaoke-auto45{display:flex;gap:12px;align-items:center;font-size:14px;line-height:1.5;min-height:44px}.karaoke-auto45 input{width:20px;height:20px;flex:none;accent-color:var(--accent)}
+@media(max-width:760px){body.ui-v45 #now#now #sceneTools30{gap:2px!important;left:8px!important;right:8px!important}body.ui-v45 #now#now #sceneTools30 .ib{width:36px!important;min-width:36px!important}body.ui-v45 #now#now #sceneMode33{font-size:12px;padding:6px 2px!important}.karaoke-menu45{right:0}}
+
+@media(max-width:760px){body.ui-v45 #now#now #sceneTools30 #sceneSettings30{display:none!important}}
+
+.karaoke-timing45{display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.4}.karaoke-timing-controls45{display:flex;flex-wrap:wrap;align-items:center;gap:6px}.karaoke-timing-controls45 button{min-height:38px;padding:6px 10px;border-radius:10px}.karaoke-timing-controls45 output{min-width:54px;text-align:center;font-variant-numeric:tabular-nums}

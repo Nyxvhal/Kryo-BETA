@@ -1,0 +1,320 @@
+/* look.css — обои плеера и тонкая настройка внешнего вида.
+
+   Файл подключается последним и ничего не ломает по умолчанию: пока
+   пользователь не трогал настройки, все классы здесь просто не выставлены.
+
+   Обои лежат отдельным слоем #wall под интерфейсом. Класть картинку в
+   background самого body нельзя: живой фон темы (body::before) рисуется
+   поверх и перекрывает её, а гасить его целиком — значит потерять тему.
+   Поэтому слоёв три: фон окна → обои → подсветка темы со шторкой. */
+
+/* Порядок слоёв здесь важнее всего остального в файле.
+
+   Фон темы живёт в `body::before` с z-index −1. Положить обои ещё ниже
+   (−2) нельзя: там их перекрывает собственный фон body, и картинки просто
+   не видно. Поэтому слоёв ровно три, и все они опираются на порядок в
+   DOM, а не на z-index:
+
+     body::before  — выключается, когда обои включены;
+     #wall         — сама картинка;
+     body::after   — то, что лежит ПОВЕРХ обоев: шторка в обычных темах,
+                     полупрозрачная бумага с линовкой и каракулями — в
+                     рисованной. Псевдоэлемент ::after идёт последним
+                     ребёнком body, поэтому всегда рисуется над #wall. */
+#wall {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: var(--wall-img, none);
+  background-size: var(--wall-size, cover);
+  background-repeat: var(--wall-repeat, no-repeat);
+  background-position: center;
+  opacity: var(--wall-op, .4);
+  filter: blur(var(--wall-blur, 0px));
+  /* Размытие съедает края: подложку чуть раздуваем, чтобы не было рамки. */
+  transform: scale(1.04);
+}
+body:not(.wall) #wall { display: none; }
+
+/* Почему обоев не было видно вообще.
+
+   В app.css фон задан сразу и html, и body: `html, body { background: var(--bg) }`.
+   Фон html уходит на холст окна, а вот фон body остаётся фоном обычного
+   элемента — и по правилам отрисовки фоны потомков идут ПОВЕРХ слоёв с
+   отрицательным z-index. То есть непрозрачный body закрашивал #wall целиком,
+   и любая картинка (файл, ссылка, узор, обложка) просто не доходила до
+   экрана. Поэтому, пока обои включены, своего фона у body нет: цвет темы
+   остаётся на html и никуда не девается. */
+body.wall { background: transparent; }
+
+body.wall::before { background: none; filter: none; animation: none; }
+
+body.wall::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(45% 45% at 18% 12%, var(--accent-soft), transparent 70%),
+    radial-gradient(40% 40% at 85% 8%, color-mix(in srgb, var(--accent-2) 16%, transparent), transparent 70%),
+    radial-gradient(50% 50% at 70% 95%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 70%),
+    var(--wall-scrim, rgba(0, 0, 0, .3));
+}
+body.wall.flat::after { background: var(--wall-scrim, rgba(0, 0, 0, .3)); }
+
+/* Рисованная тема: бумага становится полупрозрачной — обои видно сквозь
+   линовку и каракули, а не вместо них. */
+/* В рисованной теме прозрачность достаётся не картинке, а бумаге поверх
+   неё: иначе обои гасились дважды — сначала своей непрозрачностью, потом
+   полупрозрачным листом — и от рисунка не оставалось ничего. */
+body.sketch.wall #wall { opacity: 1; }
+body.sketch.wall::after {
+  background:
+    var(--doodles) 0 0 / 620px 620px repeat,
+    var(--grain) 0 0 / 180px 180px repeat,
+    var(--ruled) 0 0 / var(--ruled-size, 100% 34px) repeat,
+    rgba(var(--paper-rgb, 255, 252, 244), calc(1 - var(--wall-op, .4)));
+}
+body.sketch.wall #scroll { background: none; }
+
+/* Панели поверх обоев: без подложки текст тонет в картинке. */
+body.wall #side, body.wall #player, body.wall #top {
+  background: color-mix(in srgb, var(--bg) 74%, transparent);
+  backdrop-filter: blur(var(--blur, 22px));
+}
+body.wall.sketch #side, body.wall.sketch #player, body.wall.sketch #top {
+  background: rgba(var(--paper-rgb, 255, 252, 244), .72);
+}
+
+/* Обои в полноэкранном плеере — свой слой: там своя анимация обложки. */
+#nowWall {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image: var(--wall-img, none);
+  background-size: var(--wall-size, cover);
+  background-repeat: var(--wall-repeat, no-repeat);
+  background-position: center;
+  opacity: var(--wall-op, .4);
+  filter: blur(var(--wall-blur, 0px));
+  transform: scale(1.04);
+}
+body:not(.wall-now) #nowWall { display: none; }
+body.wall-now #nowArtBg { opacity: .25; }
+/* Обои в полноэкранном плеере приглушаем сильнее, чем в приложении: здесь
+   поверх картинки лежит текст песни, и его нельзя терять. Родную вуаль
+   плеера не трогаем — только докладываем шторку её фоном. */
+body.wall-now #nowWall { opacity: calc(var(--wall-op, .4) * .7); }
+body.wall-now #nowVeil { background-color: var(--wall-scrim, rgba(0, 0, 0, .3)); }
+
+/* ------------------------------------------------------- вид интерфейса */
+body { zoom: var(--ui-scale, 1); width:calc(var(--layout-vw37,1vw)*100);height:calc(var(--layout-vh37,1vh)*100); }
+
+body.font-rounded {
+  font-family: ui-rounded, 'SF Pro Rounded', 'Varela Round', 'Segoe UI Variable Display',
+               'Nunito', 'Trebuchet MS', sans-serif;
+}
+body.font-serif { font-family: Georgia, 'Times New Roman', 'Noto Serif', serif; }
+body.font-mono {
+  font-family: ui-monospace, 'Cascadia Code', 'Consolas', 'Liberation Mono', monospace;
+  letter-spacing: -.2px;
+}
+/* Pangolin приезжает вместе с рисованной темой, поэтому «рукописный»
+   шрифт доступен в любой теме и ничего не нужно докачивать. */
+body.font-hand { font-family: 'Pangolin', 'Segoe Print', 'Comic Sans MS', cursive; }
+body.font-condensed {
+  font-family: 'Roboto Condensed', 'Arial Narrow', 'Liberation Sans Narrow', sans-serif;
+  letter-spacing: .1px;
+}
+
+/* Форма обложек. Круг намеренно не трогает карточки в сетке: там круглая
+   обложка съедает половину картинки. */
+body.shape-square .card img, body.shape-square .tr img,
+body.shape-square #pArt, body.shape-square #nArt { border-radius: 2px; }
+body.shape-circle .tr img, body.shape-circle #pArt { border-radius: 50%; }
+body.shape-circle #nArt { border-radius: 50%; }
+body.shape-circle .card img { border-radius: 18%; }
+
+/* Полоса времени. */
+body.bar-round .rail, body.bar-round .buf, body.bar-round .fill { height: 7px; border-radius: 7px; }
+body.bar-round .track:hover .rail, body.bar-round .track:hover .buf,
+body.bar-round .track:hover .fill { height: 10px; }
+body.bar-thick .rail, body.bar-thick .buf, body.bar-thick .fill { height: 11px; border-radius: 3px; }
+body.bar-thick .knob { width: 6px; height: 18px; border-radius: 3px; }
+body.bar-step .rail { height: 9px; border-radius: 2px; }
+body.bar-step .buf, body.bar-step .fill { height: 9px; border-radius: 2px; }
+body.bar-step .fill {
+  -webkit-mask: repeating-linear-gradient(90deg, #000 0 6px, transparent 6px 9px);
+  mask: repeating-linear-gradient(90deg, #000 0 6px, transparent 6px 9px);
+}
+body.bar-step .knob { width: 5px; height: 16px; border-radius: 2px; }
+
+body.glassy #side, body.glassy #player, body.glassy .modal, body.glassy .menu {
+  backdrop-filter: blur(var(--blur, 22px));
+}
+
+/* Подсказка «тема сейчас выключена» нужна только когда она и правда
+   выключена: класс `on` ставит js/sketch.js. */
+#skOff { display: none; }
+#skOff.on { display: block; }
+
+/* ------------------------------------------- панель настроек: скины темы */
+.sk-skins {
+  display: grid; gap: 10px; margin: 10px 0 16px;
+  grid-template-columns: repeat(auto-fill, minmax(146px, 1fr));
+}
+.sk-skin {
+  display: flex; flex-direction: column; gap: 6px; padding: 8px;
+  border-radius: var(--radius-sm); background: var(--surface);
+  border: 1px solid transparent; text-align: left; color: inherit;
+  transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.sk-skin:hover { transform: translateY(-2px); background: var(--surface-2); }
+.sk-skin.on { border-color: var(--accent); }
+.sk-prev {
+  border-radius: 10px; overflow: hidden; aspect-ratio: 8 / 5;
+  display: grid; place-items: center;
+}
+.sk-prev svg { width: 80%; height: auto; }
+.sk-n { font-weight: 600; font-size: 13.5px; }
+.sk-h { font-size: 11.5px; color: var(--muted); line-height: 1.3; }
+
+/* --------------------------------------------------- панель настроек: обои */
+.wall-list {
+  display: grid; gap: 10px; margin: 10px 0 14px;
+  grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+}
+.wall-i {
+  display: flex; flex-direction: column; gap: 5px; padding: 6px;
+  border-radius: var(--radius-sm); background: var(--surface);
+  border: 1px solid transparent; color: inherit; font-size: 12px; text-align: left;
+}
+.wall-i:hover { background: var(--surface-2); }
+.wall-i.on { border-color: var(--accent); }
+.wall-p {
+  aspect-ratio: 16 / 10; border-radius: 8px; background: var(--surface-2);
+  background-position: center; background-size: auto;
+}
+.ui-css {
+  width: 100%; min-height: 120px; resize: vertical; padding: 10px 12px;
+  border-radius: var(--radius-sm); background: var(--surface);
+  border: 1px solid var(--line); color: var(--text);
+  font: 12.5px/1.5 ui-monospace, Consolas, monospace;
+}
+
+/* Рисованная тема распространяется и на новые плашки. */
+body.sketch .sk-skin, body.sketch .wall-i { background: var(--paper-2); border: 0; position: relative; }
+body.sketch .sk-skin::after, body.sketch .wall-i::after {
+  content: ''; position: absolute; inset: -2px; pointer-events: none; z-index: 2;
+  background:
+    var(--cn-tl) left top / 18px 18px no-repeat,
+    var(--cn-tr) right top / 18px 18px no-repeat,
+    var(--cn-br) right bottom / 18px 18px no-repeat,
+    var(--cn-bl) left bottom / 18px 18px no-repeat,
+    var(--edge-h) 15px top / calc(100% - 30px) 5px no-repeat,
+    var(--edge-h-b) 15px bottom / calc(100% - 30px) 5px no-repeat,
+    var(--edge-v) left 15px / 5px calc(100% - 30px) no-repeat,
+    var(--edge-v-b) right 15px / 5px calc(100% - 30px) no-repeat;
+}
+body.sketch .sk-skin, body.sketch .wall-i { border-radius: var(--wob); }
+body.sketch .sk-skin.on, body.sketch .wall-i.on { background: var(--cream); }
+body.sketch .sk-n { font-family: 'Caveat', cursive; font-size: 19px; }
+body.sketch .ui-css { background: var(--paper-2); border: 2px solid var(--ink); border-radius: var(--wob-sm); }
+
+/* ---------------------------------------- переключатели характера рисовки */
+/* «Ровные углы»: неровный радиус выключается одним значением — остальные
+   правила темы читают те же переменные и подстраиваются сами. */
+body.sketch.sk-nowob { --wob: 14px; --wob-sm: 10px; }
+body.sketch.sk-nowob .card, body.sketch.sk-nowob .btn,
+body.sketch.sk-nowob .chip { transform: none !important; }
+
+/* «Без рукописных заголовков»: Caveat уступает основному шрифту темы. */
+body.sketch.sk-nohand h1, body.sketch.sk-nohand h2, body.sketch.sk-nohand h3,
+body.sketch.sk-nohand h4, body.sketch.sk-nohand .set-nav-h,
+body.sketch.sk-nohand .tm, body.sketch.sk-nohand .src,
+body.sketch.sk-nohand .sk-n, body.sketch.sk-nohand .theme-n,
+body.sketch.sk-nohand .lyr-l {
+  font-family: 'Pangolin', 'Segoe Print', cursive;
+  font-size: unset;
+}
+
+/* «Без карандашной тени»: остаются только контуры. */
+body.sketch.sk-noshadow .card, body.sketch.sk-noshadow .modal,
+body.sketch.sk-noshadow #mSettings, body.sketch.sk-noshadow .menu,
+body.sketch.sk-noshadow .pop, body.sketch.sk-noshadow #toast,
+body.sketch.sk-noshadow .sk-skin, body.sketch.sk-noshadow .wall-i {
+  box-shadow: none;
+}
+
+/* Тёмная бумага: тени и подложки, рассчитанные на белый лист, на чёрном
+   выглядят грязью. Здесь они пересобраны от цвета чернил. */
+body.sketch.sk-dark .card, body.sketch.sk-dark .modal, body.sketch.sk-dark #mSettings {
+  box-shadow: 5px 6px 0 -2px rgba(var(--ink-rgb), .16);
+}
+body.sketch.sk-dark #veil { background: rgba(0, 0, 0, .45); }
+body.sketch.sk-dark img.ph { background-color: var(--paper-2); }
+body.sketch.sk-dark .skel { opacity: .5; }
+
+/* ------------------------------------------------- аватарка приложения */
+/* Значок на полосе заголовка и в боковом меню. Это обычная картинка, а не
+   иконка из спрайта: аватарку выбирает человек, и она же уходит в ярлык. */
+.ava-ic { width: 16px; height: 16px; border-radius: 5px; flex: none; object-fit: contain; }
+.ava-brand { width: 22px; height: 22px; border-radius: 7px; flex: none; object-fit: contain; }
+.brand { display: flex; align-items: center; gap: 9px; }
+
+/* Каталог в настройках. */
+.avatars {
+  display: grid; gap: 12px; padding: 4px 0 2px;
+  grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+}
+.ava {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 12px 8px 10px; border-radius: var(--radius);
+  border: 1px solid var(--line); background: var(--surface, transparent);
+  color: inherit; cursor: pointer; transition: border-color .18s, transform .18s;
+}
+.ava:hover { transform: translateY(-2px); border-color: var(--accent); }
+.ava.on { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.ava img {
+  width: 72px; height: 72px; border-radius: 18px; object-fit: contain;
+  background: rgba(127, 127, 127, .12);
+}
+.ava-n { font-size: 12px; opacity: .75; text-align: center; line-height: 1.25; }
+
+/* Полоса облегчённого режима. */
+.safe-bar {
+  position: fixed; left: 50%; transform: translateX(-50%);
+  bottom: calc(var(--player-h, 96px) + 14px); z-index: 90;
+  display: flex; align-items: center; gap: 12px;
+  max-width: min(760px, calc(var(--layout-vw37, 1vw) * 92)); padding: 10px 12px 10px 16px;
+  border-radius: 14px; border: 1px solid var(--line);
+  background: var(--bg-2); box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  font-size: 13px; line-height: 1.35;
+}
+
+/* ------------------------------------------- свой вид экрана караоке */
+#nowCustom {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none; display: none;
+  background-position: center; background-repeat: no-repeat;
+  background-size: var(--kb-size, cover);
+  filter: blur(var(--kb-blur, 0px)); transform: scale(1.06);
+}
+body.k-custom #nowCustom { display: block; }
+body.k-custom #nowArtBg, body.k-custom #nowWall { display: none !important; }
+body.k-custom:not(.k-scene) #nowCanvas { display: none; }
+body.k-custom #nowVeil, body.k-custom.light #nowVeil, body.k-custom.sketch #nowVeil {
+  background: rgba(var(--kb-veil, 0, 0, 0), var(--kb-dim, 0));
+}
+#now.disc #nowCustom { display: none; }
+#nArt { max-width: calc(420px * var(--k-art, 1)); }
+.kb-colors { display: flex; gap: 8px; align-items: center; }
+.kb-colors input[type=color] { width: 38px; height: 30px; padding: 0; border: 1px solid var(--line);
+  border-radius: 8px; background: none; cursor: pointer; }
+.kb-prev { width: 120px; height: 68px; border-radius: 10px; border: 1px solid var(--line);
+  background: var(--surface-2) center / cover no-repeat; }
+.ytc-ext { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 2px; }
+.ytc-check { display: grid; gap: 4px; margin: 8px 0 0; font-size: 12.5px; }
+.ytc-check .ok { color: #4cc38a; } .ytc-check .bad { color: #ff6b6b; } .ytc-check .warn { color: #e5b343; }
+
+/* v41: scale uses pointer capture, not a native zoom-relative range drag. */
+#sUiScale{touch-action:none;--scale-thumb41:18px}

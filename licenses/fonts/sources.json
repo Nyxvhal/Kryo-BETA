@@ -1,0 +1,17 @@
+[
+  {
+    "font": "Pangolin",
+    "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/pangolin/OFL.txt",
+    "embeddedMetadataLicense": "https://openfontlicense.org"
+  },
+  {
+    "font": "Caveat",
+    "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/caveat/OFL.txt",
+    "embeddedMetadataLicense": "https://openfontlicense.org"
+  },
+  {
+    "font": "Roboto",
+    "url": "https://raw.githubusercontent.com/googlefonts/roboto-classic/main/OFL.txt",
+    "embeddedMetadataLicense": "https://openfontlicense.org"
+  }
+]

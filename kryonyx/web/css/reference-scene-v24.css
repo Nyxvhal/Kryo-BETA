@@ -1,0 +1,90 @@
+/* Video-reference performance scene. At 1920x1080: cover 600x600 at (240,173),
+   lyric column at x=1000; active line starts at y=.4h. Ratios scale down. */
+#fluidCanvas24{position:absolute;inset:0;width:100%;height:100%;display:block}
+#coverFlow23{background:#1b1920!important}
+#coverFlow23:after{background:none!important}
+#referenceScene24{display:none}
+body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus){--ref-spread:min(calc(var(--layout-vw37, 1vw) * 75),1440px);--ref-cover:min(calc(var(--layout-vw37, 1vw) * 31.25),calc(var(--layout-vh37, 1vh) * 55.55556),calc(calc(var(--layout-vh37, 1dvh) * 84) - 260px),600px);--ref-left:calc((calc(var(--layout-vw37, 1vw) * 100) - var(--ref-spread))/2);font-family:Arial,Helvetica,sans-serif!important}
+body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #referenceScene24{display:block;position:absolute;inset:0;z-index:4;pointer-events:none}
+body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #referenceScene24 *{box-sizing:border-box}
+body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #nowIn{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;margin:0!important;padding:0!important;overflow:hidden!important;z-index:3!important}
+body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #nowBody{display:contents!important;position:static!important;margin:0!important;padding:0!important}
+body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) :is(#nowLeft,#sceneReturn){display:none!important}
+body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #albumDeck24{position:absolute;left:var(--ref-left);top:calc(var(--layout-vh37, 1vh) * 16);width:var(--ref-cover);color:#e3dfe4;pointer-events:auto;font-family:Arial,Helvetica,sans-serif}
+#albumArt24{display:block;width:100%;aspect-ratio:1;height:auto;object-fit:cover;border-radius:18px;box-shadow:0 12px 32px #00000040;border:1px solid #ffffff14;background:#18171c}
+#albumTitle24{margin-top:34px;font-size:20px;font-weight:700;line-height:24px;color:#e2dce4;text-align:center}
+#albumArtist24{margin-top:2px;font-size:19.4px;letter-spacing:-.2px;font-weight:400;line-height:28px;color:#bcb0c0;text-align:center;opacity:.86}
+#albumDeck24 .kx-marquee:not(.kx-running) .kx-marquee-lane{width:100%;text-align:center}
+#albumTimeline24{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;gap:16px;align-items:center;width:76%;margin:34px auto 0;font-size:16px;line-height:24px;color:#bcb0c0;font-variant-numeric:tabular-nums}
+#albumElapsed24,#albumRemaining24{text-align:center;white-space:nowrap}
+#albumSeek24{display:flex;align-items:center;height:24px;cursor:pointer;touch-action:none;-webkit-app-region:no-drag}
+#albumSeek24>i{display:block;width:100%;height:8px;border-radius:10px;background:#ffffff24;overflow:hidden}
+#albumSeek24 b{display:block;height:100%;width:0;border-radius:10px;background:#e4dce6}
+#albumButtons24{position:relative;display:flex;align-items:center;justify-content:space-between;width:max(80%,308px);left:50%;transform:translateX(-50%);height:44px;margin:4px 0 0}
+#albumTools24,#albumTransport24{display:flex;align-items:center}
+#albumTransport24{position:absolute;left:50%;transform:translateX(-50%)}
+#referenceScene24 button{width:44px;height:44px;min-width:44px;min-height:44px;display:grid;place-items:center;border:0;border-radius:999px;background:transparent;color:#d4c6d8;cursor:pointer;padding:0;box-shadow:none;-webkit-app-region:no-drag;pointer-events:auto;transition:background-color .18s ease,color .18s ease,scale .25s cubic-bezier(.34,1.56,.64,1)}
+#referenceScene24 button svg{width:22px;height:22px;color:inherit;flex:none}
+#referenceScene24 button .ic{stroke-width:1.7}
+#referenceScene24 button:hover{background:#ffffff14;color:#fff}
+#referenceScene24 button:active{scale:.88}
+#referenceScene24 button:is(.on,[aria-pressed="true"]):not(#albumPlay24){background:color-mix(in srgb,var(--accent,#d8b4fe) 26%,#ffffff18);color:#fff}
+#referenceScene24 button:focus-visible,#albumSeek24:focus-visible{outline:2px solid #e9dbee;outline-offset:2px}
+#referenceScene24 #albumVolumeButton24 svg{width:18px;height:18px}
+#referenceScene24 #albumLyrics24{width:44px;height:32px;min-height:32px;margin-left:auto;background:#ffffff10}
+#referenceScene24 #albumLyrics24[aria-pressed=false]{background:transparent}
+#referenceScene24 #albumLyrics24 svg{width:22px;height:22px}
+#albumTop24{position:absolute;right:4px;top:4px;display:flex;pointer-events:auto}
+#referenceScene24 #albumTop24 button{color:#b5a8b5;opacity:.8}
+#referenceScene24 #albumTop24 svg{width:16px;height:16px}
+#albumVolumeBox24{position:absolute;bottom:50px;left:10%;z-index:10;padding:12px 14px;background:#26212cf5;border:1px solid #ffffff20;border-radius:16px;box-shadow:0 10px 32px #0005}
+#albumVolumeBox24[hidden]{display:none!important}
+#albumVolume24{width:160px;accent-color:#d9c4df;height:32px}
+body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #lyrics{position:absolute!important;left:calc(var(--ref-left) + var(--ref-spread)*.527777778)!important;top:0!important;width:calc(var(--ref-spread)*.444444444)!important;height:calc(var(--layout-vh37, 1vh) * 100)!important;min-height:0!important;max-height:none!important;display:block!important;visibility:visible!important;margin:0!important;padding:calc(var(--layout-vh37, 1vh) * 40) 0 calc(var(--layout-vh37, 1vh) * 55)!important;overflow-y:auto!important;overscroll-behavior:contain;scroll-behavior:auto!important;scrollbar-width:none;mask-image:linear-gradient(transparent 0%,transparent 23%,#000 40%,#000 67%,#0009 83%,transparent 100%);-webkit-mask-image:linear-gradient(transparent 0%,transparent 23%,#000 40%,#000 67%,#0009 83%,transparent 100%);text-align:left!important;--lyr-lit:#e1dfe3;--lyr-dim:#e1dfe3}
+body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #lyrics .lyr-l{font-family:Arial,Helvetica,sans-serif!important;font-size:calc(clamp(28px,calc(var(--layout-vw37, 1vw) * 2.6041667),50px) * var(--lyric-scale30,1))!important;font-weight:700!important;line-height:1.18!important;letter-spacing:-.4px!important;padding:0 0 36px!important;margin:0!important;transform:none!important;filter:none!important;text-align:left!important;color:#e1dfe3!important;opacity:clamp(.10,calc(.44 - var(--d,1)*.12),.32);transition:opacity .65s cubic-bezier(.22,.61,.36,1);text-shadow:none!important;overflow-wrap:anywhere;word-break:normal}
+body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #lyrics .lyr-l.on{opacity:1}
+body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #lyrics .lyr-l.done{opacity:.15}
+body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #lyrics .lyr-l.on.rest{opacity:.5}
+body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #lyrics :is(.lyr-t,.lyr-w,.lyr-k){font:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;color:inherit!important;filter:none!important;text-shadow:none}
+body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #lyrics .lyric-translated22{font:400 20px/1.4 Arial,Helvetica,sans-serif!important;margin-top:14px;letter-spacing:0;color:#d3c5d8!important}
+body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #lyrics:has(.workspace-now-empty){padding:calc(var(--layout-vh37, 1vh) * 24) 0!important;mask-image:none;-webkit-mask-image:none}
+body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus).reference-no-lyrics24 #lyrics{display:none!important}
+body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus).reference-no-lyrics24 #albumDeck24{left:calc((calc(var(--layout-vw37, 1vw) * 100) - var(--ref-cover))/2)}
+body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #lyrFollow.on{display:block!important;position:absolute;bottom:28px;right:calc(var(--layout-vw37, 1vw) * 12.5);z-index:12;pointer-events:auto}
+@media(max-width:760px){
+ body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus){--ref-cover:min(calc(var(--layout-vw37, 1vw) * 62),calc(var(--layout-vh37, 1vh) * 30),280px)}
+ body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #referenceScene24{position:absolute;min-height:100%;height:100%;overflow-y:auto;pointer-events:none}
+ body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #albumDeck24{left:calc((calc(var(--layout-vw37, 1vw) * 100) - var(--ref-cover))/2);top:68px}
+ #albumTitle24{margin-top:18px;font-size:19px;line-height:24px}#albumArtist24{font-size:14px;line-height:20px}
+ #albumTimeline24{position:relative;width:min(calc(var(--layout-vw37, 1vw) * 84),360px);left:50%;transform:translateX(-50%);margin-top:20px;grid-template-columns:36px minmax(0,1fr) 40px;gap:10px;font-size:12px}
+ #albumSeek24>i{height:5px}#albumButtons24{width:min(calc(var(--layout-vw37, 1vw) * 82),340px);left:50%;transform:translateX(-50%);margin:4px 0 0}
+ body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #lyrics{left:24px!important;top:calc(68px + var(--ref-cover) + 174px)!important;width:calc(calc(var(--layout-vw37, 1vw) * 100) - 48px)!important;height:calc(calc(var(--layout-vh37, 1dvh) * 100) - 68px - var(--ref-cover) - 174px)!important;padding:calc((calc(var(--layout-vh37, 1dvh) * 100) - 68px - var(--ref-cover) - 174px)*.18) 0 calc((calc(var(--layout-vh37, 1dvh) * 100) - 68px - var(--ref-cover) - 174px)*.75)!important;mask-image:linear-gradient(transparent,#000 15%,#000 74%,transparent);-webkit-mask-image:linear-gradient(transparent,#000 15%,#000 74%,transparent)}
+ body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #lyrics .lyr-l{font-size:calc(28px * var(--lyric-scale30,1))!important;line-height:1.2!important;padding-bottom:24px!important}
+ body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #lyrics .lyric-translated22{font-size:16px!important}
+ #albumVolumeBox24{left:calc((var(--ref-cover) - min(calc(var(--layout-vw37, 1vw) * 82),340px))/2);bottom:48px}
+}
+@media(prefers-reduced-motion:reduce){body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #lyrics .lyr-l{transition:none}}
+
+#albumDeck24 .kx-marquee:not(.kx-running) .kx-marquee-copy{margin-inline:auto}
+
+#referenceScene24 #albumLyrics24{height:44px;min-height:44px;background:transparent;position:relative;border-radius:999px}
+#referenceScene24 #albumLyrics24:is(.on,[aria-pressed=true]){background:#ffffff1a}
+#referenceScene24 #albumLyrics24[aria-pressed=false]{background:transparent}
+
+/* Short landscape windows retain the transport and a usable lyric column. */
+@media(max-width:760px) and (max-height:500px) and (orientation:landscape){
+ body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus){--ref-cover:min(calc(var(--layout-vw37, 1vw) * 28),calc(calc(var(--layout-vh37, 1dvh) * 100) - 260px))}
+ body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #albumDeck24{left:24px;top:20px;width:calc(calc(var(--layout-vw37, 1vw) * 40) - 40px)}
+ #albumArt24{width:var(--ref-cover);margin-inline:auto}
+ #albumTitle24{margin-top:10px;font-size:16px;line-height:22px}
+ #albumArtist24{font-size:12px;line-height:18px}
+ #albumTimeline24{width:100%;margin-top:10px;font-size:12px;gap:6px;grid-template-columns:32px minmax(0,1fr) 36px}
+ #albumButtons24{width:100%;margin-top:2px;height:88px}
+ #albumTransport24{top:0}
+ #albumTools24{position:absolute;left:0;bottom:0}
+ #referenceScene24 #albumLyrics24{position:absolute;right:0;bottom:0}
+ body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #lyrics{left:calc(var(--layout-vw37, 1vw) * 44)!important;top:0!important;width:calc(calc(var(--layout-vw37, 1vw) * 56) - 24px)!important;height:calc(var(--layout-vh37, 1dvh) * 100)!important;padding:calc(var(--layout-vh37, 1dvh) * 18) 0 calc(var(--layout-vh37, 1dvh) * 75)!important}
+ body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #lyrics .lyr-l{font-size:24px!important}
+ #albumVolumeBox24{left:0}
+ body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus).reference-no-lyrics24 #albumDeck24{left:calc(var(--layout-vw37, 1vw) * 30)}
+}

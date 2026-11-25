@@ -1,0 +1,6 @@
+/* v43 overrides only explicit scene chrome, not v42's permanent layout noctl. */
+body.ui-v43 #now#now #sceneTools30 [hidden]{display:none!important}
+body.ui-v43 #now#now.disc.chrome-hidden38 :is(.disc-ctl,.disc-bar),
+body.ui-v43 #now#now.viz.chrome-hidden38 :is(.viz-ctl,.viz-prog,.viz-time){display:none!important;pointer-events:none!important}
+body.ui-v43:has(#now.on.disc.chrome-hidden38) #player,
+body.ui-v43:has(#now.on.viz.chrome-hidden38) #player{visibility:hidden!important;pointer-events:none!important}

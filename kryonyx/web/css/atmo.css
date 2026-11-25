@@ -1,0 +1,136 @@
+/* atmo.css — «атмосфера караоке»: тёмная сцена с живым светом.
+   Всё под body.atmo; выключается в Настройки → Оформление. */
+
+#atmo { display: none; }
+body.atmo::before { display: none; }          /* старый «дрейфующий» фон не нужен */
+/* Сцена берёт цвет ТЕМЫ, а не свой собственный.
+   Раньше здесь стояли жёсткие #06050B/#0C0B14 — и какую тему ни выбери,
+   фон оставался одним и тем же почти чёрным. Теперь фон считается из
+   --bg текущей палитры: --scene чуть темнее её, чтобы свет читался. */
+body.atmo { --scene: color-mix(in srgb, var(--bg) 88%, #000);
+            --line: color-mix(in srgb, var(--text) 9%, transparent);
+            --surface: color-mix(in srgb, var(--text) 5%, transparent);
+            --surface-2: color-mix(in srgb, var(--text) 9%, transparent);
+            --muted: color-mix(in srgb, var(--text) 62%, var(--bg));
+            background: transparent; }
+/* Фон body рисуется поверх слоёв с z-index: -1 — поэтому он прозрачный, а цвет даёт сам #atmo. */
+html:has(body.atmo) { background: var(--bg); }
+
+body.atmo #atmo {
+  display: block; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  overflow: hidden; background: var(--scene, var(--bg));
+  --lv: 0; --bt: 0;
+}
+/* Свет из обложки: три больших пятна, медленно плывут, на бите вспыхивают. */
+.atmo-pulse { position: absolute; inset: -10%;
+  opacity: calc(.62 + var(--lv) * .3 + var(--bt) * .12);
+  transform: scale(calc(1 + var(--bt) * .035));
+  transition: opacity .25s linear, transform .25s cubic-bezier(.2, .8, .3, 1); }
+.atmo-l { position: absolute; border-radius: 50%; will-change: transform; }
+.atmo-l.l1 { width: 70vmax; height: 70vmax; left: -18vmax; top: -30vmax;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--c1) 34%, transparent), transparent);
+  animation: atmoA 34s ease-in-out infinite alternate; }
+.atmo-l.l2 { width: 60vmax; height: 60vmax; right: -20vmax; top: -14vmax;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--c2) 26%, transparent), transparent);
+  animation: atmoB 41s ease-in-out infinite alternate; }
+.atmo-l.l3 { width: 80vmax; height: 50vmax; left: 10vmax; bottom: -32vmax;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--c3) 22%, transparent), transparent);
+  animation: atmoC 47s ease-in-out infinite alternate; }
+@keyframes atmoA { to { transform: translate(9vmax, 6vmax) scale(1.08); } }
+@keyframes atmoB { to { transform: translate(-8vmax, 9vmax) scale(.92); } }
+@keyframes atmoC { to { transform: translate(-6vmax, -5vmax) scale(1.1); } }
+
+/* Лучи сцены сверху — едва заметные, раскачиваются. */
+.atmo-beams { position: absolute; left: 50%; top: calc(var(--layout-vh37, 1vh) * -30); width: 160vmax; height: calc(var(--layout-vh37, 1vh) * 130);
+  transform-origin: 50% 0; translate: -50% 0;
+  background: conic-gradient(from 180deg at 50% 0,
+    transparent 0 160deg, rgba(255, 255, 255, .035) 166deg, transparent 172deg,
+    transparent 186deg, rgba(255, 255, 255, .03) 192deg, transparent 198deg, transparent 360deg);
+  opacity: calc(.7 + var(--bt) * .6);
+  animation: atmoSway 18s ease-in-out infinite alternate; }
+@keyframes atmoSway { from { rotate: -7deg; } to { rotate: 7deg; } }
+
+/* Плёночное зерно и виньетка — «клубная» темнота по краям. */
+.atmo-grain { position: absolute; inset: 0; opacity: .05; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.atmo-vig { position: absolute; inset: 0;
+  background: radial-gradient(120% 90% at 50% 40%, transparent 55%, rgba(0, 0, 0, .55) 100%); }
+
+/* ---------------------------------------------------------------- каркас */
+body.atmo #side { background: color-mix(in srgb, var(--bg) 62%, transparent);
+                  border-right-color: color-mix(in srgb, var(--text) 7%, transparent); }
+body.atmo .nav.on { background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 22%, transparent), rgba(255,255,255,.03)); }
+body.atmo .nav.on::before { box-shadow: 0 0 14px var(--accent); }
+body.atmo #greet, body.atmo h1 {
+  background: linear-gradient(92deg, var(--text) 0%, var(--text) 45%, color-mix(in srgb, var(--accent-2) 70%, var(--text)) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  letter-spacing: -.8px; }
+body.atmo #greet { font-size: 34px; font-weight: 800; }
+body.atmo .shelf-h h2 { letter-spacing: -.3px; }
+
+/* Поиск — тёмное стекло с неоновым фокусом. */
+body.atmo #searchBox { background: var(--surface); border-color: var(--line); }
+body.atmo #searchBox:focus-within {
+  border-color: color-mix(in srgb, var(--accent) 70%, transparent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent), 0 0 30px color-mix(in srgb, var(--accent) 20%, transparent); }
+
+/* Кнопки: главная — неоновая, остальные — стекло. */
+body.atmo .btn:not(.g) { box-shadow: 0 8px 28px color-mix(in srgb, var(--accent) 35%, transparent),
+  inset 0 1px 0 rgba(255, 255, 255, .25); }
+body.atmo .chip { background: var(--surface); border-color: var(--line); }
+body.atmo .chip:hover { background: var(--surface-2); }
+
+/* Карточки: при наведении поднимаются и подсвечиваются снизу. */
+body.atmo .card { background: transparent; border-color: transparent; }
+body.atmo .card:hover { background: var(--surface);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .45), 0 0 0 1px var(--line); }
+body.atmo .card .art { box-shadow: 0 10px 30px rgba(0, 0, 0, .5); }
+body.atmo .card:hover .art { box-shadow: 0 14px 34px rgba(0, 0, 0, .55),
+  0 0 34px color-mix(in srgb, var(--accent) 28%, transparent); }
+body.atmo .card.playing { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+
+/* Строки треков: играющая — с неоновой полосой слева. */
+body.atmo .tr.playing, body.atmo .tr.on { background: color-mix(in srgb, var(--accent) 10%, transparent);
+  box-shadow: inset 3px 0 0 var(--accent); }
+body.atmo .tr.playing .t, body.atmo .tr.on .t { color: color-mix(in srgb, var(--accent) 55%, var(--text)); }
+
+/* ------------------------------------------------------------- плеер */
+body.atmo #player { background: color-mix(in srgb, var(--bg) 80%, transparent); border-top: 0;
+  box-shadow: 0 -1px 0 color-mix(in srgb, var(--text) 7%, transparent), 0 -20px 50px rgba(0, 0, 0, .45); }
+body.atmo #player::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 70%, transparent),
+    color-mix(in srgb, var(--accent-2) 70%, transparent), transparent); opacity: .7; }
+body.atmo #pArt { box-shadow: 0 6px 22px rgba(0, 0, 0, .55), 0 0 26px color-mix(in srgb, var(--accent) 25%, transparent); }
+body.atmo .fill { box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 65%, transparent); }
+body.atmo .knob { box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 25%, transparent), 0 2px 10px rgba(0,0,0,.6); }
+/* Play «дышит» на бите — сразу видно, что музыка идёт. */
+body.atmo #pPlay { --bt: 0;
+  box-shadow: 0 0 0 calc(var(--bt) * 7px) color-mix(in srgb, var(--accent) 28%, transparent),
+              0 0 calc(18px + var(--bt) * 22px) color-mix(in srgb, var(--accent) 45%, transparent);
+  transition: box-shadow .12s linear, transform var(--dur) var(--ease); }
+
+/* Удобство: заметный фокус с клавиатуры. */
+body.atmo :focus-visible { outline: 2px solid color-mix(in srgb, var(--accent) 80%, var(--text));
+  outline-offset: 2px; border-radius: 10px; }
+
+/* Модалки и меню — тёмное стекло. */
+body.atmo .modal, body.atmo .menu, body.atmo #queue {
+  background: color-mix(in srgb, var(--bg-2) 94%, transparent);
+  border-color: color-mix(in srgb, var(--text) 8%, transparent); }
+
+@media (prefers-reduced-motion: reduce) {
+  .atmo-l, .atmo-beams { animation: none; }
+}
+body.no-anim .atmo-l, body.no-anim .atmo-beams { animation: none; }
+
+/* ------------------------------------------------ узкое окно на ПК
+   В узком окне нижнее меню (#mobNav) лежало поверх нижней половины плеера и
+   закрывало кнопки ⏮ ▶ ⏭. Теперь плеер стоит над меню, общая высота прежняя. */
+@media (max-width: 760px) {
+  html:not(.kryonyx-mobile) body.has-mobnav { --nav-h: 66px; --player-h: 206px; }
+  html:not(.kryonyx-mobile) body.has-mobnav #player {
+    bottom: var(--nav-h); height: calc(var(--player-h) - var(--nav-h)); padding-bottom: 6px; }
+}
+
+/* v42: stop decorative compositor work whenever its audio pulse sleeps. */
+#atmo.atmo-sleep42 * { animation-play-state: paused !important; }

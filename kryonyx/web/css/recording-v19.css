@@ -1,0 +1,24 @@
+/* v20: quiet interface, NOT an empty recording canvas. Keep the song visible. */
+body:has(#now.on.noctl) :is(#titlebar,.rz,#grip,#toast,#ctxMenu,#queue){visibility:hidden!important;pointer-events:none!important}
+body #now.on.noctl{inset:0!important;height:calc(var(--layout-vh37, 1dvh) * 100)!important;border:0!important;border-radius:0!important;cursor:auto!important}
+body #now.on.noctl :is(#nowTop,#ui9StageControls,#kStage,#workspaceNowStats,#lyrFollow,.ui9-timing,.row-acts){display:none!important}
+body #now.on.noctl #nowIn{height:100%;min-height:0;padding:56px clamp(20px,calc(var(--layout-vw37, 1vw) * 4),64px) 24px!important;overflow:hidden}
+body #now.on.noctl:not(.viz):not(.disc) #nowBody{display:grid!important;grid-template-columns:minmax(220px,350px) minmax(0,1fr)!important;gap:clamp(24px,calc(var(--layout-vw37, 1vw) * 5),80px);width:100%;max-width:1320px;min-height:0;height:100%;margin:auto;padding:0!important;align-items:center}
+body #now.on.noctl:not(.viz):not(.disc) #nowLeft{display:flex!important;min-height:0;max-height:100%;gap:12px;overflow-y:auto;scrollbar-width:thin}
+body #now.on.noctl:not(.viz):not(.disc) #nArt{width:100%;max-width:min(350px,calc(var(--layout-vh37, 1vh) * 38))!important;flex-shrink:0}
+body #now.on.noctl:not(.viz):not(.disc) #lyrics{display:block!important;visibility:visible!important;min-height:0;height:100%;max-height:100%;min-width:0;width:100%;padding:calc(var(--layout-vh37, 1vh) * 28) 8px calc(var(--layout-vh37, 1vh) * 38)!important;overflow-y:auto}
+body #now.on.noctl #lyrics:has(.workspace-now-empty){padding:20px 0!important;mask-image:none;display:flex!important;align-items:center}
+body #now.on.noctl #nowLeft :is(.bar,#nBtns){display:flex!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important}
+body #now.on.noctl :is(.disc-ctl,.disc-bar,.viz-ctl,.viz-prog,.viz-time){opacity:1!important;visibility:visible!important;pointer-events:auto!important}
+body #now.on.noctl.viz .viz-mark{display:none!important}
+#sceneReturn{display:none;position:absolute;right:20px;top:12px;z-index:30;width:44px;height:44px;color:#f3f1fa;background:#292734;border:1px solid #ffffff50;border-radius:12px}
+body #now.on.noctl #sceneReturn:not([hidden]){display:inline-flex!important;visibility:visible!important;pointer-events:auto!important;cursor:pointer!important}
+body.ui-v9 #now.bare:not(.noctl):not(.awake) #nowTop:not(:focus-within){opacity:0!important;pointer-events:none!important}
+body.ui-v9 #now.bare:not(.noctl) #nowTop:focus-within,body.ui-v9 #now.bare.awake:not(.noctl) #nowTop{opacity:1!important;pointer-events:auto!important}
+@media(max-width:760px){
+ body #now.on.noctl #nowIn{padding:60px 20px 20px!important;overflow-y:auto}
+ body #now.on.noctl:not(.viz):not(.disc) #nowBody{height:auto;min-height:100%;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto minmax(280px,1fr);gap:24px}
+ body #now.on.noctl:not(.viz):not(.disc) #nowLeft{overflow:visible;max-height:none}
+ body #now.on.noctl:not(.viz):not(.disc) #nArt{width:min(210px,calc(var(--layout-vh37, 1vh) * 27))!important;height:min(210px,calc(var(--layout-vh37, 1vh) * 27))!important;max-width:min(210px,calc(var(--layout-vh37, 1vh) * 27))!important;object-fit:cover}
+ body #now.on.noctl:not(.viz):not(.disc) #lyrics{min-height:300px;height:calc(var(--layout-vh37, 1vh) * 48);padding:calc(var(--layout-vh37, 1vh) * 16) 4px calc(var(--layout-vh37, 1vh) * 20)!important}
+}

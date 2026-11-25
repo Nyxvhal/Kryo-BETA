@@ -1,0 +1,3 @@
+# Optional vocal isolation; larger torch/torchaudio dependencies.
+-r requirements-karaoke-align.txt
+demucs>=4,<5

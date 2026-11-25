@@ -1,0 +1,12 @@
+const assert=require('node:assert/strict');const M=require('../kryonyx/web/js/karaoke-editor.js');const T=require('../kryonyx/web/js/karaoke-timing.js');
+const fixture={version:2,language:'en',lines:[{text:'We sing',start:1,end:3,words:[{text:'We',start:1,end:1.5},{text:' sing',start:1.6,end:3,confidence:.4,syllables:[{text:'sing',start:1.6,end:3}]}]}],sections:[{type:'instrumental',start:0,end:1}],variants:[{lines:[{text:'Мы поём',start:1,end:3}]}]};
+assert.equal(M.validate(fixture),fixture);
+assert.throws(()=>M.shift(fixture,-2));
+const s=M.shift(fixture,.25);assert.equal(s.lines[0].words[1].syllables[0].start,1.85);assert.equal(s.sections[0].start,.25);assert.equal(s.variants[0].lines[0].start,1.25);assert.equal(fixture.lines[0].start,1);
+const edited=M.word(fixture,0,1,'text','shine');assert.equal(edited.lines[0].text,'We shine');assert.equal(edited.lines[0].words[1].syllables,undefined);
+assert.throws(()=>M.word(fixture,0,1,'start',.5));assert.throws(()=>M.word(fixture,0,0,'end',-1));
+assert.equal(M.join([{text:'你好'},{text:'世界'}],'zh'),'你好世界');
+assert.deepEqual(T.units({text:'Correct words',words:[{text:'Wrong',start:0,end:1}]}),[]);
+assert.deepEqual(T.units({text:'Empty',words:[{text:' ',start:0,end:1}]}),[]);
+const exact=T.units({text:'Hello, world!',words:[{text:'Hello',start:0,end:1},{text:'world',start:1,end:2}]});assert.equal(exact.map(u=>u.before+u.text+(u.after||'')).join(''),'Hello, world!');
+assert.throws(()=>M.word(fixture,0,1,'text',' '));assert.equal(edited.lines[0].words[1].confidence,undefined);console.log('16 editor and fidelity assertions passed');

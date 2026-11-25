@@ -1,0 +1,48 @@
+{
+  "backend_tests": 18,
+  "python_syntax": "pass",
+  "javascript_syntax": "pass",
+  "ui_viewports": [
+    "1440x1000",
+    "800x900",
+    "390x844"
+  ],
+  "ui_data": "isolated fixtures, not included in application",
+  "ui_browser_errors": [],
+  "source_filter": "6 -> 3 tracks",
+  "duration_filter": "1 matching track",
+  "liked_filter": "1 matching track",
+  "settings_after_reload": "grid mode and saved query retained",
+  "themes": "original palette/preset files unchanged",
+  "not_tested": [
+    "live audio playback",
+    "live external catalogue availability",
+    "Windows executable build"
+  ],
+  "workspace_browser_results": {
+    "navigationBack": 1,
+    "navigationForward": 2,
+    "boot": [],
+    "libraryFiltered": 1,
+    "pinned": [
+      "1"
+    ],
+    "checkedDidNotPlay": true,
+    "selected": 6,
+    "beforeDedupe": 12,
+    "afterDedupe": 6,
+    "afterUndo": 12,
+    "savedAll": 6,
+    "movedIndex": 1,
+    "persisted": {
+      "pinned": [
+        "1"
+      ],
+      "rail": true
+    },
+    "overflow": false,
+    "errors": []
+  },
+  "bulk_operation_limit": 1000,
+  "transactional_playlist_writes": "pass"
+}

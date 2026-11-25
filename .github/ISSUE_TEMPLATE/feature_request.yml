@@ -1,0 +1,22 @@
+name: Feature request
+description: Suggest something for the player
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+      description: What should the player do, and when would you use it?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: How you work around it today
+  - type: checkboxes
+    id: plugin
+    attributes:
+      label: Could it be a plugin?
+      description: Many sources and integrations can be written as your own plugin (see CUSTOM_PLUGINS.md).
+      options:
+        - label: I would like to write it as a plugin myself

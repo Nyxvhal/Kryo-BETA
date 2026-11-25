@@ -1,0 +1,167 @@
+{
+  "version": 2,
+  "language": "en",
+  "duration": 11.0,
+  "lines": [
+    {
+      "text": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+      "start": 0,
+      "end": 10.5,
+      "words": [
+        {
+          "text": " And",
+          "start": 0,
+          "end": 0.74,
+          "confidence": 0.7030417323112488
+        },
+        {
+          "text": " so,",
+          "start": 0.74,
+          "end": 1.08,
+          "confidence": 0.9106398820877075
+        },
+        {
+          "text": " my",
+          "start": 1.12,
+          "end": 1.36,
+          "confidence": 0.9823122620582581
+        },
+        {
+          "text": " fellow",
+          "start": 1.36,
+          "end": 1.68,
+          "confidence": 0.9982194304466248
+        },
+        {
+          "text": " Americans,",
+          "start": 1.68,
+          "end": 2.28,
+          "confidence": 0.9647658467292786
+        },
+        {
+          "text": " ask",
+          "start": 3.4,
+          "end": 3.82,
+          "confidence": 0.8834757804870605
+        },
+        {
+          "text": " not",
+          "start": 3.82,
+          "end": 4.56,
+          "confidence": 0.6882575750350952
+        },
+        {
+          "text": " what",
+          "start": 4.56,
+          "end": 5.7,
+          "confidence": 0.7291464805603027
+        },
+        {
+          "text": " your",
+          "start": 5.7,
+          "end": 5.98,
+          "confidence": 0.9120555520057678
+        },
+        {
+          "text": " country",
+          "start": 5.98,
+          "end": 6.42,
+          "confidence": 0.9935901165008545
+        },
+        {
+          "text": " can",
+          "start": 6.42,
+          "end": 6.72,
+          "confidence": 0.9963765740394592
+        },
+        {
+          "text": " do",
+          "start": 6.72,
+          "end": 6.96,
+          "confidence": 0.9977409839630127
+        },
+        {
+          "text": " for",
+          "start": 6.96,
+          "end": 7.22,
+          "confidence": 0.9954871535301208
+        },
+        {
+          "text": " you,",
+          "start": 7.22,
+          "end": 8.24,
+          "confidence": 0.9962034821510315
+        },
+        {
+          "text": " ask",
+          "start": 8.28,
+          "end": 8.62,
+          "confidence": 0.9575495719909668
+        },
+        {
+          "text": " what",
+          "start": 8.62,
+          "end": 8.98,
+          "confidence": 0.9783515334129333
+        },
+        {
+          "text": " you",
+          "start": 8.98,
+          "end": 9.22,
+          "confidence": 0.9973154664039612
+        },
+        {
+          "text": " can",
+          "start": 9.22,
+          "end": 9.42,
+          "confidence": 0.9975056052207947
+        },
+        {
+          "text": " do",
+          "start": 9.42,
+          "end": 9.7,
+          "confidence": 0.9975137710571289
+        },
+        {
+          "text": " for",
+          "start": 9.7,
+          "end": 9.88,
+          "confidence": 0.9976154565811157
+        },
+        {
+          "text": " your",
+          "start": 9.88,
+          "end": 10.12,
+          "confidence": 0.9907882809638977
+        },
+        {
+          "text": " country.",
+          "start": 10.12,
+          "end": 10.5,
+          "confidence": 0.9982477426528931
+        }
+      ]
+    }
+  ],
+  "sections": [],
+  "alignment": {
+    "engine": "faster-whisper",
+    "model": "tiny",
+    "device": "cpu",
+    "forced": false,
+    "syllables": "not-generated",
+    "fallback_reason": ""
+  },
+  "source_fingerprint": {
+    "audio_sha256": "63a4b1e4c1dc655ac70961ffbf518acd249df237e5a0152faae9a4a836949715",
+    "reference_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "engine": "faster-whisper",
+    "pipeline": 2,
+    "options": {
+      "model": "tiny",
+      "language": "en",
+      "separate": null,
+      "device": "cpu"
+    }
+  }
+}

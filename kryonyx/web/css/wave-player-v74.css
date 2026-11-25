@@ -1,0 +1,23 @@
+/* Wave: a compact, legible listening workspace; no additional render loops. */
+body.ui-v61 #vWave .wave-heading61{margin-bottom:24px}
+body.ui-v61 #vWave .wave-layout61{gap:16px;grid-template-columns:minmax(0,1fr) minmax(240px,280px)}
+body.ui-v61 #vWave .wave-stage61{min-height:310px;border-radius:16px;padding:32px;gap:28px}
+body.ui-v61 #vWave .wave-tuning61{border-radius:16px;padding:24px}
+body.ui-v61 #vWave .wave-stage-copy61 h2{line-height:1.14;letter-spacing:-.035em;margin:12px 0 16px}
+body.ui-v61 #vWave .wave-mode61{border-radius:10px;min-height:46px}
+body.ui-v61 #vWave .wave-feedback61{margin:16px 0 26px}
+body.ui-v61 #vWave .wave-track61{border-radius:10px;padding-left:8px;padding-right:8px}
+body.ui-v61 #vWave .wave-explain61 summary:focus-visible,
+body.ui-v61 #vWave button:focus-visible,
+#waveDock61:focus-visible,#waveMobileToggle74:focus-visible{outline:2px solid var(--u52-focus,var(--accent));outline-offset:2px}
+#waveMobileToggle74.on{color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,transparent)}
+.recommend-toggle66:has(input:disabled){cursor:not-allowed}
+.recommend-toggle66 input:disabled{opacity:.65}
+@media(max-width:650px){
+ body.ui-v61 #vWave .wave-layout61{grid-template-columns:minmax(0,1fr)}
+ body.ui-v61 #vWave .wave-stage61{padding:24px;min-height:0}
+ body.ui-v61 #vWave .wave-tuning61{padding:20px}
+}
+.recommend-wave-hint74{display:block;font-size:14px;line-height:1.4;color:var(--muted);margin-top:4px}
+body.ui-v61 #player #waveDock61[aria-pressed=false]{background:transparent!important;color:var(--u52-muted)!important}
+body.ui-v61 #player #waveDock61[aria-pressed=true]{background:color-mix(in srgb,var(--u52-accent) 18%,transparent)!important;color:var(--u52-focus)!important}

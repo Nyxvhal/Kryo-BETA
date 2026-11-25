@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Kryo · mini</title>
+<script src="/js/marquee-v16.js?v=16"></script>
+<script src="/js/mini-view.js?v=77"></script>
+</head>
+<body>
+<script>
+'use strict';
+/* Окно мини-плеера ПК-версии. Команды уходят в main.MiniApi, а тот
+   передаёт их главному окну; что играет — приходит в Mini.update(). */
+(function () {
+  let view = null;
+  let early = null;
+  const api = () => (window.pywebview && window.pywebview.api) || null;
+  const call = (name, ...args) => {
+    const a = api();
+    if (a && a[name]) a[name](...args).catch(() => {});
+  };
+  window.Mini = {
+    update(state) { if (view) view.update(state); else early = state; },
+  };
+  function boot() {
+    if (view) return;
+    view = MiniView.mount(document, {
+      prev: () => call('action', 'prev'),
+      toggle: () => call('action', 'toggle'),
+      next: () => call('action', 'next'),
+      show: () => call('action', 'show'),
+      volume:v=>call('volume',v),
+      seek: f => call('seek', f),
+      close: () => call('close'),
+    }, { keepTitle: true, nativeDrag:(dx,dy)=>{const a=api();return a?.move_by?.(dx,dy);},
+      // v73: the optional Rust shell (desktop-rs) runs the system move loop instead.
+      nativeDragStart:()=>{const s=window.__kryonyxShell;if(!s||typeof s.post!=='function')return false;try{s.post({id:0,cmd:'__drag',args:[]});return true;}catch{return false;}},
+      dragLabel:'Drag to move' });
+    view.update(early || {});
+    pull();
+  }
+  function pull() {
+    const a = api();
+    if (view && a && a.state) {
+      a.state().then(st => { if (st && st.title !== undefined) view.update(st); }).catch(() => {});
+    }
+  }
+  window.addEventListener('pywebviewready', () => { boot(); pull(); });
+  document.addEventListener('DOMContentLoaded', () => setTimeout(boot, 1500));
+  // Растягивание: уголок справа снизу, правый и нижний край.
+  const style = document.createElement('style');
+  style.textContent = `.rz{position:fixed;z-index:9}.rz-r{top:0;right:0;width:6px;height:100%;cursor:ew-resize}
+    .rz-b{left:0;bottom:0;height:6px;width:100%;cursor:ns-resize}
+    .rz-c{right:0;bottom:0;width:16px;height:16px;cursor:nwse-resize;
+      background:linear-gradient(135deg,transparent 55%,rgba(255,255,255,.35) 55%,rgba(255,255,255,.35) 62%,transparent 62%,transparent 75%,rgba(255,255,255,.35) 75%,rgba(255,255,255,.35) 82%,transparent 82%)}`;
+  document.head.appendChild(style);
+  [['rz-r', 1, 0], ['rz-b', 0, 1], ['rz-c', 1, 1]].forEach(([cls, gx, gy]) => {
+    const grip = document.createElement('div');
+    grip.className = 'rz ' + cls;
+    document.body.appendChild(grip);
+    grip.addEventListener('mousedown', event => {
+      event.preventDefault(); event.stopPropagation();
+      const a = api();
+      if (!a || !a.resize) return;
+      const sx = event.screenX, sy = event.screenY;
+      const w0 = innerWidth, h0 = innerHeight;
+      let raf = 0, busy = false, want = null;
+      const send = () => {
+        raf = 0;
+        if (busy || !want) return;
+        busy = true;
+        const [w, h] = want; want = null;
+        a.resize(w, h).catch(() => {}).finally(() => { busy = false; if (want) raf = requestAnimationFrame(send); });
+      };
+      const move = e => {
+        want = [w0 + (gx ? e.screenX - sx : 0), h0 + (gy ? e.screenY - sy : 0)];
+        if (!raf) raf = requestAnimationFrame(send);
+      };
+      const up = () => { removeEventListener('mousemove', move); removeEventListener('mouseup', up); };
+      addEventListener('mousemove', move);
+      addEventListener('mouseup', up);
+    });
+  });
+  // Пробел — играть/пауза, стрелки — соседние треки.
+  document.addEventListener('keydown', event => {
+    if(event.target.closest('button,[role=slider]'))return;
+    if (event.code === 'Space') { event.preventDefault(); call('action', 'toggle'); }
+    else if (event.key === 'ArrowRight') call('action', 'next');
+    else if (event.key === 'ArrowLeft') call('action', 'prev');
+  });
+})();
+</script>
+</body>
+</html>

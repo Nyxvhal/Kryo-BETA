@@ -1,0 +1,72 @@
+'use strict';
+const {chromium}=require('playwright'),fs=require('fs'),path=require('path'),assert=require('assert/strict');
+const OUT=path.join(__dirname,'../verification/repair-v14');fs.mkdirSync(OUT,{recursive:true});
+(async()=>{
+const b=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/local/bin/chromium',args:['--no-sandbox','--autoplay-policy=no-user-gesture-required']});
+const ctx=await b.newContext({viewport:{width:1440,height:1000},deviceScaleFactor:2});const p=await ctx.newPage();const errors=[],checks=[];p.on('pageerror',e=>errors.push(e.message));
+function check(name,value){assert(value,name);checks.push(name);console.log('PASS',name);}
+await p.goto('http://127.0.0.1:8779');await p.waitForFunction(()=>document.body.classList.contains('ui-v9'));await p.waitForTimeout(500);
+check('boot has no errors',await p.evaluate(()=>!(App.bootErrors||[]).length));
+await p.evaluate(()=>{S.lang='ru';setLang('ru');S.rail=true;applyTheme();});
+check('legacy rail hides playlist and footer',await p.evaluate(()=>['.home-new-playlist','.ui-side-foot'].every(s=>!document.querySelector(s)?.getClientRects().length)));
+await p.screenshot({path:OUT+'/home-rail.png'});
+await p.evaluate(()=>{useTheme('sketch:vt-sameko-saba');Workspace.openSettings();App.openPane('themes');Themes.group='sketch';Themes.build();});
+check('themes have no character images',await p.locator('#themeList .sk11-reference').count()===0);
+check('theme thumbnail labels do not collide',await p.evaluate(()=>[...document.querySelectorAll('#themeList .sk11-title')].every(n=>getComputedStyle(n).display==='none')));
+await p.screenshot({path:OUT+'/themes-light.png'});
+await p.evaluate(()=>{App.openPane('sketch');S.themeArtwork='characters';S.noAnim=false;applyTheme();ThemeStudio.query='Sameko';ThemeStudio.filter='all';Sketch.build();});
+await p.waitForTimeout(700);const portrait=p.locator('#skSkins .sk11-reference').first();check('portraits retained in sketch gallery',await portrait.count()===1);
+await portrait.scrollIntoViewIfNeeded();await p.waitForTimeout(400);await portrait.evaluate(n=>n.decode());
+const before=await portrait.evaluate(n=>({src:n.currentSrc,box:n.getBoundingClientRect().toJSON(),transform:getComputedStyle(n).transform}));
+await portrait.hover();await p.waitForTimeout(600);const after=await portrait.evaluate(n=>({src:n.currentSrc,box:n.getBoundingClientRect().toJSON(),transform:getComputedStyle(n).transform}));
+check('hover never changes portrait source, scale or geometry',JSON.stringify(before)===JSON.stringify(after));
+await p.screenshot({path:OUT+'/sketch-gallery.png'});
+await p.evaluate(()=>{closeModals();showMenu(2000,2000,Array.from({length:36},(_,i)=>({label:'Действие '+i,icon:'play',action(){}})));});
+check('long context menu fits viewport and scrolls',await p.locator('#ctxMenu').evaluate(n=>{const r=n.getBoundingClientRect();return r.top>=0&&r.bottom<=innerHeight&&n.scrollHeight>n.clientHeight}));
+await p.waitForFunction(()=>getComputedStyle($('ctxMenu')).opacity==='1');await p.screenshot({path:OUT+'/context-menu.png'});await p.evaluate(()=>hideMenu());
+await p.evaluate(()=>{
+ const tr={id:'local:qa0',title:'Проверка построчного караоке',artist:'Локальная тестовая запись',duration:10,thumbnail:'/img/avatars/portrait-v12-sameko-saba.png'};
+ Player.current=tr;Player.queue=Array.from({length:12},(_,i)=>({...tr,id:'local:qa'+i,title:'Тестовая строка '+(i+1)}));Player.index=0;Player.paintTrack();
+ Karaoke.lines=[{time:1,end:3,text:'Пусть музыка звучит',words:[{time:1,end:1.8,text:'Пусть'},{time:1.8,end:2.5,text:'музыка'},{time:2.5,end:3,text:'звучит'}]},{time:5,end:7,text:'И каждый голос будет слышен'},{time:9,end:10,text:'Вся строка загорается вместе'}];Karaoke.synced=true;Karaoke.precise=true;Karaoke.trackId=tr.id;Karaoke.offsets={};S.karaokeMode='split';S.karaokeBare=false;S.playerControls=true;S.karaokeTiming='word';App.applyKaraoke();$('now').classList.add('on');Karaoke.seek(1.8);
+});
+check('legacy word setting renders only whole lines',await p.locator('#lyrics .karaoke-unit').count()===0&&await p.locator('#lyrics .lyr-w').count()===3);
+// Freeze the media clock at the tested timestamp so animation ticks cannot rewind it.
+await p.evaluate(()=>{Player.audio.src='/fixture-tone.wav';});await p.waitForFunction(()=>Player.audio.readyState>=1);await p.evaluate(()=>{Player.audio.pause();Player.audio.currentTime=1.8;Karaoke.seek(1.8);});await p.waitForTimeout(100);
+check('one complete active lyric row',await p.locator('#lyrics .lyr-l.on').count()===1&&await p.locator('#lyrics .lyr-l.on').textContent()==='Пусть музыка звучит');
+await p.screenshot({path:OUT+'/karaoke-desktop.png'});
+await p.click('#nFocus');check('lyrics-only button changes actual grid',await p.evaluate(()=>S.karaokeMode==='focus'&&getComputedStyle($('nowBody')).gridTemplateColumns.split(' ').length===1));
+await p.click('#nCtl');check('hide controls works',await p.evaluate(()=>getComputedStyle($('nBtns')).display==='none'&&$('nCtl').getAttribute('aria-pressed')==='true'));
+await p.click('#nCtl');check('show controls works',await p.evaluate(()=>getComputedStyle($('nBtns')).display!=='none'));
+await p.click('#nQueue');check('queue button opens interactive queue above stage',await p.evaluate(()=>$('queue').classList.contains('on')&&+$('queue').style.zIndex!==-1));await p.click('#queueClose');
+await p.evaluate(()=>{S.karaokeMode='viz';App.applyKaraoke();Viz.frame(performance.now(),true);});
+check('spectrum uses high-DPI backing store',await p.evaluate(()=>Viz.spec.width===Math.round(Viz.sw*2)));
+await p.screenshot({path:OUT+'/visualizer-desktop.png'});
+await p.evaluate(()=>{S.karaokeMode='split';App.applyKaraoke();});
+await p.setViewportSize({width:390,height:844});await p.waitForTimeout(250);check('mobile karaoke has no horizontal overflow',await p.evaluate(()=>$('now').scrollWidth<=$('now').clientWidth));await p.screenshot({path:OUT+'/karaoke-mobile.png'});
+await p.evaluate(()=>{$('now').classList.remove('on');Workspace.openSettings();App.openPane('sketch');});await p.waitForTimeout(150);check('mobile sketch gallery fits',await p.locator('#sk10Studio').evaluate(n=>n.scrollWidth<=n.clientWidth+1));await p.screenshot({path:OUT+'/sketch-mobile.png'});
+await p.evaluate(()=>closeModals());await p.setViewportSize({width:1440,height:1000});
+await p.evaluate(()=>{S.karaokeMode='split';App.applyKaraoke();$('now').classList.add('on');window.reloadCalls=0;const original=Karaoke.fetchLyrics.bind(Karaoke);Karaoke.fetchLyrics=(...args)=>{window.reloadCalls++;return original(...args);};});await p.click('#nLyrics');check('reload lyrics button invokes lyric fetch',await p.evaluate(()=>window.reloadCalls===1));await p.evaluate(()=>$('now').classList.remove('on'));
+// Save As branch must pass only session ID, not a path supplied by page content.
+check('native Save As invokes bridge',await p.evaluate(async()=>{let called;window.pywebview={api:{save_clip:async id=>{called=id;return{saved:true}}}};await Clips.saveOriginal({id:'a'.repeat(24),video_id:'TESTVIDEO01',height:720,container:'mp4',file_ready:true,download_url:'/api/fake'});delete window.pywebview;return called==='a'.repeat(24);}));
+check('Save As cancellation is not treated as an error',await p.evaluate(async()=>{const old=$('toast').textContent;window.pywebview={api:{save_clip:async()=>({cancelled:true})}};await Clips.saveOriginal({id:'a'.repeat(24),file_ready:true,download_url:'/fake'});delete window.pywebview;return $('toast').textContent===old&&!Clips.saving;}));
+// Clip stage test uses actual separate A/V with throttled fixture, not YouTube.
+const c=await ctx.newPage();c.on('pageerror',e=>errors.push(e.message));
+await c.route('**/api/**',r=>{const n=new URL(r.request().url()).pathname;if(n.startsWith('/api/clips/'))return r.continue();let data={ok:true,items:[]};if(n==='/api/settings')data={lang:'ru',theme:'studio6',settingsRev:8,clipStartPercent:10,clipMinBuffer:1,clipResume:false};else if(n==='/api/health')data={ok:true,sources:[],stats:{}};else if(n==='/api/state')data={value:null};else if(n==='/api/likes')data={items:[],ids:[]};return r.fulfill({json:data});});
+await c.goto('http://127.0.0.1:8766');await c.waitForFunction(()=>document.body.classList.contains('ui-v9'));
+await c.evaluate(async()=>{Player.queue=Array.from({length:16},(_,i)=>({id:'ytvideo:TESTVIDEO'+String(i+1).padStart(2,'0'),title:'Клип '+(i+1)+' · тестовая запись',artist:'Локальный видео- и аудиотест',thumbnail:'/img/avatars/portrait-v12-sameko-saba.png'}));Player.current=Player.queue[0];Player.audio.src='/fixture-music.wav';await Player.audio.play();Player.wantPlay=true;$('now').classList.add('on');});
+await c.click('#nVideo');
+await c.waitForFunction(()=>Clips.video.currentTime>.5&&!Clips.video.paused&&!Clips.audio.paused,null,{timeout:60000});
+check('karaoke video button opens clips and suspends music watchdog',await c.evaluate(()=>Clips.active&&Player.audio.paused&&!Player.wantPlay));
+check('real clip video and separate audio play in sync',await c.evaluate(()=>Math.abs(Clips.video.currentTime-Clips.audio.currentTime)<.3));
+check('clip queue rows do not compress or overlap',await c.locator('#clipList .cs-item').evaluateAll(nodes=>nodes.every(n=>n.getBoundingClientRect().height>=76)));
+await c.screenshot({path:OUT+'/clips-desktop.png'});
+await c.evaluate(()=>{Clips.video.pause();Clips.audio.pause();Clips.wantPlay=false;$('clipSpeed').value='1.5';Clips.applyAudio();});
+check('clip speed changes pitch on both tracks',await c.evaluate(()=>Clips.video.playbackRate===1.5&&Clips.audio.playbackRate===1.5&&!Clips.video.preservesPitch&&!Clips.audio.preservesPitch));
+await c.evaluate(()=>Clips.tab('tools'));await c.click('#clipTheater');
+check('theatre mode becomes single-column',await c.evaluate(()=>getComputedStyle(document.querySelector('.cs-layout')).gridTemplateColumns.split(' ').length===1));
+await c.evaluate(()=>{$('clips').classList.remove('theater');});await c.setViewportSize({width:390,height:844});await c.evaluate(()=>$('clips').scrollTop=0);await c.waitForTimeout(150);
+check('mobile clips do not overflow',await c.evaluate(()=>$('clips').scrollWidth<=$('clips').clientWidth));await c.screenshot({path:OUT+'/clips-mobile.png'});
+await c.waitForFunction(()=>Clips.job.file_ready,null,{timeout:60000});const url=await c.evaluate(()=>Clips.job.download_url);const response=await c.request.get('http://127.0.0.1:8766'+url);check('completed original downloads successfully',response.status()===200&&(await response.body()).length>1000);
+await c.evaluate(()=>Clips.close());await c.waitForTimeout(300);check('closing clip resumes only the original music track',await c.evaluate(()=>!Player.audio.paused&&Player.wantPlay&&Player.current.id==='ytvideo:TESTVIDEO01'));
+check('no runtime exceptions across scenarios',!errors.length);fs.writeFileSync(OUT+'/browser-report.json',JSON.stringify({checks,errors,environment:'Linux Chromium; local mock catalog + real synthetic A/V. No Windows WebView or YouTube verification.'},null,2));await b.close();console.log('REPAIR_V14_PASS',checks.length);
+})().catch(e=>{console.error(e);process.exit(1)});

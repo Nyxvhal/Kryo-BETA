@@ -1,0 +1,9 @@
+/* v51: keep geometry stable. Beat motion belongs on the bounded canvases. */
+body.ui-v51 #now.viz .viz-stage .viz-card{transform:none!important;transition:none!important}
+body.ui-v51 #now.viz .viz-stage .viz-title{letter-spacing:-.025em!important;filter:none!important;animation:none!important}
+body.ui-v51 #now.viz .viz-stage .viz-artist{filter:none!important}
+body.ui-v51 #now.viz .viz-stage .viz-info::before{height:22%}
+body.ui-v51 #now.viz .viz-stage:not([data-budget51="quality"]) .viz-scan{display:none!important}
+body.ui-v51 #now.viz .viz-stage.render-idle51 *,body.ui-v51 #now.viz .viz-stage.render-idle51::after{animation-play-state:paused!important}
+body.ui-v51 #now.viz .viz-stage.render-idle51 .viz-card{transition:none!important}
+body.ui-v51 #now.viz .viz-title{padding-bottom:.1em}

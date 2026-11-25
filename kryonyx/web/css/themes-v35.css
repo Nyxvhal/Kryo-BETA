@@ -1,0 +1,42 @@
+/* The preview is a screenshot of the actual app. Character identity sits beside it. */
+body.ui-v33 #themeList{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:stretch}
+body.ui-v33 #themeList .theme{position:relative;display:flex;flex-direction:column;min-width:0;height:100%;padding:8px 8px 14px;text-align:left;background:var(--bg-2,var(--surface));border:1px solid var(--line);border-radius:12px;box-shadow:none;overflow:hidden;transition:border-color .18s,background .18s}
+body.ui-v33 #themeList .theme:hover{transform:none;border-color:var(--muted);background:var(--surface-2)}
+body.ui-v33 #themeList .theme.on{border-color:var(--accent);outline:1px solid var(--accent);outline-offset:0}
+body.ui-v33 #themeList .theme:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+body.ui-v33 #themeList .theme-preview35{position:relative;display:flex;width:100%;height:auto;min-height:0;margin:0 0 12px;border-radius:6px;background:var(--tp-bg)!important;box-shadow:none;overflow:hidden;isolation:isolate}
+.theme-screen35{position:relative;display:block;flex:1;min-width:0;aspect-ratio:1100/740;background:var(--tp-bg);overflow:hidden}
+body.ui-v33 #themeList .theme-screen35>img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;mask-image:none;opacity:1;z-index:0}
+.theme-side35{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;width:76px;flex:none;padding:12px 6px;color:var(--tp-ink);background:var(--tp-surface);border-left:1px solid color-mix(in srgb,var(--tp-ink) 16%,transparent)}
+.theme-avatar35{display:block;width:60px;height:60px;border-radius:50%;object-fit:cover;object-position:center;box-shadow:0 0 0 2px color-mix(in srgb,var(--tp-accent) 60%,transparent)}
+.theme-kind35{font-size:11px;line-height:1.3;font-weight:600;color:var(--tp-ink)}
+.theme-mode35{display:grid;place-items:center;width:60px;height:60px;font-size:30px;font-weight:400;color:var(--tp-accent);line-height:1}
+.theme-palette35{display:flex;gap:3px;margin-top:4px;justify-content:center;flex-wrap:wrap}
+.theme-palette35 i{display:block;width:9px;height:9px;border-radius:50%;border:1px solid color-mix(in srgb,var(--tp-ink) 35%,transparent)}
+body.ui-v33 #themeList .theme-n{display:block;margin:0 32px 0 6px;font-size:15px;line-height:1.4;min-height:22px;color:var(--text);overflow-wrap:anywhere;font-weight:600;text-align:left}
+body.ui-v33 #themeList .theme-h{margin:6px 32px 0 6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:12px;line-height:1.5;white-space:normal;color:var(--muted);text-align:left}
+.theme-check35{position:absolute;right:14px;bottom:14px;display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--accent);color:var(--on-fill,#fff);font-size:14px;opacity:0}
+.theme.on .theme-check35{opacity:1}
+.theme-fallback35{position:absolute;inset:0;display:grid;place-items:center;padding:16px;font-size:14px;color:var(--tp-ink)}
+@media(min-width:1600px){body.ui-v33 #themeList{grid-template-columns:repeat(auto-fill,minmax(350px,1fr))}}
+@media(max-width:760px){
+ body.ui-v33 #themeList{grid-template-columns:minmax(0,1fr);gap:14px}
+ body.ui-v33 #themeList .theme{padding:6px 6px 12px}
+ body.ui-v33 #themeList .theme-n{font-size:14px}
+ .theme-side35{width:64px;padding:8px 4px;gap:7px}.theme-avatar35{width:48px;height:48px}.theme-mode35{width:48px;height:48px;font-size:26px}.theme-kind35{font-size:10px}.theme-palette35{gap:2px}.theme-palette35 i{width:8px;height:8px}
+ body.ui-v33 #mSettings:has(.pane.on[data-pane="themes"]) .set-nav{display:none}
+ body.ui-v33 #mSettings:has(.pane.on[data-pane="themes"]) .ui-settings-description,
+ body.ui-v33 #mSettings:has(.pane.on[data-pane="themes"]) .ui-save-status,
+ body.ui-v33 #mSettings:has(.pane.on[data-pane="themes"]) .ui-settings-eyebrow{display:none}
+ body.ui-v33 #mSettings:has(.pane.on[data-pane="themes"]) .workspace-settings-head{padding:12px 16px}
+ body.ui-v33 #mSettings:has(.pane.on[data-pane="themes"]) .workspace-settings-picker{padding:8px 16px}
+ body.ui-v33 #mSettings:has(.pane.on[data-pane="themes"]) .set-body{padding:12px 16px;max-height:none;flex:1;min-height:0}
+ body.ui-v33 .pane.on[data-pane="themes"] .plug-top{display:flex;flex-direction:column;align-items:stretch;gap:4px;margin-bottom:12px}
+ body.ui-v33 #themeGroups{flex-wrap:nowrap;overflow-x:auto;max-width:100%;padding:2px 2px 6px;scrollbar-width:thin}
+ body.ui-v33 #themeGroups .chip{flex:none;min-height:44px}
+ body.ui-v33 #themeCount{font-size:12px;text-align:right;white-space:nowrap}
+ body.ui-v33 .pane.on[data-pane="themes"] .ui-section-title{margin-bottom:12px;padding-bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){body.ui-v33 #themeList .theme{transition:none}}
+
+.theme-mode35 .ic{width:28px;height:28px}

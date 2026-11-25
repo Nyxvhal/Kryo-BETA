@@ -1,0 +1,11 @@
+/* Expanded translation controls must not squeeze the mobile transport into a clipped row.
+   Only the auxiliary-panel state changes; the reference performance scene is untouched. */
+@media(max-width:760px){
+ body #now.on:not(.noctl):not(.focus):not(.disc):not(.viz):has(#lyricsTranslate22[open]) #nowBody{
+  grid-template-rows:max-content minmax(260px,calc(var(--layout-vh37, 1dvh) * 45))!important;
+  align-content:start!important;overflow-y:auto!important;overscroll-behavior:contain;
+ }
+ body #now.on:not(.noctl):not(.focus):not(.disc):not(.viz):has(#lyricsTranslate22[open]) #nowLeft{
+  max-height:none!important;overflow:visible!important;
+ }
+}

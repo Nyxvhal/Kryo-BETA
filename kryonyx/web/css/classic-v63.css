@@ -1,0 +1,38 @@
+/* Classic shell: pre-v52 controls, no replacement settings navigation. */
+body.classic63 #side>.nav,body.classic63 #sideMore31 summary{min-height:44px;white-space:nowrap}
+body.classic63:not(.workspace-rail) #side>.nav{justify-content:flex-start;gap:12px;padding-inline:16px}
+body.classic63:not(.workspace-rail) #side>.nav>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+body.classic63.workspace-rail #side>.nav>span{display:none!important}
+body.classic63 #side .wave-nav61{display:flex;align-items:center;gap:12px}
+body.classic63 #mSettings .set-shell{min-width:0}
+body.classic63 #mSettings .set-body{min-width:0;overflow-x:hidden}
+body.classic63 #mSettings .set-nav-i{white-space:normal;overflow-wrap:normal;line-height:1.4}
+body.classic63 #mSettings .set-find input{min-width:0;max-width:100%}
+body.classic63 #vWave{padding-top:24px}
+body.classic63 .wave-nav-label61{white-space:nowrap}
+@media(prefers-reduced-motion:reduce){body.classic63 *,body.classic63 *::before{animation:none!important;transition:none!important}}
+body.classic63 #mSettings .set-nav-i{font-size:14px!important}
+/* Respond to available content width, not the unscaled physical window. */
+body.classic63 #vWave { container-type: inline-size; }
+@container (max-width: 700px) {
+  body.classic63 .wave-layout61 { grid-template-columns: minmax(0,1fr); }
+  body.classic63 .wave-orbit61 { display:none; }
+  body.classic63 .wave-stage61 { min-height:0; padding:28px 24px; }
+  body.classic63 #waveTracks61 { grid-template-columns:minmax(0,1fr); }
+}
+@media (min-width:901px) {
+  body.classic63.layout-tight65 #player,
+  body.classic63.layout-tight65[data-transport48=left] #player {
+    grid-template-columns:minmax(140px,1fr) minmax(270px,1.35fr) minmax(160px,1fr)!important;
+    gap:8px!important; padding-inline:12px!important;
+  }
+  body.classic63.layout-tight65[data-transport48=left] #player {grid-template-columns:minmax(270px,1.35fr) minmax(140px,1fr) minmax(160px,1fr)!important}
+  body.classic63.layout-tight65 #pRight {min-width:0;justify-content:flex-start;overflow-x:auto;scrollbar-width:thin}
+  body.classic63.layout-tight65 #pRight>* {flex-shrink:0}
+  body.classic63.layout-tight65 #pCtl,body.classic63.layout-tight65 #pInfo {min-width:0}
+}
+#waveWarmRetry65 { margin-top:10px; font-size:13px; padding:8px 12px; }
+body.classic63.layout-tight65 #pRight {scrollbar-color:var(--muted) transparent;scrollbar-width:thin;scroll-snap-type:x proximity}
+body.classic63.layout-tight65 #pRight>* {scroll-snap-align:start}
+body.classic63.layout-tight65 #pRight::-webkit-scrollbar {height:5px}
+body.classic63.layout-tight65 #pRight::-webkit-scrollbar-thumb {background:var(--muted);border-radius:5px}

@@ -1,0 +1,95 @@
+/* v18: playback actions have their own stable ink, even inside sketch themes. */
+.workspace-shell .workspace-library-actions button.workspace-play-playlist,
+.workspace-shell #player button#pPlay,
+.workspace-shell #player button#pMobPlay,
+.workspace-shell #now button#nPlay {
+  background:color-mix(in srgb,var(--accent) 42%,#fff 58%)!important;
+  color:#11131b!important;
+  border:1px solid color-mix(in srgb,var(--accent) 55%,#11131b 45%)!important;
+  filter:none!important;
+  box-shadow:0 2px 8px #00000018!important;
+  transition:background-color 160ms ease,box-shadow 160ms ease,transform 160ms ease;
+}
+.workspace-shell .workspace-library-actions button.workspace-play-playlist:hover,
+.workspace-shell .workspace-library-actions button.workspace-play-playlist:focus-visible,
+.workspace-shell #player button#pPlay:hover,
+.workspace-shell #player button#pMobPlay:hover,
+.workspace-shell #now button#nPlay:hover {
+  background:color-mix(in srgb,var(--accent) 20%,#fff 80%)!important;
+  color:#11131b!important;filter:none!important;
+  box-shadow:0 3px 12px #00000024!important;transform:translateY(-1px);
+}
+.workspace-shell .workspace-library-actions button.workspace-play-playlist:active,
+.workspace-shell #player button#pPlay:active,
+.workspace-shell #player button#pMobPlay:active {transform:scale(.96)}
+.workspace-shell .workspace-library-actions button.workspace-play-playlist .ic {
+  fill:currentColor!important;stroke:none!important;filter:none!important;transform:none!important;
+}
+.workspace-shell .workspace-library-actions button.workspace-play-playlist[data-playback=playing] {
+  background:color-mix(in srgb,var(--accent) 62%,#fff 38%)!important;
+}
+.workspace-shell .workspace-library-actions button.workspace-play-playlist[data-playback=playing]:hover {
+  background:color-mix(in srgb,var(--accent) 20%,#fff 80%)!important;
+}
+.workspace-shell .workspace-library-card.playlist-active {
+  border-color:color-mix(in srgb,var(--accent) 65%,var(--line));
+}
+.workspace-shell .workspace-library-card.playlist-active .workspace-library-title {color:var(--accent)}
+.workspace-shell .workspace-library-actions button.workspace-play-playlist[aria-busy=true] {opacity:1!important;cursor:progress}
+.workspace-shell .workspace-library-actions button.workspace-play-playlist[aria-busy=true]::after {
+  content:'';position:absolute;inset:4px;border:2px solid transparent;
+  border-top-color:currentColor;border-radius:50%;animation:player18-load 900ms linear infinite;
+}
+.workspace-shell .workspace-library-actions button.workspace-play-playlist {position:relative}
+@keyframes player18-load {to{rotate:360deg}}
+/* Calm, legible transport. No width/position transitions on the live seek rail. */
+.workspace-shell #player {
+  border-top:1px solid var(--line);box-shadow:0 -4px 24px #00000014;
+  column-gap:24px;padding:12px 24px;
+}
+.workspace-shell #player #pInfo {gap:12px;min-width:0;border-radius:10px}
+.workspace-shell #player #pArt {width:60px;height:60px;flex-shrink:0;border-radius:10px;box-shadow:none;transform:none!important}
+.workspace-shell #player #pTitle {font-size:15px;line-height:1.4;font-weight:650}
+.workspace-shell #player #pArtist {font-size:14px;line-height:1.4}
+.workspace-shell #player #workspacePlayerStats {display:none}
+.workspace-shell #player #pBtns {gap:4px}
+.workspace-shell #player #pBtns button {min-width:44px;min-height:44px;border-radius:10px;transition:background-color 160ms ease,color 160ms ease,transform 160ms ease}
+.workspace-shell #player #pBtns button#pPlay {width:48px;height:48px;border-radius:50%;margin:0 4px}
+.workspace-shell #player #pRight .ib {min-width:36px;min-height:44px;border-radius:8px}
+.workspace-shell #player #pBtns button:not(#pPlay):hover,
+.workspace-shell #player #pRight .ib:hover {background:var(--surface-2);color:var(--text);transform:none}
+.workspace-shell #player #pBtns button .ic,
+.workspace-shell #player #pRight .ic {transform:none!important;filter:none!important}
+.workspace-shell #player :is(#pTrack,#pTrackM):focus-visible {outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.workspace-shell #player :is(#pFill,#pFillM,#pKnob,#pKnobM) {transition:none!important}
+.workspace-shell #player #pCur,.workspace-shell #player #pDur {font-variant-numeric:tabular-nums}
+.workspace-shell #player #pInfo:focus-visible,
+.workspace-shell .workspace-library-actions button:focus-visible {outline:2px solid var(--accent);outline-offset:3px}
+@media(max-width:1100px) and (min-width:761px){.workspace-shell #player{column-gap:12px;padding-inline:16px}.workspace-shell #player #pRight .ib{min-width:32px}}
+@media(max-width:760px){
+ .workspace-shell #player{padding:8px 16px;column-gap:12px}
+ .workspace-shell #player #pArt{width:44px;height:44px;border-radius:8px}
+ .workspace-shell #player #pTitle{font-size:14px}
+ .workspace-shell #player #pArtist{font-size:12px}
+ .workspace-shell #player #pMobPlay{width:44px;height:44px;border-radius:50%}
+ .workspace-shell #workspaceMobileControls{gap:4px}
+}
+@media(prefers-reduced-motion:reduce){
+ .workspace-shell #player *, .workspace-shell .workspace-library-actions button.workspace-play-playlist,
+ .workspace-shell .workspace-library-actions button.workspace-play-playlist::after {animation:none!important;transition:none!important}
+}
+body.no-anim #player *,body.no-anim .workspace-play-playlist,body.no-anim .workspace-play-playlist::after {animation:none!important;transition:none!important}
+.workspace-shell #player #pRight .ib{min-width:44px}
+.workspace-shell #now:not(.viz):not(.disc) #nBtns{gap:8px;align-items:center}
+.workspace-shell #now:not(.viz):not(.disc) #nBtns button{min-width:44px;min-height:44px;border-radius:10px;transition:background-color 160ms ease,transform 160ms ease}
+.workspace-shell #now:not(.viz):not(.disc) button#nPlay{width:56px;height:56px;border-radius:50%}
+.workspace-shell #now:not(.viz):not(.disc) #nBtns button .ic{transform:none!important;filter:none!important}
+@media(prefers-reduced-motion:reduce){.workspace-shell #now #nBtns button{transition:none!important}}
+body.no-anim #now #nBtns button{transition:none!important}
+/* Keep the seek bar and transport usable on tablet-sized desktop windows.
+   Secondary actions remain available from More and the main navigation. */
+@media(min-width:761px) and (max-width:1180px){
+ .workspace-shell #player{grid-template-columns:minmax(160px,1fr) minmax(260px,1.1fr) auto;column-gap:12px;padding-inline:16px}
+ .workspace-shell #player #pRight :is(#pVideo,#pAdd){display:none}
+ .workspace-shell #player #vol{width:64px}
+}

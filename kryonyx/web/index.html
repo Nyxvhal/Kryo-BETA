@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="ru" class="booting45">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>Kryo</title>
+<style>
+html.booting45{background:#000!important}html.booting45 body{background:transparent!important}
+html.booting45 body>*:not(#boot45):not(script):not(style){visibility:hidden!important}
+#boot45{display:none}html.booting45 #boot45{position:fixed;inset:0;z-index:2147483646;display:grid;place-content:center;gap:20px;background:#000;color:#eeeef4;text-align:center;font:500 16px/1.5 system-ui}
+#boot45 b{font-size:24px;letter-spacing:.14em}#boot45 button{padding:12px 24px;background:#272734;color:white;border:1px solid #555565;border-radius:8px;font:inherit;cursor:pointer}
+</style>
+<link rel="icon" href="/icon.png">
+<link rel="stylesheet" href="/css/app.css?v=53">
+<link rel="stylesheet" href="/css/disc.css?v=53">
+<link rel="stylesheet" href="/css/atmo.css?v=53">
+
+<link rel="stylesheet" href="/css/look.css?v=53">
+<link rel="stylesheet" href="/css/studio.css?v=53">
+<link rel="stylesheet" href="/css/workspace.css?v=53">
+<link rel="stylesheet" href="/css/karaoke-v2.css?v=73-settings1">
+<link rel="stylesheet" href="/css/home-v5.css?v=53">
+<link rel="stylesheet" href="/css/ui-v6.css?v=53">
+<link rel="stylesheet" href="/css/ui-v7.css?v=53">
+<link rel="stylesheet" href="/css/experience-v8.css?v=53">
+<link rel="stylesheet" href="/css/experience-v9.css?v=53">
+<link rel="stylesheet" href="/css/motion-v12.css?v=53">
+<link rel="stylesheet" href="/css/custom-avatars-v13.css?v=53">
+<link rel="stylesheet" href="/css/repair-v14.css?v=53">
+<link rel="stylesheet" href="/css/repair-v16.css?v=53">
+<link rel="stylesheet" href="/css/player-v18.css?v=53">
+<link rel="stylesheet" href="/css/recording-v19.css?v=53">
+<link rel="stylesheet" href="/css/repair-v20.css?v=53">
+<link rel="stylesheet" href="/css/interface-v22.css?v=53">
+<link rel="stylesheet" href="/css/album-flow-v23.css?v=53">
+<link rel="stylesheet" href="/css/reference-scene-v24.css?v=80">
+<link rel="stylesheet" href="/css/interface-v25.css?v=53">
+<link rel="stylesheet" href="/css/search-discovery-v26.css?v=53">
+<link rel="stylesheet" href="/css/upgrade-v30.css?v=53">
+<link rel="stylesheet" href="/css/home-v31.css?v=53">
+<link rel="stylesheet" href="/css/repair-v33.css?v=87">
+<link rel="stylesheet" href="/css/themes-v35.css?v=53">
+<link rel="stylesheet" href="/css/repair-v37.css?v=73-menu1">
+<link rel="stylesheet" href="/css/repair-v38.css?v=53">
+<link rel="stylesheet" href="/css/tiktok-finder-v39.css?v=53">
+<link rel="stylesheet" href="/css/repair-v34.css?v=53">
+<link rel="stylesheet" href="/css/interface-v45.css?v=73-offset1">
+<link rel="stylesheet" href="/css/scene-v46.css?v=53">
+<link rel="stylesheet" href="/css/motion-v47.css?v=78">
+<link rel="stylesheet" href="/css/design-v48.css?v=53">
+<link rel="stylesheet" href="/css/refine-v49.css?v=53">
+<link rel="stylesheet" href="/css/personal-v50.css?v=53">
+<link rel="stylesheet" href="/css/render-v51.css?v=53">
+<link rel="stylesheet" href="/css/brand-v60.css?v=60">
+<link rel="stylesheet" href="/css/wave-classic-v63.css?v=73-fix2">
+<link rel="stylesheet" href="/css/classic-v63.css?v=65">
+<link rel="stylesheet" href="/css/custom-share-v64.css?v=64">
+<link rel="stylesheet" href="/css/experience-v66.css?v=67">
+<link rel="stylesheet" href="/css/motion-v69.css?v=69">
+<link rel="stylesheet" href="/css/polish-v70.css?v=70">
+<link rel="stylesheet" href="/css/cinema-v71.css?v=71">
+<link rel="stylesheet" href="/css/perf-v71.css?v=71">
+<link rel="stylesheet" href="/css/perf-v72.css?v=72">
+<link rel="stylesheet" href="/css/cinema-v72.css?v=72">
+<link rel="stylesheet" href="/css/player-v72.css?v=72">
+<link rel="stylesheet" href="/css/ai-v72.css?v=72">
+<link rel="stylesheet" href="/css/polish-v72.css?v=781">
+<link rel="stylesheet" href="/css/polish-v73.css?v=73">
+<link rel="stylesheet" href="/css/wave-player-v74.css?v=2">
+<link rel="stylesheet" href="/css/app-soft-v76.css?v=1">
+<link rel="stylesheet" href="/css/app-gentle-v77.css?v=1">
+<link rel="stylesheet" href="/css/player-fixes-v78.css?v=781">
+<link rel="stylesheet" href="/css/settings-position-v79.css?v=79">
+<link rel="stylesheet" href="/css/responsive-v82.css">
+</head>
+<body>
+<div id="boot45" role="status" aria-live="polite"><b>KRYO</b><span id="bootStatus45">···</span><button id="bootRetry45" hidden type="button" onclick="location.reload()">↻</button></div>
+
+<svg style="display:none">
+  <symbol id="i-share64" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15.4V3.8m-4 4 4-4 4 4M5.1 13.6v4.6a2 2 0 0 0 2 2h9.8a2 2 0 0 0 2-2v-4.6"/></g></symbol>
+<symbol id="i-home" viewBox="0 0 24 24" data-kryo60="home"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 10.7 8.5-7 8.5 7v8a1.8 1.8 0 0 1-1.8 1.8H5.3a1.8 1.8 0 0 1-1.8-1.8z"/><path d="M9.3 20.5v-6.1h5.4v6.1"/></g></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24" data-kryo60="search"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.3" cy="10.3" r="6.3"/><path d="m15 15 4.8 4.8"/></g></symbol>
+  <symbol id="i-search-star" viewBox="0 0 24 24" data-kryo60="search-star"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9.4" cy="12" r="5.5"/><path d="m13.6 16.2 4.6 4.3M18.3 3.2v4.4M16.1 5.4h4.4"/></g></symbol>
+  <symbol id="i-lib" viewBox="0 0 24 24" data-kryo60="lib"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.1a1 1 0 0 1 1-1h3.2v15.8H5a1 1 0 0 1-1-1zm4.2 0h4.1v14.8H8.2zM14 5.4l3.3-.9 3.3 14.7-3.3.8z"/></g></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24" data-kryo60="heart"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.1 4.9 13c-2-2.1-1.9-5.1.1-6.9 1.9-1.7 4.9-1.4 7 1 2.1-2.4 5.1-2.7 7-1 2 1.8 2.1 4.8.1 6.9z"/></g></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" data-kryo60="clock"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.8"/><path d="M12 7v5.4l3.5 2.1"/></g></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24" data-kryo60="gear"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m10 3.1 4 0 .6 1.8c.5.2 1 .4 1.5.7l1.8-.8 2.8 2.8-.8 1.8c.3.5.5 1 .7 1.5l1.8.6v4l-1.8.6c-.2.5-.4 1-.7 1.5l.8 1.8-2.8 2.8-1.8-.8c-.5.3-1 .5-1.5.7L14 23h-4l-.6-1.8c-.5-.2-1-.4-1.5-.7l-1.8.8-2.8-2.8.8-1.8c-.3-.5-.5-1-.7-1.5l-1.8-.6v-4l1.8-.6c.2-.5.4-1 .7-1.5l-.8-1.8 2.8-2.8 1.8.8c.5-.3 1-.5 1.5-.7z" transform="translate(1 0) scale(.92)"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" data-kryo60="play"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.6 5.4a1.25 1.25 0 0 1 1.9-1.06l9.5 6.6a1.3 1.3 0 0 1 0 2.12l-9.5 6.6a1.25 1.25 0 0 1-1.9-1.06z" fill="currentColor" stroke="none"/></g></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24" data-kryo60="pause"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="4.7" width="4.1" height="14.6" rx="1.2" fill="currentColor" stroke="none"/><rect x="13.4" y="4.7" width="4.1" height="14.6" rx="1.2" fill="currentColor" stroke="none"/></g></symbol>
+  <symbol id="i-prev" viewBox="0 0 24 24" data-kryo60="prev"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.9 5.8a.9.9 0 0 1 1.4.8v10.8a.9.9 0 0 1-1.4.8L9.5 12.8a1 1 0 0 1 0-1.6z" fill="currentColor" stroke="none"/><path d="M5.5 5.6v12.8" stroke-width="2.4"/></g></symbol>
+  <symbol id="i-next" viewBox="0 0 24 24" data-kryo60="next"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.1 5.8a.9.9 0 0 0-1.4.8v10.8a.9.9 0 0 0 1.4.8l8.4-5.4a1 1 0 0 0 0-1.6z" fill="currentColor" stroke="none"/><path d="M18.5 5.6v12.8" stroke-width="2.4"/></g></symbol>
+  <symbol id="i-shuffle" viewBox="0 0 24 24" data-kryo60="shuffle"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 6.5h1.8c5.4 0 7.3 11 12.8 11h2.4M17.3 14.5l3.2 3-3.2 3M3.5 17.5h1.8c2 0 3.4-1.4 4.8-3.4m3.8-4.2c1.4-2 2.8-3.4 4.2-3.4h2.4M17.3 3.5l3.2 3-3.2 3"/></g></symbol>
+  <symbol id="i-repeat" viewBox="0 0 24 24" data-kryo60="repeat"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 3.6 20.7 6.3 18 9M20.3 6.3H7.8A4.3 4.3 0 0 0 3.5 10M6 20.4l-2.7-2.7L6 15M3.7 17.7h12.5a4.3 4.3 0 0 0 4.3-3.7"/></g></symbol>
+  <symbol id="i-repeat1" viewBox="0 0 24 24" data-kryo60="repeat1"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 3.6 20.7 6.3 18 9M20.3 6.3H7.8A4.3 4.3 0 0 0 3.5 10M6 20.4l-2.7-2.7L6 15M3.7 17.7h12.5a4.3 4.3 0 0 0 4.3-3.7M10.7 10.5l1.7-.9v5"/></g></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24" data-kryo60="refresh"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 8.8V4.9m0 3.9h-3.9M4 15.2v3.9m0-3.9h3.9M19.2 8.6a7.6 7.6 0 0 0-13.5-2M4.8 15.4a7.6 7.6 0 0 0 13.5 2"/></g></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24" data-kryo60="plus"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.6v14.8M4.6 12h14.8"/></g></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" data-kryo60="check"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.3 5 5 10-10.5"/></g></symbol>
+  <symbol id="i-mixer" viewBox="0 0 24 24" data-kryo60="mixer"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5.3 3.5v5m0 4v8m6.7-17v9m0 4v4m6.7-17v3m0 4v10"/><rect x="3.2" y="8.5" width="4.2" height="4" rx="1"/><rect x="9.9" y="12.5" width="4.2" height="4" rx="1"/><rect x="16.6" y="6.5" width="4.2" height="4" rx="1"/></g></symbol>
+  <symbol id="i-youtube" viewBox="0 0 24 24" data-kryo60="youtube"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.4" width="18" height="13.2" rx="4"/><path d="m10.2 9 5 3-5 3z" fill="currentColor" stroke="none"/></g></symbol>
+  <symbol id="i-queue" viewBox="0 0 24 24" data-kryo60="queue"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.8 6.2h14.5M3.8 10.5h11M3.8 14.8h7.5"/><path d="M15.2 13.8 20 17l-4.8 3.2z" fill="currentColor" stroke="none"/></g></symbol>
+  <symbol id="i-lyrics" viewBox="0 0 24 24" data-kryo60="lyrics"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.2 3.6h11.6a1.5 1.5 0 0 1 1.5 1.5v14.8L12 16.7l-7.3 3.2V5.1a1.5 1.5 0 0 1 1.5-1.5zM8.4 8h7.2M8.4 11.5h5.4"/></g></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" data-kryo60="close"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 6 12 12M18 6 6 18"/></g></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24" data-kryo60="down"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6.2 9.2 5.8 5.8 5.8-5.8"/></g></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24" data-kryo60="back"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m14.8 5.6-6.4 6.4 6.4 6.4"/></g></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24" data-kryo60="trash"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7h15M9 7V4.5h6V7m-8.5 0 .8 11.3a2 2 0 0 0 2 1.9h5.4a2 2 0 0 0 2-1.9L17.5 7M10 10.2v6.4m4-6.4v6.4"/></g></symbol>
+  <symbol id="i-vol" viewBox="0 0 24 24" data-kryo60="vol"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h3.5l4.7-3.8v13.6L7.5 15H4zM15.5 9a4.1 4.1 0 0 1 0 6M18.1 6.3a8 8 0 0 1 0 11.4"/></g></symbol>
+  <symbol id="i-mute" viewBox="0 0 24 24" data-kryo60="mute"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h3.5l4.7-3.8v13.6L7.5 15H4zM16 9l4 6m0-6-4 6"/></g></symbol>
+  <symbol id="i-pip" viewBox="0 0 24 24" data-kryo60="pip"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.7" width="18" height="14.6" rx="2.6"/><rect x="12.1" y="11" width="6.5" height="5.5" rx="1"/></g></symbol>
+  <symbol id="i-expand" viewBox="0 0 24 24" data-kryo60="expand"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.6 9V4.6H9m6 0h4.4V9m0 6v4.4H15m-6 0H4.6V15"/></g></symbol>
+  <symbol id="i-note" viewBox="0 0 24 24" data-kryo60="note"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.2 17V5.6l10-2V15M9.2 8.6l10-2"/><ellipse cx="6.7" cy="17.3" rx="2.5" ry="1.9"/><ellipse cx="16.7" cy="15.3" rx="2.5" ry="1.9"/></g></symbol>
+  <symbol id="i-radio" viewBox="0 0 24 24" data-kryo60="radio"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.7" fill="currentColor" stroke="none"/><path d="M8.4 8.4a5.1 5.1 0 0 0 0 7.2m7.2-7.2a5.1 5.1 0 0 1 0 7.2M5.3 5.3a9.5 9.5 0 0 0 0 13.4m13.4-13.4a9.5 9.5 0 0 1 0 13.4"/></g></symbol>
+  <symbol id="i-dots" viewBox="0 0 24 24" data-kryo60="dots"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5.4" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="18.6" r="1.2" fill="currentColor" stroke="none"/></g></symbol>
+  <symbol id="i-speed" viewBox="0 0 24 24" data-kryo60="speed"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 18.1a8.6 8.6 0 1 1 14.4 0M8.1 18.3h7.8m-3.9-4.7 3.5-4.3"/><circle cx="12" cy="13.8" r="1.2"/></g></symbol>
+  <symbol id="i-palette" viewBox="0 0 24 24" data-kryo60="palette"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5a8.6 8.6 0 1 0 0 17.2h1.1a2 2 0 0 0 1.6-3.1 1.6 1.6 0 0 1 1.3-2.5h.8a3.7 3.7 0 0 0 3.7-3.7c0-4.4-3.8-7.9-8.5-7.9z"/><circle cx="7.7" cy="10" r=".7" fill="currentColor"/><circle cx="10.7" cy="7.4" r=".7" fill="currentColor"/><circle cx="14.3" cy="7.6" r=".7" fill="currentColor"/><circle cx="16.8" cy="10.3" r=".7" fill="currentColor"/></g></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24" data-kryo60="plug"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.4 3.5v4.6m7.2-4.6v4.6M6.6 8.1h10.8v2.2a5.4 5.4 0 0 1-10.8 0zM12 15.7v4.8"/></g></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24" data-kryo60="link"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 14.5 5-5m-6 7-1 1a3.7 3.7 0 0 1-5.2-5.2l3.1-3.1a3.7 3.7 0 0 1 5.2 0m4.9-1.7 1-1a3.7 3.7 0 0 1 5.2 5.2l-3.1 3.1a3.7 3.7 0 0 1-5.2 0"/></g></symbol>
+  <symbol id="i-keyboard" viewBox="0 0 24 24" data-kryo60="keyboard"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.7" y="5.3" width="18.6" height="13.4" rx="2.3"/><path d="M6.3 9h.1m3.7 0h.1m3.7 0h.1m3.7 0h.1M6.3 12.6h.1m3.7 0h.1m3.7 0h.1m3.7 0h.1M7.8 16h8.4"/></g></symbol>
+  <symbol id="i-logs" viewBox="0 0 24 24" data-kryo60="logs"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.4 3.5h8.8l2.9 2.9v14.1H6.4zM15.2 3.7v3h2.7M9.1 10.1h6.3m-6.3 3.5h6.3m-6.3 3.5h4"/></g></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24" data-kryo60="globe"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.8"/><path d="M3.2 12h17.6M12 3.2c2.4 2.5 3.6 5.4 3.6 8.8s-1.2 6.3-3.6 8.8C9.6 18.3 8.4 15.4 8.4 12S9.6 5.7 12 3.2z"/></g></symbol>
+  <symbol id="i-translate" viewBox="0 0 24 24" data-kryo60="translate"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.2 6.5h9M8.7 4v2.5M11.6 6.5c-.6 3.6-2.5 6.8-6.4 9M6.2 10c1 2 2.9 3.9 5.5 5.2M13.5 19.5l3.6-9 3.6 9M14.7 16.8h4.8"/></g></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24" data-kryo60="spark"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.4 14.2 10l6.4 2-6.4 2L12 20.6 9.8 14 3.4 12l6.4-2z"/></g></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24" data-kryo60="user"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.1" r="3.6"/><path d="M4.7 20.3a7.3 7.3 0 0 1 14.6 0"/></g></symbol>
+  <symbol id="i-win-min" viewBox="0 0 24 24" data-kryo60="win-min"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 13h13"/></g></symbol>
+  <symbol id="i-win-max" viewBox="0 0 24 24" data-kryo60="win-max"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5.4" y="5.4" width="13.2" height="13.2" rx="1.2"/></g></symbol>
+  <symbol id="i-win-restore" viewBox="0 0 24 24" data-kryo60="win-restore"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="8" width="11.5" height="11.5" rx="1.2"/><path d="M8 4.5h10.3a1.2 1.2 0 0 1 1.2 1.2V16"/></g></symbol>
+  <symbol id="i-win-close" viewBox="0 0 24 24" data-kryo60="win-close"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 6 12 12M18 6 6 18"/></g></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24" data-kryo60="image"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.2" y="4.5" width="17.6" height="15" rx="2.2"/><circle cx="8.2" cy="9" r="1.3"/><path d="m4.2 17.2 4.6-4.6 3.2 3.2 2.9-2.9 4.9 4.9"/></g></symbol>
+  <symbol id="i-pencil" viewBox="0 0 24 24" data-kryo60="pencil"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4.2 16.8-.5 3.5 3.5-.5L19.3 7.7a2 2 0 0 0-3-3zM14.5 6.5l3 3"/></g></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24" data-kryo60="eye"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.9 12s3.3-6.3 9.1-6.3 9.1 6.3 9.1 6.3-3.3 6.3-9.1 6.3S2.9 12 2.9 12z"/><circle cx="12" cy="12" r="2.8"/></g></symbol>
+  <symbol id="i-eye-off" viewBox="0 0 24 24" data-kryo60="eye-off"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.9 5.9A9.6 9.6 0 0 1 12 5.7c5.8 0 9.1 6.3 9.1 6.3a16.4 16.4 0 0 1-3.1 4.1M6.4 7.7C4.2 9.4 2.9 12 2.9 12s3.3 6.3 9.1 6.3c1.6 0 3-.4 4.2-1"/><path d="M10.1 10.1a2.8 2.8 0 0 0 3.8 3.8"/><path d="M3.5 3.5 20.5 20.5"/></g></symbol>
+  <symbol id="i-import" viewBox="0 0 24 24" data-kryo60="import"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v10.8m-3.7-3.7 3.7 3.7 3.7-3.7M4.5 16v2.3a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V16"/></g></symbol>
+</svg>
+
+<div id="titlebar">
+  <div id="titlebarDrag" class="pywebview-drag-region">
+    <span id="titlebarName">Kryo 1.0.0</span>
+  </div>
+  <div id="titlebarBtns">
+    <button class="wb" id="winMin" title="Minimize"><svg class="ic s"><use href="#i-win-min"/></svg></button>
+    <button class="wb" id="winMax" title="Maximize"><svg class="ic s"><use href="#i-win-max"/></svg></button>
+    <button class="wb danger" id="winClose" title="Close"><svg class="ic s"><use href="#i-win-close"/></svg></button>
+  </div>
+</div>
+
+<div id="resizers">
+  <div class="rz" data-edge="top"></div>
+  <div class="rz" data-edge="bottom"></div>
+  <div class="rz" data-edge="left"></div>
+  <div class="rz" data-edge="right"></div>
+  <div class="rz" data-edge="topleft"></div>
+  <div class="rz" data-edge="topright"></div>
+  <div class="rz" data-edge="bottomleft"></div>
+  <div class="rz" data-edge="bottomright"></div>
+</div>
+
+<!-- Обои: отдельный слой под интерфейсом, см. css/look.css -->
+<div id="wall"></div>
+
+<div id="app">
+  <nav id="side">
+    <div class="brand"><img id="brandAva" class="ava-brand" src="/icon.png" alt=""><span>Kryo</span><span class="ver-tag">1.0.0</span></div>
+    <button class="nav on" data-nav="home"><svg class="ic"><use href="#i-home"/></svg><span>Home</span></button>
+    <button class="nav" data-nav="search"><svg class="ic"><use href="#i-search"/></svg><span>Search</span></button>
+    <button class="nav" data-nav="lib"><svg class="ic"><use href="#i-lib"/></svg><span>Library</span></button>
+    <button class="nav" data-nav="liked"><svg class="ic"><use href="#i-heart"/></svg><span>Liked</span></button>
+    <button class="nav" data-nav="history"><svg class="ic"><use href="#i-clock"/></svg><span>History</span></button>
+    <button class="nav" id="navClips"><svg class="ic"><use href="#i-youtube"/></svg><span>Clips</span></button>
+    <div class="side-h">Playlists</div>
+    <div id="sidePl"></div>
+    <button class="nav" data-convert-open><svg class="ic"><use href="#i-import"/></svg><span>Transfer a playlist</span></button>
+    <button class="nav" id="navSettings"><svg class="ic"><use href="#i-gear"/></svg><span>Settings</span></button>
+  </nav>
+
+  <div id="main">
+    <header id="top">
+      <div id="searchWrap">
+        <div id="searchBox">
+          <svg class="ic s"><use href="#i-search"/></svg>
+          <div id="loadBar" aria-hidden="true"></div>
+          <input id="q" placeholder="Track, artist or a Spotify / YouTube / SoundCloud link…" autocomplete="off" spellcheck="false" enterkeyhint="search">
+          <button class="ib" id="qClear" style="width:28px;height:28px;display:none"><svg class="ic s"><use href="#i-close"/></svg></button>
+        </div>
+        <div id="qPop" class="q-pop" hidden></div>
+
+      </div>
+      <button class="ib" id="bFull" title="Full screen (F11)"><svg class="ic"><use href="#i-expand"/></svg></button>
+      <button class="ib" id="bSettings" title="Settings"><svg class="ic"><use href="#i-gear"/></svg></button>
+    </header>
+
+    <div id="scroll">
+      <!-- Главная -->
+      <section class="view on" id="vHome">
+        <h1 id="greet">Hi</h1>
+        <div class="row-acts" style="margin-bottom:6px">
+          <button class="btn" id="bMix"><svg class="ic s f"><use href="#i-play"/></svg>Your mix</button>
+          <button class="btn g" id="bRadio"><svg class="ic s"><use href="#i-radio"/></svg>Endless radio</button>
+          <button class="btn g" id="bRefresh">Refresh picks</button>
+        </div>
+        <div id="rows"></div>
+      </section>
+
+      <!-- Поиск -->
+      <section class="view" id="vSearch">
+        <h1 id="sTitle">Search</h1>
+        <!-- Вкладки: всё сразу или только один тип результатов. -->
+        <div class="row-acts search-tabs" id="sTabs">
+          <button class="chip on" data-stab="all">All</button>
+          <button class="chip" data-stab="tracks">Tracks</button>
+          <button class="chip" data-stab="authors">Artists</button>
+          <button class="chip" data-stab="albums">Albums</button>
+          <button class="chip" data-stab="playlists">Playlists</button>
+        </div>
+        <!-- Сначала исполнители, альбомы и плейлисты (одной лентой каждый), затем треки. -->
+        <div id="sAuthors" style="display:none">
+          <h3>Artists</h3>
+          <div class="strip" id="sAuthorsG"></div>
+        </div>
+        <div id="sAlbums" style="display:none">
+          <h3>Albums</h3>
+          <div class="strip" id="sAlbumsG"></div>
+        </div>
+        <div id="sPlaylists" style="display:none">
+          <h3>Playlists</h3>
+          <div class="strip" id="sPlaylistsG"></div>
+        </div>
+        <h3 id="sTracksH" style="display:none">Tracks</h3>
+        <div class="list" id="sTracks"></div>
+        <div id="sMore" style="text-align:center;padding:22px 0;display:none">
+          <button class="btn g" id="bMore">Show more</button>
+        </div>
+      </section>
+
+      <!-- Автор -->
+      <section class="view" id="vAuthor">
+        <button class="back" data-back><svg class="ic s"><use href="#i-back"/></svg>Back</button>
+        <div class="hero">
+          <img id="aPic" alt="">
+          <div class="info">
+            <div class="muted" id="aKind">Artist</div>
+            <h1 id="aName"></h1>
+            <div class="row-acts">
+              <button class="btn" id="aPlay"><svg class="ic s f"><use href="#i-play"/></svg>Play</button>
+              <button class="btn g" id="aShuffle"><svg class="ic s"><use href="#i-shuffle"/></svg>Shuffle</button>
+              <button class="btn g" id="aRadio"><svg class="ic s"><use href="#i-radio"/></svg>Radio</button>
+              <button class="btn g" id="aSavePic" title="Download avatar"><svg class="ic s"><use href="#i-image"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <h3>Tracks</h3>
+        <div class="list" id="aTracks"></div>
+      </section>
+
+      <!-- Медиатека -->
+      <section class="view" id="vLib">
+        <h1>Library</h1>
+        <div class="row-acts" style="margin-bottom:18px">
+          <button class="btn" id="bNewPl"><svg class="ic s"><use href="#i-plus"/></svg>New playlist</button>
+          <button class="btn g" id="bImportPl"><svg class="ic s"><use href="#i-import"/></svg>Add a shared playlist</button>
+        </div>
+        <div class="grid" id="libG"></div>
+      </section>
+
+      <!-- Плейлист / список -->
+      <section class="view" id="vList">
+        <button class="back" data-back><svg class="ic s"><use href="#i-back"/></svg>Back</button>
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:6px 0 4px">
+          <h1 id="lName" style="margin:0"></h1>
+          <div class="row-acts">
+            <button class="btn" id="lPlay"><svg class="ic s f"><use href="#i-play"/></svg>Play</button>
+            <button class="btn g" id="lShuffle"><svg class="ic s"><use href="#i-shuffle"/></svg></button>
+            <button class="btn g" id="lAdd" style="display:none"><svg class="ic s"><use href="#i-plus"/></svg>Add tracks</button>
+            <button class="btn g" id="lSave" style="display:none">Save as playlist</button>
+            <button class="btn g" id="lMenu"><svg class="ic s"><use href="#i-dots"/></svg></button>
+          </div>
+        </div>
+        <div class="muted" id="lCount" style="margin:4px 0 18px"></div>
+        <div class="list" id="lTracks"></div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<!-- Плеер -->
+<div id="player">
+  <div id="pInfo" title="Open player">
+    <img id="pArt" class="ph" alt="">
+    <div style="min-width:0">
+      <div id="pTitle" class="clip">Nothing is playing</div>
+      <div id="pArtist" class="clip">Pick a track</div>
+      <button id="pSource" title="Change the source of this track"></button>
+    </div>
+  </div>
+  <div id="pCtl">
+    <div id="pBtns">
+      <button id="pShuffle" title="Shuffle (S)"><svg class="ic s"><use href="#i-shuffle"/></svg></button>
+      <button id="pPrev" title="Previous"><svg class="ic f"><use href="#i-prev"/></svg></button>
+      <button id="pPlay" title="Play / pause (Space)"><svg class="ic f"><use href="#i-play"/></svg></button>
+      <button id="pNext" title="Next"><svg class="ic f"><use href="#i-next"/></svg></button>
+      <button id="pRepeat" title="Repeat (R)"><svg class="ic s"><use href="#i-repeat"/></svg></button>
+    </div>
+    <div class="bar">
+      <span class="tm" id="pCur">0:00</span>
+      <div class="track" id="pTrack">
+        <div class="rail"></div><div class="buf" id="pBuf"></div>
+        <div class="fill" id="pFill"></div><div class="knob" id="pKnob"></div>
+      </div>
+      <span class="tm tap" id="pDur" title="Click to switch to time left">0:00</span>
+    </div>
+  </div>
+  <div id="pRight">
+    <button class="ib" id="pVideo" title="Watch clip"><svg class="ic s"><use href="#i-youtube"/></svg></button>
+    <button class="ib" id="pLike" title="Like (L)"><svg class="ic s"><use href="#i-heart"/></svg></button>
+    <button class="ib" id="pAdd" title="To playlist"><svg class="ic s"><use href="#i-plus"/></svg></button>
+    <button class="ib" id="pQueue" title="Queue (Q)"><svg class="ic s"><use href="#i-queue"/></svg></button>
+    <div id="volWrap">
+      <button class="ib" id="pMute" style="width:32px;height:32px"><svg class="ic s"><use href="#i-vol"/></svg></button>
+      <input type="range" id="vol" min="0" max="100" value="100">
+    </div>
+  </div>
+  <div id="pMobBar">
+    <div class="bar">
+      <span class="tm" id="pCurM">0:00</span>
+      <div class="track" id="pTrackM">
+        <div class="rail"></div><div class="buf" id="pBufM"></div>
+        <div class="fill" id="pFillM"></div><div class="knob"></div>
+      </div>
+      <span class="tm" id="pDurM">0:00</span>
+    </div>
+    <div id="pMobBtns">
+      <button id="pShuffleM"><svg class="ic s"><use href="#i-shuffle"/></svg></button>
+      <button id="pPrevM"><svg class="ic f"><use href="#i-prev"/></svg></button>
+      <button id="pMobPlay"><svg class="ic f"><use href="#i-play"/></svg></button>
+      <button id="pNextM"><svg class="ic f"><use href="#i-next"/></svg></button>
+      <button id="pLikeM"><svg class="ic s"><use href="#i-heart"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<nav id="mobNav">
+  <button class="on" data-nav="home"><svg class="ic"><use href="#i-home"/></svg>Home</button>
+  <button data-nav="search"><svg class="ic"><use href="#i-search"/></svg>Search</button>
+  <button data-nav="lib"><svg class="ic"><use href="#i-lib"/></svg>Library</button>
+  <button data-nav="liked"><svg class="ic"><use href="#i-heart"/></svg>Liked</button>
+  <button id="mobSettings"><svg class="ic"><use href="#i-gear"/></svg>More</button>
+</nav>
+
+<!-- Полноэкранный плеер + караоке -->
+<div id="now">
+  <div id="coverFlow23" aria-hidden="true"><i></i><i></i></div>
+  <div id="nowWall"></div>
+  <div id="nowCustom"></div>
+  <video id="nowVid" muted loop playsinline disablepictureinpicture></video>
+  <div id="nowArtBg"></div>
+  <canvas id="nowCanvas"></canvas>
+  <div id="nowVeil"></div>
+  <div id="nowIn">
+    <div id="nowTop">
+      <button class="ib" id="nClose"><svg class="ic"><use href="#i-down"/></svg></button>
+      <div class="muted"></div>
+      <div style="display:flex;gap:4px">
+        <button class="ib" id="nVideo" title="Watch clip"><svg class="ic"><use href="#i-youtube"/></svg></button>
+        <button class="ib" id="nFocus" title="Lyrics only"><svg class="ic"><use href="#i-lyrics"/></svg></button>
+        <button class="ib" id="nLyrics" title="Reload lyrics"><svg class="ic"><use href="#i-spark"/></svg></button>
+        <button class="ib" id="nQueue" title="Queue"><svg class="ic"><use href="#i-queue"/></svg></button>
+      </div>
+    </div>
+    <div id="nowBody">
+      <div id="nowLeft">
+        <img id="nArt" alt="">
+        <div>
+          <div id="nTitle" class="clip"></div>
+          <div id="nArtist" class="clip"></div>
+        </div>
+        <div class="bar">
+          <span class="tm" id="nCur">0:00</span>
+          <div class="track" id="nTrack">
+            <div class="rail"></div><div class="buf" id="nBuf"></div>
+            <div class="fill" id="nFill"></div><div class="knob"></div>
+          </div>
+          <span class="tm" id="nDur">0:00</span>
+        </div>
+        <div id="nBtns">
+          <button id="nShuffle"><svg class="ic s"><use href="#i-shuffle"/></svg></button>
+          <button id="nPrev"><svg class="ic f"><use href="#i-prev"/></svg></button>
+          <button id="nPlay"><svg class="ic f"><use href="#i-play"/></svg></button>
+          <button id="nNext"><svg class="ic f"><use href="#i-next"/></svg></button>
+          <button id="nRepeat"><svg class="ic s"><use href="#i-repeat"/></svg></button>
+        </div>
+        <div class="row-acts" style="justify-content:center">
+          <button class="ib" id="nLike"><svg class="ic s"><use href="#i-heart"/></svg></button>
+          <button class="ib" id="nAdd"><svg class="ic s"><use href="#i-plus"/></svg></button>
+        </div>
+        <div class="row-acts" id="nSyncRow" style="justify-content:center">
+          <button class="chip" id="nSyncBack" title="Lyrics are ahead of the music; hold Shift for half a second">-0.1s</button>
+          <button class="chip" id="nSyncVal" title="Reset the lyrics timing for this track">0.0s</button>
+          <button class="chip" id="nSyncFwd" title="Lyrics are behind the music; hold Shift for half a second">+0.1s</button>
+          <button class="chip" id="nSyncTap" title="Press at the very start of a line (T)">Tap · T</button>
+        </div>
+      </div>
+      <div id="lyrics"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Отдельный тематический экран музыкальных клипов -->
+<section id="clips" aria-hidden="true" aria-label="Clip studio">
+ <header class="cs-head"><div><span class="cs-eyebrow">KRYO / CLIP STUDIO</span><h1>Clip studio</h1></div><button class="btn g" id="clipClose">Close · Esc</button></header>
+ <div class="cs-advisory"><div><b>A verified account session via cookies is recommended for YouTube.</b><p id="clipCookieState">This is advice, not a block. YouTube may require sign-in; cookies do not guarantee access. Do not share them with others.</p></div><button class="btn g" id="clipCookies">Configure session</button></div>
+ <div class="cs-layout"><main class="cs-main">
+  <div class="cs-title"><div><h2 id="clipTitle">Choose a video</h2><p id="clipMeta">Current track, queue or original video link</p></div><a id="clipSource" target="_blank" rel="noopener noreferrer" hidden>Open YouTube ↗</a></div>
+  <div id="clipStage" class="cs-stage"><video id="clipVideo" tabindex="0" aria-label="Clip video" playsinline preload="auto"></video><audio id="clipAudio" preload="auto" hidden></audio><div id="clipEmpty"><img src="/img/avatars/kryonyx-core.png" alt="Kryo"><b>Your separate video player</b><span>Open the original link or choose a clip from the queue.</span></div><div id="clipBusy" class="cs-busy" hidden><b id="clipBusyText">Preparing…</b><span>Video and audio download in the background</span></div><div id="clipError" class="cs-error" role="alert" hidden><b>Could not open the video</b><p id="clipErrorText"></p><button class="btn" id="clipErrorRetry">Retry download</button></div><div class="cs-fullcontrols"><button class="btn" id="clipFullPlay">Play</button><button class="btn g" id="clipFullBack">−10 s</button><button class="btn g" id="clipFullFwd">+10 s</button><button class="btn g" id="clipFullExit">Exit fullscreen</button></div></div>
+  <div class="cs-transport"><label class="cs-seek"><span class="sr-only">Clip position</span><input id="clipSeek" type="range" min="0" max="1000" step="1" value="0"></label><div class="cs-controls"><button class="btn" id="clipPlay">Play</button><button class="btn g" id="clipBack" aria-label="Back 10 seconds">−10 s</button><button class="btn g" id="clipFwd" aria-label="Forward 10 seconds">+10 s</button><button class="btn g" id="clipNext">Next</button><span id="clipTime">0:00 / 0:00</span><label class="cs-volume">Loudness<input id="clipVolume" type="range" min="0" max="100" value="100"></label><button class="btn g" id="clipFull">Fullscreen</button></div></div>
+  <div class="cs-status" role="status" aria-live="polite"><span id="clipStatus">Ready to start</span><span id="clipProgressText">—</span></div><progress id="clipProgress" max="1" value="0" aria-label="Clip download"></progress>
+  <div class="cs-tabs" role="tablist" aria-label="Clip tools"><button role="tab" aria-selected="true" data-clip-tab="download">Downloading</button><button role="tab" aria-selected="false" data-clip-tab="tools">View</button><button role="tab" aria-selected="false" data-clip-tab="settings">Start settings</button></div>
+  <section class="cs-panel" id="clipPanel-download" role="tabpanel"><div class="cs-metrics"><div><span>Video</span><b id="clipVideoProgress">—</b></div><div><span>Sound</span><b id="clipAudioProgress">—</b></div><div><span>Speed / remaining</span><b id="clipRate">—</b></div><div><span>Buffer ahead</span><b id="clipBuffer">—</b></div></div><div class="cs-actions"><button class="btn g" id="clipDownloadPause">Pause download</button><button class="btn g" id="clipReload">Retry</button><button class="btn g" id="clipCancel">Cancel download</button><a class="btn" id="clipDownload" hidden download>Download original</a></div><p class="cs-note" id="clipDownloadNote">The clip plays while downloading. The complete file becomes available after the original tracks finish downloading and merging without re-encoding.</p></section>
+  <section class="cs-panel" id="clipPanel-tools" role="tabpanel" hidden><div class="cs-tools-grid"><label>Speed<select id="clipSpeed"><option value="0.5">0.5×</option><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option><option value="2">2×</option></select></label><button class="btn g" id="clipPip">Picture in picture</button><button class="btn g" id="clipTheater">Theatre mode</button><button class="btn g" id="clipSnapshot">Save frame</button></div><div class="cs-actions"><button class="btn g" id="clipMarkA">A: start</button><button class="btn g" id="clipMarkB">B: end</button><button class="btn g" id="clipClearAB">Reset A–B</button><span id="clipAB">No loop segment selected</span></div><div class="cs-checks"><label><input id="clipLoop" type="checkbox">Loop clip</label><label><input id="clipAutoNext" type="checkbox" checked>Auto next</label><label><input id="clipPrefetch" type="checkbox">Preload the next clip</label></div><label class="cs-caption-file">VTT / SRT subtitles<input id="clipCaption" type="file" accept=".vtt,.srt"></label><p class="cs-note">Space — pause · ← / → — 5 s · M — mute · F — fullscreen · N — next. Subtitles and A–B apply to the open clip.</p></section>
+  <section class="cs-panel" id="clipPanel-settings" role="tabpanel" hidden><div class="cs-tools-grid"><label>Quality<select id="clipQuality"><option value="720">720p · Recommended</option><option value="240">240p</option><option value="360">360p</option><option value="480">480p</option><option value="1080">1080p</option><option value="1440">1440p</option><option value="2160">2160p</option></select></label><label>Start at approximately<select id="clipStartPercent"><option value="0">When buffer is ready</option><option value="5">5% of each track</option><option value="10" selected>10% of each track</option><option value="20">20% of each track</option><option value="50">50% of each track</option></select></label><label>Minimum buffer<select id="clipMinBuffer"><option value="1">1 second</option><option value="3" selected>3 seconds</option><option value="5">5 seconds</option><option value="10">10 seconds</option></select></label></div><div class="cs-checks"><label><input id="clipKeepDownloading" type="checkbox">Keep downloading after closing</label><label><input id="clipResume" type="checkbox" checked>Remember clip position</label></div><p class="cs-note">10% is a starting threshold, not a guarantee: decodable tracks and enough buffer are required. When size is unknown, buffer readiness is used. Available quality depends on the original. Changing quality starts a new download and pauses the old one.</p></section>
+ </main><aside class="cs-sidebar"><h2>Up next</h2><form id="clipSearchForm"><label for="clipSearch">Search or YouTube link</label><div class="cs-search"><input id="clipSearch" type="search" placeholder="Title, artist or URL" autocomplete="off"><button class="btn" id="clipSearchGo" type="submit">Open</button></div></form><div class="cs-side-tabs"><button class="btn g" id="clipQueueTab">Music queue</button><button class="btn g" id="clipArtistTab">This artist</button></div><p id="clipListLabel" class="cs-note">Clips do not change the music queue</p><div id="clipList"></div><details class="cs-jobs"><summary>Background downloads</summary><div id="clipJobs"></div><button class="btn g" id="clipJobsRefresh">Refresh list</button></details></aside></div>
+</section>
+
+<div id="queue">
+  <header>
+    <span class="q-h">Queue <span class="muted" id="queueCount"></span></span>
+    <span class="q-acts">
+      <button class="btn g sm" id="queueClear">Clear</button>
+      <button class="ib" id="queueClose" aria-label="Close" title="Close"><svg class="ic s"><use href="#i-close"/></svg></button>
+    </span>
+  </header>
+  <div class="hint" style="margin:-6px 0 10px">Drag a row to change the order.</div>
+  <div class="list" id="queueList"></div>
+</div>
+
+<div id="veil"></div>
+
+<!-- Настройки -->
+<div class="modal" id="mSettings">
+  <div class="set-shell">
+  <nav class="set-nav" id="setTabs">
+    <div class="set-nav-h">Settings</div>
+    <!-- Поиск по всем настройкам сразу: см. App.bindSettingsSearch(). -->
+    <div class="set-find">
+      <svg class="ic s"><use href="#i-search"/></svg>
+      <input id="setFind" placeholder="Search settings…" autocomplete="off" spellcheck="false">
+    </div>
+    <button class="set-nav-i on" data-pane="look"><svg class="ic s"><use href="#i-gear"/></svg><span>General</span></button>
+    <button class="set-nav-i" data-pane="themes"><svg class="ic s"><use href="#i-palette"/></svg><span>Themes</span></button>
+    <button class="set-nav-i" data-pane="avatar"><svg class="ic s"><use href="#i-user"/></svg><span>Avatar</span></button>
+    <button class="set-nav-i" data-pane="look2"><svg class="ic s"><use href="#i-image"/></svg><span>Wallpaper &amp; look</span></button>
+    <button class="set-nav-i" data-pane="sound"><svg class="ic s"><use href="#i-speed"/></svg><span>Sound</span></button>
+    <button class="set-nav-i" data-pane="karaoke"><svg class="ic s"><use href="#i-lyrics"/></svg><span>Karaoke</span></button>
+    <button class="set-nav-i" data-pane="lib"><svg class="ic s"><use href="#i-lib"/></svg><span>Libraries</span></button>
+    <button class="set-nav-i" data-pane="plugins"><svg class="ic s"><use href="#i-plug"/></svg><span>Plugins</span></button>
+    <button class="set-nav-i" data-pane="importPane"><svg class="ic s"><use href="#i-import"/></svg><span>Transfer</span></button>
+    <button class="set-nav-i" data-pane="integrations"><svg class="ic s"><use href="#i-link"/></svg><span>Integrations</span></button>
+    <button class="set-nav-i" data-pane="keys"><svg class="ic s"><use href="#i-keyboard"/></svg><span>Hotkeys</span></button>
+    <button class="set-nav-i" data-pane="data"><svg class="ic s"><use href="#i-clock"/></svg><span>Data</span></button>
+    <button class="set-nav-i" data-pane="logs"><svg class="ic s"><use href="#i-logs"/></svg><span>Logs</span></button>
+    <button class="set-nav-i" data-pane="lang"><svg class="ic s"><use href="#i-globe"/></svg><span>Language</span></button>
+    <button class="set-nav-i" data-pane="news"><svg class="ic s"><use href="#i-spark"/></svg><span>What's new</span></button>
+  </nav>
+  <div class="set-body">
+
+  <div class="pane on" data-pane="look">
+    <div class="set"><div><div class="l">Corner radius</div><div class="h"><span id="vRadius">18</span> px</div></div>
+      <div class="c"><input type="range" id="sRadius" min="0" max="28" step="2"></div></div>
+    <div class="set"><div><div class="l">Floating artwork</div></div><div class="c"><div class="sw" data-sw="spin"></div></div></div>
+    <div class="set"><div><div class="l">Compact lists</div></div><div class="c"><div class="sw" data-sw="compact"></div></div></div>
+    <div class="set"><div><div class="l">Flat style</div><div class="h">No gradients or glow — enabled by OLED themes</div></div><div class="c"><div class="sw" data-sw="flat"></div></div></div>
+    <div class="set"><div><div class="l">Narrow menu</div><div class="h">Icons only on the left</div></div><div class="c"><div class="sw" data-sw="rail"></div></div></div>
+    <div class="set"><div><div class="l">Fewer animations</div><div class="h">For slower machines</div></div><div class="c"><div class="sw" data-sw="noAnim"></div></div></div>
+    <div class="set"><div><div class="l">Cover art quality</div>
+      <div class="h">Higher quality asks the source for a bigger image: crisp covers everywhere, a little more traffic</div></div>
+      <div class="c tabs" id="kCover"></div></div>
+    <div class="set"><div><div class="l">Karaoke atmosphere</div><div class="h">Dark stage with light that breathes with the music</div></div><div class="c"><div class="sw" data-sw="atmo"></div></div></div>
+
+    <h4>Mini player</h4>
+    <div class="set" id="miniPlayerRow"><div><div class="l">Mini player on top of all windows</div>
+      <div class="h">A small window with the cover, the track and play, pause and skip buttons stays above every app</div></div>
+      <div class="c"><div class="sw" data-sw="miniPlayer"></div></div></div>
+
+    <div class="win-only">
+      <h4>Window</h4>
+      <div class="set"><div><div class="l">Always on top</div>
+        <div class="h">The player stays above other windows</div></div>
+        <div class="c"><div class="sw" data-sw="winOnTop"></div></div></div>
+      <div class="set"><div><div class="l">Remember size and position</div>
+        <div class="h">Opens exactly where you closed it</div></div>
+        <div class="c"><div class="sw" data-sw="winRemember"></div></div></div>
+      <div class="set"><div><div class="l">Wide resize edges</div>
+        <div class="h">Easier to grab the border: edges 12 px, corners 24 px instead of 8 and 18</div></div>
+        <div class="c"><div class="sw" data-sw="winGrab"></div></div></div>
+      <div class="set"><div><div class="l">Resize grip</div>
+        <div class="h">Shows the little corner at the bottom right</div></div>
+        <div class="c"><div class="sw" data-sw="winGrip"></div></div></div>
+      <div class="set"><div><div class="l">Snap the window</div>
+        <div class="h">Also available on right click on the title bar, or Ctrl + Alt + arrows</div></div>
+        <div class="c win-snap">
+          <button class="btn sm g" data-snap="left">Left half</button>
+          <button class="btn sm g" data-snap="right">Right half</button>
+          <button class="btn sm g" data-snap="center">Center</button>
+          <button class="btn sm g" data-snap="full">Maximize</button>
+        </div></div>
+    </div>
+  </div>
+
+  <div class="pane" data-pane="karaoke">
+    <h4>Scene</h4>
+    <div class="set"><div><div class="l">Animated background</div>
+      <div class="h">Reacts to the music; turn it off on a weak machine</div></div>
+      <div class="c"><div class="sw" data-sw="karaokeBg"></div></div></div>
+    <div class="scene-grid" id="kScenes"></div>
+
+    <h4>My look</h4>
+    <div class="set"><div><div class="l">Own cover</div>
+      <div class="h">Shown on the karaoke screen instead of the track artwork — also on the blurred backdrop and in Disc mode</div></div>
+      <div class="c"><div class="sw" data-sw="kCoverOn"></div></div></div>
+    <div class="set"><div><div class="l">Cover picture</div>
+      <div class="h">A file from this computer or a direct link</div></div>
+      <div class="c"><div class="kb-prev" id="kcPrev"></div>
+        <button class="btn" id="kcPick">Choose a file</button>
+        <button class="btn g" id="kcClear">Remove</button>
+        <input type="file" id="kcFile" accept="image/*" hidden></div></div>
+    <div class="set"><div><div class="l">Cover link</div></div>
+      <div class="c"><input id="kcUrl" placeholder="https://…" style="width:260px" spellcheck="false"></div></div>
+    <div class="set"><div><div class="l">Use it for</div></div>
+      <div class="c tabs" id="kcMode"></div></div>
+    <div class="set"><div><div class="l">Cover size</div>
+      <div class="h"><span id="vKArt">100</span> %</div></div>
+      <div class="c"><input type="range" id="sKArt" min="50" max="130" step="5"></div></div>
+    <div class="set"><div><div class="l">Cover sway</div>
+      <div class="h">The artwork gently floats up and down on the karaoke screen</div></div>
+      <div class="c"><div class="sw" data-sw="spin"></div></div></div>
+    <div class="set"><div><div class="l">Background</div>
+      <div class="h">Automatic follows the track; or set your own picture, colour or gradient</div></div>
+      <div class="c tabs wrap" id="kbKind"></div></div>
+    <div class="set" id="kbRowImg"><div><div class="l">Background picture</div>
+      <div class="h">A file or a link; GIFs move</div></div>
+      <div class="c"><div class="kb-prev" id="kbPrev"></div>
+        <button class="btn" id="kbPick">Choose a file</button>
+        <button class="btn g" id="kbClear">Remove</button>
+        <input type="file" id="kbFile" accept="image/*" hidden>
+        <input id="kbUrl" placeholder="https://…" style="width:200px" spellcheck="false"></div></div>
+    <div class="set" id="kbRowCol"><div><div class="l">Colours</div>
+      <div class="h">One colour, or two for a gradient</div></div>
+      <div class="c kb-colors"><input type="color" id="kbC1"><input type="color" id="kbC2">
+        <input type="range" id="sKbAngle" min="0" max="360" step="15" style="width:110px"></div></div>
+    <div class="set" id="kbRowFit"><div><div class="l">How it sits</div></div>
+      <div class="c tabs" id="kbFit"></div></div>
+    <div class="set" id="kbRowFx"><div><div class="l">Blur</div>
+      <div class="h"><span id="vKbBlur">0</span> px</div></div>
+      <div class="c"><input type="range" id="sKbBlur" min="0" max="40" step="1"></div></div>
+    <div class="set" id="kbRowDim"><div><div class="l">Darken</div>
+      <div class="h"><span id="vKbDim">30</span> % — keeps the lyrics readable</div></div>
+      <div class="c"><input type="range" id="sKbDim" min="0" max="90" step="5"></div></div>
+    <div class="set" id="kbRowScene"><div><div class="l">Keep the animated scene</div>
+      <div class="h">Draw the music-reactive scene over your background</div></div>
+      <div class="c"><div class="sw" data-sw="kbScene"></div></div></div>
+
+    <h4>Video avatar</h4>
+    <div class="set"><div><div class="l">Video instead of the artwork</div>
+      <div class="h">A muted looping video in a frame, like a profile picture: choose the shape, move and zoom it, pick the part that repeats. Works in «Artwork and lyrics» mode</div>
+      <div class="h" id="vavState"></div></div>
+      <div class="c"><button class="btn" id="vavOpen">Set up…</button></div></div>
+
+    <h4>Background video</h4>
+    <div class="set"><div><div class="l">Video behind the player</div>
+      <div class="h">A muted looping video on the background of every karaoke mode; plays with the music</div></div>
+      <div class="c"><button class="btn" id="vbgPick">Choose a video</button>
+        <button class="btn g" id="vbgClear">Remove</button>
+        <input type="file" id="vbgFile" accept="video/*" hidden></div></div>
+    <div class="set"><div><div class="l">Show the video</div></div>
+      <div class="c"><div class="sw" data-sw="vbgOn"></div></div></div>
+    <div class="set"><div><div class="l">How it sits</div></div>
+      <div class="c tabs" id="vbgFit"></div></div>
+    <div class="set"><div><div class="l">Blur</div>
+      <div class="h"><span id="vVbgBlur">0</span> px</div></div>
+      <div class="c"><input type="range" id="sVbgBlur" min="0" max="40" step="1"></div></div>
+    <div class="set"><div><div class="l">Darken</div>
+      <div class="h"><span id="vVbgDim">35</span> % — keeps the lyrics readable</div></div>
+      <div class="c"><input type="range" id="sVbgDim" min="0" max="90" step="5"></div></div>
+
+    <h4>Layout</h4>
+    <div class="set"><div><div class="l">Mode</div>
+      <div class="h">Where the lyrics live on the player screen</div></div>
+      <div class="c tabs" id="kMode"></div></div>
+    <div class="set"><div><div class="l">Alignment</div></div>
+      <div class="c tabs" id="kAlign"></div></div>
+    <div class="set"><div><div class="l">Text size</div></div>
+      <div class="c tabs" id="kSize"></div></div>
+    <div class="set"><div><div class="l">Look of the lyrics</div>
+      <div class="h">Glow is our own look; Apple is flat bold text without blur and glow</div></div>
+      <div class="c tabs" id="kLook"></div></div>
+    <div class="set"><div><div class="l">Player controls</div>
+      <div class="h"><span data-ui-i18n>Hide extra interface</span> · H / Esc</div></div>
+      <div class="c"><div class="sw" data-sw="playerControls"></div></div></div>
+
+    <h4>Highlight</h4>
+    <div class="set"><div><div class="l">Highlight colour</div>
+      <div class="h">Colour of the line that is being sung</div></div>
+      <div class="c tabs" id="kLit"></div></div>
+    <div class="set"><div><div class="l">Dim the other lines</div>
+      <div class="h">Lines further from the current one fade and blur</div></div>
+      <div class="c"><div class="sw" data-sw="karaokeDim"></div></div></div>
+    <div class="set"><div><div class="l">Counting dots in breaks</div>
+      <div class="h">Shows how long the instrumental pause lasts</div></div>
+      <div class="c"><div class="sw" data-sw="karaokeDots"></div></div></div>
+
+    <h4>Lyrics</h4>
+    <div class="set"><div><div class="l">Lyrics automatically</div>
+      <div class="h">Load synced lyrics when a track starts</div></div>
+      <div class="c"><div class="sw" data-sw="autoLyrics"></div></div></div>
+    <div class="set">
+      <div><div class="l">Lyrics offset</div>
+        <div class="h"><span id="vLyricsOffset">0.0</span> s — negative if lyrics run ahead, up to 8 seconds either way</div></div>
+      <div class="c"><input type="range" id="sLyricsOffset" min="-8" max="8" step="0.01" style="width:150px"></div>
+    </div>
+    <div class="set"><div><div class="l">Find lyrics by hand</div>
+      <div class="h">Search the lyrics database by the nickname of the artist and the title of the song, then pick the record yourself</div></div>
+      <div class="c"><button class="btn g" id="kFind">Find lyrics</button></div></div>
+    <div class="set"><div><div class="l">Match the timing by ear</div>
+      <div class="h">Some uploads start with an intro the lyrics know nothing about, and karaoke runs ahead or lags. The player compares the voice with the markup and shifts the text by itself; the correction stays in the timing field and can be reset there</div></div>
+      <div class="c"><div class="sw" data-sw="lyricsAutoSync"></div></div></div>
+    <div class="set"><div><div class="l">Stretch lyrics to the track</div>
+      <div class="h">Timings are taken from another release: the scale is stretched to your file so the text does not drift by the end</div></div>
+      <div class="c"><div class="sw" data-sw="lyricsFit"></div></div></div>
+
+    <div class="set"><div><div class="l">Karaoke only</div>
+      <div class="h">Hides the buttons: artwork, title, artist and lyrics stay. Move the mouse to bring the buttons back</div></div>
+      <div class="c"><div class="sw" data-sw="karaokeBare"></div></div></div>
+
+    <h4>Disc mode</h4>
+    <div class="set"><div><div class="l">Lyrics sync</div>
+      <div class="h">Word by word like a lyric video, or a whole line at once</div></div>
+      <div class="c tabs" id="dSync"></div></div>
+    <div class="set"><div><div class="l">Where the lyrics go</div></div>
+      <div class="c tabs" id="dLayout"></div></div>
+    <div class="set"><div><div class="l">Disc look</div>
+      <div class="h">Jewel case from the clip, a bare disc or a vinyl record</div></div>
+      <div class="c tabs" id="dSkin"></div></div>
+    <div class="set"><div><div class="l">Disc size</div>
+      <div class="h"><span id="vDiscSize">100</span> %</div></div>
+      <div class="c"><input type="range" id="sDiscSize" min="60" max="140" step="5"></div></div>
+    <div class="set"><div><div class="l">Lyrics size on the disc screen</div>
+      <div class="h"><span id="vDiscTextSize">100</span> %</div></div>
+      <div class="c"><input type="range" id="sDiscTextSize" min="60" max="150" step="5"></div></div>
+    <div class="set"><div><div class="l">Seconds per turn</div>
+      <div class="h"><span id="vDiscSpinSpeed">8</span> s</div></div>
+      <div class="c"><input type="range" id="sDiscSpinSpeed" min="2" max="24" step="1"></div></div>
+    <div class="set"><div><div class="l">Lines on screen</div>
+      <div class="h"><span id="vDiscLines">4</span></div></div>
+      <div class="c"><input type="range" id="sDiscLines" min="1" max="8" step="1"></div></div>
+    <div class="set"><div><div class="l">Word timing</div>
+      <div class="h"><span id="vDiscLead">0.00</span> s — negative shows words earlier</div></div>
+      <div class="c"><input type="range" id="sDiscLead" min="-1" max="1" step="0.05"></div></div>
+    <div class="set"><div><div class="l">Hold before a word</div>
+      <div class="h"><span id="vDiscHold">0.25</span> s — bigger values never let words run ahead of the voice</div></div>
+      <div class="c"><input type="range" id="sDiscHold" min="0" max="1.2" step="0.01"></div></div>
+    <div class="set"><div><div class="l">Keep the line on screen</div>
+      <div class="h"><span id="vDiscLinger">1.6</span> s after it ends</div></div>
+      <div class="c"><input type="range" id="sDiscLinger" min="0" max="6" step="0.2"></div></div>
+    <div class="set"><div><div class="l">Soft word appearance</div>
+      <div class="h">A word fades in instead of popping up</div></div>
+      <div class="c"><div class="sw" data-sw="discFade"></div></div></div>
+    <div class="set"><div><div class="l">Film grain on the letters</div></div>
+      <div class="c"><div class="sw" data-sw="discGrain"></div></div></div>
+    <div class="set"><div><div class="l">First word in italics</div></div>
+      <div class="c"><div class="sw" data-sw="discItalic"></div></div></div>
+    <div class="set"><div><div class="l">Glow around the case</div>
+      <div class="h">Coloured by the cover, or the white clip-style bloom</div></div>
+      <div class="c tabs" id="dGlow"></div></div>
+    <div class="set"><div><div class="l">Light pulses with the music</div>
+      <div class="h">Glow and brightness breathe on the bass, like in the clip</div></div>
+      <div class="c"><div class="sw" data-sw="discPulse"></div></div></div>
+    <div class="set"><div><div class="l">Effect sensitivity</div>
+      <div class="h">How strongly the karaoke background, the disc and the visualiser react to the music</div></div>
+      <div class="c"><input type="range" id="sReactSense" min="20" max="200" step="5"></div></div>
+    <div class="set"><div><div class="l">Glowing words</div>
+      <div class="h">White bloom around the lyrics</div></div>
+      <div class="c"><div class="sw" data-sw="discBloom"></div></div></div>
+    <div class="set"><div><div class="l">Vignette</div>
+      <div class="h">Darkens the edges of the stage</div></div>
+      <div class="c"><div class="sw" data-sw="discVignette"></div></div></div>
+    <div class="set"><div><div class="l">Reflection under the case</div></div>
+      <div class="c"><div class="sw" data-sw="discReflect"></div></div></div>
+    <div class="set"><div><div class="l">Track name at the bottom</div></div>
+      <div class="c"><div class="sw" data-sw="discMeta"></div></div></div>
+    <div class="set"><div><div class="l">Large buttons</div></div>
+      <div class="c"><div class="sw" data-sw="discBigButtons"></div></div></div>
+  </div>
+
+  <div class="pane" data-pane="lib">
+    <div class="set"><div><div class="l">Where to search</div>
+      <div class="h">Disabled libraries are skipped in search and recommendations</div></div></div>
+    <div id="libList"></div>
+    <div class="hint">YouTube and SoundCloud give the widest catalog. Audius, Bandcamp, Internet Archive,
+      Mixcloud and internet radio return direct links, so they start faster and play more reliably.</div>
+    <h4>If a track will not play</h4>
+    <div class="set"><div><div class="l">Look for a copy in another library</div>
+      <div class="h">If a source fails, the same track is taken elsewhere</div></div>
+      <div class="c"><div class="sw" data-sw="autoFallback"></div></div></div>
+    <div class="set"><div><div class="l">Library status</div>
+      <div class="h" id="srcState">Checking…</div></div>
+      <div class="c"><button class="btn g" id="bCheck">Check</button></div></div>
+    <h4>Network</h4>
+    <div class="set"><div><div class="l">Proxy / VPN</div>
+      <div class="h" id="npLine">Direct connection</div></div>
+      <div class="c"><button class="btn g" id="bProxy">Set up</button></div></div>
+    <h4>Music videos</h4>
+    <div class="set"><div><div class="l">Download the clip along with the track</div>
+      <div class="h">The clip is saved to disk while the track plays, so it opens at once and rewinds instantly</div></div>
+      <div class="c"><div class="sw" data-sw="clipPreload"></div></div></div>
+    <div class="set"><div><div class="l">Saved clips</div>
+      <div class="h" id="clipCacheState">Checking…</div></div>
+      <div class="c"><button class="btn g" id="bClipCache">Clear</button></div></div>
+    <h4>YouTube engine</h4>
+    <div class="set"><div><div class="l">YouTube cookies</div>
+      <div class="h" id="ytcLine">Helps when YouTube asks to confirm you are not a bot</div></div>
+      <div class="c"><button class="btn g" id="bYtCookies">Set up</button></div></div>
+    <div class="set"><div><div class="l">Update yt-dlp</div>
+      <div class="h" id="ytdlpState">yt-dlp installs and updates itself</div>
+      <div class="h">Checking by hand is optional: the app does it in the background</div></div>
+      <div class="c"><button class="btn g" id="bYtdlp">Check</button></div></div>
+  </div>
+
+  <div class="pane" data-pane="plugins">
+    <div class="plug-top">
+      <div class="tabs" id="plugTabs">
+        <button class="chip" data-ptab="installed">Installed</button>
+        <button class="chip on" data-ptab="store">Store</button>
+      </div>
+      <div class="muted" id="plugCount"></div>
+    </div>
+    <div class="plug-search">
+      <svg class="ic s"><use href="#i-search"/></svg>
+      <input id="plugSearch" placeholder="Search plugins…" autocomplete="off" spellcheck="false">
+    </div>
+    <div class="tabs wrap" id="plugCats"></div>
+    <div id="plugList"></div>
+    <div class="set" style="margin-top:14px"><div><div class="l">Reset the catalogue</div>
+      <div class="h">Back to the plugins that ship with the app</div></div>
+      <div class="c"><button class="btn g" id="plugReset">Reset</button></div></div>
+    <div class="set"><div><div class="l">Check that plugins work</div>
+      <div class="h">Every enabled plugin makes one real request to its service</div></div>
+      <div class="c"><button class="btn g" id="plugTestAll">Test all</button></div></div>
+    <h4>Your own plugins and libraries</h4>
+    <!-- Одна сплошная фраза: теги <code> резали её на куски, которые
+         переводились по отдельности (точнее, не переводились вовсе). -->
+    <div class="hint">Put a .py file (or a folder with plugin.py) into the folder below and press
+      Reload — no restart needed. A plugin can add a search source, a row on the home screen and its
+      own settings. Python libraries from the lib folder are importable from plugins.</div>
+    <div id="custBox"></div>
+    <input type="file" id="custFile" accept=".py,.zip" style="display:none">
+    <h4>Will it run on this device</h4>
+    <div class="set"><div><div class="l">Local check</div>
+      <div class="h">Folders, port, database, libraries and the player window — everything the
+        app needs on this computer. The player is local: it answers only to this device.</div></div>
+      <div class="c"><button class="btn g" id="docRun">Check</button></div></div>
+    <div id="docBox"></div>
+    <div class="set"><div><div class="l">Check disabled plugins too</div>
+      <div class="h">A disabled plugin is asked directly: the service may answer while the
+        plugin itself stays out of the app</div></div>
+      <div class="c"><div class="sw" id="plugTestForce"></div></div></div>
+    <div class="hint">Plugins are built into the app: nothing is downloaded, installing only
+      switches a capability on. Streaming plugins add libraries to search, metadata plugins
+      enrich artwork and album info, scrobbling plugins send your listens.</div>
+  </div>
+
+  <div class="pane" data-pane="importPane">
+    <div class="set"><div><div class="l">Transfer a playlist</div>
+      <div class="h">Spotify, YouTube and SoundCloud links are matched to playable audio</div></div>
+      <div class="c"><button class="btn" data-convert-open>Open</button></div></div>
+    <div class="hint">Nothing is copied from those services: only the public track list is read,
+      then each track is searched in your enabled libraries. Private playlists are not available.</div>
+  </div>
+
+  <div class="pane" data-pane="themes">
+    <div class="plug-top">
+      <div class="tabs wrap" id="themeGroups"></div>
+      <div class="muted" id="themeCount"></div>
+    </div>
+    <div class="plug-search">
+      <svg class="ic s"><use href="#i-search"/></svg>
+      <input id="themeSearch" placeholder="Search themes…" autocomplete="off" spellcheck="false">
+    </div>
+    <div class="themes" id="themeList"></div>
+    <div class="set">
+      <div><div class="l">Custom theme</div><div class="h">Accent, second color and background</div></div>
+      <div class="c">
+        <input type="color" id="cAccent" title="Accent">
+        <input type="color" id="cAccent2" title="Second color">
+        <input type="color" id="cBg" title="Background">
+        <button class="btn g" id="themeRandom">Surprise me</button>
+      </div>
+    </div>
+    <div class="hint">Community palettes are colour schemes recreated by eye as a tribute —
+      no code or assets from those apps are used, and this player is not affiliated with them.</div>
+
+    <h4>Colour correction</h4>
+    <div class="hint">Works on top of any theme, including the drawn and light ones. The palette
+      itself stays as it is — these are your own corrections, and Reset brings everything back.</div>
+    <div id="tuneList"></div>
+    <div class="set"><div><div class="l">Reset the correction</div>
+      <div class="h">All sliders back to the middle</div></div>
+      <div class="c"><button class="btn g" id="tuneReset">Reset</button></div></div>
+
+    <h4>Share the theme</h4>
+    <div class="hint">Export writes the whole look into one small file: palette, correction,
+      drawn layer, wallpaper and your CSS. Send it to a friend — Import loads it back exactly.</div>
+    <div class="set"><div><div class="l">Theme name</div>
+      <div class="h">Goes into the file and into the file name</div></div>
+      <div class="c"><input id="themeName" placeholder="My theme" style="width:220px" spellcheck="false"></div></div>
+    <div class="set"><div><div class="l">Theme file</div>
+      <div class="h">A .kryonyx-theme.json file, plain text inside</div></div>
+      <div class="c">
+        <button class="btn" id="themeExport">Export</button>
+        <button class="btn g" id="themeImport">Import</button>
+        <input type="file" id="themeFile" accept=".json,application/json" hidden>
+      </div></div>
+  </div>
+
+  <!-- Аватарка приложения: она же иконка окна, панели задач и ярлыков. -->
+  <div class="pane" data-pane="avatar">
+    <div class="plug-top">
+      <b>All avatars</b>
+      <div class="muted" id="avaCount"></div>
+    </div>
+    <div class="avatars" id="avaList"></div>
+    <div class="hint" id="avaHint"></div>
+  </div>
+
+
+  <div class="pane" data-pane="look2">
+    <h4>Wallpaper</h4>
+    <div class="wall-list" id="wallPresets"></div>
+    <div class="set"><div><div class="l">Your own image</div>
+      <div class="h">A file from this computer or a direct link to a picture</div></div>
+      <div class="c">
+        <button class="btn" id="wallPick">Choose a file</button>
+        <button class="btn g" id="wallClear">Remove</button>
+        <input type="file" id="wallFile" accept="image/*" hidden>
+      </div></div>
+    <div class="set"><div><div class="l">Image link</div></div>
+      <div class="c"><input id="wallUrl" placeholder="https://…" style="width:260px" spellcheck="false"></div></div>
+    <div class="set"><div><div class="l">How it sits</div></div>
+      <div class="c tabs wrap" id="wallMode"></div></div>
+    <div class="set"><div><div class="l">Where it shows</div></div>
+      <div class="c tabs wrap" id="wallScope"></div></div>
+    <div class="set"><div><div class="l">Strength</div>
+      <div class="h"><span id="vWallOpacity">40</span> %</div></div>
+      <div class="c"><input type="range" id="sWallOpacity" min="0" max="100" step="5"></div></div>
+    <div class="set"><div><div class="l">Blur</div>
+      <div class="h"><span id="vWallBlur">0</span> px — a blurred wallpaper never fights with the text</div></div>
+      <div class="c"><input type="range" id="sWallBlur" min="0" max="40" step="1"></div></div>
+    <div class="set"><div><div class="l">Shade on top</div>
+      <div class="h"><span id="vWallDim">30</span> % — darkens or lightens the picture so the interface stays readable</div></div>
+      <div class="c"><input type="range" id="sWallDim" min="0" max="85" step="5"></div></div>
+
+    <h4>Interface</h4>
+    <div class="set"><div><div class="l">Font</div></div>
+      <div class="c tabs wrap" id="uiFont"></div></div>
+    <div class="set"><div><div class="l">Interface size</div>
+      <div class="h"><span id="vUiScale">100</span> %</div></div>
+      <div class="c"><input type="range" id="sUiScale" min="85" max="125" step="5"></div></div>
+    <div class="set"><div><div class="l">Cover shape</div></div>
+      <div class="c tabs wrap" id="uiShape"></div></div>
+    <div class="set"><div><div class="l">Progress bar</div></div>
+      <div class="c tabs wrap" id="uiBar"></div></div>
+    <div class="set"><div><div class="l">Blur behind panels</div>
+      <div class="h"><span id="vGlass">22</span> px</div></div>
+      <div class="c"><input type="range" id="sGlass" min="0" max="40" step="2"></div></div>
+
+    <h4>Your own CSS</h4>
+    <div class="hint">For those who want the last word. The rule is applied live and saved with the settings.</div>
+    <textarea class="ui-css" id="uiCss" spellcheck="false" placeholder=".card { border-radius: 4px }"></textarea>
+    <div class="set"><div><div class="l">Reset the look</div>
+      <div class="h">Font, size, shapes, bar and your CSS</div></div>
+      <div class="c"><button class="btn g" id="uiReset">Reset</button></div></div>
+  </div>
+
+  <div class="pane" data-pane="sound">
+    <div class="set">
+      <div><div class="l">Crossfade</div><div class="h"><span id="vFade">0</span> s — the next track rises while the current one falls, with no gap of silence between them</div></div>
+      <div class="c"><input type="range" id="sFade" min="0" max="12" step="1" style="width:140px"></div>
+    </div>
+    <div class="set">
+      <div><div class="l">Volume normalization</div><div class="h">Evens out quiet and loud tracks</div></div>
+      <div class="c"><div class="sw" data-sw="normalize"></div></div>
+    </div>
+    <div class="set"><div><div class="l">Endless radio</div><div class="h">Adds similar tracks when the queue ends</div></div>
+      <div class="c"><div class="sw" data-sw="endlessRadio"></div></div></div>
+    <div class="set"><div><div class="l">Default volume</div></div>
+      <div class="c"><input type="range" id="sVolume" min="0" max="100" style="width:140px"></div></div>
+    <div class="set"><div><div class="l">Balance</div>
+      <div class="h" id="sBalV">Centre</div></div>
+      <div class="c"><input type="range" id="sBal" min="-100" max="100" step="5" style="width:140px">
+        <button class="btn g sm" id="sBalCenter">Centre</button></div></div>
+
+    <div id="setEq"></div>
+    <div class="hint">The curve is kept on this device and stays exactly as you left it until
+      you change it again. Drag a point, scroll over the graph or use the arrow keys.</div>
+
+    <div class="set" style="margin-top:14px"><div><div class="l">Mixer</div>
+      <div class="h">Volume, balance, crossfade and the equalizer in one window — also on M</div></div>
+      <div class="c"><button class="btn g" id="sOpenMixer">Open the mixer</button></div></div>
+  </div>
+
+  <div class="pane" data-pane="data">
+    <h4>Search and loading</h4>
+    <div class="set"><div><div class="l">Results per query</div>
+      <div class="h">More results take a bit longer to load</div></div>
+      <div class="c"><select id="sLimit">
+        <option value="20">20</option><option value="30">30</option>
+        <option value="40">40</option><option value="60">60</option>
+        <option value="100">100</option></select></div></div>
+    <div class="set"><div><div class="l">Stream expiry</div>
+      <div class="h">Direct audio links die after a while and are resolved again</div></div>
+      <div class="c"><select id="sStreamExpiry">
+        <option value="900000">15 min</option><option value="1800000">30 min</option>
+        <option value="3600000">1 h</option><option value="10800000">3 h</option>
+        <option value="21600000">6 h</option></select></div></div>
+    <div class="set"><div><div class="l">Stream resolution retries</div>
+      <div class="h">After that the source is marked as failed and the next one is used</div></div>
+      <div class="c"><select id="sStreamRetries">
+        <option value="1">1</option><option value="2">2</option>
+        <option value="3">3</option><option value="4">4</option>
+        <option value="6">6</option></select></div></div>
+    <div class="set"><div><div class="l">Preload the next track</div>
+      <div class="h">The next track is fetched early so switching has no gap</div></div>
+      <div class="c"><div class="sw" data-sw="prefetch"></div></div></div>
+
+    <h4>Statistics</h4>
+    <div class="stat-grid" id="statGrid"></div>
+
+    <h4>Maintenance</h4>
+    <div class="set"><div><div class="l">Playback audio cache</div>
+      <div class="h" id="audioCacheState">Counting…</div></div>
+      <div class="c"><button class="btn g" id="bClearAudio">Delete</button></div></div>
+    <div class="set"><div><div class="l">Clear search cache</div><div class="h">Refreshes results and links</div></div>
+      <div class="c"><button class="btn g" id="bClearCache">Clear</button></div></div>
+    <div class="set"><div><div class="l">Clear listening history</div><div class="h">Recommendations start over</div></div>
+      <div class="c"><button class="btn g" id="bClearHistory">Clear</button></div></div>
+    <div class="set"><div><div class="l">Clear search history</div></div>
+      <div class="c"><button class="btn g" id="bClearSearch">Clear</button></div></div>
+    <div class="set"><div><div class="l">Reset settings</div><div class="h">Theme, sound and libraries back to defaults</div></div>
+      <div class="c"><button class="btn g" id="bResetSettings">Reset</button></div></div>
+    <div class="set"><div><div class="l">About</div>
+      <div class="h" id="aboutBox">Kryo</div></div></div>
+    <div class="hint">SoundCloud Go+ previews are filtered out, so lists only contain tracks that play in full.</div>
+  </div>
+
+  <div class="pane" data-pane="integrations">
+    <div class="set"><div><div class="l">Connected services</div>
+      <div class="h">Scrobbling, rich presence and sharing. Fields are stored locally.</div></div>
+      <div class="c"><button class="btn g" id="intRefresh">Check</button></div></div>
+    <div id="intList"></div>
+    <div class="hint">An integration works when its plugin is installed and its fields are filled in.
+      Everything here can also be managed from the Plugins screen.</div>
+  </div>
+
+  <div class="pane" data-pane="keys">
+    <div class="set"><div><div class="l">Keyboard shortcuts</div>
+      <div class="h">Work everywhere except text fields</div></div></div>
+    <div id="keysList"></div>
+  </div>
+
+  <div class="pane" data-pane="logs">
+    <div class="plug-top">
+      <div class="tabs wrap" id="logLevels"></div>
+      <div class="muted" id="logCount"></div>
+    </div>
+    <div class="plug-search">
+      <svg class="ic s"><use href="#i-search"/></svg>
+      <input id="logSearch" placeholder="Filter log lines…" autocomplete="off" spellcheck="false">
+    </div>
+    <div class="row-acts" style="margin-bottom:10px">
+      <button class="btn g" id="logRefresh">Refresh</button>
+      <button class="btn g" id="logCopy">Copy</button>
+      <button class="btn g" id="logClear">Clear</button>
+      <label class="log-live"><span class="sw" data-sw="logFollow"></span><span>Live</span></label>
+    </div>
+    <div id="logList" class="log-list"></div>
+  </div>
+
+  <div class="pane" data-pane="lang">
+    <div class="set"><div><div class="l">Interface language</div>
+      <div class="h">Applies instantly, no restart needed</div></div></div>
+    <div class="tabs" id="langChips"></div>
+  </div>
+
+  <div class="pane" data-pane="news">
+    <div id="newsList"></div>
+  </div>
+
+  </div>
+  </div>
+  <div class="acts"><button class="btn" id="setClose">Done</button></div>
+</div>
+
+<div class="modal" id="mNewPl">
+  <h3>New playlist</h3>
+  <div class="field"><label>Name</label>
+    <input type="text" id="newPlName" maxlength="60" placeholder="For example: Garage"></div>
+  <div class="acts"><button class="btn g" data-close>Cancel</button><button class="btn" id="newPlOk">Create</button></div>
+</div>
+
+<div class="modal" id="mVav">
+  <h3>Video avatar</h3>
+  <div class="muted" id="vavSub"></div>
+  <div class="vav-ed">
+    <div class="vav-crop empty" id="vavCrop">
+      <div class="vav-vbox" id="vavBox"></div>
+      <div class="vav-mask sh-round" id="vavMask"></div>
+      <button class="vav-empty" id="vavEmpty">Choose a video</button>
+    </div>
+    <div class="hint" style="text-align:center">Drag the video to move it, scroll to zoom</div>
+    <div class="set"><div><div class="l">Shape</div></div><div class="c tabs" id="vavShape"></div></div>
+    <div class="set"><div><div class="l">Zoom</div><div class="h" id="vavZoomV">100 %</div></div>
+      <div class="c"><input type="range" id="vavZoom" min="100" max="400" step="5"></div></div>
+    <div class="set"><div><div class="l">Loop from</div><div class="h" id="vavFromV">0:00</div></div>
+      <div class="c"><input type="range" id="vavFrom" min="0" max="1" step="0.1" value="0"></div></div>
+    <div class="set"><div><div class="l">Loop to</div><div class="h" id="vavToV">0:00</div></div>
+      <div class="c"><input type="range" id="vavTo" min="0" max="1" step="0.1" value="1"></div></div>
+    <div class="set"><div><div class="l">For all tracks</div>
+      <div class="h">Otherwise only the current track gets this video</div></div>
+      <div class="c"><div class="sw" id="vavAll"></div></div></div>
+  </div>
+  <input type="file" id="vavFile" accept="video/*" hidden>
+  <div class="acts">
+    <button class="btn g" id="vavRemove">Remove</button>
+    <button class="btn g" id="vavPick">Choose a video</button>
+    <button class="btn g" id="vavCancel">Cancel</button>
+    <button class="btn" id="vavSave">Save</button>
+  </div>
+</div>
+
+<div class="modal" id="mShare">
+  <h3>Share the playlist</h3>
+  <div class="muted" id="shareSub"></div>
+  <div class="hint" style="margin:10px 0 6px">Send this code to a friend: they paste it in
+    Library → Add a shared playlist and get the same tracks.</div>
+  <textarea id="shareCode" class="code-box" readonly rows="5"></textarea>
+  <div class="acts">
+    <button class="btn g" id="shareFile">Save as a file</button>
+    <button class="btn g" data-close>Close</button>
+    <button class="btn" id="shareCopy">Copy the code</button>
+  </div>
+</div>
+
+<div class="modal" id="mImportPl">
+  <h3>Add a shared playlist</h3>
+  <div class="hint" style="margin:2px 0 8px">Paste the code a friend sent you, or pick the
+    .kryx file they saved.</div>
+  <textarea id="importCode" class="code-box" rows="5" placeholder="KRX2:…"></textarea>
+  <input type="file" id="importFile" accept=".kryx,.json,.txt" style="display:none">
+  <div class="acts">
+    <button class="btn g" id="importPick">Choose a file</button>
+    <button class="btn g" data-close>Cancel</button>
+    <button class="btn" id="importOk">Add</button>
+  </div>
+</div>
+
+<div class="modal" id="mImportPick">
+  <h3>What to add</h3>
+  <div class="muted" id="ipSub"></div>
+  <div class="hint" style="margin:8px 0 6px">Pick where the tracks go and untick the ones
+    you do not need.</div>
+  <div class="list" id="ipTargets"></div>
+  <div class="field" id="ipNameRow"><label>Name of the new playlist</label>
+    <input type="text" id="ipName" maxlength="60" placeholder="For example: From a friend"></div>
+  <div class="acts" style="justify-content:flex-start;margin:0 0 6px">
+    <button class="btn g" id="ipAll">Select all</button>
+    <button class="btn g" id="ipNone">Clear</button>
+    <span class="muted" id="ipCount"></span>
+  </div>
+  <div class="list" id="ipTracks" style="max-height:38vh;overflow:auto"></div>
+  <div class="acts">
+    <button class="btn g" data-close>Cancel</button>
+    <button class="btn" id="ipOk">Add</button>
+  </div>
+</div>
+
+<div class="modal" id="mStreams">
+  <h3>Sources for this track</h3>
+  <div class="muted" id="streamsSub"></div>
+  <div class="hint" style="margin:8px 0 2px">Candidates are found first, the audio link is
+    resolved only for the one you pick.</div>
+  <div id="streamsList"></div>
+  <div class="acts"><button class="btn g" id="streamsRefresh">Refresh</button>
+    <button class="btn" data-close>Close</button></div>
+</div>
+
+<!-- Микшер: громкость, баланс, переход и эквалайзер -->
+<div class="modal wide" id="mMixer">
+  <h3>Mixer</h3>
+  <div class="mix-grid">
+    <div class="mix-cell"><div class="l">Volume</div>
+      <input type="range" id="mxVol" min="0" max="100">
+      <div class="h" id="mxVolV">100 %</div></div>
+    <div class="mix-cell"><div class="l">Balance</div>
+      <input type="range" id="mxBal" min="-1" max="1" step="0.05">
+      <div class="h"><span id="mxBalV">Centre</span>
+        <button class="btn g sm" id="mxBalCenter">Centre</button></div></div>
+    <div class="mix-cell"><div class="l">Crossfade</div>
+      <input type="range" id="mxFade" min="0" max="12" step="1">
+      <div class="h" id="mxFadeV">0 s</div></div>
+    <div class="mix-cell"><div class="l">Volume normalization</div>
+      <div class="sw" id="mxNorm" style="margin:10px 0 6px"></div>
+      <div class="h">Evens out quiet and loud tracks</div></div>
+  </div>
+  <div id="mixEq"></div>
+  <div class="acts"><button class="btn" data-close>Done</button></div>
+</div>
+
+<!-- Cookies YouTube: лекарство от «Sign in to confirm you are not a bot» -->
+<div class="modal wide" id="mYtCookies">
+  <h3>YouTube cookies</h3>
+  <div class="hint" style="margin:0 0 10px">
+    YouTube sometimes asks the player to confirm it is not a bot, and then a track or a clip does not start.
+    Cookies of a signed-in session remove that wall: the player asks YouTube as a normal
+    listener. The cookies stay on this computer and are sent to YouTube only.
+  </div>
+  <div class="plug-meta" id="ytcState"></div>
+  <div class="plug-guide" style="margin:12px 0 6px">
+    <b>Important: the cookies must be of the YouTube website itself</b>
+    <ol>
+      <li>Pick your browser and install the extension from the link below.</li>
+      <li>Open youtube.com in that browser and make sure you are signed in.</li>
+      <li>While the YouTube tab is open, click the extension icon and press Export (or Copy) — it exports the cookies of the current site only. Cookies of Google search, Gmail or any other site will not work.</li>
+      <li>Tip: sign in to YouTube in a private (incognito) window, export from it and close the window. In an ordinary tab YouTube keeps replacing the cookies, and the exported ones stop working («The page needs to be reloaded»).</li>
+      <li>Paste what you got into the field below. The player checks it right away; then press Save.</li>
+    </ol>
+  </div>
+  <div class="tabs wrap" id="ytcBrowsers"></div>
+  <div class="ytc-ext" id="ytcExt"></div>
+  <div class="hint" id="ytcExtNote" style="margin:2px 0 8px"></div>
+  <textarea id="ytcBox" class="code-box" rows="6"
+    placeholder="# Netscape HTTP Cookie File&#10;.youtube.com&#9;TRUE&#9;/&#9;TRUE&#9;…&#10;&#10;— or JSON from Cookie-Editor —&#10;&#10;— or —&#10;&#10;Cookie: SID=…; SAPISID=…; __Secure-3PAPISID=…"></textarea>
+  <div class="ytc-check" id="ytcCheck"></div>
+  <div class="hint" style="margin:12px 0 6px">
+    <b>Or take them from a browser by itself:</b> the player reads the cookies from the browser you are signed in with.
+    Close that browser before playing: it may lock its own cookie file.
+  </div>
+  <div class="set"><div><div class="l">Take cookies from a browser</div></div>
+    <div class="c"><select id="ytcBrowser"></select></div></div>
+  <div class="acts">
+    <button class="btn g" data-close>Close</button>
+    <button class="btn g" id="ytcForget">Remove cookies</button>
+    <button class="btn g" id="ytcTest">Test</button>
+    <button class="btn" id="ytcSave">Save</button>
+  </div>
+</div>
+
+<!-- Прокси / VPN -->
+<div class="modal wide" id="mProxy">
+  <h3>Proxy / VPN</h3>
+  <div class="hint" style="margin:0 0 10px">
+    Use this when YouTube, SoundCloud or a clip does not open from your network. The choice
+    applies to search, playback, clips and updates of the YouTube engine.
+  </div>
+  <div class="plug-meta" id="npState"></div>
+  <div class="set"><div><div class="l">Connection</div>
+    <div class="h" id="npHint"></div></div>
+    <div class="c"><select id="npMode">
+      <option value="off">Direct (no proxy)</option>
+      <option value="system">System proxy or VPN</option>
+      <option value="custom">My own proxy</option>
+    </select></div></div>
+  <div id="npCustom">
+    <div class="field"><label>Proxy address</label>
+      <input type="text" id="npUrl" autocomplete="off" spellcheck="false"
+        placeholder="socks5://127.0.0.1:1080">
+      <div class="hint">http://host:port, socks5://host:port or socks5://user:password@host:port</div></div>
+  </div>
+  <div class="plug-guide" style="margin:12px 0 6px">
+    <b>About VPN</b>
+    <ol>
+      <li>A VPN that works for the whole computer (WireGuard, OpenVPN, WARP and so on) needs no setup here: just turn it on, the player goes through it.</li>
+      <li>A VPN or browser extension that sets a system proxy: choose “System proxy or VPN”.</li>
+      <li>A VPN that opens a local proxy port (for example 127.0.0.1:1080 or :7890): choose “My own proxy” and enter that address.</li>
+    </ol>
+  </div>
+  <div class="acts">
+    <button class="btn g" data-close>Close</button>
+    <button class="btn g" id="npTest">Test</button>
+    <button class="btn" id="npSave">Save</button>
+  </div>
+</div>
+
+<!-- «Добавить треки» в плейлист: поиск, проба лучшего куска и плюсик -->
+<div class="modal wide" id="mFind">
+  <h3>Add tracks</h3>
+  <div class="muted" id="findSub"></div>
+  <div class="cv-top" style="margin-top:10px">
+    <input id="findQ" placeholder="Artist or track title" autocomplete="off" spellcheck="false">
+    <button class="btn g" id="findGo">Search</button>
+  </div>
+  <div class="hint" style="margin:8px 0 10px">▶ plays the most interesting part of the track —
+    the middle, not the intro. + adds it to the playlist.</div>
+  <div class="list" id="findList" style="max-height:52vh;overflow:auto"></div>
+  <div class="acts"><button class="btn" data-close>Done</button></div>
+</div>
+
+<!-- Поиск текста вручную: по нику исполнителя и названию песни -->
+<div class="modal wide" id="mLyrics">
+  <h3>Find lyrics</h3>
+  <div class="hint" style="margin:0 0 10px">
+    Lyrics are matched by the track title, and a YouTube headline sometimes misses.
+    Type the nickname of the artist and the title of the song the way they are written in
+    the lyrics database and pick the right record — the player remembers the choice for
+    this track.
+  </div>
+  <div class="cv-top" style="margin-top:10px">
+    <input id="lyrArtist" placeholder="Artist nickname" autocomplete="off" spellcheck="false">
+    <input id="lyrTitle" placeholder="Song title" autocomplete="off" spellcheck="false">
+    <button class="btn g" id="lyrGo">Search</button>
+  </div>
+  <div class="list" id="lyrList" style="max-height:46vh;overflow:auto;margin-top:10px"></div>
+  <div class="acts">
+    <button class="btn g" id="lyrAuto">Back to automatic</button>
+    <button class="btn" data-close>Close</button>
+  </div>
+</div>
+
+<div class="modal" id="mAddTo">
+  <h3>Add to playlist</h3>
+  <div class="list" id="addToList"></div>
+  <div class="acts"><button class="btn g" data-close>Close</button></div>
+</div>
+
+<!-- Перенос плейлистов из Spotify, YouTube и SoundCloud -->
+<div class="modal wide" id="mConvert">
+  <h3>Transfer a playlist</h3>
+  <div class="hint" style="margin:2px 0 10px">Paste a link to a Spotify playlist or album, a YouTube
+    playlist, a SoundCloud set or a public Deezer list. Every track is matched to audio you can actually play here.</div>
+  <div class="cv-top">
+    <input id="cvUrl" placeholder="https://open.spotify.com/playlist/…" autocomplete="off" spellcheck="false">
+    <button class="btn" id="cvStart">Start</button>
+  </div>
+  <div class="cv-bar"><div class="cv-bar-fill" id="cvBarFill"></div></div>
+  <div class="cv-progress muted" id="cvProgress"></div>
+  <div id="cvHead"></div>
+  <div id="cvList"></div>
+  <div id="cvFoot" style="display:none">
+    <div class="set"><div><div class="l">Playlist name</div>
+      <div class="h" id="cvStats"></div></div>
+      <div class="c"><input id="cvName" placeholder="Playlist name" style="width:220px"></div></div>
+    <div class="set"><div><div class="l">Only confident matches</div>
+      <div class="h">Skip the rows marked “check”</div></div>
+      <div class="c"><div class="sw" id="cvStrict"></div></div></div>
+  </div>
+  <div class="acts">
+    <button class="btn g" data-close>Close</button>
+    <button class="btn g" id="cvCancel" style="display:none">Cancel</button>
+    <button class="btn" id="cvSave">Save as playlist</button>
+  </div>
+</div>
+
+<div class="menu" id="ctxMenu"></div>
+<audio id="audio" preload="auto" crossorigin="anonymous"></audio>
+<div id="toast"></div>
+
+<script src="/js/build-variant.js?v=53"></script>
+<script src="/js/i18n.js?v=70"></script>
+<script src="/js/i18n-v12.js?v=73-fix2"></script>
+<script src="/js/i18n-v13.js?v=53"></script>
+<script src="/js/i18n-v15.js?v=53"></script>
+<script src="/js/i18n-v16.js?v=53"></script>
+<script src="/js/sketch.js?v=53"></script>
+<script src="/js/avatar-themes.js?v=53"></script>
+<script src="/js/theme-references.js?v=53"></script>
+<script src="/js/season-themes.js?v=53"></script>
+<script src="/js/theme-studio.js?v=53"></script>
+<script src="/js/themes.js?v=82"></script>
+<script src="/js/tune.js?v=53"></script>
+<script src="/js/core.js?v=83"></script>
+<script src="/js/file-save-v27.js?v=53"></script>
+<script src="/js/look.js?v=65"></script>
+<script src="/js/frame.js?v=53"></script>
+<script src="/js/player.js?v=73-kfix1"></script>
+<script src="/js/tray.js?v=53"></script>
+<script src="/js/marquee-v16.js?v=53"></script>
+<script src="/js/cover-palette-v29.js?v=53"></script>
+<script src="/js/mini-view.js?v=77"></script>
+<script src="/js/mini.js?v=53"></script>
+
+<script src="/js/clips.js?v=74"></script>
+<script src="/js/karaoke-timing.js?v=53"></script>
+<script src="/js/karaoke-fit-v42.js?v=53"></script>
+<script src="/js/karaoke.js?v=80"></script>
+<script src="/js/karaoke-review.js?v=53"></script>
+<script src="/js/karaoke-editor.js?v=73-kfix1"></script>
+<script src="/js/karaoke-tools.js?v=73-fix2"></script>
+<script src="/js/kcustom.js?v=53"></script>
+<script src="/js/visualizer-removed-v52.js?v=87"></script>
+<script src="/js/vmedia.js?v=53"></script>
+<script src="/js/disc.js?v=53"></script>
+<script src="/js/atmo.js?v=53"></script>
+<script src="/js/plugins.js?v=53"></script>
+<script src="/js/custom.js?v=53"></script>
+<script src="/js/streams.js?v=53"></script>
+<script src="/js/convert.js?v=53"></script>
+<script src="/js/settings-extra.js?v=53"></script>
+<script src="/js/eq.js?v=53"></script>
+<script src="/js/ytcookies.js?v=53"></script>
+<script src="/js/netproxy.js?v=53"></script>
+<script src="/js/find.js?v=53"></script>
+<script src="/js/hints.js?v=53"></script>
+<script src="/js/avatars.js?v=53"></script>
+<script src="/js/views.js?v=53"></script>
+<script src="/js/studio.js?v=74"></script>
+<script src="/js/workspace.js?v=53"></script>
+<script src="/js/home.js?v=53"></script>
+<script src="/js/ui-v6.js?v=53"></script>
+<script src="/js/ui-v7.js?v=53"></script>
+<script src="/js/experience-v8.js?v=82"></script>
+<script src="/js/experience-v9.js?v=73"></script>
+<script src="/js/custom-avatars.js?v=53"></script>
+<script src="/js/i18n-v20.js?v=53"></script>
+<script src="/js/i18n-v22.js?v=53"></script>
+<script src="/js/i18n-v25.js?v=53"></script>
+<script src="/js/i18n-v26.js?v=53"></script>
+<script src="/js/i18n-v27.js?v=53"></script>
+<script src="/js/i18n-v32.js?v=53"></script>
+<script src="/js/i18n-v35.js?v=53"></script>
+<script src="/js/i18n-v36.js?v=53"></script>
+<script src="/js/home-picks-v20.js?v=53"></script>
+
+<script src="/js/song-finder-v20.js?v=53"></script>
+<script src="/js/lyrics-translate-v22.js?v=83"></script>
+<script src="/js/app.js?v=85"></script>
+<script src="/js/interface-v22.js?v=53"></script>
+<script src="/js/album-flow-v23.js?v=53"></script>
+<script src="/js/fluid-cover-v29.js?v=53"></script>
+<script src="/js/reference-scene-v24.js?v=79-translation"></script>
+<script src="/js/search-discovery-v26.js?v=53"></script>
+<script src="/js/motion-v12.js?v=73"></script>
+<script src="/js/upgrade-v30.js?v=73-kfix1"></script>
+<script src="/js/home-v31.js?v=66"></script>
+<script src="/js/repair-v33.js?v=87"></script>
+<script src="/js/i18n-v38.js"></script>
+<script src="/js/repair-v38.js?v=53"></script>
+<script src="/js/i18n-v39.js?v=53"></script>
+<script src="/js/i18n-v44.js?v=53"></script>
+<script src="/js/tiktok-finder-v39.js?v=54"></script>
+<script src="/js/i18n-v34.js?v=53"></script>
+<script src="/js/repair-v34.js?v=53"></script>
+<script src="/js/i18n-v45.js?v=53"></script>
+<script src="/js/interface-v45.js?v=82"></script>
+<script src="/js/i18n-v46.js?v=53"></script>
+<script src="/js/audio-reactivity-v34.js?v=53"></script>
+<script src="/js/scene-v46.js?v=53"></script>
+<script src="/js/performance-v47.js?v=81"></script>
+<script src="/js/i18n-v48.js?v=53"></script>
+<script src="/js/search-v48.js?v=53"></script>
+<script src="/js/transfer-v48.js?v=53"></script>
+<script src="/js/design-v48.js?v=73"></script>
+<script src="/js/connections-v49.js?v=53"></script>
+<script src="/js/personal-v50.js?v=53"></script>
+<script src="/js/redesign-v52.js?v=81"></script>
+<script src="/js/classic-v63.js?v=81"></script>
+<script src="/js/video-v57.js?v=57"></script>
+<script src="/js/brand-icons-v60.js?v=68"></script>
+<script src="/js/watch-v59.js?v=60"></script>
+<script src="/js/brand-v60.js?v=60"></script>
+<script src="/js/wave-v61.js?v=76"></script>
+<script src="/js/clips-menu-v63.js?v=73-fix1"></script>
+<script src="/js/i18n-v64.js?v=64"></script>
+<script src="/js/customize-v64.js?v=65"></script>
+<script src="/js/share-v64.js?v=64"></script>
+<script src="/js/experience-v66.js?v=74"></script>
+<script src="/js/clips-v69.js?v=73"></script>
+<script src="/js/i18n-v70.js?v=70"></script>
+<script src="/js/polish-v70.js?v=70"></script>
+<script src="/js/i18n-v71.js?v=71"></script>
+<script src="/js/i18n-v72.js?v=72"></script>
+<script src="/js/cinema-v71.js?v=71"></script>
+<script src="/js/perf-v72.js?v=72"></script>
+<script src="/js/cinema-v72.js?v=72"></script>
+<script src="/js/player-v72.js?v=72"></script>
+<script src="/js/ai-v72.js?v=72"></script>
+<script src="/js/i18n-v73.js?v=73"></script>
+<script src="/js/i18n-v86.js?v=86"></script>
+<script src="/js/ui-v73.js?v=82"></script>
+<script src="/js/perf-v73.js?v=73"></script>
+<script src="/js/player-fixes-v78.js?v=78"></script>
+</body>
+</html>

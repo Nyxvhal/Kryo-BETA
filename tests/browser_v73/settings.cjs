@@ -1,0 +1,37 @@
+// Functional check of the v73 settings optimizations.
+module.exports=async(p,h)=>{const out=[];const ok=(n,c,x='')=>out.push((c?'PASS ':'FAIL ')+n+(x?' — '+x:''));
+ await h.ctl('cookies=ready');await h.boot();await p.evaluate(()=>{setLang('en');closeModals()});await h.wait(1200);
+ await p.evaluate(()=>Workspace.openSettings());await h.wait(600);
+ const tab=n=>p.locator('#mSettings .set-nav-i').filter({hasText:n}).first();
+ await tab('Themes').click();await h.wait(900);
+ const first=await p.evaluate(()=>{const l=document.querySelector('#themeList');window.__card=l.querySelector('.theme');return {n:l.children.length,on:l.querySelector('.theme.on')?.dataset.themeId,theme:S.theme}});
+ ok('gallery built',first.n>100,first.n+' cards');
+ const target=await p.evaluate(()=>[...document.querySelectorAll('#themeList .theme')].find(x=>!x.classList.contains('on')).dataset.themeId);
+ await p.locator('#themeList .theme[data-theme-id="'+target+'"]').click();await h.wait(500);
+ const sel=await p.evaluate(()=>({theme:S.theme,on:document.querySelector('#themeList .theme.on')?.dataset.themeId}));
+ ok('choosing a theme applies it and marks the card',sel.theme===target&&sel.on===target,JSON.stringify(sel));
+ await p.evaluate(()=>{window.__card=document.querySelector('#themeList .theme')});
+ await tab('Sound').click();await h.wait(500);await tab('Themes').click();await h.wait(700);
+ const again=await p.evaluate(()=>({same:document.querySelector('#themeList .theme')===window.__card,on:document.querySelector('#themeList .theme.on')?.dataset.themeId,theme:S.theme}));
+ ok('re-opening the tab keeps the gallery (no rebuild)',again.same&&again.on===again.theme,JSON.stringify(again));
+ await p.evaluate(()=>{useTheme(Object.keys(THEME_LIBRARY).find(k=>THEME_LIBRARY[k].group!=='hidden'&&k!==S.theme))});await tab('Sound').click();await h.wait(300);await tab('Themes').click();await h.wait(700);
+ const ext=await p.evaluate(()=>({on:document.querySelector('#themeList .theme.on')?.dataset.themeId,theme:S.theme}));
+ ok('theme changed elsewhere → gallery refreshed on open',ext.on===ext.theme,JSON.stringify(ext));
+ await p.locator('#themeGroups .chip').filter({hasText:'Light'}).first().click();await h.wait(500);
+ const light=await p.evaluate(()=>({n:document.querySelectorAll('#themeList .theme').length,all:Object.values(THEME_LIBRARY).filter(t=>t.group==='light').length}));
+ ok('group filter rebuilds',light.n>0&&light.n<first.n,JSON.stringify(light));
+ await p.locator('#themeGroups .chip').filter({hasText:'All'}).first().click();await h.wait(400);
+ await p.fill('#themeSearch','oled');await h.wait(500);
+ const q=await p.evaluate(()=>document.querySelectorAll('#themeList .theme').length);ok('search filters',q>0&&q<first.n,q+' cards');
+ await p.fill('#themeSearch','');await h.wait(500);
+ const last=await p.evaluate(async()=>{const cards=document.querySelectorAll('#themeList .theme');const c=cards[cards.length-1];c.scrollIntoView({block:'center'});await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));const r=c.getBoundingClientRect();return {h:Math.round(r.height),top:Math.round(r.top),name:c.querySelector('.theme-n')?.getBoundingClientRect().height>0}});
+ ok('last card renders when scrolled to',last.h>150&&last.name,JSON.stringify(last));
+ // Deferred tab scroll: open a tab at the bottom of the nav while the nav is scrolled to the top.
+ const sc=await p.evaluate(async()=>{const tabs=[...document.querySelectorAll('#setTabs .set-nav-i')].filter(b=>b.offsetParent);const lastTab=tabs[tabs.length-1];let box=lastTab.parentElement;while(box&&box.scrollHeight<=box.clientHeight+2)box=box.parentElement;if(box)box.scrollTop=0;
+  const t0=performance.now();App.openPane(lastTab.dataset.pane);const sync=performance.now()-t0;await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+  const a=lastTab.getBoundingClientRect(),b=(box||document.documentElement).getBoundingClientRect();return {pane:lastTab.dataset.pane,visible:a.top>=b.top-1&&a.bottom<=b.bottom+1,sync:Math.round(sync),scroller:!!box,patched:Element.prototype.scrollIntoView.toString().includes('native code')}});
+ ok('selected tab scrolled into view after the frame',sc.visible,JSON.stringify(sc));ok('scrollIntoView restored after openPane',sc.patched);
+ await p.screenshot({path:h.OUT+'/settings73.png'});
+ console.log(out.join('\n'));
+ const pass=out.filter(x=>x.startsWith('PASS')).length;console.log(`RESULT ${pass}/${out.length}`);if(pass!==out.length)process.exitCode=1;
+};

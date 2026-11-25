@@ -1,0 +1,25 @@
+/* Brief interaction motion only; no always-running decoration or width animations. */
+body.ui-v47 .gpu-fill47{transform-origin:left center!important;transition:none!important;will-change:auto}
+body.ui-v47 .track .knob{will-change:auto}
+body.ui-v47 #pCover{animation:none!important;filter:none!important}
+@keyframes ui-enter47{from{opacity:.4;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes ui-dialog47{from{opacity:.5;transform:translateY(6px) scale(.99)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:no-preference){
+ body.ui-v47:not(.no-anim) .view.on{animation:ui-enter47 .18s cubic-bezier(.2,.75,.25,1) backwards}
+ body.ui-v47:not(.no-anim) #rows.home-grid31>.track-shell30:nth-child(-n+12){animation:ui-enter47 .22s ease-out backwards;animation-delay:calc(min(var(--order47,0),8)*12ms)}
+ body.ui-v47:not(.no-anim) .modal.on .box{animation:ui-dialog47 .18s ease-out backwards}
+ body.ui-v47:not(.no-anim) :is(.karaoke-menu45,#sceneMenu33):not([hidden]){animation:ui-enter47 .15s ease-out backwards}
+ body.ui-v47:not(.no-anim) :is(.btn,.chip,.ib,.nav){transition:transform .14s ease-out,background-color .16s ease-out,color .16s ease-out,border-color .16s ease-out}
+ body.ui-v47:not(.no-anim) :is(.btn,.chip,.ib):active{transform:scale(.97)}
+ body.ui-v47:not(.no-anim) .track-shell30{transition:transform .18s ease-out}
+}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){body.ui-v47:not(.no-anim) .track-shell30:hover{transform:translateY(-3px)}}
+body.ui-v47 .view:not(.on) *,body.ui-v47 #now:not(.on) *{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){body.ui-v47 *,body.ui-v47 *::before,body.ui-v47 *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+body.ui-v47 #rows .card:hover{transform:none}
+body.ui-v47 #rows .track-shell30{animation-fill-mode:backwards}
+body.ui-v47 #rows .track-shell30:nth-child(n+13){animation:none}
+
+body.ui-v47.clip-open47 #now *{animation-play-state:paused!important}
+@media(prefers-reduced-motion:no-preference){body.ui-v47:not(.no-anim) #clips.on .cs-main{animation:ui-enter47 .18s ease-out backwards}body.ui-v47:not(.no-anim) #clips.on .cs-sidebar{animation:ui-enter47 .18s .04s ease-out backwards}}

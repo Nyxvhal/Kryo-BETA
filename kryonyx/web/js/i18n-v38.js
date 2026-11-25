@@ -1,0 +1,2 @@
+'use strict';
+for(const [lang,label] of Object.entries({"ru": "Потяните, чтобы переместить", "uk": "Потягніть, щоб перемістити", "de": "Zum Verschieben ziehen", "es": "Arrastra para mover", "fr": "Faire glisser pour déplacer", "it": "Trascina per spostare", "pt": "Arraste para mover", "tr": "Taşımak için sürükleyin", "pl": "Przeciągnij, aby przesunąć", "zh": "拖动以移动", "ja": "ドラッグして移動"})) PACKS[lang]['Drag to move']=label;

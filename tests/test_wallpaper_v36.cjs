@@ -1,0 +1,17 @@
+'use strict';
+const vm=require('vm'),fs=require('fs'),assert=require('assert/strict');
+function fixture(){const nodes={wallUrl:{value:'https://example.com/image.png',attrs:{},setAttribute(k,v){this.attrs[k]=v},removeAttribute(k){delete this.attrs[k]}}},stored=new Map(),requests=[],notices=[];
+ const c=vm.createContext({console,Promise,PACKS:{},FileReader:class{readAsDataURL(f){queueMicrotask(()=>{if(f.readError)this.onerror(new Error('read failed'));else {this.result=f.data;this.onload({target:{result:f.data}})}})}},queueMicrotask,S:{wallSrc:'p:dots'},$:id=>nodes[id]||null,t:x=>x,toast:x=>notices.push(x),saveSettings(){},localStorage:{getItem:k=>stored.get(k),setItem:(k,v)=>stored.set(k,v),removeItem:k=>stored.delete(k)},api:(...args)=>new Promise(resolve=>requests.push({resolve,args})),Image:class{}});
+ vm.runInContext(fs.readFileSync(__dirname+'/../kryonyx/web/js/look.js','utf8')+';globalThis.wall=Wall;',c);c.wall.apply=()=>{};c.wall.build=()=>{};c.wall.bind();return{c,wall:c.wall,nodes,requests,stored,notices};
+}
+const tests=[
+ ['clearing wallpaper invalidates a pending URL',async()=>{const f=fixture(),p=f.nodes.wallUrl.onchange();f.wall.clear();f.requests[0].resolve({file:'old.jpg'});await p;assert.equal(f.c.S.wallSrc,'');assert.equal(f.nodes.wallUrl.attrs['aria-busy'],undefined)}],
+ ['local image wins over an older pending URL',async()=>{const f=fixture(),p=f.nodes.wallUrl.onchange();f.wall.shrink=async x=>x;await f.wall.pickFile({type:'image/png',size:10,data:'data:image/png;base64,new'});f.requests[0].resolve({file:'old.jpg'});await p;assert.equal(f.c.S.wallSrc,'local')}],
+ ['latest local file wins even if older decoding finishes last',async()=>{const f=fixture(),pending=[];f.wall.shrink=x=>new Promise(r=>pending.push({x,r}));const a=f.wall.pickFile({type:'image/png',size:10,data:'first'});await new Promise(r=>setImmediate(r));const b=f.wall.pickFile({type:'image/png',size:10,data:'second'});await new Promise(r=>setImmediate(r));pending[1].r('second');await b;pending[0].r('first');await a;assert.equal(f.stored.get('kryonyx.wall'),'second')}],
+ ['invalid image preserves old wallpaper',async()=>{const f=fixture();f.wall.shrink=async()=>{throw Error('invalid image')};await f.wall.pickFile({type:'image/png',size:10,data:'invalid'});assert.equal(f.c.S.wallSrc,'p:dots');assert.equal(f.stored.size,0);assert(f.notices.length)}],
+ ['file read failure is handled without rejection',async()=>{const f=fixture();await f.wall.pickFile({type:'image/png',size:10,readError:true});assert.equal(f.c.S.wallSrc,'p:dots');assert(f.notices.length)}],
+ ['non-image input preserves wallpaper',async()=>{const f=fixture();f.wall.shrink=async x=>x;await f.wall.pickFile({type:'text/plain',size:10,data:'text'});assert.equal(f.c.S.wallSrc,'p:dots')}],
+ ['oversized local file is rejected before reading',async()=>{const f=fixture();f.wall.shrink=async x=>x;await f.wall.pickFile({type:'image/png',size:21*1024*1024,data:'too-large'});assert.equal(f.c.S.wallSrc,'p:dots')}],
+ ['invalid URL resolution does not select undefined file',async()=>{const f=fixture(),p=f.nodes.wallUrl.onchange();f.requests[0].resolve({});await p;assert.equal(f.c.S.wallSrc,'p:dots');assert(f.notices.length)}]
+];
+(async()=>{let failures=0;for(const[n,run]of tests){try{await run();console.log('PASS',n)}catch(e){failures++;console.log('FAIL',n,e.message)}}process.exitCode=failures?1:0})().catch(e=>{console.error(e);process.exit(1)});

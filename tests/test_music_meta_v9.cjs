@@ -1,0 +1,13 @@
+const assert=require('node:assert/strict'),meta=require('../kryonyx/web/js/experience-v9.js');
+assert.equal(meta.artists({artist:'CG5, Ironmouse',author_url:'https://first'}).length,2);
+assert(meta.artists({artist:'CG5, Ironmouse',author_url:'https://first'}).every(a=>!a.url));
+assert.equal(meta.artists({artist:'AC/DC'}).length,1);
+assert.equal(meta.artists({artist:'Simon & Garfunkel'}).length,1);
+assert.deepEqual(meta.artists({artist:'Band',artists:[{name:'Earth, Wind & Fire',url:'one'},{name:'Guest',url:'two'}]}).map(x=>x.url),['one','two']);
+assert.deepEqual(meta.artists({artist:'A feat. B'}).map(x=>x.name),['A','B']);
+assert.equal(meta.artists({artist:'A',author_url:'one'}).at(0).url,'one');
+assert.equal(meta.artists({artists:[{name:'A'},{name:'A'}]}).length,1);
+assert(meta.rank({title:'Night Song',artist:'CG5'},'night song')>meta.rank({title:'Night Song remix',artist:'Other'},'night song'));
+assert(meta.rank({title:'Anything',artist:'CG5'},'CG5')>meta.rank({title:'CG5 documentary',artist:'Channel'},'CG5'));
+assert.equal(meta.norm('Ёж – Ночь'),'еж ночь');
+console.log('MUSIC_META_V9_PASS 11');

@@ -1,0 +1,31 @@
+/* Keep covers and their hit targets anchored; animate color rather than geometry. */
+@media (hover:hover){
+ html body.ui-v47:not(.no-anim) .track-shell30:hover {transform:none!important}
+ html body.ui-v72 .track-shell30 > .card:hover {transform:none!important}
+ html body.ui-v72 #rows .card:hover .art img {transform:none!important}
+}
+body .tr:active {transform:none}
+.karaoke-timing-controls45 {flex-wrap:wrap}
+.karaoke-timing-controls45 output {order:0}
+/* Full-window cinema; the active line is centred by the shared scroll clock. */
+body.ui-v38 #now#now.cinema:not(.disc):not(.viz) #nowIn {inset:0!important;max-width:none!important}
+body.ui-v38 #now#now.cinema:not(.disc):not(.viz) #lyrics {width:min(1150px,calc(100% - 40px))!important;margin:0 auto!important;padding:50vh 0!important;box-sizing:border-box!important}
+body.ui-v38 #now#now.cinema #sceneTools30,
+body.ui-v33 #now.on.cinema #sceneDock33,
+body.ui-v33 #now.on.cinema #lyrFollow {transition:opacity .35s ease,visibility 0s linear 0s!important}
+body.ui-v38 #now#now.on.cinema.cinema-idle78,
+body.ui-v38 #now#now.on.cinema.cinema-idle78 * {cursor:none!important}
+body.ui-v38 #now#now.on.cinema.cinema-idle78 #sceneTools30,
+body.ui-v33 #now.on.cinema.cinema-idle78 #sceneDock33,
+body.ui-v33 #now.on.cinema.cinema-idle78 #lyrFollow {opacity:0!important;visibility:hidden!important;pointer-events:none!important;transition:opacity .35s ease,visibility 0s linear .35s!important}
+@media(prefers-reduced-motion:reduce){
+ body.ui-v38 #now#now.cinema #sceneTools30,body.ui-v33 #now.on.cinema #sceneDock33,body.ui-v33 #now.on.cinema #lyrFollow{transition:none!important}
+}
+#albumActions78{display:flex;justify-content:center;gap:4px;pointer-events:auto;margin-top:4px}
+body.ui-v38 #now#now.cinema:not(.disc):not(.viz) #nowBody{max-width:none!important}
+@media(max-width:760px) and (min-height:501px){
+ body #now.on.reference24.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #lyrics{
+  top:calc(68px + var(--ref-cover) + 214px)!important;
+  height:calc(calc(var(--layout-vh37, 1dvh) * 100) - 68px - var(--ref-cover) - 214px)!important;
+ }
+}

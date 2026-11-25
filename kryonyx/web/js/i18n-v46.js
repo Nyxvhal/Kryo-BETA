@@ -1,0 +1,12 @@
+'use strict';
+Object.assign(PACKS.ru,{"Beat accents": "Эффекты под бит", "Beat intensity": "Сила эффектов", "Beat rings": "Кольца ударов", "Bass tunnel": "Басовый тоннель", "Spectral sparks": "Спектральные искры", "Karaoke background": "Фон караоке"});
+Object.assign(PACKS.uk,{"Beat accents": "Ефекти під біт", "Beat intensity": "Сила ефектів", "Beat rings": "Кільця ударів", "Bass tunnel": "Басовий тунель", "Spectral sparks": "Спектральні іскри", "Karaoke background": "Тло караоке"});
+Object.assign(PACKS.es,{"Beat accents": "Efectos al ritmo", "Beat intensity": "Intensidad", "Beat rings": "Anillos rítmicos", "Bass tunnel": "Túnel de graves", "Spectral sparks": "Chispas espectrales", "Karaoke background": "Fondo de karaoke"});
+Object.assign(PACKS.pt,{"Beat accents": "Efeitos no ritmo", "Beat intensity": "Intensidade", "Beat rings": "Anéis rítmicos", "Bass tunnel": "Túnel de graves", "Spectral sparks": "Faíscas espectrais", "Karaoke background": "Fundo do karaokê"});
+Object.assign(PACKS.de,{"Beat accents": "Beat-Effekte", "Beat intensity": "Effektstärke", "Beat rings": "Beat-Ringe", "Bass tunnel": "Bass-Tunnel", "Spectral sparks": "Spektralfunken", "Karaoke background": "Karaoke-Hintergrund"});
+Object.assign(PACKS.fr,{"Beat accents": "Effets rythmiques", "Beat intensity": "Intensité", "Beat rings": "Anneaux rythmiques", "Bass tunnel": "Tunnel de basses", "Spectral sparks": "Étincelles spectrales", "Karaoke background": "Fond du karaoké"});
+Object.assign(PACKS.it,{"Beat accents": "Effetti a tempo", "Beat intensity": "Intensità", "Beat rings": "Anelli ritmici", "Bass tunnel": "Tunnel dei bassi", "Spectral sparks": "Scintille spettrali", "Karaoke background": "Sfondo karaoke"});
+Object.assign(PACKS.pl,{"Beat accents": "Efekty w rytm", "Beat intensity": "Siła efektów", "Beat rings": "Kręgi rytmu", "Bass tunnel": "Tunel basowy", "Spectral sparks": "Iskry widma", "Karaoke background": "Tło karaoke"});
+Object.assign(PACKS.tr,{"Beat accents": "Ritim efektleri", "Beat intensity": "Efekt yoğunluğu", "Beat rings": "Ritim halkaları", "Bass tunnel": "Bas tüneli", "Spectral sparks": "Spektral kıvılcımlar", "Karaoke background": "Karaoke arka planı"});
+Object.assign(PACKS.zh,{"Beat accents": "节拍特效", "Beat intensity": "特效强度", "Beat rings": "节拍光环", "Bass tunnel": "低音隧道", "Spectral sparks": "频谱火花", "Karaoke background": "卡拉 OK 背景"});
+Object.assign(PACKS.ja,{"Beat accents": "ビート効果", "Beat intensity": "効果の強さ", "Beat rings": "ビートリング", "Bass tunnel": "ベーストンネル", "Spectral sparks": "スペクトルスパーク", "Karaoke background": "カラオケ背景"});

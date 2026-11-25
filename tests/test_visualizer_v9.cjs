@@ -1,0 +1,4 @@
+const assert=require('node:assert/strict');global.$=()=>null;global.S={vizSpec:'bars'};global.Player={audio:{paused:false,ended:false,duration:10,currentTime:2}};
+const Viz=require('../kryonyx/web/js/viz.js');const ctx=new Proxy({createLinearGradient:()=>({addColorStop(){}})}, {get:(o,k)=>k in o?o[k]:()=>{}});Viz.sctx=ctx;Viz.spec={width:350,height:80};Viz.fade=()=> '#aabbee';Viz.dt=1/60;Viz.k=1;
+const bins=new Uint8Array(1024).fill(255);Viz.drawSpec(bins,'#aaa','#bbb',1);const first=Viz.vals[0];assert(first>0&&first<1);Viz.drawSpec(bins,'#aaa','#bbb',1);assert(Viz.vals[0]>first&&Viz.vals[0]<1);
+Player.audio.paused=true;const loud=Viz.vals[0];Viz.drawSpec(bins,'#aaa','#bbb',1);assert(Viz.vals[0]<loud);for(let i=0;i<200;i++)Viz.drawSpec(bins,'#aaa','#bbb',1);assert(Viz.vals[0]<.001);assert(Viz.peaks[0]<.001);console.log('VISUALIZER_V9_PASS 5');

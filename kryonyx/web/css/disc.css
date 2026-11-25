@@ -1,0 +1,706 @@
+/* disc.css — режим караоке «Диск»: чёрная сцена, CD в коробке, слова по одному. */
+/* Roboto Light лежит прямо в плеере (fonts/), интернет и системные шрифты не нужны. */
+@font-face { font-family: 'Kry Disc'; font-style: normal; font-weight: 300; font-display: block;
+  src: url('../fonts/roboto-cyrillic-300-normal.woff2') format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: 'Kry Disc'; font-style: italic; font-weight: 300; font-display: block;
+  src: url('../fonts/roboto-cyrillic-300-italic.woff2') format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: 'Kry Disc'; font-style: normal; font-weight: 300; font-display: block;
+  src: url('../fonts/roboto-latin-ext-300-normal.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Kry Disc'; font-style: italic; font-weight: 300; font-display: block;
+  src: url('../fonts/roboto-latin-ext-300-italic.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Kry Disc'; font-style: normal; font-weight: 300; font-display: block;
+  src: url('../fonts/roboto-latin-300-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Kry Disc'; font-style: italic; font-weight: 300; font-display: block;
+  src: url('../fonts/roboto-latin-300-italic.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+.disc-stage { display: none; }
+/* Фон сцены берём из темы: раньше здесь стоял жёсткий #000, и плеер
+   оставался чёрным, какую бы тему пользователь ни выбрал. */
+#now.disc { background: var(--bg); }
+/* На светлой теме белый текст сцены не читался — там он тёмный. */
+body.light #now.disc .disc-words,
+body.light #now.disc .disc-meta { color: #15151a; }
+body.light #now.disc .disc-meta span { color: rgba(0, 0, 0, .55); }
+body.light #now.disc .disc-b { color: rgba(0, 0, 0, .7);
+  border-color: rgba(0, 0, 0, .14); background: rgba(0, 0, 0, .05); }
+body.light #now.disc .disc-b:hover { color: #000; background: rgba(0, 0, 0, .1); }
+body.light #now.disc .disc-ctl .disc-play { background: #15151a; color: #fff; }
+body.light #now.disc .disc-ctl .disc-play:hover { background: #000; color: #fff; }
+#now.disc #nowArtBg, #now.disc #nowCanvas, #now.disc #nowVeil,
+#now.disc #nowBody, #now.disc #lyrFollow { display: none !important; }
+#now.disc #nowTop { position: relative; z-index: 3; opacity: 0;
+                    transition: opacity .35s ease; }
+#now.disc:has(.disc-stage.awake) #nowTop, #now.disc #nowTop:hover { opacity: 1; }
+
+#now.disc .disc-stage {
+  --disc-zoom: 1;
+  --disc-text-zoom: 1;
+  --disc-spin: 8s;
+  --case: calc(min(calc(var(--layout-vh37, 1vh) * 55), calc(var(--layout-vw37, 1vw) * 42)) * var(--disc-zoom));
+  --fs: calc(min(calc(var(--layout-vh37, 1vh) * 7), calc(var(--layout-vw37, 1vw) * 5.2)) * var(--disc-text-zoom));
+  position: absolute; inset: 0; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  gap: calc(var(--case) * .18);
+  background: #000;
+  cursor: none; user-select: none;
+}
+#now.disc .disc-stage.awake { cursor: default; }
+
+/* ---------------------------------------------------------------- текст */
+.disc-text {
+  width: calc(var(--fs) * 6.3); height: var(--case);
+  display: flex; align-items: flex-start; justify-content: flex-start;
+  padding-top: calc(var(--case) * .155);
+}
+.disc-words {
+  width: 100%;
+  font-family: 'Kry Disc', 'Roboto', 'Segoe UI Light', 'Segoe UI', sans-serif;
+  font-weight: 300; font-size: var(--fs); line-height: 1.3;
+  letter-spacing: 0; color: #F4F4F4;
+  -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision;
+  overflow-wrap: break-word;
+}
+.disc-stage.grain .disc-words { filter: url(#discGrain); }  /* «зерно», как на записи клипа */
+.disc-words.gone { visibility: hidden; }
+/* Как в клипе: слово появляется сразу, без плавности. Первое слово блока — курсивом. */
+.disc-w { display: inline; }
+.disc-w.first { font-style: italic; }
+
+/* --------------------------------------------------- прозрачная коробка
+   Коробка — снимок настоящего mini-jewel-case из клипа (img/disc-case.webp):
+   нарисовать стилями такой пластик точно не получается. Середина снимка
+   чёрная — туда ложится наш диск. */
+.disc-case {
+  position: relative; flex: none;
+  width: var(--case); aspect-ratio: 1;
+  background: url('../img/disc-case.webp') center / 100% 100% no-repeat;
+}
+.disc-tray, .disc-hinge, .disc-lid, .disc-ring, .disc-hole { display: none; }
+
+/* ------------------------------------------------------------------ CD
+   Геометрия снята с клипа: центр диска 51.1% × 48.6%, диаметр 82.6% ширины. */
+.disc-slot {              /* место диска в коробке; через него диск «меняется» */
+  position: absolute; left: 9.7%; top: 9.1%; width: 81.5%; aspect-ratio: 1;
+  z-index: 1;
+}
+.disc-slot.out { animation: discOut .38s cubic-bezier(.5, 0, .9, .4) forwards; }
+.disc-slot.in  { animation: discIn .62s cubic-bezier(.2, .8, .25, 1) both; }
+@keyframes discOut { to { transform: translateX(-14%) scale(.94); opacity: 0; filter: blur(3px); } }
+@keyframes discIn  { from { transform: translateX(16%) scale(.94); opacity: 0; filter: blur(3px); } }
+.disc-cd {
+  position: absolute; inset: 0;
+  border-radius: 50%; overflow: hidden;
+  background: #f4f4f4;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .5), 0 0 0 2px rgba(0, 0, 0, .55);
+  will-change: transform; transform: rotate(0deg);
+  animation: discSpin var(--disc-spin) linear infinite; animation-play-state: paused;
+}
+.disc-stage.spin .disc-cd { animation-play-state: running; }
+.disc-cd img { width: 100%; height: 100%; object-fit: cover; display: block;
+               pointer-events: none; transform-origin: center; }
+.disc-cd.blank img { visibility: hidden; }
+.disc-label {              /* без обложки на белом диске пишем название трека */
+  position: absolute; left: 12%; right: 12%; top: 66%; text-align: center;
+  font-family: 'Kry Disc', 'Roboto', sans-serif; font-weight: 300; font-style: italic;
+  font-size: calc(var(--case) * .05); color: #222; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
+}
+/* Чёрная втулка: центральное отверстие с ободком и четыре дырочки. */
+.disc-hub {
+  position: absolute; left: 50%; top: 50%; width: 30.3%; height: 30.3%;
+  transform: translate(-50%, -50%); border-radius: 50%;
+  background:
+    radial-gradient(circle at 27.4% 27.4%, #1c1c1e 0 5.4%, #3a3a3e 5.6% 6.4%, transparent 6.6%),
+    radial-gradient(circle at 72.6% 27.4%, #1c1c1e 0 5.4%, #3a3a3e 5.6% 6.4%, transparent 6.6%),
+    radial-gradient(circle at 27.4% 72.6%, #1c1c1e 0 5.4%, #3a3a3e 5.6% 6.4%, transparent 6.6%),
+    radial-gradient(circle at 72.6% 72.6%, #1c1c1e 0 5.4%, #3a3a3e 5.6% 6.4%, transparent 6.6%),
+    radial-gradient(circle closest-side, #000 0 45%, #4a4a50 46% 48.5%, #0a0a0b 49.5% 96%,
+                    #5a5a60 97.5% 100%);
+}
+/* Обе точки явно через rotate(): иначе браузер интерполирует матрицы,
+   а у 0° и 360° матрица одна и та же — диск стоял бы на месте. */
+@keyframes discSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* --------------------------------------------- название и кнопки (по наведению) */
+.disc-meta, .disc-ctl { position: absolute; left: 50%; transform: translateX(-50%);
+  opacity: 0; transition: opacity .35s ease; }
+.disc-stage.awake .disc-meta, .disc-stage.awake .disc-ctl { opacity: 1; }
+.disc-meta { bottom: 92px; text-align: center; color: #fff; font-weight: 300;
+             display: flex; flex-direction: column; gap: 4px; max-width: calc(var(--layout-vw37, 1vw) * 70); }
+.disc-meta b { font-weight: 500; font-size: 17px; }
+.disc-meta span { color: rgba(255, 255, 255, .55); font-size: 14px; }
+.disc-ctl { bottom: 30px; display: flex; gap: 14px; align-items: center; }
+.disc-ctl .disc-play { width: 52px; height: 52px; border-radius: 50%;
+                       background: #fff; color: #000; }
+
+/* Узкое окно / телефон: коробка сверху, текст под ней. */
+@media (max-width: 760px), (max-aspect-ratio: 1/1) {
+  #now.disc .disc-stage { --case: min(calc(var(--layout-vw37, 1vw) * 86), calc(var(--layout-vh37, 1vh) * 48)); --fs: min(calc(var(--layout-vw37, 1vw) * 8.6), calc(var(--layout-vh37, 1vh) * 5));
+                          flex-direction: column-reverse; gap: calc(var(--layout-vh37, 1vh) * 5); }
+  .disc-text { width: var(--case); height: calc(var(--case) * .62); padding-top: 0; }
+}
+body.no-anim .disc-cd { animation: none; }
+
+/* ======================================================================
+   Дополнения режима «Диск» (2.15)
+   ====================================================================== */
+
+/* Свечение из обложки за коробкой: сцена перестаёт быть плоским чёрным
+   прямоугольником, но ничего не мельтешит. Красит его disc.js. */
+.disc-glow {
+  position: absolute; left: 50%; top: 50%; width: 190%; height: 190%;
+  transform: translate(-50%, -50%);
+  filter: blur(calc(var(--case) * .12)); opacity: 0;
+  transition: opacity .8s ease, background .8s ease;
+  pointer-events: none; z-index: 0;
+}
+.disc-stage.glow .disc-glow { opacity: .5; }
+.disc-stage:not(.glow) .disc-glow { display: none; }
+.disc-stage.spin.glow .disc-glow { animation: discBreath 6s ease-in-out infinite; }
+@keyframes discBreath { 50% { opacity: .72; transform: translate(-50%, -50%) scale(1.06); } }
+body.no-anim .disc-glow { animation: none !important; }
+
+/* Затемнение по краям сцены — взгляд сам идёт к центру. */
+.disc-vignette {
+  position: absolute; inset: 0; pointer-events: none; opacity: 0; z-index: 2;
+  background: radial-gradient(ellipse at 50% 50%, transparent 42%, rgba(0, 0, 0, .72) 100%);
+  transition: opacity .6s ease;
+}
+.disc-stage.vignette .disc-vignette { opacity: 1; }
+
+/* Отражение коробки на «столе». */
+.disc-reflect {
+  position: absolute; left: 0; right: 0; top: 100%; height: 55%;
+  background: inherit; display: none; pointer-events: none;
+  transform: scaleY(-1); transform-origin: top;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .35), transparent 70%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .35), transparent 70%);
+  filter: blur(2px);
+}
+/* Отражать имеет смысл только настоящую коробку: у голого диска и винила
+   под ними ничего не лежит, и «призрак коробки» там выглядел ошибкой. */
+.disc-stage.reflect.skin-jewel .disc-reflect {
+  display: block;
+  background: url('../img/disc-case.webp') center / 100% 100% no-repeat;
+}
+
+/* --------------------------------------------------------- вид коробки */
+/* «Без коробки» — голый диск, как в лирик-видео. */
+.disc-stage.skin-bare .disc-case { background: none; }
+.disc-stage.skin-bare .disc-slot { left: 0; top: 0; width: 100%; }
+.disc-stage.skin-bare .disc-cd {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .22), 0 24px 70px rgba(0, 0, 0, .75);
+}
+/* «Винил» — чёрная пластинка: обложка становится этикеткой по центру. */
+.disc-stage.skin-vinyl .disc-case { background: none; }
+.disc-stage.skin-vinyl .disc-slot { left: 0; top: 0; width: 100%; }
+.disc-stage.skin-vinyl .disc-cd {
+  background:
+    repeating-radial-gradient(circle closest-side,
+      rgba(255, 255, 255, .045) 0 1px, transparent 1px 4px),
+    radial-gradient(circle closest-side, #121214 0 100%);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .14), 0 26px 80px rgba(0, 0, 0, .8);
+}
+.disc-stage.skin-vinyl .disc-cd img {
+  width: 42%; height: 42%; margin: 29%; border-radius: 50%;
+}
+.disc-stage.skin-vinyl .disc-hub { width: 7%; height: 7%; background: #000; }
+/* На чёрной пластинке подпись тёмным цветом не видна. */
+.disc-stage.skin-vinyl .disc-label { color: rgba(255, 255, 255, .62); top: 72%; }
+
+/* ------------------------------------------------------- раскладка текста */
+/* Текст над диском отдельной полосой: диск уменьшаем, чтобы он не налезал
+   на название трека и кнопки внизу. */
+.disc-stage.lay-under {
+  flex-direction: column; gap: calc(var(--layout-vh37, 1vh) * 3);
+  padding: calc(var(--layout-vh37, 1vh) * 4) 0 calc(var(--layout-vh37, 1vh) * 17);
+  --case: calc(min(calc(var(--layout-vh37, 1vh) * 44), calc(var(--layout-vw37, 1vw) * 40)) * var(--disc-zoom));
+}
+.disc-stage.lay-under .disc-text {
+  width: min(calc(var(--layout-vw37, 1vw) * 86), calc(var(--fs) * 14)); height: auto; padding-top: 0;
+  justify-content: center; text-align: center;
+}
+/* Текст поверх диска — самый «клиповый» вариант. */
+.disc-stage.lay-over { position: absolute; }
+.disc-stage.lay-over .disc-text {
+  position: absolute; inset: 0; z-index: 3;
+  width: auto; height: auto; padding: 0 calc(var(--layout-vw37, 1vw) * 6);
+  align-items: center; justify-content: center; text-align: center;
+}
+.disc-stage.lay-over .disc-words { text-shadow: 0 2px 26px rgba(0, 0, 0, .85); }
+.disc-stage.lay-over .disc-case { opacity: .55; }
+
+/* ------------------------------------------------------------- кнопки
+   Было: кнопки из общего интерфейса (.ib) и буква «T» в кружке — на чёрной
+   сцене они смотрелись разнокалиберно, а иконки стояли не по центру.
+   Стало: одинаковые круглые площадки, иконка строго в центре, тонкая
+   обводка по наведению и честный фокус с клавиатуры. */
+.disc-ctl { z-index: 4; gap: 10px; }
+.disc-b {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 42px; height: 42px; padding: 0; flex: none;
+  border: 1px solid rgba(255, 255, 255, .14); border-radius: 50%;
+  background: rgba(255, 255, 255, .06); color: rgba(255, 255, 255, .78);
+  cursor: pointer; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  transition: background .2s ease, color .2s ease, border-color .2s ease,
+              transform .14s ease;
+}
+.disc-b .ic { width: 20px; height: 20px; stroke-width: 1.6; }
+.disc-b .ic.f { fill: currentColor; stroke: none; }
+.disc-b:hover {
+  background: rgba(255, 255, 255, .16); color: #fff;
+  border-color: rgba(255, 255, 255, .34); transform: translateY(-1px);
+}
+.disc-b:active { transform: translateY(1px) scale(.96); }
+.disc-b:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.disc-b.on { color: #fff; border-color: rgba(255, 255, 255, .5); }
+.disc-ctl .disc-play {
+  width: 56px; height: 56px; background: #fff; color: #000;
+  border-color: transparent; position: static; transform: none;
+}
+.disc-ctl .disc-play .ic { width: 24px; height: 24px; }
+/* Цвет указываем явно: общее правило .disc-b:hover красило иконку в белый,
+   и на белом круге кнопка «играть» при наведении становилась пустой. */
+.disc-ctl .disc-play:hover { background: #fff; color: #000; border-color: transparent;
+                             transform: translateY(-1px) scale(1.04); }
+.disc-stage.big-ctl .disc-b { width: 52px; height: 52px; }
+.disc-stage.big-ctl .disc-b .ic { width: 24px; height: 24px; }
+.disc-stage.big-ctl .disc-ctl .disc-play { width: 68px; height: 68px; }
+.disc-stage.big-ctl .disc-ctl .disc-play .ic { width: 30px; height: 30px; }
+.disc-stage.no-meta .disc-meta { display: none; }
+
+/* ======================================================================
+   Свет в такт музыке и «стекло» коробки (2.15)
+
+   Разбор клипа: сцена чёрная, у коробки ярко светится контур, свет и
+   яркость дышат в такт басу, слова выходят с белым bloom, по стеклу идут
+   капли. Значения --energy и --beat каждый кадр пишет disc.js.
+   ====================================================================== */
+.disc-stage { --energy: 0; --beat: 0; }
+
+/* Белое свечение: блики ближе к контуру и заметно ярче цветного. */
+.disc-stage.glow-white .disc-glow {
+  width: 170%; height: 170%;
+  filter: blur(calc(var(--case) * .085));
+  opacity: calc(.4 + var(--energy) * .42);
+  transition: background .8s ease;          /* яркость ведёт звук, не переход */
+}
+.disc-stage.glow-white.spin .disc-glow { animation: none; }
+/* Коробка — снимок с прозрачным фоном, поэтому drop-shadow обводит именно
+   её силуэт: получается тот самый светящийся контур. */
+.disc-stage.glow-white .disc-case {
+  filter: drop-shadow(0 0 calc(10px + var(--beat) * 26px)
+                      rgba(255, 255, 255, calc(.3 + var(--beat) * .45)));
+}
+.disc-stage.pulse .disc-case { filter: brightness(calc(1 + var(--beat) * .16)); }
+.disc-stage.pulse.glow-white .disc-case {
+  filter: brightness(calc(1 + var(--beat) * .16))
+          drop-shadow(0 0 calc(10px + var(--beat) * 26px)
+                      rgba(255, 255, 255, calc(.3 + var(--beat) * .45)));
+}
+/* Цветное свечение тоже дышит, но мягче: это фон, а не главный свет. */
+.disc-stage.pulse.glow-cover .disc-glow { opacity: calc(.42 + var(--energy) * .3); }
+.disc-stage.pulse.vignette .disc-vignette { opacity: calc(1 - var(--energy) * .25); }
+
+/* Слова со свечением — как в клипе, где текст «горит» на чёрном. */
+.disc-stage.bloom .disc-words {
+  text-shadow: 0 0 2px rgba(255, 255, 255, .45),
+               0 0 calc(12px + var(--energy) * 20px) rgba(255, 255, 255, .5);
+}
+/* Зерно рисуется SVG-фильтром, а он обрезает тени: свечение переносим на
+   обёртку, иначе «зерно + bloom» вместе не работали. */
+.disc-stage.bloom.grain .disc-words { text-shadow: none; }
+.disc-stage.bloom.grain .disc-text {
+  filter: drop-shadow(0 0 calc(10px + var(--energy) * 16px)
+                      rgba(255, 255, 255, .42));
+}
+
+
+/* ---------------------------------------------- диск именно ВНУТРИ коробки
+   Было: снимок коробки лежал только фоном, диск рисовался поверх — и
+   выглядело это как картинка, наклеенная на крышку.
+   Стало: тот же снимок дублируется сверху в режиме screen. Середина снимка
+   чёрная, поэтому диск через неё виден целиком, а блики, рёбра и рамка
+   пластика ложатся ПОВЕРХ диска — он оказывается под крышкой и крутится
+   внутри. Никаких новых картинок для этого не нужно. */
+.disc-stage.skin-jewel .disc-case::after {
+  content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: url('../img/disc-case.webp') center / 100% 100% no-repeat;
+  mix-blend-mode: screen; opacity: .9;
+  /* Лицо диска оставляем чистым: сверху ложатся только рёбра, зажимы и
+     блики пластика по краям — иначе снимок коробки «проступал» прямо на
+     обложке. */
+  -webkit-mask-image: radial-gradient(circle at 49.7% 49.9%,
+    transparent 0 39%, rgba(0, 0, 0, .55) 45%, #000 53%);
+  mask-image: radial-gradient(circle at 49.7% 49.9%,
+    transparent 0 39%, rgba(0, 0, 0, .55) 45%, #000 53%);
+}
+/* У голого диска и винила коробки нет — накладывать нечего. */
+.disc-stage.skin-bare .disc-case::after,
+.disc-stage.skin-vinyl .disc-case::after { display: none; }
+
+/* --------------------------------------------------------- шкала на сцене */
+.disc-bar {
+  position: absolute; left: 50%; bottom: 96px; transform: translateX(-50%);
+  width: min(620px, calc(var(--layout-vw37, 1vw) * 72)); opacity: 0; transition: opacity .35s ease;
+  z-index: 4; pointer-events: none;
+}
+.disc-stage.awake .disc-bar { opacity: 1; pointer-events: auto; }
+.disc-bar .tm { color: rgba(255, 255, 255, .7); }
+.disc-stage.no-meta .disc-bar { bottom: 92px; }
+/* Название трека поднимаем, чтобы шкала не налезала на него. */
+.disc-stage .disc-meta { bottom: 134px; }
+
+/* Блик «стекла» и тень лотка поверх диска. Слой лежит на лотке, а не на
+   самом диске, поэтому блик стоит на месте, пока диск под ним крутится —
+   именно так свет ведёт себя на закрытой коробке. */
+.disc-stage.skin-jewel .disc-slot::after {
+  content: ''; position: absolute; inset: 0; border-radius: 50%;
+  pointer-events: none; z-index: 2;
+  background: linear-gradient(118deg,
+    rgba(255, 255, 255, .16) 0 16%, transparent 30% 60%,
+    rgba(255, 255, 255, .09) 70% 84%, transparent 94%);
+  box-shadow: inset 0 0 calc(var(--case) * .035) rgba(0, 0, 0, .5),
+              inset 0 2px 1px rgba(255, 255, 255, .18);
+}
+
+/* ------------------------------------------- стекло крышки над диском (2.26)
+   Диск крутится, а стекло и тень от рамки стоят на месте — поэтому он
+   читается как лежащий ВНУТРИ коробки, а не как картинка, наклеенная сверху.
+   Слой лежит на самом месте диска (.disc-slot), он не вращается. */
+.disc-stage.skin-jewel .disc-slot::after {
+  content: ''; position: absolute; inset: 0; border-radius: 50%; z-index: 3;
+  pointer-events: none;
+  background:
+    linear-gradient(118deg, rgba(255, 255, 255, .26) 0%, rgba(255, 255, 255, .07) 20%,
+      transparent 34%, transparent 64%, rgba(255, 255, 255, .09) 80%, transparent 92%),
+    radial-gradient(circle closest-side, transparent 80%, rgba(0, 0, 0, .5) 100%);
+  box-shadow: inset 0 0 calc(var(--case) * .035) rgba(0, 0, 0, .55),
+              inset 0 0 0 1px rgba(255, 255, 255, .16);
+}
+.disc-stage.skin-jewel .disc-cd { filter: brightness(.94) contrast(1.03); }
+.disc-stage.skin-jewel .disc-case::after { opacity: 1; }
+
+/* ======================================================================
+   Режим «Визуализатор» (viz.js): неоновый плеер без текста песни.
+   ====================================================================== */
+#now.viz { background: #04050a; }
+#now.viz #nowArtBg, #now.viz #nowCanvas, #now.viz #nowVeil,
+#now.viz #nowBody, #now.viz #lyrFollow, #now.viz #nowCustom { display: none !important; }
+#now.viz #nowTop { position: relative; z-index: 3; opacity: 0; transition: opacity .35s ease; }
+#now.viz:has(.viz-stage.awake) #nowTop, #now.viz #nowTop:hover { opacity: 1; }
+.viz-stage { display: none; }
+#now.viz .viz-stage {
+  --art: calc(min(calc(var(--layout-vh37, 1vh) * 46), calc(var(--layout-vw37, 1vw) * 34)) * var(--vart, 1));
+  position: absolute; inset: 0; z-index: 1; display: block;
+  background: #04050a; color: #fff; user-select: none; cursor: none; overflow: hidden;
+}
+#now.viz .viz-stage.awake { cursor: default; }
+.viz-bg { position: absolute; inset: 0; width: 100%; height: 100%; }
+/* Фон из обложки трека: сильно размытая и приглушённая картинка. */
+.viz-cover {
+  position: absolute; inset: -6%; display: none; pointer-events: none;
+  background: center / cover no-repeat;
+  filter: blur(42px) saturate(1.2) brightness(calc(.28 + var(--vbgl, 1) * .3));
+  transform: scale(calc(1.06 + var(--vb, 0) * .02));
+  transition: transform .3s ease;
+}
+#now.viz .viz-stage.scene-cover .viz-cover { display: block; }
+.viz-card {
+  position: relative; z-index: 2; height: 100%; padding: 0 calc(var(--layout-vw37, 1vw) * 5);
+  display: flex; align-items: center; justify-content: center; gap: calc(var(--art) * .22);
+  perspective: 1100px;
+}
+/* Вспышка на удар: сцена на мгновение светлеет вместе с басом. */
+#now.viz .viz-stage.flash::after {
+  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: var(--vc1, #fff); opacity: calc(var(--vb, 0) * .035);
+}
+.viz-art {
+  position: relative; flex: none; width: var(--art); height: var(--art); border-radius: 8%;
+  overflow: hidden; background: #111;
+  border: 3px solid var(--vc1-90, #fff);
+  box-shadow: 0 0 calc((18px + var(--vb, 0) * 30px + var(--vdr, 0) * 22px) * var(--vglow, 1)) var(--vc1-55, rgba(255,255,255,.55)),
+              0 0 calc((60px + var(--vb, 0) * 80px + var(--vdr, 0) * 60px) * var(--vglow, 1)) var(--vc2-55, rgba(255,255,255,.35)),
+              inset 0 0 18px var(--vc1-28, rgba(255,255,255,.28));
+  transform: scale(calc(1 + var(--vb, 0) * .018));
+  transition: transform .18s ease-out;
+}
+/* Обложка «стоит в объёме» и отзывается на курсор — по настройке. */
+#now.viz .viz-stage.tilt .viz-art {
+  transform: rotateY(calc(var(--vx, 0) * 7deg)) rotateX(calc(var(--vy, 0) * -7deg))
+             scale(calc(1 + var(--vb, 0) * .018));
+}
+/* Форма обложки. */
+#now.viz .viz-stage.art-round .viz-art { border-radius: 8%; }
+#now.viz .viz-stage.art-circle .viz-art { border-radius: 50%; }
+#now.viz .viz-stage.art-square .viz-art { border-radius: 3px; }
+/* Обёртка обложки: на ней живут неоновые штрихи и отражение. */
+.viz-artwrap { position: relative; flex: none; }
+/* Отражение под обложкой: сцена получает «пол» (по умолчанию выключено). */
+#now.viz .viz-stage.reflect .viz-art {
+  -webkit-box-reflect: below 14px linear-gradient(transparent 52%, rgba(0, 0, 0, .3));
+}
+body.no-anim .viz-art { transition: none; transform: none; }
+.viz-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.viz-info { flex: 0 1 calc(var(--art) * 1.6); min-width: 0; display: flex; flex-direction: column; gap: 8px;
+  position: relative; padding-left: 16px; }
+/* Светящаяся черта у названия — как в лирик-клипах: она держит текст
+   слева и отбивает его от сцены. */
+.viz-info::before {
+  content: ''; position: absolute; left: 0; top: 2px;
+  width: 4px; height: calc(var(--art) * .22); border-radius: 4px;
+  background: linear-gradient(180deg, var(--vc1, #fff), var(--vc2, #fff));
+  box-shadow: 0 0 calc(8px + var(--vb, 0) * 16px) var(--vc1-55, rgba(255,255,255,.55));
+}
+.viz-title, .viz-artist {
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 .08em .08em 0;
+  background: linear-gradient(90deg, var(--vc1, #fff), var(--vc2, #fff));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 calc(8px + var(--vb, 0) * 10px) var(--vc1-55, rgba(255,255,255,.5)));
+}
+.viz-title { font-size: calc(var(--art) * .125 * var(--vtext, 1)); font-weight: 800; line-height: 1.2; letter-spacing: .01em; }
+.viz-title span { display: inline-block; }
+/* Длинное название едет строкой и спокойно возвращается назад. */
+.viz-title.run span { animation: vizRun var(--vrun-t, 10s) ease-in-out infinite alternate; }
+@keyframes vizRun { 0%, 12% { transform: translateX(0); } 88%, 100% { transform: translateX(var(--vrun, 0)); } }
+/* Новый трек: название и исполнитель выезжают из-под черты. */
+.viz-stage.fresh .viz-title, .viz-stage.fresh .viz-artist { animation: vizIn .5s cubic-bezier(.2, .8, .25, 1) both; }
+.viz-stage.fresh .viz-artist { animation-delay: .06s; }
+@keyframes vizIn { from { opacity: 0; transform: translateX(-14px); } }
+body.no-anim .viz-title.run span { animation: none; }
+.viz-artist { font-size: calc(var(--art) * .075 * var(--vtext, 1)); font-weight: 600; opacity: .9; margin-bottom: 10px; }
+/* Время в тонкой рамке: ровно такой же «прибор», как в клипах. */
+.viz-left { font-size: 12px; color: rgba(255,255,255,.55); letter-spacing: .04em; }
+.viz-time { display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  font-size: 13px; color: rgba(255,255,255,.82); font-variant-numeric: tabular-nums;
+  padding: 3px 12px; border: 1px solid var(--vc1-28, rgba(255,255,255,.28)); border-radius: 6px;
+  background: rgba(255,255,255,.04);
+}
+.viz-bar.track { position: relative; flex: none; display: block; height: 52px; cursor: pointer;
+  border-radius: 6px; overflow: hidden; border: 1px solid var(--vc1-28, rgba(255,255,255,.28));
+  background: rgba(255,255,255,.03);
+  box-shadow: inset 0 0 calc(10px + var(--vb, 0) * 18px) var(--vc1-28, rgba(255,255,255,.2)); }
+.viz-bar canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.viz-bar.track:hover .buf, .viz-bar.track:hover .fill { height: 3px; }
+.viz-bar .buf { position: absolute; left: 0; bottom: 0; height: 2px; background: rgba(255,255,255,.22); width: 0; }
+.viz-bar .fill { position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background: #fff;
+  box-shadow: 0 0 8px var(--vc1, #fff); }
+.viz-ctl .disc-b:hover { border-color: var(--vc1-55, rgba(255,255,255,.5)); }
+/* Подсказка перемотки: под курсором видно, куда встанет трек. */
+.viz-tip {
+  position: absolute; top: 3px; transform: translateX(-50%);
+  padding: 2px 7px; border-radius: 6px; font-size: 12px; font-variant-numeric: tabular-nums;
+  background: rgba(10, 10, 14, .9); color: #fff; border: 1px solid var(--vc1-28, rgba(255,255,255,.28));
+  opacity: 0; transition: opacity .15s ease; pointer-events: none; white-space: nowrap;
+}
+.viz-bar.track.tip .viz-tip { opacity: 1; }
+.viz-ctl { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+.viz-ctl .disc-play { width: 56px; height: 56px; background: #fff; color: #000; border-color: transparent; }
+.viz-ctl .disc-play .ic { width: 24px; height: 24px; }
+.viz-ctl .disc-play:hover { background: #fff; color: #000; border-color: transparent;
+  transform: translateY(-1px) scale(1.04); box-shadow: 0 0 18px var(--vc1, #fff); }
+.viz-ctl .disc-b.on { box-shadow: 0 0 10px var(--vc1, #fff); }
+/* Раскладка «по центру»: обложка сверху, подписи и шкала под ней. */
+#now.viz .viz-stage.lay-center .viz-card { flex-direction: column; gap: calc(var(--art) * .1); }
+#now.viz .viz-stage.lay-center .viz-info {
+  flex: none; width: min(calc(var(--layout-vw37, 1vw) * 78), calc(var(--art) * 2)); padding-left: 0; text-align: center;
+}
+#now.viz .viz-stage.lay-center .viz-info::before { display: none; }
+#now.viz .viz-stage.lay-center .viz-ctl { justify-content: center; }
+#now.viz .viz-stage.lay-center .viz-title.run span { animation: none; }
+
+@media (max-width: 760px), (max-aspect-ratio: 1/1) {
+  #now.viz .viz-stage { --art: calc(min(calc(var(--layout-vw37, 1vw) * 52), calc(var(--layout-vh37, 1vh) * 32)) * var(--vart, 1)); }
+  .viz-card { flex-direction: column; gap: 18px; padding: 0 calc(var(--layout-vw37, 1vw) * 7); }
+  .viz-info { flex: none; width: 100%; max-width: 520px; align-items: stretch; }
+  .viz-title { font-size: calc(var(--art) * .17); text-align: center; }
+  .viz-artist { text-align: center; }
+  .viz-ctl { justify-content: center; }
+}
+
+
+/* ---------------------------------------- оформление «как в клипе» (2.27)
+   Ряд со временем и ярлыком источника, полоса прогресса в рамке, крупная
+   подпись исполнителя, уголки рамки сцены и строки развёртки. */
+.viz-row { display: flex; align-items: stretch; gap: 8px; }
+.viz-row .viz-time { flex: 0 0 auto; }
+.viz-src {
+  flex: 1 1 auto; min-width: 0; display: none; align-items: center; justify-content: flex-end;
+  padding: 3px 10px; border: 1px solid var(--vc1-28, rgba(255,255,255,.28)); border-radius: 6px;
+  background: rgba(255,255,255,.04); color: rgba(255,255,255,.72);
+  font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+#now.viz .viz-stage.with-src .viz-src { display: flex; }
+.viz-prog {
+  display: none; height: 12px; border-radius: 4px; overflow: hidden;
+  border: 1px solid var(--vc1-55, rgba(255,255,255,.5)); background: rgba(255,255,255,.05);
+}
+#now.viz .viz-stage.with-prog .viz-prog { display: block; }
+.viz-prog i {
+  display: block; height: 100%; width: 0;
+  background: linear-gradient(90deg, var(--vc1, #fff), var(--vc2, #fff));
+  box-shadow: 0 0 calc(10px * var(--vglow, 1)) var(--vc1-90, #fff);
+  transition: width .2s linear;
+}
+/* Крупная подпись исполнителя под плеером и две черты под ней. */
+.viz-mark {
+  display: none; margin-top: 12px; font-size: calc(var(--art) * .1 * var(--vtext, 1));
+  font-weight: 900; letter-spacing: .14em; text-transform: uppercase; line-height: 1;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  background: linear-gradient(90deg, var(--vc1, #fff), var(--vc2, #fff));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  -webkit-text-fill-color: transparent; opacity: .72;
+  filter: drop-shadow(0 0 calc(10px * var(--vglow, 1)) var(--vc1-55, rgba(255,255,255,.5)));
+}
+#now.viz .viz-stage.with-mark .viz-mark { display: block; }
+/* «Как в клипе»: полоскам нужно место, чтобы они висели длинными. */
+#now.viz .viz-stage.spec-top .viz-bar.track { height: 92px; }
+#now.viz .viz-stage.with-mark .viz-mark::after {
+  content: ''; display: block; margin-top: 6px; height: 2px; width: 72%;
+  background: linear-gradient(90deg, var(--vc1-55, rgba(255,255,255,.5)), transparent);
+}
+/* Уголки рамки сцены и неоновые штрихи у обложки. */
+.viz-frame { position: absolute; inset: 18px; display: none; pointer-events: none; z-index: 3; }
+#now.viz .viz-stage.decor .viz-frame { display: block; }
+.viz-frame::before, .viz-frame::after {
+  content: ''; position: absolute; width: 56px; height: 56px;
+  border: 2px solid var(--vc1-55, rgba(255,255,255,.5));
+  filter: drop-shadow(0 0 calc(8px * var(--vglow, 1)) var(--vc1-55, rgba(255,255,255,.5)));
+}
+.viz-frame::before { left: 0; top: 0; border-right: 0; border-bottom: 0; border-radius: 10px 0 0 0; }
+.viz-frame::after { right: 0; bottom: 0; border-left: 0; border-top: 0; border-radius: 0 0 10px 0; }
+#now.viz .viz-stage.decor .viz-artwrap::before,
+#now.viz .viz-stage.decor .viz-artwrap::after {
+  content: ''; position: absolute; left: 12%; width: 56%; height: 3px; border-radius: 3px;
+  background: linear-gradient(90deg, var(--vc1, #fff), transparent);
+  box-shadow: 0 0 calc(10px * var(--vglow, 1)) var(--vc1-90, #fff); z-index: 4;
+}
+#now.viz .viz-stage.decor .viz-artwrap::before { top: -9px; }
+#now.viz .viz-stage.decor .viz-artwrap::after { bottom: -9px; left: 32%;
+  background: linear-gradient(270deg, var(--vc2, #fff), transparent); }
+/* Строки развёртки и редкий глитч подписи. */
+.viz-scan { position: absolute; inset: 0; display: none; pointer-events: none; z-index: 3;
+  background: repeating-linear-gradient(0deg, rgba(255,255,255,.045) 0 1px, transparent 1px 3px);
+  mix-blend-mode: overlay; animation: vizScan 7s linear infinite; }
+#now.viz .viz-stage.scan .viz-scan { display: block; }
+@keyframes vizScan { to { transform: translateY(3px); } }
+#now.viz .viz-stage.scan .viz-title { animation: vizGlitch 6s steps(1) infinite; }
+@keyframes vizGlitch {
+  0%, 94%, 100% { transform: none; filter: drop-shadow(0 0 calc(8px + var(--vb, 0) * 10px) var(--vc1-55, rgba(255,255,255,.5))); }
+  95% { transform: translateX(-3px); filter: drop-shadow(3px 0 0 var(--vc2, #fff)); }
+  96% { transform: translateX(3px); filter: drop-shadow(-3px 0 0 var(--vc1, #fff)); }
+  97% { transform: translateX(-1px); }
+}
+body.no-anim .viz-scan, body.no-anim #now.viz .viz-stage .viz-title { animation: none; }
+
+/* ======================================================================
+   Видео в караоке (vmedia.js): аватарка трека и фон.
+   ====================================================================== */
+.vav-box { overflow: hidden; background: #000; position: relative; }
+.vav-box video { position: absolute; left: 50%; top: 50%; max-width: none; pointer-events: none; }
+/* «Обложка и текст»: видео встаёт на место обложки, форма — по выбору. */
+.vav-split {
+  width: 100%; max-width: calc(420px * var(--k-art, 1)); aspect-ratio: 1; align-self: center;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .55); animation: artIn .5s var(--ease);
+}
+body.spin .vav-split { animation: artIn .5s var(--ease), float 6s ease-in-out infinite; }
+body.sketch.spin .vav-split { animation: artIn .5s var(--ease); }
+#nowLeft.has-vav #nArt { display: none; }
+#nowLeft.sh-circle .vav-split { border-radius: 50%; }
+#nowLeft.sh-round .vav-split { border-radius: 26px; }
+#nowLeft.sh-square .vav-split { border-radius: 2px; }
+@media (max-width: 760px) { .vav-split { max-width: min(calc(var(--layout-vw37, 1vw) * 78), 340px); } }
+/* «Визуализатор»: рамка с неоновым свечением следует форме. */
+.viz-art .vav-viz { position: absolute; inset: 0; }
+.viz-art.has-vav img { display: none; }
+.viz-art.sh-circle { border-radius: 50%; }
+.viz-art.sh-round { border-radius: 8%; }
+.viz-art.sh-square { border-radius: 2px; }
+
+/* Фон-видео за плеером во всех режимах. */
+#nowVid {
+  position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; display: none;
+  object-fit: var(--vb-fit, cover); pointer-events: none; background: #000;
+  filter: blur(var(--vb-blur, 0px)) brightness(var(--vb-bright, .65));
+  transform: scale(var(--vb-scale, 1));
+}
+body.k-vbg #nowVid { display: block; }
+body.k-vbg #nowArtBg, body.k-vbg #nowWall, body.k-vbg #nowCustom,
+body.k-vbg #nowCanvas { display: none !important; }
+body.k-vbg #now.disc .disc-stage, body.k-vbg #now.viz .viz-stage { background: transparent; }
+body.k-vbg #now.disc, body.k-vbg #now.viz { background: #000; }
+
+/* Окно настройки аватарки. */
+.vav-ed { display: grid; gap: 4px; margin-top: 10px; }
+.vav-crop {
+  position: relative; width: min(240px, calc(var(--layout-vw37, 1vw) * 60)); aspect-ratio: 1; margin: 0 auto 6px;
+  overflow: hidden; border-radius: 12px; background: #0c0c10; cursor: grab; touch-action: none;
+  user-select: none;
+}
+.vav-crop.drag { cursor: grabbing; }
+.vav-crop.empty { cursor: default; }
+.vav-vbox { position: absolute; inset: 11%; }
+.vav-vbox video { position: absolute; left: 50%; top: 50%; max-width: none; pointer-events: none; }
+.vav-mask {
+  position: absolute; inset: 11%; pointer-events: none;
+  border: 2px solid rgba(255, 255, 255, .9); box-shadow: 0 0 0 600px rgba(0, 0, 0, .62);
+}
+.vav-mask.sh-circle { border-radius: 50%; }
+.vav-mask.sh-round { border-radius: 24%; }
+.vav-mask.sh-square { border-radius: 2px; }
+.vav-crop.empty .vav-mask { box-shadow: none; border-style: dashed; border-color: rgba(255, 255, 255, .35); }
+.vav-empty {
+  position: absolute; inset: 11%; display: none; align-items: center; justify-content: center;
+  background: none; border: 0; color: rgba(255, 255, 255, .8); cursor: pointer; font: inherit;
+}
+.vav-crop.empty .vav-empty { display: flex; }
+.vav-ed input[type=range] { width: 170px; }
+
+/* Видеофон: у коробки чёрный снимок, поэтому берём версию с прозрачностью. */
+body.k-vbg .disc-stage.skin-jewel .disc-case { background-image: url('../img/disc-case-a.webp'); }
+body.k-vbg .disc-stage.skin-jewel .disc-case::after {
+  background-image: url('../img/disc-case-a.webp'); mix-blend-mode: normal;
+}
+body.k-vbg .disc-stage.reflect.skin-jewel .disc-reflect { display: none; }
+
+/* --------------------------------------------- «Визуализатор»: динамика
+   Сцена живёт вместе с треком: --vdr это общий напор музыки, --vbs — бас.
+   Обе переменные ведёт viz.js каждый кадр, поэтому карточка дышит даже
+   между ударами, а не только мигает на бите. */
+#now.viz .viz-stage .viz-card {
+  transform: scale(calc(1 + var(--vdr, 0) * .012 + var(--vb, 0) * .005));
+  transition: transform .2s ease-out;
+}
+#now.viz .viz-stage .viz-title {
+  letter-spacing: calc(.01em + var(--vdr, 0) * .012em);
+}
+#now.viz .viz-stage .viz-info::before {
+  height: calc(var(--art) * (.22 + var(--vbs, 0) * .05));
+}
+body.no-anim #now.viz .viz-stage .viz-card { transform: none; }
+
+/* Раскладка «Афиша»: крупная обложка во весь экран, подписи и шкала
+   лежат поверх неё внизу — как постер лирик-клипа. */
+#now.viz .viz-stage.lay-poster .viz-card {
+  flex-direction: column; justify-content: flex-end; align-items: center;
+  gap: 0; padding: 0 calc(var(--layout-vw37, 1vw) * 6) calc(var(--layout-vh37, 1vh) * 5);
+}
+#now.viz .viz-stage.lay-poster .viz-artwrap {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
+}
+#now.viz .viz-stage.lay-poster .viz-art {
+  width: calc(var(--art) * 1.45); height: calc(var(--art) * 1.45); opacity: .92;
+}
+#now.viz .viz-stage.lay-poster .viz-info {
+  position: relative; z-index: 3; flex: none; width: min(calc(var(--layout-vw37, 1vw) * 92), 880px);
+  padding: 18px 20px 10px; text-align: center; border-radius: 16px;
+  background: linear-gradient(180deg, rgba(4, 5, 10, 0), rgba(4, 5, 10, .72) 38%);
+}
+#now.viz .viz-stage.lay-poster .viz-info::before { display: none; }
+#now.viz .viz-stage.lay-poster .viz-ctl { justify-content: center; }
+#now.viz .viz-stage.lay-poster .viz-title.run span { animation: none; }
+/* Новые виды шкалы: сегментам и иглам нужно чуть больше места. */
+#now.viz .viz-stage.spec-led .viz-bar.track,
+#now.viz .viz-stage.spec-spike .viz-bar.track { height: 64px; }

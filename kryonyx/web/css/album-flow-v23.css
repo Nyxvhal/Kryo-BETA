@@ -1,0 +1,45 @@
+/* Slow cover-coloured mesh; no flashing or synthetic beat animation. */
+#coverFlow23{display:none;position:absolute;inset:0;overflow:hidden;pointer-events:none;background:#17171c}
+#now.album-flow23{color:#fff;--text:#fff;--muted:#e2dfe5;--lyr-lit:#fff;--lyr-dim:#ffffff65;background:#17171c}
+#now.album-flow23 #coverFlow23{display:block}
+#coverFlow23 i{position:absolute;inset:-25%;background:radial-gradient(ellipse at 22% 26%,var(--cover0,#34343b) 12%,transparent 52%),radial-gradient(ellipse at 78% 70%,var(--cover1,#25262d) 12%,transparent 52%),radial-gradient(ellipse at 85% 14%,var(--cover2,#3a363c) 10%,transparent 48%),radial-gradient(ellipse at 16% 85%,var(--cover3,#22282b) 12%,transparent 52%);filter:blur(48px);animation:cover-drift23 28s ease-in-out infinite alternate;will-change:transform}
+#coverFlow23 i+i{opacity:.35;transform:rotate(135deg);animation-name:cover-drift23b;animation-duration:37s;mix-blend-mode:normal}
+#coverFlow23:after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,#0002,#0001 50%,#0003)}
+#now.album-flow23 :is(#nowCanvas,#nowArtBg,#nowVeil,#nowWall,#nowCustom){visibility:hidden}
+#now.album-flow23 #nowIn{position:relative;z-index:1}
+#now.album-flow23 #nArt{border-radius:12px;box-shadow:0 12px 40px #0003;border:1px solid #ffffff15}
+#now.album-flow23 #nArtist{background:transparent;color:#e2dfe5}
+#now.album-flow23 #lyrics .lyr-l{color:#fff;opacity:.35;text-shadow:none;filter:none;transform:none;transition:opacity .5s ease;color:#fff}
+#now.album-flow23 #lyrics .lyr-l.on{opacity:1;color:#fff}
+#now.album-flow23 #lyrics .lyr-l.done{opacity:.22}
+#now.album-flow23 #lyrics .lyr-l :is(.lyr-t,.lyr-w,.lyr-k){color:inherit;text-shadow:none}
+#now.album-flow23 #lyrics .lyric-translated22{color:#eee9f1;opacity:.9}
+#now.album-flow23.flow-still23 #coverFlow23 i,#now:not(.on) #coverFlow23 i{animation-play-state:paused}
+#workspaceCollapse{min-width:44px;min-height:44px;-webkit-app-region:no-drag;pointer-events:auto}
+#workspaceCollapse:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sc-albumflow{background:radial-gradient(ellipse at 20% 30%,#8b4777,transparent 65%),radial-gradient(ellipse at 80% 70%,#237b81,transparent 65%),#352840}
+@keyframes cover-drift23{from{transform:translate(-4%,-3%) rotate(-12deg) scale(1)}to{transform:translate(6%,5%) rotate(22deg) scale(1.12)}}
+@keyframes cover-drift23b{from{transform:translate(5%,-5%) rotate(135deg) scale(1.1)}to{transform:translate(-6%,4%) rotate(182deg) scale(.95)}}
+@media(prefers-reduced-motion:reduce){#coverFlow23 i{animation:none;will-change:auto}#now.album-flow23 #lyrics .lyr-l{transition:none}}
+/* Immersive split composition: large cover, understated transport, legible lines. */
+@media(min-width:761px){
+ body #now.on.album-flow23.noctl:not(.viz):not(.disc):not(.focus) #nowBody{grid-template-columns:minmax(280px,480px) minmax(0,1fr)!important;gap:clamp(48px,calc(var(--layout-vw37, 1vw) * 7),120px);max-width:1520px}
+ body #now.on.album-flow23.noctl:not(.viz):not(.disc) #nArt{max-width:min(480px,calc(var(--layout-vh37, 1vh) * 53))!important;align-self:center}
+ body #now.on.album-flow23.noctl #nowLeft{align-items:stretch;text-align:center;gap:16px;overflow-y:auto}
+ body #now.on.album-flow23.noctl #nTitle{font-size:22px;line-height:1.4}
+ body #now.on.album-flow23.noctl #nArtist{font-size:16px;line-height:1.5;text-align:center}
+ body #now.on.album-flow23.noctl #nowLeft>.bar{width:88%;align-self:center}
+ body #now.on.album-flow23.noctl #lyrics.size-m .lyr-l{font-size:clamp(30px,calc(var(--layout-vw37, 1vw) * 2.7),48px);line-height:1.24;padding:20px 0}
+ body #now.on.album-flow23.noctl #lyrics{padding-top:calc(var(--layout-vh37, 1vh) * 30)!important}
+ body #now.on.album-flow23.noctl #nPlay{background:transparent!important;color:#fff;border:0;box-shadow:none;width:48px!important;height:48px!important}
+ body #now.on.album-flow23.noctl #nBtns{gap:24px}
+ body #now.on.album-flow23.noctl #nBtns .ic{width:22px;height:22px}
+}
+#now.album-flow23.noctl #nStats{display:none}
+#now.album-flow23 #nTrack .fill{background:#fff}
+#now.album-flow23 #nTrack .rail{background:#ffffff35}
+#now.album-flow23 #nTrack .knob{background:#fff}
+@media(min-width:761px){
+ body #now.on.album-flow23.noctl #nPlay svg{color:#fff!important;fill:#fff!important}
+ body #now.on.album-flow23.noctl #nTitle{text-align:center!important}
+}

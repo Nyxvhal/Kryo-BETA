@@ -1,0 +1,15 @@
+/* 24px optical geometry shared by navigation, music and video controls. */
+body.brand60 .ic{stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+body.brand60 :is(.ib,.btn,.nav) .ic{transform:none!important;filter:none!important}
+body.brand60 .ic g{vector-effect:non-scaling-stroke}
+body.brand60 #videoBrand60{grid-row:1/3;width:32px;height:32px;border-radius:7px;object-fit:contain;background:#000;display:block}
+body.brand60 #brandAva{object-fit:contain;background:#000;border-radius:7px}
+body.brand60 #pArt:not(.ph){object-fit:cover}
+body.brand60 #clipEmpty>img{width:64px;height:64px;border-radius:12px;object-fit:contain}
+body.brand60 #clips #clipStage .cs-controls svg{width:24px;height:24px;overflow:visible}
+body.brand60 #watchCenter58 svg{width:28px;height:28px}
+body.brand60 .video-account57 svg{width:20px;height:20px}
+@media(max-width:700px){body.brand60 #videoBrand60{width:28px;height:28px;border-radius:6px}}
+
+body.brand60 #sessionCover56.brand-empty60{background:#000}
+body.brand60 #sessionCover56.brand-empty60 img{object-fit:contain}

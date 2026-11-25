@@ -1,0 +1,14 @@
+/* Centre settings without depending on a translate transform. A transform may be
+   overridden by platform/animation styles, placing the top left at the centre. */
+body.ui-v38.ui-v48 #mSettings {
+  position: fixed !important;
+  inset: 0 !important;
+  margin: auto !important;
+  transform: none !important;
+}
+/* Reserve the native-window titlebar rather than letting the dialog cover it. */
+body.ui-v38.ui-v48.framed:not(.fs) #mSettings {
+  top: var(--titlebar-h, 34px) !important;
+  height: min(840px, calc(var(--layout-vh37) * 100 - var(--titlebar-h, 34px) - 16px)) !important;
+  max-height: calc(var(--layout-vh37) * 100 - var(--titlebar-h, 34px) - 16px) !important;
+}

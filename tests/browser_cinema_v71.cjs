@@ -1,0 +1,54 @@
+'use strict';
+// v71 "Cinema" clip room: toolbar layout, viewing mode (T / Esc / button), ambient drawn at the video's frame rate.
+// Runs against the v63 classic fixture (tests/serve_classic_v63_fixture.py, port 8790) with a synthetic local video.
+const {chromium}=require('playwright'),assert=require('assert/strict'),fs=require('fs');const out='verification/cinema-v71';fs.mkdirSync(out,{recursive:true});
+(async()=>{const b=await chromium.launch({executablePath:'/usr/local/bin/chromium',args:['--no-sandbox','--autoplay-policy=no-user-gesture-required']}),p=await b.newPage({viewport:{width:1440,height:900}}),errors=[],checks=[];
+p.on('pageerror',e=>errors.push(e.message));const ok=(name,condition)=>{assert(condition,name);checks.push(name);console.log('PASS',name);};
+const shot=async name=>{await p.evaluate(()=>{Hints.hide();$('toast').classList.remove('on');});await p.waitForTimeout(250);await p.screenshot({path:out+'/'+name+'.png'});};
+const shown=sel=>p.evaluate(s=>{const n=document.querySelector(s);if(!n)return false;const c=getComputedStyle(n),r=n.getBoundingClientRect();return c.display!=='none'&&c.visibility!=='hidden'&&r.width>0&&r.height>0;},sel);
+try{
+await p.request.put('http://127.0.0.1:8790/api/settings',{data:{clipAmbient66:{enabled:true,blur:24,dim:40,size:70}}});await p.request.get('http://127.0.0.1:8790/fixture/video57?cookies=ready');
+// Emulate the frameless desktop window (custom title bar) the way the pywebview shell reports it.
+await p.addInitScript(()=>{window.pywebview={api:{close(){},minimize(){},maximize(){},restore(){},info:async()=>({maximized:true,min_width:400,min_height:560,frameless:true}),set_on_top:async()=>true,toggle_fullscreen:async()=>true}};addEventListener('DOMContentLoaded',()=>setTimeout(()=>dispatchEvent(new Event('pywebviewready')),0));});
+await p.goto('http://127.0.0.1:8790');await p.waitForFunction(()=>typeof Cinema71!=='undefined'&&Cinema71.ready&&Experience66.ready&&!$('boot45'));
+await p.evaluate(()=>{setLang('ru');return Clips.open(null);});await p.waitForSelector('.video-card57');await p.waitForTimeout(500);
+ok('clip room uses the v71 layout',await p.evaluate(()=>$('clips').classList.contains('cx71')&&document.body.classList.contains('cinema71')));
+ok('sections live in one toolbar above the catalog',await p.evaluate(()=>{const bar=document.querySelector('#clips .cx-bar71'),grid=$('clipList');return !!bar&&bar.getBoundingClientRect().bottom<=grid.getBoundingClientRect().top+1&&bar.querySelectorAll('button').length>=3;}));
+ok('catalog has no horizontal overflow',await p.evaluate(()=>$('clips').scrollWidth<=$('clips').clientWidth+1));
+await p.mouse.move(1,1);await shot('catalog');
+await p.locator('.video-card57').first().click();
+await p.waitForFunction(()=>Clips.video.currentTime>.5&&!Clips.video.paused&&Experience66.drawCount>2,null,{timeout:40000});
+ok('viewing-mode button sits with the stage controls',await p.evaluate(()=>{const n=$('cxFocusBtn71');return !!n&&!!n.closest('.cs-controls')&&!!n.getAttribute('aria-label')&&!!n.querySelector('svg');}));
+ok('ambient blur is drawn inside the canvas, no CSS filter on the element',await p.evaluate(()=>getComputedStyle($('clipAmbientCanvas66')).filter==='none'&&(Experience66.filterText||'').includes('blur(')));
+const rate=await p.evaluate(async()=>{const n=Experience66.drawCount,f=Clips.video.getVideoPlaybackQuality?.().totalVideoFrames||0;await new Promise(r=>setTimeout(r,1500));return {draws:Experience66.drawCount-n,frames:(Clips.video.getVideoPlaybackQuality?.().totalVideoFrames||0)-f,rvfc:typeof Clips.video.requestVideoFrameCallback==='function'};});
+console.log('ambient',JSON.stringify(rate));
+ok('ambient follows video frames, not a slow timer',rate.draws>=6&&(!rate.rvfc||rate.frames<=0||rate.draws>=rate.frames*0.6));
+await p.mouse.move(720,420);await shot('watch');
+await p.waitForFunction(()=>document.body.classList.contains('framed'),null,{timeout:5000});
+ok('watch mode keeps the room chrome visible',await shown('#clips .cs-head')&&await shown('#titlebar'));
+await p.evaluate(()=>document.activeElement?.blur());await p.keyboard.press('t');await p.waitForTimeout(500);
+ok('T enters viewing mode',await p.evaluate(()=>Cinema71.focus&&$('clips').classList.contains('focus71')&&document.body.classList.contains('focus71')));
+ok('viewing mode hides the room header, toolbar and details',!(await shown('#clips .cs-head'))&&!(await shown('#clips .cx-bar71'))&&!(await shown('#clips details.clip-details45')));
+await p.mouse.move(2,600);await p.waitForTimeout(3400);
+ok('window title bar fades out in viewing mode',await p.evaluate(()=>{const t=$('titlebar');return !t||Number(getComputedStyle(t).opacity)<0.05;}));
+ok('only the clip and its blurred background remain',await p.evaluate(()=>{const v=$('clipVideo').getBoundingClientRect(),c=$('clipAmbientCanvas66').getBoundingClientRect();return !$('clipAmbientCanvas66').hidden&&c.width>=innerWidth&&c.height>=innerHeight&&v.width>innerWidth*0.6&&Math.abs((v.left)-(innerWidth-v.right))<4;}));
+ok('playback continues in viewing mode',await p.evaluate(async()=>{const a=Clips.video.currentTime;await new Promise(r=>setTimeout(r,500));return !Clips.video.paused&&Clips.video.currentTime>a;}));
+await shot('viewing-mode');
+await p.keyboard.press('Escape');await p.waitForTimeout(400);
+ok('Esc leaves viewing mode but keeps the clip open',await p.evaluate(()=>!Cinema71.focus&&!document.body.classList.contains('focus71')&&Clips.active&&$('clips').dataset.videoMode57==='watch'));
+await p.mouse.move(720,420);await p.waitForTimeout(200);await p.click('#cxFocusBtn71');await p.waitForTimeout(400);
+ok('button toggles viewing mode too',await p.evaluate(()=>Cinema71.focus&&$('cxFocusBtn71').getAttribute('aria-pressed')!=='false'));
+await p.keyboard.press('Escape');await p.waitForTimeout(300);
+await p.evaluate(()=>{const i=document.createElement('input');i.id='qaInput71';document.body.append(i);i.focus();});await p.keyboard.press('t');await p.waitForTimeout(200);
+ok('typing T in a text field does not toggle viewing mode',await p.evaluate(()=>!Cinema71.focus));
+await p.evaluate(()=>$('qaInput71').remove());
+await p.setViewportSize({width:390,height:844});await p.waitForTimeout(400);
+ok('narrow watch view has no horizontal overflow',await p.evaluate(()=>$('clips').scrollWidth<=$('clips').clientWidth+1&&document.documentElement.scrollWidth<=innerWidth));
+await p.evaluate(()=>document.activeElement?.blur());await p.keyboard.press('t');await p.waitForTimeout(400);
+ok('narrow viewing mode fits the screen',await p.evaluate(()=>{const v=$('clipVideo').getBoundingClientRect();return Cinema71.focus&&v.left>=-1&&v.right<=innerWidth+1&&document.documentElement.scrollWidth<=innerWidth;}));
+await shot('viewing-mode-mobile');
+await p.evaluate(()=>Clips.close());await p.waitForTimeout(400);
+ok('closing the clip clears viewing mode',await p.evaluate(()=>!Cinema71.focus&&!document.body.classList.contains('focus71')&&!document.body.classList.contains('cx-cover71')));
+ok('no runtime errors',errors.length===0);
+fs.writeFileSync(out+'/checks.json',JSON.stringify({checks,errors,ambient:rate,scope:'Synthetic local video in headless Chromium (SwiftShader); not WebView2 on Windows.'},null,2));console.log('CINEMA_V71_PASS',checks.length);
+}finally{await b.close();}})().catch(e=>{console.error(e);process.exit(1);});

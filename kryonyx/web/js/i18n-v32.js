@@ -1,0 +1,137 @@
+'use strict';
+for(const [lang,values]of Object.entries({
+  "ru": {
+    "Visualizer atmosphere": "Атмосфера визуализатора",
+    "Aurora ribbons": "Ленты авроры",
+    "Orbital field": "Орбитальное поле",
+    "Classic scenes": "Классические сцены",
+    "Audio reactive": "Реакция на звук",
+    "Waiting for audio": "Ожидание аудиосигнала",
+    "Local library": "Локальная медиатека",
+    "Ironmouse": "Ironmouse",
+    "ironmouse": "Ironmouse",
+    "vtuber": "VTuber",
+    "Liked": "Любимое",
+    "liked": "Любимое"
+  },
+  "es": {
+    "Visualizer atmosphere": "Atmósfera del visualizador",
+    "Aurora ribbons": "Cintas de aurora",
+    "Orbital field": "Campo orbital",
+    "Classic scenes": "Escenas clásicas",
+    "Audio reactive": "Reactivo al audio",
+    "Waiting for audio": "Esperando audio",
+    "Local library": "Biblioteca local",
+    "Ironmouse": "Ironmouse",
+    "ironmouse": "Ironmouse",
+    "vtuber": "VTuber"
+  },
+  "pt": {
+    "Visualizer atmosphere": "Atmosfera do visualizador",
+    "Aurora ribbons": "Fitas de aurora",
+    "Orbital field": "Campo orbital",
+    "Classic scenes": "Cenas clássicas",
+    "Audio reactive": "Reativo ao áudio",
+    "Waiting for audio": "Aguardando áudio",
+    "Local library": "Biblioteca local",
+    "Ironmouse": "Ironmouse",
+    "ironmouse": "Ironmouse",
+    "vtuber": "VTuber"
+  },
+  "de": {
+    "Visualizer atmosphere": "Visualizer-Atmosphäre",
+    "Aurora ribbons": "Aurora-Bänder",
+    "Orbital field": "Orbitalfeld",
+    "Classic scenes": "Klassische Szenen",
+    "Audio reactive": "Audioreaktiv",
+    "Waiting for audio": "Warten auf Audiosignal",
+    "Local library": "Lokale Mediathek",
+    "Ironmouse": "Ironmouse",
+    "ironmouse": "Ironmouse",
+    "vtuber": "VTuber"
+  },
+  "fr": {
+    "Visualizer atmosphere": "Ambiance du visualiseur",
+    "Aurora ribbons": "Rubans d’aurore",
+    "Orbital field": "Champ orbital",
+    "Classic scenes": "Scènes classiques",
+    "Audio reactive": "Réactif au son",
+    "Waiting for audio": "En attente du son",
+    "Local library": "Bibliothèque locale",
+    "Ironmouse": "Ironmouse",
+    "ironmouse": "Ironmouse",
+    "vtuber": "VTuber"
+  },
+  "it": {
+    "Visualizer atmosphere": "Atmosfera del visualizzatore",
+    "Aurora ribbons": "Nastri aurora",
+    "Orbital field": "Campo orbitale",
+    "Classic scenes": "Scene classiche",
+    "Audio reactive": "Reattivo all’audio",
+    "Waiting for audio": "In attesa dell’audio",
+    "Local library": "Libreria locale",
+    "Ironmouse": "Ironmouse",
+    "ironmouse": "Ironmouse",
+    "vtuber": "VTuber"
+  },
+  "tr": {
+    "Visualizer atmosphere": "Görselleştirici atmosferi",
+    "Aurora ribbons": "Aurora şeritleri",
+    "Orbital field": "Yörünge alanı",
+    "Classic scenes": "Klasik sahneler",
+    "Audio reactive": "Sese duyarlı",
+    "Waiting for audio": "Ses bekleniyor",
+    "Local library": "Yerel kitaplık",
+    "Ironmouse": "Ironmouse",
+    "ironmouse": "Ironmouse",
+    "vtuber": "VTuber"
+  },
+  "pl": {
+    "Visualizer atmosphere": "Atmosfera wizualizatora",
+    "Aurora ribbons": "Wstęgi zorzy",
+    "Orbital field": "Pole orbitalne",
+    "Classic scenes": "Klasyczne sceny",
+    "Audio reactive": "Reakcja na dźwięk",
+    "Waiting for audio": "Oczekiwanie na dźwięk",
+    "Local library": "Biblioteka lokalna",
+    "Ironmouse": "Ironmouse",
+    "ironmouse": "Ironmouse",
+    "vtuber": "VTuber"
+  },
+  "uk": {
+    "Visualizer atmosphere": "Атмосфера візуалізатора",
+    "Aurora ribbons": "Стрічки аврори",
+    "Orbital field": "Орбітальне поле",
+    "Classic scenes": "Класичні сцени",
+    "Audio reactive": "Реакція на звук",
+    "Waiting for audio": "Очікування аудіосигналу",
+    "Local library": "Локальна медіатека",
+    "Ironmouse": "Ironmouse",
+    "ironmouse": "Ironmouse",
+    "vtuber": "VTuber"
+  },
+  "zh": {
+    "Visualizer atmosphere": "可视化氛围",
+    "Aurora ribbons": "极光丝带",
+    "Orbital field": "轨道场",
+    "Classic scenes": "经典场景",
+    "Audio reactive": "音频响应",
+    "Waiting for audio": "等待音频信号",
+    "Local library": "本地音乐库",
+    "Ironmouse": "Ironmouse",
+    "ironmouse": "Ironmouse",
+    "vtuber": "VTuber"
+  },
+  "ja": {
+    "Visualizer atmosphere": "ビジュアライザーの雰囲気",
+    "Aurora ribbons": "オーロラリボン",
+    "Orbital field": "軌道フィールド",
+    "Classic scenes": "従来のシーン",
+    "Audio reactive": "音声に反応",
+    "Waiting for audio": "音声信号を待機中",
+    "Local library": "ローカルライブラリ",
+    "Ironmouse": "Ironmouse",
+    "ironmouse": "Ironmouse",
+    "vtuber": "VTuber"
+  }
+}))Object.assign(PACKS[lang],values);
