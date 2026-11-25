@@ -1,0 +1,54 @@
+/* Playback geometry cannot be interpolated independently from its knob. */
+body .track>.fill,body .track>.buf{transition:none!important;max-width:100%;min-width:0}
+body .sw{width:46px;height:27px;min-height:27px;border:1px solid transparent}
+body .sw::after{width:19px;height:19px;left:3px;top:3px;transform:none!important;transition:background-color .16s!important}
+body .sw.on::after{left:calc(100% - 22px);transform:none!important}
+body .sw.sm{width:38px;height:24px;min-height:24px}
+body .sw.sm::after{width:16px;height:16px}
+body .sw.sm.on::after{left:calc(100% - 19px)}
+body :is(.nav-rail,.workspace-rail) #brandAva{object-fit:contain}
+#brandAva{object-fit:contain;flex-shrink:0}
+#ctxMenu button{line-height:1.35}
+#pTitle,#pArtist,#nTitle,#nArtist{max-width:100%;min-width:0}
+#vizTitle,#vizArtist{color:#f4f2fa;-webkit-text-fill-color:currentColor;background:none;filter:none;animation:none!important}
+#vizTitle .kx-marquee-copy,#vizArtist .kx-marquee-copy{color:inherit;-webkit-text-fill-color:currentColor}
+#vizStage .viz-card{border-radius:20px;background:rgba(13,14,22,.78);border:1px solid #ffffff24;box-shadow:0 20px 80px #0005}
+#vizStage .viz-info{min-width:0}
+#vizStage .viz-bar{position:relative;display:block;overflow:hidden;flex:none;width:100%;height:104px;background:#080a12b3;border:1px solid #ffffff26;border-radius:12px;box-shadow:none}
+#vizStage .viz-time{background:transparent;border:0;padding:0;font-size:12px;color:#d7d4df}
+#vizStage .viz-ctl{gap:10px;flex-wrap:wrap}
+#vizStage .viz-ctl .disc-b{min-width:44px;min-height:44px;border-radius:12px;transform:none}
+#vizStage .viz-title{font-size:clamp(20px,calc(var(--layout-vw37, 1vw) * 2.4),38px);font-weight:700;letter-spacing:-.02em}
+#vizStage .viz-artist{font-size:clamp(14px,calc(var(--layout-vw37, 1vw) * 1.3),20px);font-weight:500;color:#bfb9d3}
+#vizStage .viz-prog.track{box-shadow:none;height:24px;overflow:visible;background:transparent;flex:none;margin:0;border:0}
+#vizStage .viz-prog .rail{background:#ffffff26;height:4px}
+#vizStage .viz-prog .fill{height:4px;background:var(--vc1,#fff)}
+#vizStage .viz-prog .buf{height:4px;background:#ffffff38}
+#vizStage .viz-frequency{display:flex;justify-content:space-between;color:#aaa5b9;font-size:10px;letter-spacing:.04em;font-variant-numeric:tabular-nums;margin-top:-4px}
+#vizTitleIn{display:block!important;width:100%;min-width:0}
+#vizStage .viz-tip{top:-24px}
+
+#vizStage .viz-tip{max-width:80px;left:clamp(40px,var(--tip-x,50%),calc(100% - 40px))!important}
+#vizStage .viz-artwrap:before,#vizStage .viz-frame,#vizStage .viz-scan{display:none}
+#vizStage .viz-art{border-radius:16px;box-shadow:0 12px 36px #0005;transform:none!important}
+#vizStage .viz-art img{object-fit:cover;transform:none}
+@media(max-width:760px){#vizStage .viz-card{padding:20px;gap:20px}#vizStage .viz-bar{height:84px}#vizStage .viz-info{width:100%}}
+
+/* The card opens contents; only the dedicated play button starts playback. */
+.workspace-library-card{cursor:pointer}
+.workspace-library-card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.workspace-library-actions{flex-wrap:nowrap;align-items:center;gap:8px;padding:12px 16px}
+.workspace-library-actions .ib{width:44px;min-width:44px;height:44px;min-height:44px}
+.workspace-library-actions .workspace-play-playlist{margin-right:auto;border:0;border-radius:50%;background:var(--text);color:var(--bg);box-shadow:none}
+.workspace-play-playlist .ic{width:20px;height:20px;fill:currentColor;stroke:none;transform:translateX(1px)}
+.workspace-library-actions .workspace-play-playlist:hover{filter:brightness(.9)}
+
+.ui-v9 #now.viz{inset:0;background:#090a10;backdrop-filter:none}
+body.framed #now.viz{top:var(--titlebar-h)}
+/* Video placeholders must stay readable even with a light sketch palette. */
+#clips #clipEmpty,#clips #clipBusy{background:#0d0e16;color:#f2f2f7}
+#clips #clipEmpty span,#clips #clipBusy span{color:#c4c3d4}
+
+#ctxMenu{max-height:calc(calc(var(--layout-vh37, 1dvh) * 100) - 20px);overflow-y:auto;max-width:calc(calc(var(--layout-vw37, 1vw) * 100) - 20px)}
+.pane[data-pane=avatar]>.ca13-upload{margin-right:8px;margin-bottom:8px}
+#avaHint:empty{display:none}

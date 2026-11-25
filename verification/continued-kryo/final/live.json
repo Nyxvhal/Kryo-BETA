@@ -1,0 +1,14 @@
+{
+  "translation": {
+    "status": "ok",
+    "nonempty": true,
+    "differs_from_source": true
+  },
+  "lrclib": {
+    "status": "ok",
+    "candidates": 20,
+    "accepted": true,
+    "artist": "Justin Bieber",
+    "title": "Beauty and a Beat"
+  }
+}

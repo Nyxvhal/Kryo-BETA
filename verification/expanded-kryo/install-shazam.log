@@ -1,0 +1,9 @@
+Collecting shazamio-core<1.2,>=1.1.2
+  Downloading shazamio_core-1.1.2-cp313-cp313-manylinux_2_28_x86_64.whl.metadata (369 bytes)
+Downloading shazamio_core-1.1.2-cp313-cp313-manylinux_2_28_x86_64.whl (1.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 33.5 MB/s eta 0:00:00
+Installing collected packages: shazamio-core
+Successfully installed shazamio-core-1.1.2
+
+[notice] A new release of pip is available: 24.2 -> 26.3
+[notice] To update, run: python3 -m pip install --upgrade pip

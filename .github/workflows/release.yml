@@ -1,0 +1,38 @@
+name: Windows build (manual)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Ensure Inno Setup is available
+        shell: powershell
+        run: |
+          if (-not (Test-Path "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe")) {
+            choco install innosetup --yes --no-progress
+            if ($LASTEXITCODE -ne 0) { throw "Inno Setup installation failed" }
+          }
+
+      - name: Build the app and the installer
+        shell: powershell
+        run: powershell -ExecutionPolicy Bypass -File build\build_windows.ps1
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Kryo-setup
+          path: dist/*.exe
+          if-no-files-found: error
+          retention-days: 14
+

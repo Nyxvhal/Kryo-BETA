@@ -1,0 +1,21 @@
+{
+  "checks": [
+    "51 icons in shared set",
+    "all static symbols match new paths",
+    "all dynamically created icons match",
+    "wave navigation uses new set",
+    "mini-player icons share transport paths",
+    "lyrics scene icons share transport paths",
+    "karaoke buttons receive new icon paths",
+    "wave icon present",
+    "playback works after icon change",
+    "pause updates transport",
+    "resume works",
+    "clip transport uses new icons",
+    "clip transport fits mobile",
+    "no horizontal overflow on mobile",
+    "no page errors"
+  ],
+  "errors": [],
+  "scope": "Local demo tracks and synthetic video, Chromium. No Windows/WebView2 or authenticated provider verification."
+}

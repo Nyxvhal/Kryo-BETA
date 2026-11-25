@@ -1,0 +1,6 @@
+{
+  "favorites": [{"title": "Northern Lights", "artist": "Example Artist"}],
+  "history": [{"title": "Evening Walk", "artist": "Demo Ensemble", "count": 8}],
+  "artists": [{"name": "Example Artist"}],
+  "playlists": [{"name": "My collection", "tracks": [{"title": "Quiet City", "artist": "Demo Ensemble"}]}]
+}

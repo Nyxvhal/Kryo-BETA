@@ -1,0 +1,22 @@
+{
+  "environment": "Linux headless Chromium, 1280x720, generated silent WAV; sequential 10-second windows",
+  "cases": {
+    "normal": {
+      "wall_seconds": 10.001,
+      "renderer_task_seconds": 3.5470930000000003,
+      "layout_seconds": 0.004257,
+      "style_seconds": 0.225838,
+      "heap_mib": 11.379913330078125,
+      "engine": "webgl"
+    },
+    "reduced_motion": {
+      "wall_seconds": 10.002,
+      "renderer_task_seconds": 1.1800480000000002,
+      "layout_seconds": 0.003654,
+      "style_seconds": 0.20165699999999998,
+      "heap_mib": 12.344219207763672,
+      "engine": "webgl"
+    }
+  },
+  "limitations": "Renderer tasks and JS heap only, not total CPU or process RAM; no GC normalization; not a Windows or long-run test."
+}

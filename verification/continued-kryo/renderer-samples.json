@@ -1,0 +1,105 @@
+{
+  "total": 6235,
+  "top": [
+    [
+      "(idle) :-1",
+      3695
+    ],
+    [
+      "(program) :-1",
+      2385
+    ],
+    [
+      "requestAnimationFrame :-1",
+      59
+    ],
+    [
+      "querySelector :-1",
+      31
+    ],
+    [
+      "(garbage collector) :-1",
+      12
+    ],
+    [
+      "getBoundingClientRect :-1",
+      11
+    ],
+    [
+      "step karaoke.js?v=80:1383",
+      10
+    ],
+    [
+      "latency karaoke.js?v=80:691",
+      5
+    ],
+    [
+      "drawArrays :-1",
+      4
+    ],
+    [
+      "paintStyle40 core.js?v=78:954",
+      3
+    ],
+    [
+      "(anonymous) fluid-cover-v29.js?v=53:80",
+      2
+    ],
+    [
+      "frame fluid-cover-v29.js?v=53:69",
+      2
+    ],
+    [
+      "Karaoke.center reference-scene-v24.js?v=79-translation:31",
+      2
+    ],
+    [
+      "FluidCover24.visible scene-v46.js?v=53:8",
+      1
+    ],
+    [
+      "uniform1f :-1",
+      1
+    ],
+    [
+      "watch player.js?v=73-kfix1:204",
+      1
+    ],
+    [
+      "Player.<computed> reference-scene-v24.js?v=79-translation:29",
+      1
+    ],
+    [
+      "paint performance-v47.js?v=53:12",
+      1
+    ],
+    [
+      "closest :-1",
+      1
+    ],
+    [
+      "update repair-v33.js?v=80-translation:79",
+      1
+    ],
+    [
+      "active player-fixes-v78.js?v=78:11",
+      1
+    ],
+    [
+      "Player.paintProgress perf-v72.js?v=72:16",
+      1
+    ],
+    [
+      "width perf-v72.js?v=72:9",
+      1
+    ],
+    [
+      "getElementById :-1",
+      1
+    ],
+    [
+      "fetch :-1",
+      1
+    ]
+  ]
+}

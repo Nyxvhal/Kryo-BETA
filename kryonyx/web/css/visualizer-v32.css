@@ -1,0 +1,29 @@
+/* Light on the compositor: no full-window blur, no beat-driven shadow rasterization. */
+.ui-v32 #now.viz .viz-stage{--art:min(calc(var(--layout-vh37, 1vh) * 42),calc(var(--layout-vw37, 1vw) * 29));background:#060810;cursor:default}
+.ui-v32 #now.viz .viz-bg{opacity:1;filter:none!important}
+.ui-v32 #now.viz .viz-card{padding:100px calc(var(--layout-vw37, 1vw) * 8) 70px;gap:calc(var(--layout-vw37, 1vw) * 9);border:0;border-radius:0;background:linear-gradient(90deg,#06081010,#0608106b);box-shadow:none;overflow:auto}
+.ui-v32 #now.viz .viz-artwrap{isolation:isolate}
+.ui-v32 #now.viz .viz-art{border:1px solid #ffffff35;border-radius:22px;box-shadow:0 24px 70px #0007;transform:none!important;-webkit-box-reflect:unset}
+.ui-v32 #now.viz .viz-stage.art-circle .viz-art{border-radius:50%}.ui-v32 #now.viz .viz-stage.art-square .viz-art{border-radius:3px}
+.viz-orbit32{position:absolute;width:132%;height:132%;max-width:none;inset:-16%;pointer-events:none;z-index:-1}
+.ui-v32 #now.viz .viz-info{flex:0 1 590px;padding-left:0;gap:16px}
+.ui-v32 #now.viz .viz-info::before{display:none}
+.ui-v32 #now.viz .viz-title{font-size:clamp(28px,calc(var(--layout-vw37, 1vw) * 3.3),58px);font-weight:750;line-height:1.13;letter-spacing:-.035em}
+.ui-v32 #now.viz .viz-artist{font-size:clamp(16px,calc(var(--layout-vw37, 1vw) * 1.3),23px);color:#bbbccd}
+.viz-signal32{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:#bec0d3;line-height:1.6}
+.ui-v32 #now.viz .viz-bar{height:128px;border:0;border-radius:14px;background:linear-gradient(180deg,#ffffff02,#ffffff06);box-shadow:none}
+.ui-v32 #now.viz .viz-ctl{justify-content:flex-start;gap:12px;margin-top:12px}
+.ui-v32 #now.viz .viz-ctl button{width:46px;height:46px;border:1px solid #ffffff17;background:#ffffff06;border-radius:50%}
+.ui-v32 #now.viz .viz-ctl .disc-play{width:62px;height:62px;background:#f1eefb;color:#17141f;border:0}
+.ui-v32 #now.viz .viz-stage.flash::after{display:none}
+.ui-v32 #now.viz .viz-stage .viz-ctl{transition:opacity .25s}
+.ui-v32 #now.viz.idle30 .viz-ctl{opacity:0;pointer-events:none}.ui-v32 #now.viz.idle30 .viz-stage{cursor:none}
+.ui-v32 #now.viz .viz-ctl:focus-within{opacity:1;pointer-events:auto}
+.viz-setting32 select{max-width:240px;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px}
+.ui-v32 #now.viz .viz-translation22{color:#e7e3fa;font-size:clamp(16px,calc(var(--layout-vw37, 1vw) * 1.4),23px);line-height:1.4;max-height:5.6em;overflow:auto;padding:14px 16px;border-left:2px solid var(--vc1);background:#0003;border-radius:0 10px 10px 0}
+@media(max-width:760px){.ui-v32 #now.viz .viz-stage{--art:min(calc(var(--layout-vh37, 1vh) * 29),calc(var(--layout-vw37, 1vw) * 57))}.ui-v32 #now.viz .viz-card{padding:100px 25px 40px;gap:36px;justify-content:flex-start;align-items:center;flex-direction:column}.ui-v32 #now.viz .viz-info{width:100%;flex:0 0 auto;gap:12px}.ui-v32 #now.viz .viz-title{font-size:28px}.ui-v32 #now.viz .viz-bar{height:85px}.ui-v32 #now.viz .viz-ctl{gap:6px;justify-content:space-between}.ui-v32 #now.viz .viz-ctl button{width:40px;height:40px}.ui-v32 #now.viz .viz-ctl .disc-play{width:52px;height:52px}}
+/* Superseded by sceneRestore30; do not let the old eye button cover Exit. */
+body.ui-v32 #now #sceneReturn{display:none!important}
+body.ui-v32 #now.on.noctl #sceneReturn:not([hidden]){display:none!important;visibility:hidden!important;pointer-events:none!important}
+body.ui-v32 #now.on.viz #sceneTools30{visibility:visible!important;display:flex!important}
+.ui-v32 #vizStage[data-experience32=classic] .viz-orbit32{display:none}

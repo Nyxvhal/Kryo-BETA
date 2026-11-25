@@ -1,0 +1,10 @@
+/* v69 motion — general transitions only.
+   v71: the clip-room motion moved into cinema-v71.css (one owner, no
+   infinite rings), and the view entrance no longer animates a blur filter,
+   which repainted the whole view on every frame of the transition. */
+:root{--m69-ease:cubic-bezier(.2,.8,.2,1);--m69-spring:cubic-bezier(.2,1.4,.4,1)}
+.view.on{animation:m69-view .36s var(--m69-ease) backwards}
+@keyframes m69-view{from{opacity:0;transform:translateY(8px)}}
+button,.btn,.ib{transition:transform .18s var(--m69-ease),background-color .2s,border-color .2s,color .2s,opacity .2s}
+.ib:not(:disabled):active,.btn:not(:disabled):active{transform:scale(.94)}
+@media(prefers-reduced-motion:reduce){.view.on{animation:none!important;transition:none!important}}

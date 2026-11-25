@@ -1,0 +1,84 @@
+{
+  "version": "Karaoke Studio v3",
+  "python_tests": 54,
+  "timing_tests": 11,
+  "renderer_checks": 9,
+  "editor_assertions": 16,
+  "browser": {
+    "boot": [],
+    "errors": [],
+    "savedReview": true,
+    "checks": [
+      "draft badge",
+      "waveform",
+      "invalid atomic edit",
+      "undo redo",
+      "manual apply",
+      "review checkbox",
+      "matching audio checkbox",
+      "mobile no overflow",
+      "empty words",
+      "light theme"
+    ]
+  },
+  "vocal_test": {
+    "source": {
+      "artist": "Ironmouse, shirobeats & HalaCG",
+      "title": "Cry For Me (WA WA WA) (feat. Bubi)",
+      "source": "https://music.apple.com/us/album/cry-for-me-wa-wa-wa-feat-bubi/1785366153?i=1785366155&uo=4"
+    },
+    "model": "small",
+    "device": "cpu",
+    "duration": 29.9755,
+    "lines": 9,
+    "words": 43,
+    "refinement": "applied",
+    "quality": {
+      "status": "needs_review",
+      "reviewed": false,
+      "warnings": [
+        "asr_draft",
+        "timing_estimated",
+        "low_confidence",
+        "short_words",
+        "repetition"
+      ],
+      "word_count": 43,
+      "low_confidence_words": 4,
+      "confidence_available": 43,
+      "reference_provided": false,
+      "syllables_provided": false,
+      "notice": "Diagnostics do not measure acoustic accuracy. Verify against this recording."
+    },
+    "ground_truth_available": false,
+    "accuracy_measured": false
+  },
+  "real_api_alignment": [
+    {
+      "engine": "stable-ts",
+      "model": "small",
+      "device": "cpu",
+      "words": 22,
+      "reference_preserved": true,
+      "previous_unchanged": true,
+      "cached": false
+    },
+    {
+      "engine": "stable-ts",
+      "model": "small",
+      "device": "cpu",
+      "words": 22,
+      "reference_preserved": true,
+      "previous_unchanged": true,
+      "cached": true
+    }
+  ],
+  "limitations": [
+    "GPU/CUDA not tested",
+    "Demucs not tested",
+    "Windows EXE not built or tested",
+    "No automatic acoustic syllable aligner",
+    "No measured vocal WER or timing benchmark",
+    "UI job-result fixture is mocked; separate API alignment and vocal worker tests are real"
+  ]
+}

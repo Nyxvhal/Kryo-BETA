@@ -1,0 +1,24 @@
+{
+  "checks": [
+    "100 unchanged renders produce zero DOM mutations",
+    "stale search cannot replace newer empty results",
+    "empty state is not stuck loading",
+    "catalog error is visible",
+    "queue navigation reflects current tab",
+    "downloads list opens actual jobs panel",
+    "native seek changes video time",
+    "resume control starts status monitoring",
+    "watch close clears AV sync interval",
+    "direct API blocked /api/clips/catalog?q=direct",
+    "direct API blocked /api/clips/sessions",
+    "direct API blocked /api/clips/sessions/test/media/video",
+    "blocked direct requests start no upstream or catalog work",
+    "no runtime errors"
+  ],
+  "mutation": {
+    "changes": 0,
+    "ms": 2
+  },
+  "errors": [],
+  "scope": "Local synthetic fixture; no live signed-in YouTube"
+}

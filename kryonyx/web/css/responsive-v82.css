@@ -1,0 +1,3 @@
+button, [role="button"], input[type="range"], select { touch-action: manipulation; }
+button:focus-visible, select:focus-visible, input:focus-visible, [role="slider"]:focus-visible { outline: 2px solid var(--accent, #aaaaff); outline-offset: 2px; }
+body.ui-v47 :is(.karaoke-menu45,#sceneMenu33):not([hidden]) { animation: none !important; }

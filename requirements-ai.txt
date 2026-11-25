@@ -1,0 +1,4 @@
+# Optional AI module (setup-ai.bat / setup-ai.sh). PyTorch is installed separately
+# from https://download.pytorch.org/whl/<cpu|cu118|cu126|cu128> by the setup script.
+numpy>=1.24
+Pillow>=10

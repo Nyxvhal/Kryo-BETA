@@ -1,0 +1,35 @@
+{
+  "provider": "YouTube Music / yt-dlp",
+  "query": "Rick Astley Never Gonna Give You Up",
+  "scope": "public catalog and provider resolver, no credentials",
+  "results": 50,
+  "sample": [
+    {
+      "id": "yt:dQw4w9WgXcQ",
+      "title": "Never Gonna Give You Up",
+      "artist": "Rick Astley",
+      "duration": 214
+    },
+    {
+      "id": "yt:XGxIE1hr0w4",
+      "title": "Never Gonna Give You Up | Rick Astley Rocks New Year's Eve - BBC",
+      "artist": "BBC",
+      "duration": 234
+    },
+    {
+      "id": "yt:nsCIeklgp1M",
+      "title": "Never Gonna Give You Up",
+      "artist": "Rick Astley",
+      "duration": 560
+    }
+  ],
+  "resolver_ok": true,
+  "resolver_fields": [
+    "headers",
+    "size",
+    "mime",
+    "bitrate",
+    "codec",
+    "duration"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "checks": [
+    "boot has no errors",
+    "actual local video decodes",
+    "subtitle UI removed",
+    "only essential transport buttons",
+    "no PiP or theater buttons",
+    "controls inside video stage",
+    "play button pauses both tracks",
+    "timeline tracks both custom theme accents",
+    "settings popup opens",
+    "quality uses real native control",
+    "speed changes native audio",
+    "Escape closes menu not player",
+    "native timeline seeks",
+    "mute affects native audio",
+    "fullscreen retains same controls",
+    "watch fits 800",
+    "transport fits picture 800",
+    "watch fits 390",
+    "transport fits picture 390",
+    "mobile settings opens",
+    "playing controls auto-hide",
+    "pause exposes controls",
+    "cookie removal still blocks and detaches",
+    "close clears auto-hide timer state",
+    "no runtime errors"
+  ],
+  "errors": [],
+  "scope": "Local FFmpeg test pattern plus synthetic audio; NOT authenticated YouTube playback."
+}

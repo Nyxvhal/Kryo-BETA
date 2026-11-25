@@ -1,0 +1,20 @@
+{
+  "checks": [
+    "quality pill sits in the player bar",
+    "popover opens and reports it",
+    "three quality modes, current one checked",
+    "labels are translated",
+    "popover fits on screen",
+    "data saver is saved and marked",
+    "switching quality keeps playing from the same moment",
+    "status line explains the result",
+    "speed chip changes the rate",
+    "pitch follows speed by default",
+    "pitch switch keeps the natural voice",
+    "arrow keys move between modes",
+    "Escape closes and returns focus to the pill",
+    "no runtime errors"
+  ],
+  "errors": [],
+  "scope": "Local demo tracks in Chromium; quality switching with real YouTube streams is not covered here."
+}

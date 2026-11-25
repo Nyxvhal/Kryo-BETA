@@ -1,0 +1,12 @@
+/* Capture actual app UI with a deterministic demo library, not a drawn mockup. */
+const{chromium}=require('playwright'),fs=require('fs'),path=require('path');
+const root=path.resolve(__dirname,'..'),out=root+'/kryonyx/web/img/theme-ui';
+(async()=>{const b=await chromium.launch({executablePath:'/usr/local/bin/chromium',args:['--no-sandbox']});try{const p=await b.newPage({viewport:{width:1100,height:740},reducedMotion:'reduce'});await p.goto('http://127.0.0.1:8779');await p.waitForFunction(()=>document.body.classList.contains('ui-v33'));await p.waitForFunction(()=>document.querySelectorAll('#rows .track-shell30').length>=4);await p.evaluate(()=>{closeModals();App.go('home');setLang('en');S.noAnim=true;S.wallSrc='';S.atmo=false;S.rail=false;S.compact=false;S.panelOpacity33=85;S.customCss='';S.tune={};saveSettings=()=>{};const track={id:'local:preview',source:'local',title:'Theme preview',artist:'Kryonyx Music · Demo',duration:210,thumbnail:'/img/avatars/kryonyx-vibe-08-winter-aurora.png'};Player.current=track;Player.queue=[track];Player.index=0;Player.paintTrack();});await p.waitForTimeout(500);const themes=await p.evaluate(()=>Object.entries(THEME_LIBRARY).filter(([k,v])=>v.group!=='hidden').map(([id,t])=>({id,name:t.name,file:id.replace(/[^a-z0-9_-]/gi,'-')+'.webp'})));if(new Set(themes.map(x=>x.file)).size!==themes.length)throw Error('Duplicate filenames');const manifest=[];
+for(const [i,t]of themes.entries()){
+ const applied=await p.evaluate(id=>{useTheme(id);document.activeElement?.blur();$('toast').classList.remove('on');return {theme:S.theme,bg:getComputedStyle(document.documentElement).getPropertyValue('--bg').trim(),accent:getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()};},t.id);
+ if(applied.theme!==t.id)throw Error('Theme not applied '+t.id);
+ await p.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
+ await p.screenshot({path:path.join(out,t.file.replace('.webp','.png'))});manifest.push({...t,...applied});if(i%30===0)console.log('Captured',i+1,'/',themes.length);
+}
+fs.mkdirSync(root+'/verification/repair-v35',{recursive:true});fs.writeFileSync(root+'/verification/repair-v35/preview-manifest.json',JSON.stringify({method:'Screenshots of actual app home, default theme, demo metadata and covers; no user content',viewport:{width:1100,height:740},output:{width:880,height:592},themes:manifest},null,2));console.log('DONE',themes.length);
+}finally{await b.close()}})().catch(e=>{console.error(e);process.exit(1)});

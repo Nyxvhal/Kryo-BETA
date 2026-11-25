@@ -1,0 +1,127 @@
+MIT License
+
+Copyright (c) 2026 Kryonyx Music contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+================================================================================
+THIRD-PARTY NOTICES AND ATTRIBUTION
+================================================================================
+
+Kryonyx Music itself is distributed under the MIT license above. The notices
+below credit the projects and services this player builds on. Nothing in this
+section grants rights to third-party trademarks or content.
+
+--------------------------------------------------------------------------------
+1. Theme palettes
+--------------------------------------------------------------------------------
+
+The "Community" group in the theme library recreates well known colour schemes
+by eye, as a tribute. No code, image or font from those projects is bundled, and
+Kryonyx Music is not affiliated with or endorsed by any of them.
+
+    Spotify            Spotify AB                  spotify.com
+    Dracula            Zeno Rocha + contributors   draculatheme.com
+    Nord               Arctic Ice Studio           nordtheme.com
+    Gruvbox            morhetz                     github.com/morhetz/gruvbox
+    Catppuccin         Catppuccin org              catppuccin.com
+    Tokyo Night        enkia                       github.com/enkia/tokyo-night-vscode-theme
+    Rose Pine          Rose Pine team              rosepinetheme.com
+    Everforest         sainnhe                     github.com/sainnhe/everforest
+    Solarized          Ethan Schoonover            ethanschoonover.com/solarized
+    GitHub             GitHub, Inc.                github.com
+    Winamp             Nullsoft / Radionomy        a nod to the classic player
+
+--------------------------------------------------------------------------------
+2. Integrations
+--------------------------------------------------------------------------------
+
+    Discord Rich Presence  Discord Inc.        local IPC, no third-party package
+    Mastodon               Mastodon gGmbH      REST API /api/v1/statuses
+    Last.fm                CBS Interactive     API 2.0 scrobbling
+    ListenBrainz           MetaBrainz          submit-listens API
+    Maloja                 krateng             self-hosted scrobble server
+
+--------------------------------------------------------------------------------
+3. Libraries bundled or required at runtime
+--------------------------------------------------------------------------------
+
+    yt-dlp            https://github.com/yt-dlp/yt-dlp            Unlicense
+    ytmusicapi        https://github.com/sigma67/ytmusicapi       MIT
+    aiohttp           https://github.com/aio-libs/aiohttp         Apache-2.0
+    pywebview         https://github.com/r0x0r/pywebview          BSD-3-Clause
+    aiohttp-socks     https://github.com/romis2012/aiohttp-socks  Apache-2.0
+    pytubefix         https://github.com/JuanBindez/pytubefix     MIT
+    imageio-ffmpeg    https://github.com/imageio/imageio-ffmpeg   BSD-2-Clause
+                      (ships an FFmpeg build, LGPL/GPL, ffmpeg.org)
+    PyInstaller       https://github.com/pyinstaller/pyinstaller  GPL-2.0 with
+                                                                  bootloader ex.
+    Inno Setup        https://jrsoftware.org/isinfo.php           modified BSD
+
+--------------------------------------------------------------------------------
+4. Fonts bundled in kryonyx/web/fonts
+--------------------------------------------------------------------------------
+
+    Pangolin          Kevin Burke                 SIL Open Font License 1.1
+    Caveat            Impallari Type              SIL Open Font License 1.1
+    Roboto            The Roboto Project Authors   SIL Open Font License 1.1
+
+The bundled Pangolin, Caveat and Roboto files declare the SIL Open Font License
+in their embedded metadata. Full texts and source links are in licenses/fonts/.
+The fonts are included as latin / latin-ext / cyrillic subsets and remain under
+their own licences.
+
+--------------------------------------------------------------------------------
+5. Services and data sources reached by the plugins
+--------------------------------------------------------------------------------
+
+Each plugin in the catalogue names the party that actually runs the service.
+Kryonyx Music only talks to their public endpoints; all rights to the music,
+metadata and artwork stay with those parties and the artists.
+
+    YouTube              Google LLC                    music.youtube.com
+      via Piped          TeamPiped                     github.com/TeamPiped/Piped
+      via Invidious      Invidious contributors        github.com/iv-org/invidious
+    SoundCloud           SoundCloud Global Ltd & Co KG soundcloud.com
+    Audius               Audius / OpenAudio Foundation audius.co
+    Bandcamp             Bandcamp, Inc.                bandcamp.com
+    Internet Archive     Internet Archive              archive.org
+    Mixcloud             Mixcloud Ltd.                 mixcloud.com
+    Jamendo              Jamendo S.A.                  jamendo.com
+    Radio-Browser        segler-alex and contributors  radio-browser.info
+    Deezer               Deezer S.A.                   deezer.com
+    MusicBrainz          MetaBrainz Foundation         musicbrainz.org
+    Cover Art Archive    MetaBrainz + Internet Archive coverartarchive.org
+    Discogs              Zink Media, LLC               discogs.com
+    Wikipedia            Wikimedia Foundation          wikipedia.org
+    LRCLIB               tranxuanthang                 lrclib.net
+    lyrics.ovh           lyrics.ovh                    lyrics.ovh
+    ListenBrainz         MetaBrainz Foundation         listenbrainz.org
+    Maloja               krateng                       github.com/krateng/maloja
+    Last.fm              Last.fm / CBS Interactive     last.fm
+    Spotify              Spotify AB                    spotify.com
+
+All trademarks are the property of their respective owners.
+
+Pillow is used for custom-avatar image processing (HPND and component-specific
+notices). See THIRD_PARTY_NOTICES.md and the build-time licence inventory.
+
+The MIT grant above applies only to code and documentation covered by it.
+VTuber portraits, avatar art, fonts, music, logos and third-party components are
+NOT relicensed by this file. See ARTWORK_RIGHTS.md and kryonyx/avatar-notices/.

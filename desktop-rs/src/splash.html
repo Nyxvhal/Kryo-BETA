@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kryo</title>
+<style>
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#07070a;color:#ebeaf3;font:14px/1.45 "Segoe UI",system-ui,-apple-system,"Noto Sans",sans-serif;overflow:hidden;-webkit-user-select:none;user-select:none}
+.bar{position:fixed;inset:0 0 auto 0;height:40px;display:flex;align-items:center;justify-content:space-between;padding:0 6px 0 16px;z-index:2}
+.bar .name{font-size:12px;letter-spacing:.06em;opacity:.55}
+.x{width:44px;height:30px;border:0;border-radius:8px;background:transparent;color:inherit;display:grid;place-items:center;cursor:pointer;opacity:.75;transition:background .15s ease,opacity .15s ease,transform .12s ease}
+.x:hover{background:#c42b1c;opacity:1}.x:active{transform:scale(.94)}
+main{height:100%;display:grid;place-items:center;text-align:center;padding:56px 28px 28px}
+.logo{width:76px;height:76px;border-radius:24px;margin:0 auto 20px;background:conic-gradient(from 210deg,#7c5cff,#20d3ee,#ff4fd8,#7c5cff);box-shadow:0 18px 60px rgba(124,92,255,.35);animation:breathe 2.6s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(1.06);filter:saturate(1.25)}}
+h1{font-size:21px;font-weight:600;margin:0 0 6px;letter-spacing:.01em}
+.status{opacity:.78;min-height:21px}
+.spin{width:26px;height:26px;margin:18px auto 0;border-radius:50%;border:3px solid rgba(255,255,255,.12);border-top-color:#a48bff;animation:spin .9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hint{opacity:.5;font-size:12.5px;margin:12px auto 0;max-width:460px;min-height:18px}
+.line{opacity:.38;font:11.5px/1.4 ui-monospace,"Cascadia Mono",Consolas,monospace;margin:14px auto 0;max-width:620px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:16px}
+.fail{display:none;width:min(760px,100%);text-align:left}
+body.failed .fail{display:block}body.failed .wait{display:none}
+.fail h1{color:#ff9a9a}
+.fail .status{opacity:.9;margin-bottom:6px;white-space:pre-wrap}
+.fail .hint{margin:0 0 10px;max-width:none}
+pre{margin:0;background:#0f0f16;border:1px solid #23232f;border-radius:10px;padding:10px 12px;max-height:44vh;overflow:auto;font:11.5px/1.45 ui-monospace,"Cascadia Mono",Consolas,monospace;white-space:pre-wrap;word-break:break-word;-webkit-user-select:text;user-select:text;color:#c9c9d6}
+pre:empty{display:none}
+.row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:0;border-radius:10px;padding:9px 18px;font:inherit;font-weight:600;cursor:pointer;background:#7c5cff;color:#fff;transition:filter .15s ease,transform .12s ease}
+.btn:hover{filter:brightness(1.12)}.btn:active{transform:scale(.97)}
+.btn.ghost{background:#1c1c27;color:#ebeaf3}
+@media (prefers-reduced-motion:reduce){.logo,.spin{animation:none}.x,.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="bar pywebview-drag-region"><span class="name">Kryo</span><button class="x" id="close" type="button" title="Close" aria-label="Close"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 1.5l9 9M10.5 1.5l-9 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button></div>
+<main>
+  <div class="wait">
+    <div class="logo" aria-hidden="true"></div>
+    <h1>Kryo</h1>
+    <div class="status" id="status"></div>
+    <div class="spin" aria-hidden="true"></div>
+    <div class="hint" id="hint"></div>
+    <div class="line" id="line"></div>
+  </div>
+  <div class="fail" role="alert">
+    <h1 id="failTitle"></h1>
+    <div class="status" id="message"></div>
+    <div class="hint" id="describe"></div>
+    <pre id="log"></pre>
+    <div class="row">
+      <button class="btn" id="retry" type="button"></button>
+      <button class="btn ghost" id="quit" type="button"></button>
+    </div>
+  </div>
+</main>
+<script>
+(function () {
+  'use strict';
+  var ru = /^(ru|uk|be|kk)\b/i.test(navigator.language || '');
+  var T = ru ? {
+    starting: 'Запускаем плеер…',
+    seconds: 'Запускаем плеер… {s} с',
+    slow: 'Первый запуск может занять пару минут: плеер докачивает свои библиотеки.',
+    failed: 'Плеер не запустился',
+    retry: 'Попробовать снова',
+    close: 'Закрыть',
+    from: 'Запуск: '
+  } : {
+    starting: 'Starting the player…',
+    seconds: 'Starting the player… {s} s',
+    slow: 'The first start can take a couple of minutes while the player installs its libraries.',
+    failed: 'The player could not start',
+    retry: 'Try again',
+    close: 'Close',
+    from: 'Started: '
+  };
+  var $ = function (id) { return document.getElementById(id); };
+  function post(cmd) {
+    try { window.ipc.postMessage(JSON.stringify({ id: 0, cmd: cmd, args: [] })); } catch (e) {}
+  }
+  $('status').textContent = T.starting;
+  $('failTitle').textContent = T.failed;
+  $('retry').textContent = T.retry;
+  $('quit').textContent = T.close;
+  $('close').title = T.close;
+  $('close').setAttribute('aria-label', T.close);
+  $('close').onclick = function () { post('__quit'); };
+  $('quit').onclick = function () { post('__quit'); };
+  $('retry').onclick = function () {
+    document.body.classList.remove('failed');
+    $('status').textContent = T.starting;
+    $('hint').textContent = '';
+    $('line').textContent = '';
+    post('__retry');
+  };
+  window.__splash = {
+    status: function (seconds, line) {
+      document.body.classList.remove('failed');
+      $('status').textContent = seconds > 0 ? T.seconds.replace('{s}', seconds) : T.starting;
+      $('hint').textContent = seconds >= 8 ? T.slow : '';
+      $('line').textContent = line || '';
+    },
+    fail: function (message, log, describe) {
+      $('message').textContent = message || '';
+      $('describe').textContent = describe ? T.from + describe : '';
+      $('log').textContent = log || '';
+      document.body.classList.add('failed');
+      var pre = $('log');
+      pre.scrollTop = pre.scrollHeight;
+    }
+  };
+  post('__splash');
+})();
+</script>
+</body>
+</html>

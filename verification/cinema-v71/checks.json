@@ -1,0 +1,30 @@
+{
+  "checks": [
+    "clip room uses the v71 layout",
+    "sections live in one toolbar above the catalog",
+    "catalog has no horizontal overflow",
+    "viewing-mode button sits with the stage controls",
+    "ambient blur is drawn inside the canvas, no CSS filter on the element",
+    "ambient follows video frames, not a slow timer",
+    "watch mode keeps the room chrome visible",
+    "T enters viewing mode",
+    "viewing mode hides the room header, toolbar and details",
+    "window title bar fades out in viewing mode",
+    "only the clip and its blurred background remain",
+    "playback continues in viewing mode",
+    "Esc leaves viewing mode but keeps the clip open",
+    "button toggles viewing mode too",
+    "typing T in a text field does not toggle viewing mode",
+    "narrow watch view has no horizontal overflow",
+    "narrow viewing mode fits the screen",
+    "closing the clip clears viewing mode",
+    "no runtime errors"
+  ],
+  "errors": [],
+  "ambient": {
+    "draws": 37,
+    "frames": 38,
+    "rvfc": true
+  },
+  "scope": "Synthetic local video in headless Chromium (SwiftShader); not WebView2 on Windows."
+}

@@ -1,0 +1,871 @@
+{
+  "ends": [
+    "local:soak-1",
+    "local:soak-2",
+    "local:soak-3",
+    "local:soak-4",
+    "local:soak-5",
+    "local:soak-6",
+    "local:soak-7",
+    "local:soak-8",
+    "local:soak-9",
+    "local:soak-11"
+  ],
+  "audioErrors": [],
+  "requests": [
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "parallel",
+      "status": 200,
+      "bytes": 441044
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "clear",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "parallel",
+      "status": 200,
+      "bytes": 441044
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "parallel",
+      "status": 200,
+      "bytes": 441044
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "clear",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "parallel",
+      "status": 200,
+      "bytes": 441044
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "parallel",
+      "status": 200,
+      "bytes": 441044
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "clear",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "parallel",
+      "status": 200,
+      "bytes": 441044
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "parallel",
+      "status": 200,
+      "bytes": 441044
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "clear",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "parallel",
+      "status": 200,
+      "bytes": 441044
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "parallel",
+      "status": 200,
+      "bytes": 441044
+    },
+    {
+      "kind": "clear",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "parallel",
+      "status": 200,
+      "bytes": 441044
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "clear",
+      "status": 200
+    },
+    {
+      "kind": "parallel",
+      "status": 200,
+      "bytes": 441044
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "parallel",
+      "status": 200,
+      "bytes": 441044
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    },
+    {
+      "kind": "stats",
+      "status": 200
+    }
+  ],
+  "begin": 1795039034529,
+  "samples": [
+    {
+      "atSeconds": 5,
+      "state": {
+        "id": "local:soak-0",
+        "time": 4.800726,
+        "paused": false,
+        "ended": false,
+        "index": 0,
+        "ends": 0,
+        "requests": 3
+      },
+      "jsHeapBytes": 12020944,
+      "rendererTaskSeconds": 0.885136,
+      "browserProcessTreeRssKiB": 1523180
+    },
+    {
+      "atSeconds": 10,
+      "state": {
+        "id": "local:soak-0",
+        "time": 9.816846,
+        "paused": false,
+        "ended": false,
+        "index": 0,
+        "ends": 0,
+        "requests": 6
+      },
+      "jsHeapBytes": 12578848,
+      "rendererTaskSeconds": 1.329566,
+      "browserProcessTreeRssKiB": 1511252
+    },
+    {
+      "atSeconds": 15,
+      "state": {
+        "id": "local:soak-1",
+        "time": 4.655601,
+        "paused": false,
+        "ended": false,
+        "index": 1,
+        "ends": 1,
+        "requests": 11
+      },
+      "jsHeapBytes": 14753160,
+      "rendererTaskSeconds": 1.952204,
+      "browserProcessTreeRssKiB": 1533772
+    },
+    {
+      "atSeconds": 20,
+      "state": {
+        "id": "local:soak-1",
+        "time": 9.665306,
+        "paused": false,
+        "ended": false,
+        "index": 1,
+        "ends": 1,
+        "requests": 15
+      },
+      "jsHeapBytes": 11711212,
+      "rendererTaskSeconds": 2.543878,
+      "browserProcessTreeRssKiB": 1539404
+    },
+    {
+      "atSeconds": 25,
+      "state": {
+        "id": "local:soak-2",
+        "time": 4.487256,
+        "paused": false,
+        "ended": false,
+        "index": 2,
+        "ends": 2,
+        "requests": 19
+      },
+      "jsHeapBytes": 11946580,
+      "rendererTaskSeconds": 3.242738,
+      "browserProcessTreeRssKiB": 1544624
+    },
+    {
+      "atSeconds": 30,
+      "state": {
+        "id": "local:soak-2",
+        "time": 9.496961,
+        "paused": false,
+        "ended": false,
+        "index": 2,
+        "ends": 2,
+        "requests": 23
+      },
+      "jsHeapBytes": 12020108,
+      "rendererTaskSeconds": 3.760712,
+      "browserProcessTreeRssKiB": 1536656
+    },
+    {
+      "atSeconds": 35,
+      "state": {
+        "id": "local:soak-3",
+        "time": 4.365351,
+        "paused": false,
+        "ended": false,
+        "index": 3,
+        "ends": 3,
+        "requests": 27
+      },
+      "jsHeapBytes": 11839756,
+      "rendererTaskSeconds": 4.391625,
+      "browserProcessTreeRssKiB": 1536812
+    },
+    {
+      "atSeconds": 40,
+      "state": {
+        "id": "local:soak-3",
+        "time": 9.380131,
+        "paused": false,
+        "ended": false,
+        "index": 3,
+        "ends": 3,
+        "requests": 31
+      },
+      "jsHeapBytes": 12310292,
+      "rendererTaskSeconds": 4.82057,
+      "browserProcessTreeRssKiB": 1533640
+    },
+    {
+      "atSeconds": 45,
+      "state": {
+        "id": "local:soak-4",
+        "time": 4.260101,
+        "paused": false,
+        "ended": false,
+        "index": 4,
+        "ends": 4,
+        "requests": 36
+      },
+      "jsHeapBytes": 12296952,
+      "rendererTaskSeconds": 5.450344,
+      "browserProcessTreeRssKiB": 1534244
+    },
+    {
+      "atSeconds": 50,
+      "state": {
+        "id": "local:soak-4",
+        "time": 9.270567,
+        "paused": false,
+        "ended": false,
+        "index": 4,
+        "ends": 4,
+        "requests": 39
+      },
+      "jsHeapBytes": 12754092,
+      "rendererTaskSeconds": 5.893471,
+      "browserProcessTreeRssKiB": 1534388
+    },
+    {
+      "atSeconds": 55,
+      "state": {
+        "id": "local:soak-5",
+        "time": 4.108951,
+        "paused": false,
+        "ended": false,
+        "index": 5,
+        "ends": 5,
+        "requests": 43
+      },
+      "jsHeapBytes": 12767388,
+      "rendererTaskSeconds": 6.626413,
+      "browserProcessTreeRssKiB": 1538112
+    },
+    {
+      "atSeconds": 60,
+      "state": {
+        "id": "local:soak-5",
+        "time": 9.118371,
+        "paused": false,
+        "ended": false,
+        "index": 5,
+        "ends": 5,
+        "requests": 48
+      },
+      "jsHeapBytes": 12483620,
+      "rendererTaskSeconds": 7.097282,
+      "browserProcessTreeRssKiB": 1531716
+    },
+    {
+      "atSeconds": 65,
+      "state": {
+        "id": "local:soak-6",
+        "time": 3.959002,
+        "paused": false,
+        "ended": false,
+        "index": 6,
+        "ends": 6,
+        "requests": 51
+      },
+      "jsHeapBytes": 12324988,
+      "rendererTaskSeconds": 7.769945,
+      "browserProcessTreeRssKiB": 1528700
+    },
+    {
+      "atSeconds": 70,
+      "state": {
+        "id": "local:soak-6",
+        "time": 8.979955,
+        "paused": false,
+        "ended": false,
+        "index": 6,
+        "ends": 6,
+        "requests": 56
+      },
+      "jsHeapBytes": 12775992,
+      "rendererTaskSeconds": 8.234075,
+      "browserProcessTreeRssKiB": 1528220
+    },
+    {
+      "atSeconds": 75,
+      "state": {
+        "id": "local:soak-7",
+        "time": 3.854512,
+        "paused": false,
+        "ended": false,
+        "index": 7,
+        "ends": 7,
+        "requests": 59
+      },
+      "jsHeapBytes": 12803892,
+      "rendererTaskSeconds": 9.146352,
+      "browserProcessTreeRssKiB": 1526592
+    },
+    {
+      "atSeconds": 80,
+      "state": {
+        "id": "local:soak-7",
+        "time": 8.904986,
+        "paused": false,
+        "ended": false,
+        "index": 7,
+        "ends": 7,
+        "requests": 64
+      },
+      "jsHeapBytes": 12280920,
+      "rendererTaskSeconds": 10.490132,
+      "browserProcessTreeRssKiB": 1527344
+    },
+    {
+      "atSeconds": 85,
+      "state": {
+        "id": "local:soak-8",
+        "time": 3.624345,
+        "paused": false,
+        "ended": false,
+        "index": 8,
+        "ends": 8,
+        "requests": 68
+      },
+      "jsHeapBytes": 12486800,
+      "rendererTaskSeconds": 12.244786,
+      "browserProcessTreeRssKiB": 1530484
+    },
+    {
+      "atSeconds": 90,
+      "state": {
+        "id": "local:soak-8",
+        "time": 8.666848,
+        "paused": false,
+        "ended": false,
+        "index": 8,
+        "ends": 8,
+        "requests": 72
+      },
+      "jsHeapBytes": 12377968,
+      "rendererTaskSeconds": 13.69637,
+      "browserProcessTreeRssKiB": 1527776
+    },
+    {
+      "atSeconds": 95,
+      "state": {
+        "id": "local:soak-9",
+        "time": 3.268209,
+        "paused": false,
+        "ended": false,
+        "index": 9,
+        "ends": 9,
+        "requests": 75
+      },
+      "jsHeapBytes": 12487528,
+      "rendererTaskSeconds": 15.437032,
+      "browserProcessTreeRssKiB": 1527688
+    },
+    {
+      "atSeconds": 100,
+      "state": {
+        "id": "local:soak-9",
+        "time": 8.337293,
+        "paused": false,
+        "ended": false,
+        "index": 9,
+        "ends": 9,
+        "requests": 81
+      },
+      "jsHeapBytes": 12391592,
+      "rendererTaskSeconds": 17.543946,
+      "browserProcessTreeRssKiB": 1532380
+    },
+    {
+      "atSeconds": 105,
+      "state": {
+        "id": "local:soak-10",
+        "time": 3.097453,
+        "paused": false,
+        "ended": false,
+        "index": 10,
+        "ends": 9,
+        "requests": 84
+      },
+      "jsHeapBytes": 12048496,
+      "rendererTaskSeconds": 19.548905,
+      "browserProcessTreeRssKiB": 1532136
+    },
+    {
+      "atSeconds": 110,
+      "state": {
+        "id": "local:soak-10",
+        "time": 8.149895,
+        "paused": false,
+        "ended": false,
+        "index": 10,
+        "ends": 9,
+        "requests": 88
+      },
+      "jsHeapBytes": 12490768,
+      "rendererTaskSeconds": 21.363001,
+      "browserProcessTreeRssKiB": 1532964
+    },
+    {
+      "atSeconds": 116,
+      "state": {
+        "id": "local:soak-11",
+        "time": 2.901631,
+        "paused": false,
+        "ended": false,
+        "index": 11,
+        "ends": 9,
+        "requests": 92
+      },
+      "jsHeapBytes": 12078860,
+      "rendererTaskSeconds": 23.472333,
+      "browserProcessTreeRssKiB": 1531048
+    },
+    {
+      "atSeconds": 121,
+      "state": {
+        "id": "local:soak-11",
+        "time": 8.020643,
+        "paused": false,
+        "ended": false,
+        "index": 11,
+        "ends": 9,
+        "requests": 96
+      },
+      "jsHeapBytes": 12479520,
+      "rendererTaskSeconds": 25.140476,
+      "browserProcessTreeRssKiB": 1533960
+    },
+    {
+      "atSeconds": 126,
+      "state": {
+        "id": "local:soak-11",
+        "time": 10,
+        "paused": true,
+        "ended": true,
+        "index": 11,
+        "ends": 10,
+        "requests": 101
+      },
+      "jsHeapBytes": 12736552,
+      "rendererTaskSeconds": 26.145957,
+      "browserProcessTreeRssKiB": 1528744
+    },
+    {
+      "atSeconds": 131,
+      "state": {
+        "id": "local:soak-11",
+        "time": 10,
+        "paused": true,
+        "ended": true,
+        "index": 11,
+        "ends": 10,
+        "requests": 104
+      },
+      "jsHeapBytes": 12753440,
+      "rendererTaskSeconds": 26.180959,
+      "browserProcessTreeRssKiB": 1526248
+    },
+    {
+      "atSeconds": 136,
+      "state": {
+        "id": "local:soak-11",
+        "time": 10,
+        "paused": true,
+        "ended": true,
+        "index": 11,
+        "ends": 10,
+        "requests": 108
+      },
+      "jsHeapBytes": 12055352,
+      "rendererTaskSeconds": 26.471207,
+      "browserProcessTreeRssKiB": 1451332
+    }
+  ],
+  "pageErrors": [],
+  "environment": "Linux headless Chromium, synthetic 10-second WAV, isolated local fixture and temporary SQLite cache; process RSS sums Chromium processes and may double count shared memory."
+}

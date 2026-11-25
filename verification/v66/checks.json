@@ -1,0 +1,29 @@
+{
+  "checks": [
+    "auto-radio control defaults on",
+    "recommendation actions bound",
+    "mixed recommendation cards aligned",
+    "cover images align within row",
+    "selected recommendation becomes radio seed",
+    "immediate successor downloaded",
+    "natural transition advances to related track",
+    "toggle off preserves ordinary recommendation queue",
+    "video plays before ambient is enabled",
+    "ambient mode initially off",
+    "live video frames render to background",
+    "background changes with video frames",
+    "all controls affect live style",
+    "background loop rests while paused",
+    "off restores unscaled video and stops work",
+    "mobile settings scroll inside stage",
+    "mobile controls reachable",
+    "close cancels drawing",
+    "video effect preferences persisted",
+    "radio toggle persisted",
+    "updated symbol and inline icons match",
+    "no page errors: []",
+    "boot has no failed components"
+  ],
+  "errors": [],
+  "scope": "Local synthetic audio and video; production wave and cache. No live provider, Windows, or WebView2 certification."
+}

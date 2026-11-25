@@ -1,0 +1,87 @@
+/* v38: stable chrome, one surface, one vector spinner. No invisible restore button. */
+@keyframes spinner38{to{transform:rotate(360deg)}}
+.loading-glyph38{display:block;flex:none;width:22px!important;height:22px!important;fill:none!important;color:inherit}
+.loading-arc38{transform-origin:12px 12px;animation:spinner38 .9s linear infinite}
+.loading-ring37{display:grid!important;place-items:center;width:24px!important;height:24px!important;border:0!important;border-radius:0!important;animation:none!important;vertical-align:middle}
+body button.loading37:after{content:none!important;display:none!important}
+body button.loading37{position:relative!important}
+body button.loading37>.loading-glyph38{position:absolute!important;inset:0!important;margin:auto!important;visibility:visible!important;pointer-events:none}
+body button.loading37>svg:not(.loading-glyph38){visibility:hidden!important}
+body .tr.track-loading37 .n{display:grid!important;place-items:center;line-height:1}
+@media(prefers-reduced-motion:reduce){.loading-arc38{animation:none!important}}
+body.no-anim .loading-arc38{animation:none!important}
+/* Panel alpha is applied once, without gradients or nested backdrop-filter layers. */
+body.ui-v38 :is(#side,#player,#top,.workspace-nav-bar,#queue,.menu,.modal:not(#mSettings)){background:color-mix(in srgb,var(--bg) calc(var(--panel-opacity33,.75)*100%),transparent)!important;backdrop-filter:blur(var(--blur,0px))!important}
+body.ui-v38 :is(.modal,#queue,.menu){backdrop-filter:blur(var(--blur,0px))!important}
+body.ui-v38 #mSettings :is(.set-shell,.set-body,.set-nav,.set-main,.workspace-settings-head,.workspace-settings-picker,.acts){background:transparent!important;backdrop-filter:none!important}
+body.ui-v38 #mSettings .set{background:color-mix(in srgb,var(--text) 4%,transparent)!important}
+body.ui-v38 #mSettings{width:min(1220px,calc(var(--layout-vw37)*100 - 32px))!important;max-width:none!important;height:min(840px,calc(var(--layout-vh37)*100 - 32px))!important;max-height:calc(var(--layout-vh37)*100 - 32px)!important;contain:layout style}
+body.ui-v38 #mSettings .set-shell{min-height:0!important;flex:1!important;overflow:hidden!important}
+body.ui-v38 #mSettings .set-body{min-height:0!important;max-height:none!important;overflow:auto!important;overscroll-behavior:contain}
+body.ui-v38 #mSettings .pane:not(.on){display:none!important}
+body.ui-v38 #mSettings .set input[type=range]{max-width:100%;min-width:0}
+/* Scene buttons are one toolbar; close/fullscreen/restore are always reachable. */
+body.ui-v38 #now#now #sceneTools30{position:absolute!important;left:12px!important;right:12px!important;top:10px!important;display:flex!important;justify-content:flex-end!important;align-items:center!important;gap:6px!important;z-index:70!important;transform:none!important;opacity:1!important;visibility:visible!important}
+body.ui-v38 #now#now #sceneTools30 .ib{width:44px!important;height:44px!important;min-width:44px!important;padding:0!important;display:grid!important;place-items:center!important;flex:none;visibility:visible!important;opacity:1!important;transform:none!important}
+body.ui-v38 #now#now #sceneTools30 .ib svg{width:22px;height:22px}
+body.ui-v38 #now#now #sceneMode33{width:190px;min-width:0;max-width:40%;height:44px;margin:0}
+body.ui-v38 #now#now.chrome-hidden38 #sceneTools30 :is(#sceneMode33,#sceneMore33,#sceneSettings30){display:none!important}
+body.ui-v38 #now#now :is(#sceneReturn,#albumTop24,#nowTop,#nStats,#workspaceNowStats,.ui9-stage-controls,.ui9-timing){display:none!important}
+body.ui-v38 #now#now.chrome-hidden38 :is(#albumTitle24,#albumArtist24,#albumTools24,#albumLyrics24,.disc-meta,.viz-mark){visibility:hidden!important;pointer-events:none!important}
+body.ui-v38 #now#now :is(.disc-ctl,.disc-bar,.viz-ctl,.viz-prog,.viz-time){visibility:visible!important;opacity:1!important;pointer-events:auto!important}
+body.ui-v38:has(#now.on) #titlebar{visibility:visible!important;pointer-events:auto!important}
+/* Focus: a readable scrollable lyric document. Cinema: only current/nearby lines. */
+body.ui-v38 #now#now.focus:not(.disc):not(.viz) #nowIn{position:absolute!important;inset:76px 24px 122px!important;width:auto!important;height:auto!important;margin:0!important;padding:0!important;overflow:hidden!important}
+body.ui-v38 #now#now.focus:not(.disc):not(.viz) #nowBody{display:block!important;width:100%!important;height:100%!important;padding:0!important;margin:0!important}
+body.ui-v38 #now#now.focus:not(.disc):not(.viz) #nowLeft{display:none!important}
+body.ui-v38 #now#now.focus:not(.disc):not(.viz) #lyrics{position:relative!important;inset:auto!important;width:min(100%,1000px)!important;height:100%!important;min-height:0!important;max-height:none!important;margin:auto!important;padding:22% 0 45%!important;mask-image:linear-gradient(transparent,#000 15%,#000 85%,transparent)!important;overflow:auto!important;text-align:left!important}
+body.ui-v38 #now#now.focus:not(.cinema):not(.disc):not(.viz) #lyrics .lyr-l{text-align:left!important;font-size:clamp(24px,calc(var(--layout-vw37)*2.4),38px)!important;line-height:1.4!important;padding:14px 0!important;opacity:.55!important;transform:none!important}
+body.ui-v38 #now#now.focus:not(.disc):not(.viz) #lyrics .lyr-l.on{opacity:1!important;color:#fff!important}
+body.ui-v38 #now#now.cinema #lyrics{width:min(100%,1150px)!important;text-align:center!important;mask-image:none!important;padding:28% 0 48%!important}
+body.ui-v38 #now#now.cinema #lyrics .lyr-l{text-align:center!important;font-size:clamp(30px,calc(var(--layout-vw37)*3.3),60px)!important;line-height:1.25!important;padding:22px 0!important;opacity:.2!important;transform:none!important;visibility:hidden!important}
+body.ui-v38 #now#now.cinema #lyrics .lyr-l.near38{visibility:visible!important}
+body.ui-v38 #now#now.cinema #lyrics .lyr-l.on{visibility:visible!important;opacity:1!important}
+/* Remove the old floating boxed dock; keep a minimal consistent transport. */
+body.ui-v38 #now#now.focus:not(.disc):not(.viz) #sceneDock33{display:grid!important;position:absolute!important;left:50%!important;bottom:16px!important;translate:-50% 0!important;width:min(560px,calc(var(--layout-vw37)*100 - 48px))!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;gap:6px!important;z-index:50!important}
+body.ui-v38 #now#now #sceneDock33 .compact-buttons33{gap:20px}
+body.ui-v38 #now#now #sceneDock33 .compact-buttons33 button{width:44px;height:44px;display:grid;place-items:center}
+body.ui-v38 #now#now .scene-menu33{top:68px!important}
+/* Expanded More never turns into a nameless column of icons. */
+body.ui-v38 #sideMore31[open]>.nav{min-height:44px!important;gap:12px!important;overflow:visible!important}
+body.ui-v38 #sideMore31[open]>.nav svg{flex:none}
+@media(max-width:760px){
+ body.ui-v38 #now#now #sceneTools30{display:flex!important;align-items:center!important;flex-wrap:nowrap!important;gap:4px!important}
+ body.ui-v38 #now#now #sceneTools30 .ib{width:40px!important;min-width:40px!important;height:44px!important}
+ body.ui-v38 #now#now #sceneMode33{flex:1 1 0!important;width:0!important;min-width:0!important;max-width:none!important;padding:8px 4px!important;text-overflow:ellipsis;font-size:12px}
+ body.ui-v38 #now#now.focus:not(.disc):not(.viz) #nowIn{inset:76px 20px 120px!important}
+ body.ui-v38 #now#now :is(.scene-menu33,.translation-panel33){top:68px!important;max-width:calc(var(--layout-vw37)*100 - 24px)!important}
+ body.ui-v38 #mSettings{width:calc(var(--layout-vw37)*100 - 16px)!important;height:calc(var(--layout-vh37)*100 - 16px)!important;max-height:calc(var(--layout-vh37)*100 - 16px)!important}
+ body.ui-v38 #mSettings .workspace-settings-head{padding:12px!important}.ui-settings-description{display:none}
+}
+.home-kinds38{display:flex;gap:8px;flex-basis:100%;padding:4px 0 10px}.home-kinds38 button{min-height:44px}.home-kinds38 button[aria-selected=true]{background:var(--accent);color:var(--bg)}
+body.ui-v38 #rows>.card{width:100%;height:100%}
+
+@media(max-width:760px){
+ body.ui-v38 #now#now.viz .viz-card{padding:112px 20px 16px!important;gap:16px!important;justify-content:flex-start!important;overflow:auto!important}
+ body.ui-v38 #now#now.viz .viz-stage{--art:min(calc(var(--layout-vh37)*22),calc(var(--layout-vw37)*48))!important}
+ body.ui-v38 #now#now.viz .viz-title{font-size:24px!important;line-height:1.2!important}
+ body.ui-v38 #now#now.viz .viz-bar{height:52px!important}
+ body.ui-v38 #now#now.viz .viz-info{gap:8px!important}
+ body.ui-v38 #now#now.viz .viz-ctl{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px!important;width:100%;margin-top:8px!important}
+ body.ui-v38 #now#now.viz .viz-ctl button{width:40px!important;max-width:100%;height:44px!important;padding:0!important;justify-self:center}
+ body.ui-v38 #now#now.viz .viz-ctl .disc-play{width:44px!important;height:44px!important}
+}
+
+@media(max-width:760px){
+ body.ui-v38 #mSettings .ui7-section-links{flex-wrap:wrap;overflow:visible}
+ body.ui-v38 #mSettings .ui7-section-link{white-space:normal;max-width:100%;text-align:left}
+}
+
+/* v40: a range value is live, not a new 300ms transition on every pointer move. */
+body.ui-v38 :is(#side,#player,#top,.workspace-nav-bar,#queue,.menu,.modal){transition-property:transform,opacity,visibility!important}
+/* The veil already covers the backdrop: do not blur the same pixels twice.
+   Unlike the old fixed 8px veil, this obeys the user's blur control. */
+body.ui-v38 #veil{backdrop-filter:blur(var(--blur,0px))!important}
+body.ui-v38 :is(.modal,#mSettings){backdrop-filter:none!important}
+/* Continuous media-clock progress must not chase a 400ms width transition. */
+body.ui-v38 .track .fill,body.ui-v38 .track .knob{transition-property:height,opacity!important}

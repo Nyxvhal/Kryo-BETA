@@ -1,0 +1,16 @@
+{
+  "scenario": "7 batches × 200 unchanged home chrome refreshes; closed quick launch; desktop local fixture",
+  "samplesMs": [
+    45.60000000000582,
+    33.69999999998254,
+    89.09999999997672,
+    31.5,
+    28.79999999998836,
+    27.10000000000582,
+    30.79999999998836
+  ],
+  "medianMs": 31.5,
+  "quickChildMutations": 5600,
+  "rows": 24,
+  "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36"
+}

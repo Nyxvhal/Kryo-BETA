@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "layout migration runs only once; user rail choice survives reload",
+    "collapsed navigation hides text rather than wrapping it",
+    "classic general pane is visible after reload",
+    "queue tab uses actual current queue",
+    "downloads tab exposes actual job list",
+    "browse tab returns from downloads",
+    "catalog stays within narrow phone width",
+    "missing cookie source blocks catalog and media",
+    "no runtime exceptions"
+  ],
+  "errors": []
+}

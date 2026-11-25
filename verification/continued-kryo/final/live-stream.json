@@ -1,0 +1,20 @@
+{
+  "source": "public CC0 test audio from MDN",
+  "resolver": "test URL injected; real HTTP, Kryo stream and SQLite cache",
+  "upstream_status": 200,
+  "bytes": 39868,
+  "parallel_statuses": [
+    200,
+    200,
+    200,
+    200
+  ],
+  "same_as_upstream": true,
+  "cached_status": 200,
+  "cached_identical": true,
+  "range_status": 206,
+  "range_identical": true,
+  "stats_status": 200,
+  "tracks": 1,
+  "resolver_calls": 4
+}

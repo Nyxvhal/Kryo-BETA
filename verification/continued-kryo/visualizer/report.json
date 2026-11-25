@@ -1,0 +1,5 @@
+{
+  "checks": 32,
+  "errors": [],
+  "scope": "Linux headless Chromium; local synthetic WAV; mocked translations"
+}

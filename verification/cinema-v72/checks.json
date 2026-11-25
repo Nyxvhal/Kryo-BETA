@@ -1,0 +1,32 @@
+{
+  "checks": [
+    "six tabs in the menu",
+    "tab labels are translated and not cut off",
+    "tab labels use the compact font",
+    "pitch follows speed by default (record-style)",
+    "pitch switch keeps the natural voice when off",
+    "tab «screen» shows only its page",
+    "tab «color» shows only its page",
+    "tab «ambient» shows only its page",
+    "tab «ai» shows only its page",
+    "tab «keys» shows only its page",
+    "tab «video» shows only its page",
+    "keys page lists the shortcuts",
+    "] speeds up video and sound together",
+    "speed badge appears on the video",
+    "[ returns to normal speed",
+    "dragging shows a preview frame",
+    "video keeps its size while dragging",
+    "menu stays in place while dragging",
+    "size is applied on release",
+    "size chips set an exact size",
+    "fill-screen fit is applied",
+    "brightness changes the picture filter",
+    "reset returns the original picture",
+    "mobile menu fits the screen",
+    "mobile tabs all visible",
+    "no runtime errors"
+  ],
+  "errors": [],
+  "scope": "Local synthetic 4 s 192x108 clip in Chromium; no Windows/WebView2 or live YouTube verification."
+}

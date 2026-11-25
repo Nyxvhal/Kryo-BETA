@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "wave forces successor preparation even with ordinary prefetch off",
+    "natural ended advances to downloaded successor 0",
+    "natural ended advances to downloaded successor 1",
+    "natural ended advances to downloaded successor 2",
+    "session queue jump keeps wave enabled despite ordinary shuffle",
+    "no autoplay from cancelled selection",
+    "repeat/shuffle preferences were not overwritten",
+    "no runtime errors"
+  ],
+  "errors": [],
+  "scope": "Native ended events + real downloaded local audio, no live provider assertion"
+}

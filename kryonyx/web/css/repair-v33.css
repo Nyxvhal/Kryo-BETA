@@ -1,0 +1,55 @@
+/* Large artwork thumbnails instead of miniature app mocks. */
+body.ui-v33 #themeList{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:20px}
+body.ui-v33 #themeList .theme{width:100%;padding:10px}
+body.ui-v33 #themeList .sw-prev{height:150px;min-height:150px;width:100%}
+body.ui-v33 #themeList .sw-prev>img{width:100%;height:100%;object-fit:contain;object-position:center;mask-image:none;opacity:1;z-index:0}
+body.ui-v33 #themeList .sw-prev:has(>img) .theme-mini30{display:none}
+body.ui-v33 #themeList .theme-n{display:block;font-size:14px;line-height:1.4;margin-top:10px}
+/* Persistent transport; idle should never make the controls unusable. */
+body.ui-v33 #now.on.idle30,body.ui-v33 #now.on.idle30 *{cursor:auto!important}
+body.ui-v33 #now.on.idle30 :is(.scene-tools30,#albumButtons24,#albumTimeline24,#nowTop,.ui9-stage-controls,.viz-ctl){opacity:1!important;pointer-events:auto!important}
+body.ui-v33 #now.on .scene-tools30{display:flex!important;visibility:visible!important;z-index:45;gap:8px;align-items:center}
+body.ui-v33 #now.on .scene-tools30 .ib{width:42px;height:42px;flex:none;border-radius:999px}
+#sceneMode33{min-width:150px;max-width:230px;height:42px;padding:8px 14px;border:1px solid #ffffff1c;border-radius:14px;background:#211d2cf0;color:#fff;font:14px system-ui}
+body.ui-v33 #now.on :is(.scene-menu33,.translation-panel33){position:absolute!important;right:12px;top:66px;z-index:60;max-height:calc(calc(var(--layout-vh37, 1dvh) * 100) - 90px);overflow:auto;padding:18px;border:1px solid #ffffff1e;border-radius:18px;background:#211d2cf8;box-shadow:0 16px 48px #0007;visibility:visible!important;opacity:1!important;pointer-events:auto!important;color:#eee}
+.scene-menu33{display:grid;gap:8px;min-width:240px}.scene-menu33 .btn{text-align:left;min-height:44px}
+body.ui-v33 #now.on :is(.scene-menu33,.translation-panel33)[hidden]{display:none!important}
+.translation-panel33{width:min(540px,calc(calc(var(--layout-vw37, 1vw) * 100) - 24px))}.translation-panel33 #lyricsTranslate22{display:block!important;visibility:visible!important;opacity:1!important;max-width:100%;margin:0}.translation-panel33>button{margin-left:auto;display:flex}.translation-panel33 .lt22-consent{font-size:14px}.translation-panel33 summary{font-size:18px}
+body.ui-v33 #now :is(#nClose,#nVideo,#nCtl,#nFocus,#nLyrics,#nQueue)[hidden]{display:none!important}
+/* Sway applies to the visible artwork in every player mode, pauses with audio. */
+@keyframes float33{0%,100%{translate:0 0}50%{translate:0 -10px}}
+body.ui-v33 #now.float33 :is(#albumArt24,.viz-art,#discArt){animation:float33 7s ease-in-out infinite!important;animation-play-state:paused!important}
+body.ui-v33 #now.float33:not(.flow-still23) :is(#albumArt24,.viz-art,#discArt){animation-play-state:running!important}
+body.ui-v33 #now.float33 #nArt{animation:float33 7s ease-in-out infinite!important}
+/* Never fade text with container opacity. Only tint surface backgrounds. */
+/* v37 owns panel alpha; avoid compositing the same alpha through nested rows. */
+body.ui-v33.wall :is(#main,#content){background-color:transparent!important}
+#opacityRow33{display:grid;grid-template-columns:1fr 50px;gap:12px}#opacityRow33 input{grid-column:1/-1;width:100%}
+#homeFilter31{flex-wrap:wrap}.recommend-categories33{display:flex;flex-basis:100%;gap:8px;overflow-x:auto;max-width:100%;padding:8px 0;scrollbar-width:thin}.recommend-categories33 .chip{flex:none;min-height:44px;max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+body.ui-v33 #vHome > #homeCategories33{display:flex!important}
+@media(max-width:760px){body.ui-v33 #themeList{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}body.ui-v33 #themeList .sw-prev{height:140px;min-height:140px}body.ui-v33 #now.on .scene-tools30{left:10px;right:10px;gap:3px;justify-content:flex-end}#sceneMode33{min-width:0;max-width:140px;flex:1;font-size:12px}body.ui-v33 #now.on .scene-tools30 .ib{width:44px;min-width:44px}body.ui-v33 #now.viz .viz-card{padding-top:88px}}
+@media(prefers-reduced-motion:reduce){body.ui-v33 #now.float33 :is(#albumArt24,.viz-art,#discArt,#nArt){animation:none!important}}
+body.ui-v33 #now.on .translation-panel33 #lyricsTranslate22{display:block!important;width:100%;margin:0}
+body.ui-v33 #now.on .translation-panel33 .lt22-body{grid-template-columns:1fr;max-height:none}
+
+
+
+#wallUrl{width:min(340px,calc(var(--layout-vw37, 1vw) * 60));max-width:100%;min-height:44px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--text);font:14px system-ui}
+#audioQuality33{min-height:44px;max-width:100%;padding:8px 12px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--text)}
+body.ui-v33 #now.on .compact-dock33{display:none!important}
+body.ui-v33 #now.on.compact-transport33:not(.disc):not(.viz) .compact-dock33{display:grid!important;gap:0;position:absolute;bottom:16px;left:50%;translate:-50% 0;z-index:40;width:min(480px,calc(calc(var(--layout-vw37, 1vw) * 100) - 32px));padding:10px 18px;border:1px solid #ffffff1c;border-radius:18px;background:#191620f2;visibility:visible!important;opacity:1!important;pointer-events:auto!important;color:#eee}
+.compact-seek33{display:grid;grid-template-columns:44px 1fr 44px;gap:10px;align-items:center;font:14px system-ui;font-variant-numeric:tabular-nums}.compact-seek33 .track{height:32px;touch-action:none}
+.compact-buttons33{display:flex;justify-content:center;gap:16px}.compact-buttons33 .ib{width:44px;height:44px}
+body.ui-v33 #now.on.compact-transport33:not(.disc):not(.viz) #lyrics{padding-bottom:140px!important}
+/* Text modes have one transport, not an obsolete left deck plus the new dock. */
+body.ui-v33 #now.on.compact-transport33:not(.disc):not(.viz) :is(#nowLeft,#nowTop){display:none!important}
+body.ui-v33 #now.on.compact-transport33:not(.disc):not(.viz) #nowIn{position:absolute!important;inset:72px 24px 130px!important;width:auto!important;height:auto!important;max-width:none!important;margin:0!important;padding:0!important}
+body.ui-v33 #now.on.compact-transport33:not(.disc):not(.viz) #nowBody{display:flex!important;justify-content:center!important;width:100%!important;height:100%!important;gap:0!important;margin:0!important;padding:0!important}
+body.ui-v33 #now.on.compact-transport33:not(.disc):not(.viz) #lyrics{position:relative!important;inset:auto!important;width:min(100%,1050px)!important;height:100%!important;max-height:none!important;flex:none!important;margin:0 auto!important;padding:calc(var(--layout-vh37, 1vh) * 28) 0 calc(var(--layout-vh37, 1vh) * 35)!important;overflow-y:auto!important}
+body.ui-v33 #now.on.compact-transport33:not(.disc):not(.viz).cinema #lyrics .lyr-l{text-align:center!important;font-size:clamp(28px,calc(var(--layout-vw37, 1vw) * 3.5),52px)!important}
+@media(max-width:760px){body.ui-v33 #now.on.compact-transport33:not(.disc):not(.viz) #nowIn{inset:70px 20px 135px!important}}
+/* A viewport portal avoids clipping and transformed player stacking contexts. */
+body.ui-v33 > .translation-panel33:not([hidden]){position:fixed;z-index:10000;box-sizing:border-box;width:min(540px,calc(100vw - 16px));overflow:auto;overscroll-behavior:contain;padding:18px;border:1px solid #ffffff1e;border-radius:18px;background:#211d2cf8;box-shadow:0 16px 48px #0007;color:#eee;visibility:visible;opacity:1;pointer-events:auto}
+body.ui-v33 > .translation-panel33[hidden]{display:none!important}
+body.ui-v33 > .translation-panel33 #lyricsTranslate22{display:block!important;width:100%;margin:0}
+body.ui-v33 > .translation-panel33 .lt22-body{grid-template-columns:1fr;max-height:none}

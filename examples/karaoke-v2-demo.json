@@ -1,0 +1,91 @@
+{
+  "version": 2,
+  "language": "ru",
+  "lines": [
+    {
+      "text": "Синхронизация слов",
+      "start": 1,
+      "end": 6,
+      "translation": "Synchronized words",
+      "romanization": "Sinkhronizatsiya slov",
+      "speaker": "lead",
+      "words": [
+        {
+          "text": "Синхронизация",
+          "start": 1,
+          "end": 4,
+          "confidence": 0.95,
+          "syllables": [
+            {
+              "text": "Син",
+              "start": 1,
+              "end": 1.5
+            },
+            {
+              "text": "хро",
+              "start": 1.6,
+              "end": 2
+            },
+            {
+              "text": "ни",
+              "start": 2.1,
+              "end": 2.5
+            },
+            {
+              "text": "за",
+              "start": 2.6,
+              "end": 3
+            },
+            {
+              "text": "ция",
+              "start": 3.1,
+              "end": 4
+            }
+          ]
+        },
+        {
+          "text": "слов",
+          "start": 4.2,
+          "end": 6
+        }
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "type": "instrumental",
+      "start": 0,
+      "end": 1
+    }
+  ],
+  "variants": [
+    {
+      "id": "ja-demo",
+      "label": "日本語 · demo",
+      "language": "ja",
+      "lines": [
+        {
+          "text": "こんにちは世界",
+          "start": 1,
+          "end": 4,
+          "words": [
+            {
+              "text": "こんにちは",
+              "start": 1,
+              "end": 3
+            },
+            {
+              "text": "世界",
+              "start": 3,
+              "end": 4
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "demo": true,
+    "timings": "hand-authored fixture, not an acoustic analysis"
+  }
+}

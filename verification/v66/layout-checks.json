@@ -1,0 +1,23 @@
+{
+  "checks": [
+    "radio toggle hidden for albums",
+    "radio toggle visible for tracks",
+    "recommendations fit viewport 320",
+    "radio toggle reachable 320",
+    "recommendations fit viewport 390",
+    "radio toggle reachable 390",
+    "recommendations fit viewport 800",
+    "radio toggle reachable 800",
+    "recommendations fit viewport 1440",
+    "radio toggle reachable 1440",
+    "recommendations fit viewport 1920",
+    "radio toggle reachable 1920",
+    "mobile settings within stage",
+    "paused seek redraws background frame",
+    "ambient survives fullscreen",
+    "background controls translate",
+    "background controls translate back",
+    "no page exceptions "
+  ],
+  "errors": []
+}

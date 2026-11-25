@@ -1,0 +1,165 @@
+[
+  {
+    "id": "spotify",
+    "url": "https://developer.spotify.com/documentation/design",
+    "status": "loaded",
+    "bytes": 202106
+  },
+  {
+    "id": "github",
+    "url": "https://primer.style/product/getting-started/foundations/color-usage/",
+    "status": "loaded",
+    "bytes": 1199778
+  },
+  {
+    "id": "winamp",
+    "url": "https://raw.githubusercontent.com/captbaritone/webamp/master/README.md",
+    "status": "loaded",
+    "bytes": 7096
+  },
+  {
+    "id": "dracula",
+    "url": "https://raw.githubusercontent.com/dracula/dracula-theme/master/README.md",
+    "status": "loaded",
+    "bytes": 8440
+  },
+  {
+    "id": "nord",
+    "url": "https://raw.githubusercontent.com/nordtheme/nord/develop/src/nord.css",
+    "status": "loaded",
+    "error": "HTTP Error 404: Not Found",
+    "bytes": 5380
+  },
+  {
+    "id": "gruvbox",
+    "url": "https://raw.githubusercontent.com/morhetz/gruvbox/master/colors/gruvbox.vim",
+    "status": "loaded",
+    "bytes": 38006
+  },
+  {
+    "id": "catppuccin",
+    "url": "https://raw.githubusercontent.com/catppuccin/palette/main/palette.json",
+    "status": "loaded",
+    "bytes": 83516
+  },
+  {
+    "id": "latte",
+    "url": "https://catppuccin.com/palette/",
+    "status": "loaded",
+    "bytes": 487179
+  },
+  {
+    "id": "macchiato",
+    "url": "https://catppuccin.com/palette/",
+    "status": "loaded",
+    "bytes": 487179
+  },
+  {
+    "id": "tokyonight",
+    "url": "https://raw.githubusercontent.com/enkia/tokyo-night-vscode-theme/master/README.md",
+    "status": "loaded",
+    "bytes": 15381
+  },
+  {
+    "id": "rosepine",
+    "url": "https://raw.githubusercontent.com/rose-pine/neovim/main/lua/rose-pine/palette.lua",
+    "status": "loaded",
+    "bytes": 1781
+  },
+  {
+    "id": "everforest",
+    "url": "https://raw.githubusercontent.com/sainnhe/everforest/master/palette.md",
+    "status": "loaded",
+    "bytes": 21927
+  },
+  {
+    "id": "solarized",
+    "url": "https://ethanschoonover.com/solarized/",
+    "status": "loaded",
+    "bytes": 37238
+  },
+  {
+    "id": "monokai",
+    "url": "https://monokai.pro/",
+    "status": "loaded",
+    "bytes": 75624
+  },
+  {
+    "id": "onedark",
+    "url": "https://raw.githubusercontent.com/atom/one-dark-syntax/master/styles/colors.less",
+    "status": "loaded",
+    "bytes": 967
+  },
+  {
+    "id": "onelight",
+    "url": "https://raw.githubusercontent.com/atom/one-light-syntax/master/styles/colors.less",
+    "status": "loaded",
+    "bytes": 946
+  },
+  {
+    "id": "ayu",
+    "url": "https://raw.githubusercontent.com/ayu-theme/ayu-colors/master/themes/mirage.yaml",
+    "status": "loaded",
+    "bytes": 1783
+  },
+  {
+    "id": "material",
+    "url": "https://material-theme.com/docs/reference/color-palette",
+    "status": "loaded",
+    "note": "Deep ocean section loaded through web extraction. UI adaptation, not exact reproduction."
+  },
+  {
+    "id": "kanagawa",
+    "url": "https://raw.githubusercontent.com/rebelot/kanagawa.nvim/master/lua/kanagawa/colors.lua",
+    "status": "loaded",
+    "bytes": 4830
+  },
+  {
+    "id": "nightowl",
+    "url": "https://raw.githubusercontent.com/sdras/night-owl-vscode-theme/main/themes/Night%20Owl-color-theme.json",
+    "status": "loaded",
+    "bytes": 48924
+  },
+  {
+    "id": "palenight",
+    "url": "https://raw.githubusercontent.com/whizkydee/vscode-palenight-theme/master/themes/palenight.json",
+    "status": "loaded",
+    "bytes": 42854
+  },
+  {
+    "id": "horizon",
+    "url": "https://raw.githubusercontent.com/jolaleye/horizon-theme/master/README.md",
+    "status": "loaded",
+    "bytes": 125
+  },
+  {
+    "id": "poimandres",
+    "url": "https://raw.githubusercontent.com/drcmda/poimandres-theme/main/themes/poimandres-color-theme.json",
+    "status": "loaded",
+    "bytes": 44033
+  },
+  {
+    "id": "moonlight",
+    "url": "https://raw.githubusercontent.com/atomiks/moonlight-vscode-theme/master/README.md",
+    "status": "loaded",
+    "bytes": 789
+  },
+  {
+    "id": "vitesse",
+    "url": "https://raw.githubusercontent.com/antfu/vscode-theme-vitesse/main/README.md",
+    "status": "loaded",
+    "bytes": 1793
+  },
+  {
+    "id": "iceberg",
+    "url": "https://raw.githubusercontent.com/cocopon/iceberg.vim/master/colors/iceberg.vim",
+    "status": "loaded",
+    "bytes": 23555
+  },
+  {
+    "id": "zenburn",
+    "url": "https://raw.githubusercontent.com/jnurmine/Zenburn/master/colors/zenburn.vim",
+    "status": "loaded",
+    "bytes": 24011
+  }
+]

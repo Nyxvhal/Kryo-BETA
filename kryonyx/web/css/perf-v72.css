@@ -1,0 +1,57 @@
+/* v72 performance — no invisible glass.
+   Measured in headless Chromium while a track plays on Home (qa/s_perfx72.cjs):
+   the closed full-screen veil (opacity 0) still ran a blur(22px) backdrop pass
+   on every frame, and every Home card carried an invisible blur(10px) action
+   pill. Together with the progress bar repainting 30×/s that kept the
+   compositor saturated (≈20 fps while music played). */
+
+/* 1. Overlays blur only while they are actually shown. On close the blur is
+      kept until the fade-out ends (delayed discrete transition), then dropped. */
+html body #veil,
+html body #toast {
+  transition: opacity var(--dur, .2s) var(--ease, ease), transform var(--dur, .2s) var(--ease, ease),
+              visibility 0s linear var(--dur, .2s), -webkit-backdrop-filter 0s linear var(--dur, .2s),
+              backdrop-filter 0s linear var(--dur, .2s) !important;
+}
+html body #veil.on,
+html body #toast.on { transition: opacity var(--dur, .2s) var(--ease, ease), transform var(--dur, .2s) var(--ease, ease) !important; }
+html body #veil:not(.on) { visibility: hidden; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+html body #toast:not(.on) { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+html body.no-anim #veil, html body.no-anim #toast { transition: none !important; }
+
+/* 2. Per-card glass: two dozen small blur passes for pills that sit on artwork.
+      A slightly denser fill reads the same and costs nothing. */
+html body #rows .track-actions30,
+html body #scroll .card .art .badge {
+  -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+}
+html body.ui-v70 #rows .track-actions30 { background: rgba(10, 10, 12, .78) !important; }
+html body.ui-v70 #scroll .card .art .badge { background: rgba(0, 0, 0, .66) !important; }
+
+/* 3. Off-screen Home cards skip style/layout/paint until they scroll near view. */
+html body #rows.home-grid31 > .track-shell30 { content-visibility: auto; contain-intrinsic-size: auto 280px; }
+
+/* 4. "transition: all" on the 24 play buttons animated every inherited change. */
+html body #rows .play-fab { transition-property: opacity, transform, background-color, color !important; }
+
+/* 5. Eliminate continuous GPU backdrop-filter and background drift passes without universal * selectors. */
+html body::before {
+  animation: none !important;
+  filter: none !important;
+}
+html body.ui-v38 :is(#app #side, #app #player, #top, #workspaceNavBar, #queue, #ctxMenu, #qPop, #veil, #toast, .modal, .menu, #nowVeil, #now :is(.ib, .scene-tools30 .ib, .scene-menu33, .translation-panel33, .karaoke-menu45, .compact-dock33, #albumVolumeBox24), #rows .track-actions30, #scroll .card .art .badge, .clip-queue, #clipGate, #dTrack, .ca13-dialog::backdrop) {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+/* Prevent expensive per-line blur renderpasses on scrolling karaoke lyrics. */
+html body #now #lyrics .lyr-l,
+html body #now #lyrics .lyr-l.on.rest {
+  filter: none !important;
+}
+html body #now.album-flow23 #nowArtBg,
+html body #now.cinema #nowVeil {
+  filter: none !important;
+}
+html body #now.album-flow23 #nowArtBg {
+  display: none !important;
+}

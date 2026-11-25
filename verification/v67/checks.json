@@ -1,0 +1,23 @@
+{
+  "checks": [
+    "browse has no ambient",
+    "saved blur and dim preserved",
+    "canvas behind whole viewport",
+    "foreground fills stage despite old size preference",
+    "background animates with video",
+    "size slider removed",
+    "blur and dim applied to full background",
+    "background follows stage to fullscreen",
+    "background returns to whole player",
+    "mobile canvas spans viewport",
+    "no mobile horizontal overflow",
+    "mobile controls accessible",
+    "disabling removes canvas and loop",
+    "paused video stops updates",
+    "closing removes background",
+    "updated preferences persist",
+    "no runtime errors"
+  ],
+  "errors": [],
+  "scope": "Synthetic local video; no authenticated provider or Windows/WebView2 verification."
+}

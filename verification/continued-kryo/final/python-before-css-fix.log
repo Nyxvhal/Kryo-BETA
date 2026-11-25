@@ -1,0 +1,202 @@
+/data/kryo-venv/lib64/python3.13/site-packages/pytest_asyncio/plugin.py:306: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+The event loop scope for asynchronous fixtures will default to the fixture scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to "function" scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", "package", "session". Set it to "fixture-scope" to keep the current behavior.
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+...................................ss........................................................................................... [ 18%]
+.............................................................. [ 27%]
+..................................................... [ 34%]
+............................................................... [ 43%]
+............................ [ 47%]
+........................................................................ [ 58%]
+............................................................. [ 66%]
+........................................................................ [ 77%]
+.................................................. [ 84%]
+.........................F.....................................................................................                [100%]
+=================================== FAILURES ===================================
+_______ Video44.test_source_a_unrelated_karaoke_and_styles_are_preserved _______
+
+self = <test_tiktok_v44.Video44 testMethod=test_source_a_unrelated_karaoke_and_styles_are_preserved>
+
+    def test_source_a_unrelated_karaoke_and_styles_are_preserved(self):
+     # The v44 historical v42 manifest is retained as history, but does not
+     # describe the user-supplied Source A (including its unmodified karaoke.js).
+     # Compare instead to a separate, independently recorded Source A snapshot.
+     provenance=json.loads((R/'verification/source-a-karaoke-sha256.json').read_text())
+     intentional={'kryonyx/web/js/karaoke.js','kryonyx/web/js/reference-scene-v24.js',
+                  'kryonyx/web/js/repair-v33.js','kryonyx/web/js/lyrics-translate-v22.js',
+                  'kryonyx/web/css/repair-v33.css','kryonyx/web/css/reference-scene-v24.css'}
+     for file,digest in provenance['sha256'].items():
+>     if file not in intentional:self.assertEqual(hashlib.sha256((R/file).read_bytes()).hexdigest(),digest,file)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E     AssertionError: 'ef397293a5290f7dbd63ec2b1fa5203992bba682899131a27684ebd5e86659c0' != '23b4edb07859980f1bfc54dd3530ed2c1d7d4ad9d2a8aa2c3ae9f420847cdbfc'
+E     - ef397293a5290f7dbd63ec2b1fa5203992bba682899131a27684ebd5e86659c0
+E     + 23b4edb07859980f1bfc54dd3530ed2c1d7d4ad9d2a8aa2c3ae9f420847cdbfc
+E      : kryonyx/web/css/visualizer-v32.css
+
+tests/test_tiktok_v44.py:18: AssertionError
+=============================== warnings summary ===============================
+tests/test_ai_v72.py: 6 warnings
+tests/test_audio_vault_v8.py: 8 warnings
+tests/test_auth_removed_v17.py: 1 warning
+tests/test_clipstream.py: 2 warnings
+tests/test_continued_stability_kryo.py: 2 warnings
+tests/test_critical_stability_kryo.py: 7 warnings
+tests/test_discovery_v26.py: 5 warnings
+tests/test_file_exports_v27.py: 8 warnings
+tests/test_interface_v22.py: 7 warnings
+tests/test_karaoke.py: 5 warnings
+tests/test_karaoke_review.py: 1 warning
+tests/test_profile_api_v50.py: 9 warnings
+tests/test_repair_v20.py: 8 warnings
+tests/test_shell_bridge_v73.py: 6 warnings
+tests/test_stream_quality_v72.py: 5 warnings
+tests/test_studio.py: 5 warnings
+tests/test_tiktok_v39.py: 6 warnings
+tests/test_translation_kryo.py: 1 warning
+  /vercel/sandbox/data/kryo-work/kryonyx-music/kryonyx/server.py:3458: NotAppKeyWarning: It is recommended to use web.AppKey instances for keys.
+  https://docs.aiohttp.org/en/stable/web_advanced.html#application-s-config
+    app["background_tasks"] = set()
+
+tests/test_ai_v72.py: 6 warnings
+tests/test_audio_vault_v8.py: 8 warnings
+tests/test_auth_removed_v17.py: 1 warning
+tests/test_clipstream.py: 2 warnings
+tests/test_continued_stability_kryo.py: 2 warnings
+tests/test_critical_stability_kryo.py: 7 warnings
+tests/test_discovery_v26.py: 5 warnings
+tests/test_file_exports_v27.py: 8 warnings
+tests/test_interface_v22.py: 7 warnings
+tests/test_karaoke.py: 5 warnings
+tests/test_karaoke_review.py: 1 warning
+tests/test_profile_api_v50.py: 9 warnings
+tests/test_repair_v20.py: 8 warnings
+tests/test_shell_bridge_v73.py: 6 warnings
+tests/test_stream_quality_v72.py: 5 warnings
+tests/test_studio.py: 5 warnings
+tests/test_tiktok_v39.py: 6 warnings
+tests/test_translation_kryo.py: 1 warning
+  /vercel/sandbox/data/kryo-work/kryonyx-music/kryonyx/server.py:3459: NotAppKeyWarning: It is recommended to use web.AppKey instances for keys.
+  https://docs.aiohttp.org/en/stable/web_advanced.html#application-s-config
+    app["karaoke_jobs"] = karaoke_jobs.Jobs()
+
+tests/test_ai_v72.py: 6 warnings
+tests/test_audio_vault_v8.py: 8 warnings
+tests/test_auth_removed_v17.py: 1 warning
+tests/test_clipstream.py: 2 warnings
+tests/test_continued_stability_kryo.py: 2 warnings
+tests/test_critical_stability_kryo.py: 7 warnings
+tests/test_discovery_v26.py: 5 warnings
+tests/test_file_exports_v27.py: 8 warnings
+tests/test_interface_v22.py: 7 warnings
+tests/test_karaoke.py: 5 warnings
+tests/test_karaoke_review.py: 1 warning
+tests/test_profile_api_v50.py: 9 warnings
+tests/test_repair_v20.py: 8 warnings
+tests/test_shell_bridge_v73.py: 6 warnings
+tests/test_stream_quality_v72.py: 5 warnings
+tests/test_studio.py: 5 warnings
+tests/test_tiktok_v39.py: 6 warnings
+tests/test_translation_kryo.py: 1 warning
+  /vercel/sandbox/data/kryo-work/kryonyx-music/kryonyx/server.py:3460: NotAppKeyWarning: It is recommended to use web.AppKey instances for keys.
+  https://docs.aiohttp.org/en/stable/web_advanced.html#application-s-config
+    app["clip_streams"] = None
+
+tests/test_ai_v72.py: 6 warnings
+tests/test_audio_vault_v8.py: 8 warnings
+tests/test_auth_removed_v17.py: 1 warning
+tests/test_clipstream.py: 2 warnings
+tests/test_continued_stability_kryo.py: 2 warnings
+tests/test_critical_stability_kryo.py: 7 warnings
+tests/test_discovery_v26.py: 5 warnings
+tests/test_file_exports_v27.py: 8 warnings
+tests/test_interface_v22.py: 7 warnings
+tests/test_karaoke.py: 5 warnings
+tests/test_karaoke_review.py: 1 warning
+tests/test_profile_api_v50.py: 9 warnings
+tests/test_repair_v20.py: 8 warnings
+tests/test_shell_bridge_v73.py: 6 warnings
+tests/test_stream_quality_v72.py: 5 warnings
+tests/test_studio.py: 5 warnings
+tests/test_tiktok_v39.py: 6 warnings
+tests/test_translation_kryo.py: 1 warning
+  /vercel/sandbox/data/kryo-work/kryonyx-music/kryonyx/server.py:3462: NotAppKeyWarning: It is recommended to use web.AppKey instances for keys.
+  https://docs.aiohttp.org/en/stable/web_advanced.html#application-s-config
+    app["ai_jobs72"] = AIJobs72()  # created up front: a started app must not gain new keys
+
+tests/test_ai_v72.py: 6 warnings
+tests/test_audio_vault_v8.py: 8 warnings
+tests/test_auth_removed_v17.py: 1 warning
+tests/test_clipstream.py: 2 warnings
+tests/test_continued_stability_kryo.py: 2 warnings
+tests/test_critical_stability_kryo.py: 7 warnings
+tests/test_discovery_v26.py: 5 warnings
+tests/test_file_exports_v27.py: 8 warnings
+tests/test_interface_v22.py: 7 warnings
+tests/test_karaoke.py: 5 warnings
+tests/test_karaoke_review.py: 1 warning
+tests/test_profile_api_v50.py: 9 warnings
+tests/test_repair_v20.py: 8 warnings
+tests/test_shell_bridge_v73.py: 6 warnings
+tests/test_stream_quality_v72.py: 5 warnings
+tests/test_studio.py: 5 warnings
+tests/test_tiktok_v39.py: 6 warnings
+tests/test_translation_kryo.py: 1 warning
+  /vercel/sandbox/data/kryo-work/kryonyx-music/kryonyx/server.py:3464: NotAppKeyWarning: It is recommended to use web.AppKey instances for keys.
+  https://docs.aiohttp.org/en/stable/web_advanced.html#application-s-config
+    app["audio_share64"] = ShareJobs64()
+
+tests/test_ai_v72.py::HTTP::test_clip_options_are_validated
+tests/test_ai_v72.py::HTTP::test_clip_upscale_and_smoothing_end_to_end_and_cached
+tests/test_ai_v72.py::HTTP::test_missing_engine_or_weights_answer_409_and_leave_no_upload
+tests/test_ai_v72.py::HTTP::test_model_download_endpoint_validates_ids
+tests/test_ai_v72.py::HTTP::test_status_lists_engine_models_and_setup
+tests/test_ai_v72.py::HTTP::test_wallpaper_enhancement_end_to_end
+  /vercel/sandbox/data/kryo-work/kryonyx-music/tests/test_ai_v72.py:543: NotAppKeyWarning: It is recommended to use web.AppKey instances for keys.
+  https://docs.aiohttp.org/en/stable/web_advanced.html#application-s-config
+    app = server.build_app(); app['clip_streams'] = FakeClips({self.SID: self.session})
+
+tests/test_audio_share_v64.py: 16 warnings
+  /data/kryo-venv/lib64/python3.13/site-packages/aiohttp/web_urldispatcher.py:193: DeprecationWarning: Bare functions are deprecated, use async ones
+    warnings.warn(
+
+tests/test_profile_api_v50.py::API50::test_profile_change_replaces_obsolete_refresh
+tests/test_profile_api_v50.py::API50::test_profile_change_replaces_obsolete_refresh
+  /vercel/sandbox/data/kryo-work/kryonyx-music/tests/test_profile_api_v50.py:42: DeprecationWarning: Changing state of started or joined application is deprecated
+    task=asyncio.create_task(obsolete());await started.wait();self.client.server.app['recommend_refresh33']=task;self.client.server.app['recommend_scope50']='obsolete'
+
+tests/test_profile_api_v50.py::API50::test_profile_change_replaces_obsolete_refresh
+  /vercel/sandbox/data/kryo-work/kryonyx-music/tests/test_profile_api_v50.py:42: NotAppKeyWarning: It is recommended to use web.AppKey instances for keys.
+  https://docs.aiohttp.org/en/stable/web_advanced.html#application-s-config
+    task=asyncio.create_task(obsolete());await started.wait();self.client.server.app['recommend_refresh33']=task;self.client.server.app['recommend_scope50']='obsolete'
+
+tests/test_profile_api_v50.py::API50::test_profile_change_replaces_obsolete_refresh
+  /vercel/sandbox/data/kryo-work/kryonyx-music/kryonyx/server.py:1028: DeprecationWarning: Changing state of started or joined application is deprecated
+    request.app['recommend_refresh33']=task
+
+tests/test_profile_api_v50.py::API50::test_profile_change_replaces_obsolete_refresh
+  /vercel/sandbox/data/kryo-work/kryonyx-music/kryonyx/server.py:1028: NotAppKeyWarning: It is recommended to use web.AppKey instances for keys.
+  https://docs.aiohttp.org/en/stable/web_advanced.html#application-s-config
+    request.app['recommend_refresh33']=task
+
+tests/test_profile_api_v50.py::API50::test_profile_change_replaces_obsolete_refresh
+  /vercel/sandbox/data/kryo-work/kryonyx-music/kryonyx/server.py:1029: DeprecationWarning: Changing state of started or joined application is deprecated
+    request.app['recommend_scope50']=scope
+
+tests/test_profile_api_v50.py::API50::test_profile_change_replaces_obsolete_refresh
+  /vercel/sandbox/data/kryo-work/kryonyx-music/kryonyx/server.py:1029: NotAppKeyWarning: It is recommended to use web.AppKey instances for keys.
+  https://docs.aiohttp.org/en/stable/web_advanced.html#application-s-config
+    request.app['recommend_scope50']=scope
+
+tests/test_video_v57.py::GateTests::test_valid_catalog_is_metadata_only
+  /vercel/sandbox/data/kryo-work/kryonyx-music/kryonyx/server.py:3841: DeprecationWarning: Changing state of started or joined application is deprecated
+    catalog=clipcatalog.Catalog(search);request.app['clips_catalog57']=catalog
+
+tests/test_video_v57.py::GateTests::test_valid_catalog_is_metadata_only
+  /vercel/sandbox/data/kryo-work/kryonyx-music/kryonyx/server.py:3841: NotAppKeyWarning: It is recommended to use web.AppKey instances for keys.
+  https://docs.aiohttp.org/en/stable/web_advanced.html#application-s-config
+    catalog=clipcatalog.Catalog(search);request.app['clips_catalog57']=catalog
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_tiktok_v44.py::Video44::test_source_a_unrelated_karaoke_and_styles_are_preserved
+1 failed, 697 passed, 2 skipped, 491 warnings, 797 subtests passed in 128.31s (0:02:08)

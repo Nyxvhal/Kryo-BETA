@@ -1,0 +1,36 @@
+{
+  "checks": [
+    "search result starts real audio and queues all visible results",
+    "natural ended advances to the next search result",
+    "second natural ended advances without skipping or stalling",
+    "repeat off leaves the last track finished rather than auto-looping",
+    "play after completion restarts the completed track",
+    "repeat-one starts the same track again after real completion",
+    "repeat-all wraps from the final result to the first",
+    "crossfade also advances the search queue on the other audio deck",
+    "search result remains playable after completion and transitions",
+    "quick search suggestions queue all shown track matches",
+    "natural ended also advances from a quick search suggestion",
+    "no runtime exceptions"
+  ],
+  "errors": [],
+  "events": [
+    {
+      "id": "local:ended-b",
+      "live": true
+    },
+    {
+      "id": "local:ended-c",
+      "live": true
+    },
+    {
+      "id": "local:ended-c",
+      "live": true
+    },
+    {
+      "id": "local:ended-a",
+      "live": true
+    }
+  ],
+  "environment": "Linux Chromium; actual generated 2-second WAV media, natural ended events; no live catalogue claims."
+}

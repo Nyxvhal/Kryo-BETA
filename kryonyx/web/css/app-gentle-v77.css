@@ -1,0 +1,23 @@
+/* Soften the interface's foreground tokens, not the images or the whole window.
+   Resolve aliases on the body before overriding child-scope tokens, so the
+   selected theme, contrast sliders, accent, and font remain authoritative. */
+body.workspace-shell:not(.sketch){
+ --gentle-text77:color-mix(in srgb,var(--text) 84%,var(--bg));
+ --gentle-ui-text77:color-mix(in srgb,var(--u52-text) 84%,var(--u52-bg));
+}
+body.workspace-shell:not(.sketch) :is(#app,#player,#mobNav,#queue,#clips,.modal:not(.karaoke52),#menu,#qPop){
+ --text:var(--gentle-text77);
+ --u52-text:var(--gentle-ui-text77);
+}
+/* Prevent the selected primary controls in OLED from looking like pure white. */
+body.workspace-shell.oled70:not(.sketch) :is(#app,#player) :is(.btn:not(.g),.chip.on,.chip[aria-pressed=true],#pPlay,#pMobPlay){
+ text-shadow:none!important;
+}
+/* The Wave action and transport fill use an accent token rather than --text. */
+body.workspace-shell.oled70:not(.sketch) #vWave #waveStart61,
+body.workspace-shell.oled70:not(.sketch) #player .track :is(.fill,.knob){
+ background:color-mix(in srgb,var(--accent) 84%,var(--bg))!important;
+}
+/* Reduce decorative glare without removing keyboard focus indicators. */
+body.workspace-shell.oled70:not(.sketch) #app .btn:not(:focus-visible){box-shadow:none!important;}
+body.workspace-shell.oled70:not(.sketch) #mSettings:not(.karaoke52) :is(.workspace-settings-head strong,.workspace-settings-overview>h2){color:var(--gentle-text77)!important;}

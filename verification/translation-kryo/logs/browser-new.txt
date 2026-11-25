@@ -1,0 +1,24 @@
+PASS alignment and unchanged document
+PASS mode split
+PASS mode focus
+PASS mode cinema
+PASS mode disc
+LIMITATION visualizer facade is disabled in supplied project
+PASS hide/show and manual scroll
+PASS partial retry
+PASS non-JSON failure
+PASS cancellation
+PASS stale lyrics rejected
+PASS stale target rejected
+PASS stale track rejected
+PASS idempotent initialization
+PASS panel 390x844
+PASS panel 768x900
+PASS panel 1280x720
+PASS panel 1366x768
+PASS panel 1920x1080
+PASS unsynced text
+PASS outside click
+ALBUM {"p":{"x":8,"y":342.984375,"width":540,"height":361,"top":342.984375,"right":548,"bottom":703.984375,"left":8},"a":{"x":289.390625,"y":711.984375,"width":44,"height":44,"top":711.984375,"right":333.390625,"bottom":755.984375,"left":289.390625},"style":"max-width: 1264px; max-height: 704px; left: 8px; top: 342.984px;","vv":{"offsetTop":0,"height":720,"width":1280},"viewport":[1280,720]}
+PASS album anchor and focus
+PASS no runtime errors

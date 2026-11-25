@@ -1,0 +1,186 @@
+/* Geometry and progressive text only; existing theme palettes stay untouched. */
+#lyrics .karaoke-unit,.disc-w.karaoke-unit {
+  display:inline-block;color:transparent;white-space:pre-wrap;
+  background-image:linear-gradient(90deg,var(--lyr-lit,var(--text)) 0 var(--wp,0%),var(--lyr-dim,var(--muted)) var(--wp,0%));
+  -webkit-background-clip:text;background-clip:text;transition:none;
+}
+#lyrics .karaoke-unit {font:inherit;letter-spacing:inherit;}
+.disc-w.karaoke-unit {--lyr-lit:var(--text);--lyr-dim:var(--muted);}
+.karaoke-translation {font-size:16px;line-height:1.5;color:var(--muted);margin-top:8px;}
+.karaoke-v2-settings {padding:20px 0;border-top:1px solid var(--line);margin-top:16px;}
+.karaoke-v2-settings .row-acts {display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;}
+.karaoke-v2-settings .hint,.karaoke-generator .hint {font-size:14px;line-height:1.5;}
+.karaoke-offset {display:flex;align-items:center;justify-content:space-between;gap:16px;margin:16px 0;font-size:14px;}
+.karaoke-offset input,.karaoke-offset select {width:110px;min-height:44px;}
+.karaoke-form-grid {display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.karaoke-form-grid label {display:flex;flex-direction:column;gap:8px;font-size:14px;min-width:0;}
+.karaoke-form-grid input,.karaoke-form-grid select {max-width:100%;min-height:44px;font-size:14px;}
+.karaoke-check {display:flex;gap:12px;align-items:center;margin:16px 0;font-size:14px;line-height:1.5;}
+.karaoke-check input {width:20px;height:20px;flex-shrink:0;accent-color:var(--accent);}
+.karaoke-import-file {width:150px;margin-left:8px;max-width:100%;font-size:14px;}
+#mKaraokeGenerate {max-height:calc(var(--layout-vh37, 1vh) * 90);overflow:hidden;}
+#mKaraokeGenerate .mb {overflow-y:auto;max-height:calc(var(--layout-vh37, 1vh) * 65);}
+#mKaraokeGenerate .acts {display:flex;justify-content:flex-end;flex-wrap:wrap;gap:8px;padding:16px 24px;}
+#kgDownload[hidden],#karaokeVariant[hidden] {display:none!important;}
+@supports not ((background-clip:text) or (-webkit-background-clip:text)) {
+  #lyrics .karaoke-unit,.disc-w.karaoke-unit {color:var(--muted);background:none;}
+  #lyrics .karaoke-unit.lit,.disc-w.karaoke-unit.lit {color:var(--text);}
+}
+@media(max-width:560px){.karaoke-form-grid{grid-template-columns:1fr;}#mKaraokeGenerate .mb{max-height:calc(var(--layout-vh37, 1vh) * 56);}.karaoke-import-file{display:block;margin:8px 0 0;}}
+#mKaraokeGenerate .mh {display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px;}
+#mKaraokeGenerate .mh h3 {margin:0;}
+#mKaraokeGenerate .mh .ib {flex-shrink:0;}
+@media(max-width:760px) {
+  #now:not(.focus):not(.disc):not(.viz) #nowBody {grid-template-rows:auto minmax(180px,1fr);align-items:stretch;gap:8px;overflow:hidden;}
+  #now:not(.focus):not(.disc):not(.viz) #nowLeft {display:grid;grid-template-columns:72px minmax(0,1fr);align-items:center;gap:8px;}
+  #now:not(.focus):not(.disc):not(.viz) #nArt {grid-column:1;grid-row:1;width:72px;height:72px;max-width:72px;box-shadow:none;}
+  #now:not(.focus):not(.disc):not(.viz) #nowLeft>div {grid-column:1/-1;}
+  #now:not(.focus):not(.disc):not(.viz) #nowLeft>div:first-of-type {grid-column:2;grid-row:1;}
+  #now:not(.focus):not(.disc):not(.viz) #nTitle {font-size:18px;}
+  #now:not(.focus):not(.disc):not(.viz) #lyrics {min-height:180px;height:100%;max-height:none;padding:calc(var(--layout-vh37, 1vh) * 12) 4px calc(var(--layout-vh37, 1vh) * 18);}
+  #now:not(.focus):not(.disc):not(.viz) .workspace-now-stats {margin:0 auto;}
+  #nowTop {gap:4px;}
+  #nowTop .ib {width:44px;height:44px;flex-shrink:0;}
+}
+/* Karaoke Studio v3: readable controls, review-first workflow. Theme-safe. */
+.k-stage {display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0 16px;border-bottom:1px solid var(--line);flex-shrink:0;}
+.k-stage-status {font-size:14px;line-height:1.5;color:var(--text);border-left:3px solid #DE9255;padding:4px 12px;max-width:480px;}
+.k-stage-status.reviewed {border-color:#72BC8F;}
+.k-stage-actions {display:flex;gap:8px;flex-shrink:0;align-items:center;}
+.k-stage .btn,.k-stage select {min-height:44px;font-size:14px;}
+#now.disc .k-stage,#now.viz .k-stage {display:none;}
+#now:not(.focus):not(.disc):not(.viz) #nowLeft {gap:14px;max-height:100%;overflow-y:auto;padding:12px 4px;scrollbar-width:thin;}
+#now:not(.focus):not(.disc):not(.viz) #nArt {max-width:min(360px,calc(var(--layout-vh37, 1vh) * 34));border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.25);}
+#lyrics {--lyr-dim:color-mix(in srgb,var(--text) 68%,var(--bg));mask-image:linear-gradient(transparent,#000 8%,#000 88%,transparent);}
+#lyrics .lyr-l {filter:none;line-height:1.4;opacity:1;transform:none;letter-spacing:-.3px;}
+#lyrics .lyr-l.done {opacity:.72;}
+#lyrics .lyr-l.on.rest {opacity:.8;filter:none;transform:none;}
+#lyrics .lyr-l.on {--lyr-lit:var(--text);}
+.k-workflow {display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;}
+.k-workflow span {font-size:14px;font-weight:650;border-top:2px solid var(--line);padding-top:12px;color:var(--text);}
+.k-reference-label {display:flex;flex-direction:column;gap:8px;font-size:16px;line-height:1.5;margin-top:16px;}
+.k-reference-label textarea {width:100%;resize:vertical;min-height:92px;font:16px/1.5 inherit;padding:12px;border:1px solid var(--line);border-radius:8px;color:var(--text);background:var(--surface-2,var(--bg));}
+.k-notice {font-size:14px;line-height:1.6;padding:12px 16px;background:color-mix(in srgb,#DE9255 12%,var(--bg));border-left:3px solid #DE9255;border-radius:0 8px 8px 0;margin:16px 0;color:var(--text);}
+#kgProgress {display:block;width:100%;height:8px;accent-color:var(--accent);margin-top:20px;}
+#kgReview {margin-right:8px;}
+#kgStatus {font-size:16px;line-height:1.5;}
+#kgReview[hidden],#kgQuality[hidden],#keAudio[hidden],#keMatchLabel[hidden] {display:none!important;}
+#mKaraokeGenerate {padding:24px;width:min(840px,calc(calc(var(--layout-vw37, 1vw) * 100) - 32px));max-height:calc(calc(var(--layout-vh37, 1dvh) * 100) - 32px);}
+#mKaraokeGenerate .mb {max-height:calc(calc(var(--layout-vh37, 1dvh) * 100) - 208px);padding-right:8px;}
+#mKaraokeGenerate .acts {margin:16px -24px -24px;padding:16px 24px;border-top:1px solid var(--line);background:var(--bg);}
+#mKaraokeGenerate input,#mKaraokeGenerate select {font-size:16px;}
+.k-editor {--kw-bg:#202020;--kw-range:#283546;--kw-wave:#BEC9D7;--kw-boundary:#5E9FE8;--kw-cursor:#FFFFFF;width:min(1180px,calc(calc(var(--layout-vw37, 1vw) * 100) - 32px));max-height:calc(calc(var(--layout-vh37, 1dvh) * 100) - 32px);padding:24px;overflow:hidden;color:var(--text);}
+body.light .k-editor {--kw-bg:#F0EFED;--kw-range:#E5F2FC;--kw-wave:#57636E;--kw-boundary:#2783DE;--kw-cursor:#2C2C2B;}
+.k-editor .mh {display:flex;justify-content:space-between;gap:16px;align-items:start;margin-bottom:16px;}
+.k-editor h3 {font-size:26px;line-height:1.3;margin:4px 0;}
+.k-eyebrow {font-size:14px;letter-spacing:.08em;color:var(--muted);}
+.k-editor-body {max-height:calc(calc(var(--layout-vh37, 1dvh) * 100) - 238px);overflow-y:auto;overscroll-behavior:contain;padding-right:8px;}
+.k-editor .hint {font-size:14px;line-height:1.5;}
+.k-audition {display:flex;align-items:center;flex-wrap:wrap;gap:12px;}
+.k-audition audio {width:100%;height:44px;}
+.k-audition .hint {flex-basis:100%;margin:0;}
+.k-audition label.btn {display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.k-audition input[type=file] {width:180px;max-width:100%;font-size:14px;}
+.k-zoom {display:flex;align-items:center;gap:8px;font-size:14px;}
+.k-wave-wrap {margin:20px 0;border:1px solid var(--line);border-radius:8px;overflow:hidden;}
+#keWave {display:block;width:100%;height:140px;cursor:crosshair;}
+#keWaveLabel {padding:8px 12px;background:var(--surface-2,var(--bg));color:var(--text);}
+.k-editor-grid {display:grid;grid-template-columns:260px minmax(0,1fr);gap:24px;}
+#keLines {max-height:420px;overflow:auto;scrollbar-width:thin;display:flex;flex-direction:column;gap:4px;}
+.k-line-choice {display:grid;grid-template-columns:24px minmax(0,1fr) 44px;gap:8px;align-items:start;text-align:left;padding:12px;border-radius:8px;font-size:14px;line-height:1.5;min-height:48px;flex-shrink:0;color:var(--text);background:var(--surface-2,var(--bg));border:1px solid transparent;}
+.k-line-choice.on {border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--bg));}
+.k-line-time,.k-line-number {color:var(--muted);font-variant-numeric:tabular-nums;}
+.k-line-editor {min-width:0;}
+.k-editor-toolbar {display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.k-editor-toolbar strong {margin-right:auto;font-size:18px;}
+.k-line-bounds {display:flex;gap:16px;margin-top:12px;}
+.k-line-bounds label {display:flex;flex-direction:column;gap:8px;font-size:14px;flex:1;min-width:0;}
+.k-editor input,.k-editor select {min-height:44px;font-size:16px;max-width:100%;color:var(--text);background:var(--surface-2,var(--bg));border:1px solid var(--line);border-radius:8px;padding:8px;}
+.k-editor input[type=checkbox] {min-height:20px;}
+.k-word-row {display:grid;grid-template-columns:32px minmax(100px,1fr) 100px 100px 72px;align-items:end;gap:8px;margin-bottom:12px;padding:12px 0;border-bottom:1px solid var(--line);}
+.k-word-row label {display:flex;flex-direction:column;gap:6px;font-size:14px;min-width:0;}
+.k-word-row label input {width:100%;}
+.k-word-row.uncertain {border-left:3px solid #DE9255;padding-left:8px;}
+.k-tap,.k-word-delete,.k-word-index {min-height:44px;border-radius:8px;border:1px solid var(--line);font-size:14px;color:var(--text);background:var(--surface-2,var(--bg));}
+.k-word-index {margin-bottom:50px;}
+.k-word-delete {margin-bottom:50px;}
+.k-editor .btn {min-height:44px;font-size:14px;}
+.k-editor-bottom {margin-top:24px;padding-top:16px;border-top:1px solid var(--line);}
+.k-editor-bottom>label:first-child {font-size:14px;display:inline-flex;align-items:center;gap:12px;margin-right:12px;}
+#keShift {width:100px;}
+#keStatus {font-size:14px;line-height:1.5;color:var(--text);}
+.k-editor .acts {margin:16px -24px -24px;padding:16px 24px;border-top:1px solid var(--line);background:var(--bg);}
+.k-empty {font-size:16px;line-height:1.5;padding:16px;background:var(--surface-2,var(--bg));border-radius:8px;}
+.k-editor :focus-visible,.k-stage :focus-visible,#mKaraokeGenerate :focus-visible {outline:2px solid var(--accent);outline-offset:3px;}
+@media(max-width:760px){
+  .k-stage {flex-direction:column;align-items:stretch;gap:8px;padding:8px 0;}.k-stage-status {max-width:none;}.k-stage-actions {display:grid;grid-template-columns:1fr 1fr;flex-shrink:1;}.k-stage-actions select {grid-column:1/-1;width:100%;}
+  #nowTop {flex-wrap:wrap;}#nowTop>div:last-child {display:flex;flex-wrap:wrap;justify-content:flex-end;gap:0!important;}
+  #now:not(.focus):not(.disc):not(.viz) #nowLeft {max-height:calc(var(--layout-vh37, 1vh) * 32);gap:8px;padding:8px 0;}
+  #now:not(.focus):not(.disc):not(.viz) #nArt {max-width:72px;border-radius:8px;}
+  #now:not(.focus):not(.disc):not(.viz) #lyrics {min-height:120px;padding:calc(var(--layout-vh37, 1vh) * 10) 4px calc(var(--layout-vh37, 1vh) * 12);}
+  #now:not(.focus):not(.disc):not(.viz) #nowBody {grid-template-rows:auto minmax(120px,1fr);}
+  .k-editor-grid {grid-template-columns:1fr;gap:16px;}#keLines {max-height:180px;}.k-editor h3 {font-size:22px;}
+  .k-editor {padding:16px;width:calc(calc(var(--layout-vw37, 1vw) * 100) - 24px);max-height:calc(calc(var(--layout-vh37, 1dvh) * 100) - 24px);}.k-editor .acts {margin:16px -16px -16px;padding:12px 16px;flex-wrap:wrap;}.k-editor .acts .btn {flex:1;}.k-editor-body {max-height:calc(calc(var(--layout-vh37, 1dvh) * 100) - 228px);padding-right:4px;}
+  .k-word-row {grid-template-columns:32px minmax(0,1fr) minmax(0,1fr);gap:8px;}.k-word-row>label:first-of-type {grid-column:2/-1;}.k-word-row>label:nth-of-type(2) {grid-column:2;}.k-word-row>label:nth-of-type(3) {grid-column:3;}.k-word-index {grid-column:1;grid-row:1;margin:0;}.k-word-delete {grid-column:2/-1;margin:0;}
+  .k-editor-bottom>label:first-child {flex-wrap:wrap;}.k-workflow {gap:8px;}.k-workflow span {font-size:14px;}
+  #mKaraokeGenerate {padding:16px;}#mKaraokeGenerate .acts {margin:16px -16px -16px;padding:12px 16px;}#mKaraokeGenerate .mb {max-height:calc(calc(var(--layout-vh37, 1dvh) * 100) - 212px);}
+}
+@media(prefers-reduced-motion:reduce){#lyrics .lyr-l,#now,#now.on #nowCanvas,#nArt{transition:none!important;animation:none!important;}}
+/* Fixed headers/footers stay available even with long lyrics on small screens. */
+.k-editor {display:flex;flex-direction:column;height:min(900px,calc(calc(var(--layout-vh37, 1dvh) * 100) - 32px));border-radius:12px;}
+.k-editor .mh {flex-shrink:0;}
+.k-editor .mh .hint,.k-audition .hint,.k-line-editor>.hint {padding:0;border:0;background:none;border-radius:0;margin:8px 0;}
+.k-editor-body {flex:1;min-height:0;max-height:none;}
+.k-editor .acts {flex-shrink:0;}
+#mKaraokeGenerate {display:flex;flex-direction:column;border-radius:12px;}
+#mKaraokeGenerate .mh,#mKaraokeGenerate .acts {flex-shrink:0;}
+#mKaraokeGenerate .mb {min-height:0;}
+@media(max-width:760px){.k-editor{height:calc(calc(var(--layout-vh37, 1dvh) * 100) - 24px);}.k-editor .mh .hint{font-size:14px;}.k-editor h3{font-size:22px;}}
+.k-line-details {margin:12px 0;border:1px solid var(--line);border-radius:8px;padding:12px;}
+.k-line-details summary {min-height:24px;font-size:14px;line-height:1.5;cursor:pointer;}
+.k-editor .k-reference-label textarea,#mKaraokeGenerate .k-reference-label textarea {font-family:system-ui,sans-serif;}
+@media(max-width:760px){
+ .k-editor,.k-editor.on,#mKaraokeGenerate,#mKaraokeGenerate.on{left:12px;top:12px;right:auto;bottom:auto;transform:none;width:calc(calc(var(--layout-vw37, 1vw) * 100) - 24px);}
+ #mKaraokeGenerate{height:calc(calc(var(--layout-vh37, 1dvh) * 100) - 24px);}
+ #mKaraokeGenerate .mb{flex:1;max-height:none;}
+}
+@media(min-width:761px){.k-word-row{align-items:start;}.k-word-index,.k-word-delete{margin-bottom:0;margin-top:27px;}}
+@media(max-width:760px){#now:not(.focus):not(.disc):not(.viz) #nowLeft{max-height:none;overflow:visible;}}
+.k-generator-advanced {border:1px solid var(--line);border-radius:8px;padding:12px;margin-top:16px;}
+.k-generator-advanced summary {font-size:14px;line-height:1.5;min-height:24px;cursor:pointer;}
+.k-generator-advanced .karaoke-form-grid {margin-top:16px;}
+.k-line-management {margin-top:12px;align-items:stretch;flex-direction:column;}
+@media(max-width:760px){.k-line-management{flex-direction:row;}.k-line-management .btn{flex:1;}}
+/* High-contrast actions and boundaries regardless of accent-gradient presets. */
+.k-editor .btn:not(.g),.k-stage .btn:not(.g),#mKaraokeGenerate .btn:not(.g){background:var(--text);color:var(--on-fill);border:1px solid var(--text);box-shadow:none;}
+.k-editor input,.k-editor select,.k-editor textarea,.k-editor .btn.g,.k-tap,.k-word-delete,.k-word-index,#mKaraokeGenerate select,#mKaraokeGenerate textarea,.k-stage select,.k-stage .btn.g {border-color:color-mix(in srgb,var(--text) 50%,var(--bg));}
+.k-editor :focus-visible,.k-stage :focus-visible,#mKaraokeGenerate :focus-visible {outline-color:var(--text);}
+.k-editor .ib,#mKaraokeGenerate .ib {min-width:44px;min-height:44px;}
+.k-word-row{grid-template-columns:44px minmax(100px,1fr) 100px 100px 72px;}
+.k-line-details summary,.k-generator-advanced summary {min-height:44px;padding:10px 0;}
+.karaoke-check {min-height:44px;}
+@media(max-width:760px){.k-word-row{grid-template-columns:44px minmax(0,1fr) minmax(0,1fr);}}
+
+/* Settings only: preserve the karaoke scene and the active theme. */
+#mSettings .pane[data-pane="karaoke"] #karaokeV2Settings {
+  padding:20px; margin:20px 0 24px; border:1px solid var(--line);
+  border-radius:12px; background:var(--surface); min-width:0;
+}
+#mSettings .pane[data-pane="karaoke"] #karaokeV2Settings h4 {margin:0 0 14px;}
+#mSettings .pane[data-pane="karaoke"] #karaokeV2Settings .hint {margin:12px 0;color:var(--text);}
+#mSettings .pane[data-pane="karaoke"] #karaokeV2Settings .row-acts {gap:8px;align-items:center;}
+#mSettings .pane[data-pane="karaoke"] #karaokeV2Settings .karaoke-offset {
+  padding:12px 14px; margin:12px 0; border:1px solid var(--line);
+  border-radius:8px; gap:12px; line-height:1.5; min-width:0;
+}
+#mSettings .pane[data-pane="karaoke"] #karaokeV2Settings .karaoke-offset :is(input,select) {flex:none;max-width:45%;}
+#mSettings .pane[data-pane="karaoke"] #karaokeV2Settings label.btn {position:relative;cursor:pointer;min-height:44px;}
+#mSettings .pane[data-pane="karaoke"] #karaokeV2Settings .karaoke-import-file {
+  position:absolute;width:1px;height:1px;padding:0;margin:0;opacity:0;overflow:hidden;
+}
+#mSettings .pane[data-pane="karaoke"] #karaokeV2Settings label.btn:focus-within {outline:2px solid var(--text);outline-offset:2px;}
+@media(max-width:560px){
+  #mSettings .pane[data-pane="karaoke"] #karaokeV2Settings {padding:16px;}
+  #mSettings .pane[data-pane="karaoke"] #karaokeV2Settings .karaoke-offset {align-items:flex-start;flex-wrap:wrap;}
+  #mSettings .pane[data-pane="karaoke"] #karaokeV2Settings .karaoke-offset :is(input,select) {max-width:100%;}
+}

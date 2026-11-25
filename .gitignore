@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+.ai-venv/
+/.translate-venv/
+/dist/
+/build/out/
+/build/work/
+/build/vendor/
+/build/payload.json
+/build/Kryo-*/
+/Kryo-*-setup.spec
+/licenses/build-environment/
+/desktop-rs/target/

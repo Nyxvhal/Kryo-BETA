@@ -1,0 +1,60 @@
+/* v72 «Polish» — loaded after every other sheet. Small fixes found in the v72
+   interface sweep (qa/s_sweep72.cjs, s_queue72*.cjs) and calmer, smoother
+   press/hover motion. Everything here is cheap: colours, opacity and the
+   compositor-only transform/scale properties. */
+
+/* ---------- 1. Queue rows (bug present since v62) */
+/* The dialog rule `.acts { margin-top: 22px }` (app.css) also matched the
+   per-row action group, so the row buttons sat 22px below the title line. */
+body.ui-v72 .tr > .acts { margin-top: 0; }
+body.ui-v72 #queue .q-row { align-items: center; }
+body.ui-v72 #queue .q-row > :is(.acts, .workspace-queue-moves) { align-self: center; }
+/* "Move up" reuses the "down" glyph flipped by `transform`, but brand-v60
+   strips icon transforms inside buttons, so both arrows pointed down.
+   The independent `rotate` property is not affected by that reset. */
+body.ui-v72 .workspace-queue-moves .up .ic { rotate: 180deg; }
+
+/* ---------- 2. Focus: rings for the keyboard only */
+body.ui-v72 :focus:not(:focus-visible) { outline: none; }
+body.ui-v72 :is(button, a[href], summary, [role="button"], [role="tab"], [role="menuitem"]):focus-visible {
+  outline: 2px solid var(--accent, #fff); outline-offset: 2px;
+}
+
+/* ---------- 3. Motion: presses and hovers ease instead of snapping */
+@media (prefers-reduced-motion: no-preference) {
+  /* design-v48 limited these transitions to colours, so the existing
+     :active scale (motion-v69) jumped in and out. Same list plus transform. */
+  html body.ui-v72.ui-v48:not(.no-anim):not([data-motion48=off]) :is(.btn, .chip, .ib, .nav, .set-nav-i, #searchBox, .card, .card .art img) {
+    transition: background-color var(--motion48, 220ms) ease, color var(--motion48, 220ms) ease,
+                border-color var(--motion48, 220ms) ease, box-shadow var(--motion48, 220ms) ease,
+                opacity var(--motion48, 220ms) ease, transform .18s cubic-bezier(.2, .8, .2, 1),
+                scale .45s cubic-bezier(.2, .8, .2, 1) !important;
+  }
+  /* Pressing is quicker than releasing: feels direct, settles softly. */
+  html body.ui-v72.ui-v48:not(.no-anim):not([data-motion48=off]) :is(.btn, .chip, .ib, .nav):active {
+    transition-duration: var(--motion48, 220ms), var(--motion48, 220ms), var(--motion48, 220ms),
+                         var(--motion48, 220ms), var(--motion48, 220ms), .07s, .45s !important;
+  }
+}
+
+/* ---------- 5. Settings search: one field, not a box inside a box */
+/* ui-v6 made the input borderless inside its framed wrapper; the later global
+   input restyle gave it a border and fill again (a second box inside). */
+html body.ui-v72 #mSettings .set-find { padding: 0 12px !important; gap: 10px; align-items: center; }
+html body.ui-v72 #mSettings .set-find input,
+html body.ui-v72 #mSettings .set-find input:focus {
+  border: 0 !important; background: transparent !important; box-shadow: none !important;
+  border-radius: 0 !important; padding: 0 !important; height: 42px; min-height: 0 !important;
+}
+/* Focus like every other text field (app.css): accent edge + soft halo,
+   instead of a hard white outline that lit up whenever settings opened. */
+html body.ui-v72 #mSettings .set-find:focus-within {
+  outline: none !important; border-color: color-mix(in srgb, var(--accent) 65%, transparent) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 16%, transparent) !important;
+}
+
+/* ---------- 4. Reduced motion / animations off */
+@media (prefers-reduced-motion: reduce) {
+  html body.ui-v72 #rows .card .art img { scale: none !important; }
+}
+html body.ui-v72.no-anim #rows .card .art img { scale: none !important; }

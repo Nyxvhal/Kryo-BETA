@@ -1,0 +1,41 @@
+{
+  "checks": [
+    "boot has no errors",
+    "missing cookies show central gate",
+    "zero catalog, media, poster or session requests without cookies",
+    "no player timer while gated",
+    "path and how-to instructions visible",
+    "gate fits mobile",
+    "setup opens actual cookie dialog",
+    "actual cookie input exists",
+    "expired session stays blocked",
+    "cookie API failure is fail closed",
+    "configured source opens metadata catalog",
+    "browse has no AV sync timer",
+    "browse does not create media sessions",
+    "unchanged catalog keeps card DOM",
+    "search field usable 800",
+    "catalog fits 800",
+    "search field usable 390",
+    "catalog fits 390",
+    "native player decodes actual video frames",
+    "separate audio is synchronized",
+    "native pause works",
+    "watch fits mobile",
+    "popup retains real speed control",
+    "playback speed reaches native audio",
+    "removal stops media and shows gate",
+    "search direct load and prefetch cannot bypass gate",
+    "no results is explicit",
+    "watch close stops media and timers",
+    "no runtime errors"
+  ],
+  "errors": [],
+  "playback": {
+    "frames": 19,
+    "width": 1280,
+    "drift": 0.077187,
+    "progress": 1
+  },
+  "scope": "Public poster metadata + real local synthetic video/audio; NOT live YouTube authentication"
+}

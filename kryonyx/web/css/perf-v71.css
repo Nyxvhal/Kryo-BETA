@@ -1,0 +1,15 @@
+/* v71 performance — stop rendering work nobody can see.
+   Measured in headless Chromium while a track plays on Home (v70 → v71):
+   hidden Now-screen animations and full-screen grain blending were the
+   biggest avoidable costs. (Backdrop blur stays: the bars are translucent
+   whenever "Interface opacity" is below 100 %, even in OLED mode.) */
+
+/* 1. The Now screen is hidden most of the time, yet its floating covers kept animating. */
+html body #now:not(.on) :is(#nArt, #albumArt24, .viz-art, #discArt),
+html body.ui-v33 #now.float33:not(.on) :is(#nArt, #albumArt24, .viz-art, #discArt) { animation: none !important; }
+html body #now:not(.on) *, html body #now:not(.on) *::before, html body #now:not(.on) *::after { animation-play-state: paused !important; }
+
+/* 2. Film grain: blending a full-screen layer with mix-blend-mode forced an extra
+      composite pass on every frame. Plain low-opacity grain looks the same. */
+html body .atmo-grain { mix-blend-mode: normal !important; opacity: .022 !important; }
+html body.oled70 .atmo-grain { display: none !important; }

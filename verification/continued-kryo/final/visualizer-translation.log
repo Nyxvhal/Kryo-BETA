@@ -1,0 +1,33 @@
+PASS user can select visualizer
+PASS visualizer stage is visible
+PASS paused mode switch renders translation immediately
+PASS original and translated active line match
+PASS original lyrics and timing are unchanged
+PASS seek changes paired caption
+PASS hide translation works
+PASS show translation works
+PASS repeated mode switches do not duplicate nodes
+PASS visualizer geometry 390x844
+PASS visualizer geometry 768x900
+PASS visualizer geometry 1280x720
+PASS visualizer geometry 1920x1080
+PASS unsynced text is a static list
+PASS all unsynced lines have translation
+PASS unsynced list is keyboard-scrollable
+PASS unsynced list does not invent timing
+PASS unsynced hide works
+PASS unsynced show restores entries
+PASS Disc shows unsynced translation
+PASS Disc shows both unsynced lines
+PASS Disc static text is keyboard-scrollable
+PASS Disc does not invent lyric timings
+PASS Disc hides unsynced translation
+PASS Disc restores unsynced translation
+PASS Disc unsynced layout 390x844
+PASS Disc unsynced layout 1280x720
+PASS switching away stops visualizer mode
+PASS old translation is not shown for new track
+PASS saved visualizer mode starts safely on reload
+PASS reload mounts a single visualizer stage
+PASS no runtime errors: 
+VISUALIZER_TRANSLATION_PASS 32

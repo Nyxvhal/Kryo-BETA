@@ -1,0 +1,13 @@
+{
+  "environment": "Linux headless Chromium, 1280x720, local generated silent WAV, no real sources or WebView2",
+  "scenario": "30 seconds continuous audio, then ten settings open/close cycles and 20 seeks",
+  "seconds": 32.512,
+  "playback_renderer_task_seconds": 18.514661,
+  "playback_layout_seconds": 0.03229,
+  "playback_style_seconds": 0.982242,
+  "js_heap_mib_before": 12.616649627685547,
+  "js_heap_mib_after_playback": 10.821311950683594,
+  "js_heap_mib_after_interaction": 10.48675537109375,
+  "interaction_renderer_task_seconds": 1.9624340000000018,
+  "limitations": "Renderer task time is not whole-app CPU; JS heap is not process RAM. No GC normalization, GPU or clips benchmark."
+}

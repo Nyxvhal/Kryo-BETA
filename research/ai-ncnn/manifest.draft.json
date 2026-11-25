@@ -1,0 +1,277 @@
+{
+ "_comment": "DRAFT for docs/AI_NCNN_MIGRATION_PLAN.md - not used by the player. Sizes and SHA-256 were measured on 2026-11-04 by research/ai-ncnn/zip_range.py from the upstream release archives (Range requests).",
+ "schema": 1,
+ "engines": {
+  "realesrgan": {
+   "version": "20220424",
+   "license": "MIT (c) 2021 Xintao Wang; ncnn BSD-3-Clause (c) Tencent; libwebp BSD-3-Clause; glslang BSD/MIT/Apache-2.0",
+   "license_url": "https://github.com/xinntao/Real-ESRGAN-ncnn-vulkan/blob/master/LICENSE",
+   "windows-x64": {
+    "archive": "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesrgan-ncnn-vulkan-20220424-windows.zip",
+    "archive_size": 45474481,
+    "files": [
+     {
+      "member": "realesrgan-ncnn-vulkan.exe",
+      "path": "realesrgan-ncnn-vulkan.exe",
+      "size": 6161408,
+      "sha256": "07e49f7cbb4ede01ae4dd4c399d3a7e5846e3d2085c3128eff881e55cb7b1a0c"
+     },
+     {
+      "member": "vcomp140.dll",
+      "path": "vcomp140.dll",
+      "size": 182704,
+      "sha256": "8f72ef2e483465444b2059fc6744d6cb22cd8d8a27f6fa56befd2a42dcd0f78b"
+     }
+    ]
+   },
+   "linux-x64": {
+    "archive": "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesrgan-ncnn-vulkan-20220424-ubuntu.zip",
+    "archive_size": 46931474,
+    "files": [
+     {
+      "member": "realesrgan-ncnn-vulkan",
+      "path": "realesrgan-ncnn-vulkan",
+      "size": 11399776,
+      "sha256": "22c2296a39b40cc43ac92615c827ab6d4b60b7142e8cee59f718e3f8e2cdbda9"
+     }
+    ],
+    "needs": [
+     "libvulkan.so.1",
+     "libgomp.so.1"
+    ]
+   },
+   "macos": {
+    "archive": "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesrgan-ncnn-vulkan-20220424-macos.zip",
+    "archive_size": 51817124,
+    "files": [
+     {
+      "member": "realesrgan-ncnn-vulkan",
+      "path": "realesrgan-ncnn-vulkan",
+      "size": 26787080,
+      "sha256": null
+     }
+    ],
+    "note": "universal binary (MoltenVK inside); checksum to be pinned in phase 1"
+   }
+  },
+  "rife": {
+   "version": "20221029",
+   "license": "MIT (c) 2020 nihui; ncnn BSD-3-Clause (c) Tencent; libwebp BSD-3-Clause; glslang BSD/MIT/Apache-2.0",
+   "license_url": "https://github.com/nihui/rife-ncnn-vulkan/blob/master/LICENSE",
+   "windows-x64": {
+    "archive": "https://github.com/nihui/rife-ncnn-vulkan/releases/download/20221029/rife-ncnn-vulkan-20221029-windows.zip",
+    "archive_size": 431540241,
+    "files": [
+     {
+      "member": "rife-ncnn-vulkan-20221029-windows/rife-ncnn-vulkan.exe",
+      "path": "rife-ncnn-vulkan.exe",
+      "size": 6974464,
+      "sha256": "4b970319db2814c82b15fceed8193151560a676a9eb63f20d4877be77b98f44f"
+     },
+     {
+      "member": "rife-ncnn-vulkan-20221029-windows/vcomp140.dll",
+      "path": "vcomp140.dll",
+      "size": 181680,
+      "sha256": "54fe6b087528b33c2969143d811eb62f1bd49071d37de9db0745fc079764d698"
+     },
+     {
+      "member": "rife-ncnn-vulkan-20221029-windows/LICENSE",
+      "path": "LICENSE",
+      "size": 1093,
+      "sha256": "de18cbedb0c3b0d1eeb9ccac3988cdf69c21fa89039cd97dd8846cb68f661f81"
+     }
+    ]
+   },
+   "linux-x64": {
+    "archive": "https://github.com/nihui/rife-ncnn-vulkan/releases/download/20221029/rife-ncnn-vulkan-20221029-ubuntu.zip",
+    "archive_size": 431302796,
+    "files": [
+     {
+      "member": "rife-ncnn-vulkan-20221029-ubuntu/rife-ncnn-vulkan",
+      "path": "rife-ncnn-vulkan",
+      "size": 9892352,
+      "sha256": "5c256556195216ddfca103073b0fd37e33e154c8aa40666775fcae8d6a6580b4"
+     }
+    ],
+    "needs": [
+     "libvulkan.so.1",
+     "libgomp.so.1"
+    ]
+   },
+   "macos": {
+    "archive": "https://github.com/nihui/rife-ncnn-vulkan/releases/download/20221029/rife-ncnn-vulkan-20221029-macos.zip",
+    "archive_size": 436537917,
+    "files": [
+     {
+      "member": "rife-ncnn-vulkan-20221029-macos/rife-ncnn-vulkan",
+      "path": "rife-ncnn-vulkan",
+      "size": 25838096,
+      "sha256": null
+     }
+    ]
+   }
+  }
+ },
+ "models": {
+  "realesr-animevideov3": {
+   "engine": "realesrgan",
+   "use": [
+    "clip",
+    "wallpaper:art"
+   ],
+   "scales": [
+    2,
+    3,
+    4
+   ],
+   "license": "BSD-3-Clause (c) 2021 Xintao Wang",
+   "archive": "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesrgan-ncnn-vulkan-20220424-windows.zip",
+   "files": [
+    {
+     "member": "models/realesr-animevideov3-x2.param",
+     "path": "models/realesr-animevideov3-x2.param",
+     "size": 3173,
+     "sha256": "b88ff4f00ebf019a7fdac17fdd45a7fd3665d37509efc5baf2e4da2e24420a04"
+    },
+    {
+     "member": "models/realesr-animevideov3-x2.bin",
+     "path": "models/realesr-animevideov3-x2.bin",
+     "size": 1247368,
+     "sha256": "548a36f9c3f4ab8da56cd3b13badf23968bee207b396dad14d04b830e5f2ab2d"
+    },
+    {
+     "member": "models/realesr-animevideov3-x3.param",
+     "path": "models/realesr-animevideov3-x3.param",
+     "size": 3173,
+     "sha256": "d1a5755008791d09b57e3425fc9dd0bd26b00fdf79c606210bc0e693f8230881"
+    },
+    {
+     "member": "models/realesr-animevideov3-x3.bin",
+     "path": "models/realesr-animevideov3-x3.bin",
+     "size": 1247368,
+     "sha256": "548a36f9c3f4ab8da56cd3b13badf23968bee207b396dad14d04b830e5f2ab2d"
+    },
+    {
+     "member": "models/realesr-animevideov3-x4.param",
+     "path": "models/realesr-animevideov3-x4.param",
+     "size": 3077,
+     "sha256": "850a248e7c14c27e5bd8cf7265113a9441036a7db63963bb8aa5169d788a435e"
+    },
+    {
+     "member": "models/realesr-animevideov3-x4.bin",
+     "path": "models/realesr-animevideov3-x4.bin",
+     "size": 1247368,
+     "sha256": "548a36f9c3f4ab8da56cd3b13badf23968bee207b396dad14d04b830e5f2ab2d"
+    }
+   ],
+   "note": "the three .bin files are identical (same SHA-256); store once and copy"
+  },
+  "realesrgan-x4plus": {
+   "engine": "realesrgan",
+   "use": [
+    "wallpaper:photo"
+   ],
+   "scales": [
+    4
+   ],
+   "license": "BSD-3-Clause (c) 2021 Xintao Wang",
+   "archive": "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesrgan-ncnn-vulkan-20220424-windows.zip",
+   "files": [
+    {
+     "member": "models/realesrgan-x4plus.param",
+     "path": "models/realesrgan-x4plus.param",
+     "size": 116029,
+     "sha256": "35330ececcea33b6c397a72548e788d5d53becee4734c50b7fada36e89f10a86"
+    },
+    {
+     "member": "models/realesrgan-x4plus.bin",
+     "path": "models/realesrgan-x4plus.bin",
+     "size": 33424520,
+     "sha256": "713ee713b0353afaa27976f0563a64a5043bd70b9bd8936c2e26e25ebcdbcddf"
+    }
+   ]
+  },
+  "realesrgan-x4plus-anime": {
+   "engine": "realesrgan",
+   "use": [
+    "wallpaper:art"
+   ],
+   "scales": [
+    4
+   ],
+   "license": "BSD-3-Clause (c) 2021 Xintao Wang",
+   "archive": "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesrgan-ncnn-vulkan-20220424-windows.zip",
+   "files": [
+    {
+     "member": "models/realesrgan-x4plus-anime.param",
+     "path": "models/realesrgan-x4plus-anime.param",
+     "size": 30290,
+     "sha256": "2b8fb6e0ae4d2d85704ca08c119a2f5ea40add4f2ecd512eb7f4cd44b6127ed4"
+    },
+    {
+     "member": "models/realesrgan-x4plus-anime.bin",
+     "path": "models/realesrgan-x4plus-anime.bin",
+     "size": 8943500,
+     "sha256": "fe01c269cfd10cdef8e018ab66ebe750cf79c7af4d1f9c16c737e1295229bacc"
+    }
+   ]
+  },
+  "rife-v4.6": {
+   "engine": "rife",
+   "use": [
+    "clip:smooth"
+   ],
+   "license": "MIT (c) 2021 hzwer (Practical-RIFE)",
+   "archive": "https://github.com/nihui/rife-ncnn-vulkan/releases/download/20221029/rife-ncnn-vulkan-20221029-windows.zip",
+   "files": [
+    {
+     "member": "rife-ncnn-vulkan-20221029-windows/rife-v4.6/flownet.param",
+     "path": "rife-v4.6/flownet.param",
+     "size": 16749,
+     "sha256": "28df14d57a225725ee5386f52eba422488450d37c9f40800ed4f62e8ba846692"
+    },
+    {
+     "member": "rife-ncnn-vulkan-20221029-windows/rife-v4.6/flownet.bin",
+     "path": "rife-v4.6/flownet.bin",
+     "size": 10614320,
+     "sha256": "f334ed2260149ce0188a6dcf049844e8b0cdd912e01cbcfb63553157d2508958"
+    }
+   ],
+   "note": "the ubuntu archive has the same flownet.bin; its flownet.param differs only in line endings (16532 bytes, sha256 724569596bcd1e7b9fa50455c604777ebed99746d2ef40aa86e31b5725f1053c)"
+  }
+ },
+ "needs": {
+  "wallpaper:photo": [
+   "realesrgan",
+   "realesrgan-x4plus"
+  ],
+  "wallpaper:fast": [
+   "realesrgan",
+   "realesr-animevideov3"
+  ],
+  "wallpaper:art": [
+   "realesrgan",
+   "realesrgan-x4plus-anime"
+  ],
+  "clip:general": [
+   "realesrgan",
+   "realesr-animevideov3"
+  ],
+  "clip:anime": [
+   "realesrgan",
+   "realesr-animevideov3"
+  ],
+  "clip:smooth": [
+   "rife",
+   "rife-v4.6"
+  ]
+ },
+ "download_mb_windows": {
+  "wallpaper:photo": 38.0,
+  "wallpaper:fast": 9.6,
+  "wallpaper:art": 14.6,
+  "clip:general": 9.6,
+  "clip:anime": 9.6,
+  "clip:smooth": 17.0
+ }
+}

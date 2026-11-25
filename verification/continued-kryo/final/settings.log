@@ -1,0 +1,5 @@
+PASS 30 settings layouts with emulated deviceScaleFactor 1
+PASS 30 settings layouts with emulated deviceScaleFactor 1.25
+PASS 30 settings layouts with emulated deviceScaleFactor 1.5
+PASS 30 settings layouts with emulated deviceScaleFactor 2
+PASS real settings button, Escape, close, outside click, focus restoration

@@ -1,0 +1,144 @@
+/* UI v9. Inherit the user's theme; clarity over chrome. */
+.ui-v9 :is(.ui9-mode,.ui9-artist-choice,.ui9-skin,summary):focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.ui-v9 #searchBox{border-radius:28px;min-height:52px;background:var(--surface-2);border:1px solid color-mix(in srgb,var(--text) 32%,transparent)}
+.ui-v9 #searchWrap:focus-within #searchBox{border-color:var(--text);box-shadow:0 0 0 1px var(--text)}
+.ui-v9 #q{font-size:16px;min-width:0}
+.ui9-shortcut{font:12px/1.3 system-ui;color:var(--muted);white-space:nowrap;border:1px solid var(--line);border-radius:4px;padding:4px 6px;margin-right:8px}
+.ui-v9 #qPop{border-radius:12px;background:var(--surface-2,#242428);border:1px solid color-mix(in srgb,var(--text) 20%,transparent);padding:12px;max-height:min(620px,calc(var(--layout-vh37, 1dvh) * 70));overflow:auto;box-shadow:0 20px 60px #0006;width:100%;min-width:0}
+.ui-v9 .q-pop-h{padding:8px 8px 12px;gap:16px;font-size:16px}
+.ui-v9 .q-pop-clear{min-height:44px;font-size:14px;white-space:nowrap;color:var(--muted)}
+.ui-v9 .q-row.ui9-result{display:flex;gap:12px;padding:8px;border-radius:8px;min-height:68px;align-items:center;cursor:pointer}
+.ui-v9 .q-row.ui9-result:is(:hover,.on){background:var(--hover)}
+.ui9-hint-art{display:grid;place-items:center;width:48px;height:48px;flex-shrink:0;border-radius:6px;background:color-mix(in srgb,var(--accent) 12%,var(--bg));overflow:hidden;color:var(--text)}
+.ui9-result[data-kind=author] .ui9-hint-art{border-radius:50%}
+.ui9-hint-art img{width:100%;height:100%;object-fit:cover}
+.ui9-hint-copy{min-width:0;flex:1;display:flex;flex-direction:column;gap:3px;text-align:left}
+.ui9-hint-copy strong{font-size:16px;font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ui9-hint-copy small{font-size:14px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ui-v9 .q-drop{min-width:44px;min-height:44px;flex-shrink:0;font-size:22px;color:var(--muted)}
+.ui9-search-empty{font-size:14px;line-height:1.6;padding:16px;color:var(--muted)}
+.ui9-rec-hint{font-size:14px;line-height:1.6;color:var(--muted);margin:12px 0 24px;max-width:75ch}
+.ui9-all-tracks{white-space:nowrap;min-height:44px}
+.ui-v9 .shelf-h{flex-wrap:wrap;row-gap:8px}
+.ui-v9 .card .t{font-size:15px;line-height:1.4;font-weight:650}
+.ui-v9 .card .a{font-size:14px;line-height:1.5}
+.ui-v9 .ar-btn{cursor:pointer}
+.ui9-artists{width:min(500px,calc(calc(var(--layout-vw37, 1vw) * 100) - 32px));max-height:calc(var(--layout-vh37, 1dvh) * 85)}
+.ui9-artists .mh h3{font-size:26px;letter-spacing:-.6px;margin-top:8px}
+.ui9-artists .mh p{font-size:14px;color:var(--muted);margin:8px 0 0;overflow-wrap:anywhere}
+.ui9-artists .mb{display:flex;flex-direction:column;gap:8px;max-height:calc(var(--layout-vh37, 1dvh) * 50);overflow:auto}
+.ui9-artist-choice{display:flex;align-items:center;gap:16px;min-height:64px;width:100%;padding:12px 16px;text-align:left;background:var(--surface-2);color:var(--text);border:1px solid var(--line);border-radius:10px;font-size:16px;overflow-wrap:anywhere}
+.ui9-artist-choice:hover{background:var(--hover);border-color:var(--accent)}
+.ui9-artist-choice .ic:last-child{margin-left:auto;flex-shrink:0}
+/* Clip studio: the stage is primary. All diagnostics stay available on demand. */
+.ui-v9:not(.ui-v45) #clips{padding:24px 36px 48px}
+.ui-v9:not(.ui-v45) #clips .cs-head{margin-bottom:24px;max-width:1440px}
+.ui-v9:not(.ui-v45) #clips .cs-eyebrow{font-size:12px;letter-spacing:.14em}
+.ui-v9:not(.ui-v45) #clips .cs-layout{max-width:1440px;grid-template-columns:minmax(0,1fr) 300px;gap:28px}
+.ui-v9:not(.ui-v45) #clips .cs-stage{height:auto;min-height:0;max-height:none;aspect-ratio:16/9;border-radius:16px;border-color:var(--line)}
+.ui-v9:not(.ui-v45) #clips .cs-controls{gap:12px;padding-top:8px}
+.ui-v9:not(.ui-v45) #clips #clipPlay{min-width:110px}
+.ui-v9:not(.ui-v45) #clips #clipTime{margin-right:auto}
+.ui-v9:not(.ui-v45) #clips .cs-transport{margin-bottom:12px}
+.ui-v9:not(.ui-v45) #clips .cs-title h2{font-size:22px;letter-spacing:-.5px}
+.ui-v9:not(.ui-v45) #clips .cs-status{color:var(--muted);font-size:14px}
+.ui9-clip-details{margin-top:24px;padding:0 20px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--text) 2%,var(--bg))}
+.ui-v9:not(.ui-v45) #clips .ui9-clip-details>summary{display:list-item;min-height:56px;padding:16px 0;font-weight:600;font-size:15px;cursor:pointer}
+.ui-v9:not(.ui-v45) #clips .ui9-clip-details .cs-tabs{margin-top:0}
+.ui-v9:not(.ui-v45) #clips .ui9-clip-details .cs-advisory{margin:8px 0 20px;border:1px solid var(--line);background:var(--surface-2)}
+.ui9-clip-secondary{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:20px}
+.ui9-clip-session{border-top:1px solid var(--line);padding:12px 0}
+.ui-v9:not(.ui-v45) #clips .ui9-clip-session>summary{font-size:14px;line-height:1.6;padding:10px 0}
+.ui-v9:not(.ui-v45) #clips .cs-sidebar{border:0;padding:0}
+.ui-v9:not(.ui-v45) #clips .cs-sidebar h2{font-size:18px;margin-bottom:16px}
+.ui-v9:not(.ui-v45) #clips .cs-side-tabs .btn{font-size:13px;padding:8px;flex:1}
+.ui9-queue-toggle{display:none!important}
+/* Performance typography: strong current line, readable context, no glow soup. */
+.ui-v9 #now{--stage-lit:#e1d8ff;--stage-dim:#b1aebf;background:#101218;color:#f3f1fa}
+.ui-v9 #now[data-performance=aurora] #nowVeil{background:radial-gradient(ellipse at 14% 70%,#3c5f684d,transparent 55%),radial-gradient(ellipse at 85% 20%,#6b428a45,transparent 55%),linear-gradient(135deg,#0c141abe,#161326c9)}
+.ui-v9 #now[data-performance=ink]{--stage-lit:#fff;--stage-dim:#bbb}
+.ui-v9 #now[data-performance=ink] #nowVeil{background:#101113f0}
+.ui-v9 #now[data-performance=concert]{--stage-lit:#ffdab7;--stage-dim:#c5b6bc}
+.ui-v9 #now[data-performance=concert] #nowVeil{background:radial-gradient(ellipse at 65% 8%,#8b543445,transparent 60%),linear-gradient(135deg,#17111bf0,#271824cb)}
+.ui9-stage-controls{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:12px 0 16px;position:relative;z-index:4;flex-shrink:0}
+.ui9-mode-group{display:flex;gap:4px;padding:4px;border:1px solid #ffffff26;background:#0c101a80;border-radius:12px}
+.ui9-mode{min-height:44px;padding:8px 16px;border:0;background:transparent;color:#c7c3d4;font-size:14px;border-radius:8px}
+.ui9-mode[aria-pressed=true]{background:#efebfa;color:#17151f;font-weight:650}
+.ui9-skin{min-height:44px;max-width:220px;padding:8px 12px;font-size:14px;background:#10131c;color:#e4dff0;border:1px solid #ffffff40;border-radius:8px}
+.ui-v9 #nowTop{z-index:4;opacity:1!important}
+.ui-v9 #nowTop button{color:#ddd7ea;min-width:44px;min-height:44px}
+.ui-v9 #now:not(.disc):not(.viz) #nowBody{grid-template-columns:minmax(260px,350px) minmax(0,1fr);gap:clamp(24px,calc(var(--layout-vw37, 1vw) * 6),96px);padding:8px calc(var(--layout-vw37, 1vw) * 4) 12px}
+.ui-v9 #now:not(.disc):not(.viz) #nowLeft{gap:16px;padding:16px 4px;max-height:100%}
+.ui-v9 #now:not(.disc):not(.viz) #nArt{max-width:min(350px,calc(var(--layout-vh37, 1vh) * 33));border-radius:18px;box-shadow:0 18px 48px #0005;border:1px solid #ffffff14}
+.ui-v9 #nTitle{font-size:26px;letter-spacing:-.7px;color:#f3f1fa}
+.ui-v9 #nArtist{font-size:16px;color:#c7c3d4;cursor:pointer}
+.ui-v9 #now #lyrics{--lyr-lit:var(--stage-lit);--lyr-dim:var(--stage-dim);padding:calc(var(--layout-vh37, 1vh) * 24) 8px calc(var(--layout-vh37, 1vh) * 30);max-height:none;mask-image:linear-gradient(transparent,#000 14%,#000 80%,transparent)}
+.ui-v9 #lyrics .lyr-l{font-weight:700;line-height:1.3;letter-spacing:-.7px;padding:16px 0;opacity:.6;transition:opacity .35s,transform .35s;transform:none;filter:none;}
+.ui-v9 #lyrics .lyr-l.done{opacity:.46}
+.ui-v9 #lyrics .lyr-l.on{--lyr-lit:var(--stage-lit);opacity:1;transform:translateX(6px);text-shadow:none}
+.ui-v9 #lyrics .lyr-l.on .lyr-t{position:relative}
+.ui-v9 #lyrics .lyr-l.on .lyr-t::before{content:'';position:absolute;left:-20px;top:.16em;bottom:.12em;width:3px;border-radius:2px;background:var(--stage-lit)}
+.ui-v9 #lyrics .lyr-l.on.rest{opacity:.7}
+.ui-v9 #lyrics .lyr-l.on .lyr-k.lit,.ui-v9 #lyrics .lyr-l.on .lyr-w.lit{text-shadow:none}
+.ui-v9 #lyrics.size-m .lyr-l{font-size:clamp(28px,calc(var(--layout-vw37, 1vw) * 2.8),42px)}
+.ui-v9 #lyrics.size-l .lyr-l{font-size:clamp(34px,calc(var(--layout-vw37, 1vw) * 3.4),50px)}
+.ui-v9 #lyrics .karaoke-translation{font-size:16px;color:#c7c3d4;font-weight:400;letter-spacing:0}
+.ui9-timing{border-top:1px solid #ffffff26;padding-top:4px;color:#c7c3d4}
+.ui9-timing summary{font-size:14px;min-height:44px;padding:12px 0;cursor:pointer}
+.ui-v9 #nSyncRow{flex-wrap:wrap;gap:8px;padding-bottom:8px}
+.ui-v9 #now.focus #nowBody{grid-template-columns:1fr;max-width:1100px;width:100%;margin:auto}
+.ui-v9 #now.focus #lyrics{text-align:center}
+.ui-v9 #now.focus #lyrics .lyr-l.on .lyr-t::before{display:none}
+/* Visualizer: soft cover, generous spacing and an uncluttered spectrum. */
+.ui-v9 #now.viz .viz-stage{--art:min(calc(var(--layout-vh37, 1vh) * 36),calc(var(--layout-vw37, 1vw) * 30));cursor:default;background:#0c1119}
+.ui-v9 #now.viz .viz-card{padding:130px calc(var(--layout-vw37, 1vw) * 7) 60px;gap:calc(var(--layout-vw37, 1vw) * 6);transform:none!important}
+.ui-v9 #now.viz .viz-art{border:1px solid #ffffff38;border-radius:20px!important;box-shadow:0 20px 60px #0005,0 0 70px #8870b526}
+.ui-v9 #now.viz .viz-frame,.ui-v9 #now.viz .viz-scan{display:none}
+.ui-v9 #now.viz .viz-info{padding-left:0;gap:16px;flex-basis:540px}
+.ui-v9 #now.viz .viz-info::before{display:none}
+.ui-v9 #now.viz .viz-title{font-size:clamp(28px,calc(var(--layout-vw37, 1vw) * 3),48px);font-weight:700;letter-spacing:-1px}
+.ui-v9 #now.viz .viz-artist{font-size:18px;color:#d0c7df;cursor:pointer}
+.ui-v9 #now.viz .viz-bg{opacity:.5}
+.ui-v9 #now.viz .viz-bar{border-radius:12px;overflow:hidden}
+.ui-v9 #now.viz .viz-mark{font-size:12px;color:#b7afc4;letter-spacing:.08em}
+.ui-v9 #now.viz[data-performance=ink] .viz-bg{opacity:.15;filter:grayscale(1)}
+.ui-v9 #now.viz[data-performance=concert] .viz-bg{filter:sepia(.4);opacity:.4}
+@media(max-width:1000px){.ui-v9 #now:not(.disc):not(.viz) #nowBody{grid-template-columns:minmax(230px,300px) minmax(0,1fr);gap:32px;padding:8px}.ui-v9:not(.ui-v45) #clips{padding:20px}.ui-v9:not(.ui-v45) #clips .cs-layout{grid-template-columns:minmax(0,1fr) 260px;gap:20px}}
+@media(max-width:760px){
+ .ui9-shortcut{display:none}.ui-v9 #q{font-size:14px}.ui-v9 #qPop{padding:8px;max-height:calc(var(--layout-vh37, 1dvh) * 60)}.ui-v9 .q-pop-h{font-size:14px;gap:8px}.ui-v9 .q-pop-clear{font-size:13px}
+ .ui-v9:not(.ui-v45) #clips{padding:16px 16px 40px}.ui-v9:not(.ui-v45) #clips .cs-layout{grid-template-columns:1fr;gap:20px}.ui-v9:not(.ui-v45) #clips .cs-sidebar{display:none}.ui-v9:not(.ui-v45) #clips.ui9-queue-open .cs-sidebar{display:block;padding-top:16px;border-top:1px solid var(--line)}.ui9-queue-toggle{display:inline-flex!important}.ui-v9:not(.ui-v45) #clips .cs-controls{gap:8px}.ui-v9:not(.ui-v45) #clips #clipPlay{min-width:80px}.ui-v9:not(.ui-v45) #clips #clipTime{font-size:13px}.ui-v9:not(.ui-v45) #clips .cs-title h2{font-size:20px}.ui9-clip-details{padding:0 12px;margin-top:20px}
+ .ui-v9 #nowIn{padding:12px 16px 16px}.ui9-stage-controls{flex-wrap:wrap;gap:8px;padding-bottom:8px}.ui9-mode-group{flex:1;justify-content:space-between}.ui9-mode{font-size:13px;padding:8px 10px}.ui9-skin{max-width:none;width:100%;min-height:40px}.ui-v9 #nowTop{gap:8px}.ui-v9 #nowTop button{min-width:40px;width:40px}
+ .ui-v9 #now:not(.focus):not(.disc):not(.viz) #nowBody{grid-template-columns:1fr;grid-template-rows:auto minmax(180px,1fr);gap:12px;padding:0;overflow:hidden}
+ .ui-v9 #now:not(.focus):not(.disc):not(.viz) #nowLeft{display:grid;grid-template-columns:72px minmax(0,1fr);gap:8px 16px;overflow:auto;max-height:calc(var(--layout-vh37, 1vh) * 30);align-items:center;padding:8px 0}
+ .ui-v9 #now:not(.focus):not(.disc):not(.viz) #nArt{width:72px;max-width:72px;grid-row:1;border-radius:10px;margin:0}.ui-v9 #nTitle{font-size:20px}.ui-v9 #nArtist{font-size:14px}.ui-v9 #nowLeft>.bar,.ui-v9 #nBtns,.ui-v9 #nowLeft>.row-acts,.ui9-timing{grid-column:1/-1}.ui-v9 #nowLeft>.row-acts{display:none}.ui-v9 #nBtns{gap:12px}.ui-v9 #nPlay{width:48px!important;height:48px!important}
+ .ui-v9 #now #lyrics{padding:calc(var(--layout-vh37, 1vh) * 12) 20px calc(var(--layout-vh37, 1vh) * 22);min-height:180px}.ui-v9 #lyrics.size-m .lyr-l{font-size:28px;line-height:1.35;padding:12px 0}.ui-v9 #lyrics.size-l .lyr-l{font-size:32px}.ui-v9 #lyrics .lyr-l.on .lyr-t::before{left:-16px}
+ .ui-v9 #now.viz .viz-stage{--art:min(calc(var(--layout-vh37, 1vh) * 26),calc(var(--layout-vw37, 1vw) * 55))}.ui-v9 #now.viz .viz-card{padding:170px 24px 24px;justify-content:flex-start;gap:20px;overflow:auto}.ui-v9 #now.viz .viz-info{width:100%;flex:0 0 auto;gap:10px}.ui-v9 #now.viz .viz-title{font-size:26px}.ui-v9 #now.viz .viz-artist{font-size:16px}.ui-v9 #now.viz .viz-bar{height:90px}.ui-v9 #now.viz .viz-ctl{gap:8px}.ui-v9 #now.viz .viz-ctl button{min-width:40px;width:40px;height:40px}.ui-v9 #now.viz .viz-ctl .disc-play{width:52px;height:52px}
+}
+@media(prefers-reduced-motion:reduce){.ui-v9 #now .lyr-l,.ui-v9 #now .viz-art{transition:none!important;transform:none!important}.ui-v9 #now .viz-bg{opacity:.2}}
+body.no-anim.ui-v9 #now .lyr-l{transition:none!important;transform:none!important}
+.ui-v9 #qPop{background:var(--bg-2,#242428);backdrop-filter:none;top:calc(100% + 8px)}
+.ui-v9:not(.ui-v45) #clips .cs-search button{flex-shrink:0}
+.ui-v9 #kStage{padding:8px 0 12px;gap:16px;align-items:flex-start;font-size:14px;border-color:#ffffff20;color:#d0c8dc}
+.ui-v9 #kStageStatus{font-size:14px;min-height:44px;display:flex;align-items:center;padding:0 12px}
+.ui9-lyric-tools{flex-shrink:0;max-width:100%}
+.ui9-lyric-tools>summary{font-size:14px;min-height:44px;padding:12px;cursor:pointer;border:1px solid #ffffff30;border-radius:8px}
+.ui9-lyric-tools .k-stage-actions{margin-top:12px;flex-wrap:wrap;gap:8px;max-width:100%}
+.ui-v9 #now #kStage select{background:#161721;color:#eee8f6}
+.ui-v9 #now .k-stage .btn.g{background:#ffffff0c;color:#e9e3f2}
+.ui-v9 #now .bar .tm{color:#c7c3d4}
+@media(max-width:760px){.ui-v9 #kStage{gap:8px;flex-wrap:wrap;flex-shrink:0}.ui-v9 #kStageStatus{min-height:32px;padding:0 8px}.ui9-lyric-tools{width:100%}.ui9-lyric-tools>summary{min-height:36px;padding:8px 12px}.ui-v9 #now.viz .ui9-lyric-tools{display:none}.ui-v9 #now.viz .viz-card{padding-top:180px}}
+.ui-v9 #now.viz .viz-stage.decor .viz-frame,.ui-v9 #now.viz .viz-stage.scan .viz-scan,.ui-v9 #now.viz .viz-stage.decor .viz-artwrap::before,.ui-v9 #now.viz .viz-stage.decor .viz-artwrap::after{display:none}
+.ui-v9 #now.viz .viz-stage .viz-title,.ui-v9 #now.viz .viz-stage .viz-artist{background:none;-webkit-text-fill-color:currentColor;filter:none;text-shadow:none;animation:none;color:#f3edf9}
+.ui-v9 #now.viz .viz-stage .viz-artist{color:#d0c7df;font-weight:500}
+.ui-v9 #now.viz .viz-stage .viz-bar.track{box-shadow:none;border:1px solid #ffffff20;background:#ffffff04}
+.ui-v9 #now.viz .viz-stage .viz-art{-webkit-box-reflect:unset}
+.ui-v9 #now.viz .viz-stage .viz-src:empty{display:none}
+.ui-v9 #now.viz .viz-stage .viz-time{border:0;background:none;padding:0;width:100%;font-size:14px}
+.ui-v9 #now.viz .viz-stage .viz-prog{height:3px;border:0;background:#ffffff20;border-radius:2px;box-shadow:none}
+.ui-v9 #now.viz .viz-stage .viz-prog i{box-shadow:none;background:#b8a6dd}
+.ui-v9 #now.viz .viz-stage .viz-mark{display:none}
+.ui9-sidebar-back{display:none!important}
+@media(max-width:760px){.ui9-sidebar-back{display:inline-flex!important;margin-bottom:20px}.ui-v9:not(.ui-v45) #clips.ui9-queue-open .cs-sidebar{scroll-margin-top:16px}}
+.ui-v9 #mArtists9{background:var(--bg-2,#202025);border:1px solid var(--line);box-shadow:0 24px 80px #0007}
+@media(max-width:760px){.ui-v9 #mArtists9,.ui-v9 #mArtists9.on{left:16px;right:auto;top:50%;bottom:auto;transform:translateY(-50%);height:auto;width:calc(calc(var(--layout-vw37, 1vw) * 100) - 32px);max-height:calc(var(--layout-vh37, 1dvh) * 85);border-radius:14px;overflow:hidden}.ui-v9 #mArtists9 .mh,.ui-v9 #mArtists9 .mb{padding:20px}.ui-v9 #mArtists9 .mh{padding-bottom:8px}.ui-v9 #mArtists9 .acts{padding:12px 20px 20px}.ui-v9 #mArtists9 .mh h3{font-size:24px}}
+.ui-v9:has(#mArtists9.on) #veil{z-index:98}

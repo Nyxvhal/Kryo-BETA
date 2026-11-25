@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "wizard starts in English",
+    "English legal text is shown",
+    "terms default to English",
+    "Russian terms are available without a network call",
+    "language switch preserves form values",
+    "install state has animated indeterminate progress",
+    "cannot close while installing",
+    "reduced-motion disables installer animation",
+    "finished state requires actual bridge completion",
+    "installer remains within narrow viewport",
+    "no runtime errors"
+  ],
+  "errors": [],
+  "scope": "Linux Chromium, mock Windows bridge; not a native installation"
+}

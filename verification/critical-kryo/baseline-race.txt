@@ -1,0 +1,4 @@
+Tests/repro_vault_cancellation.py run with the original and fixed package via PYTHONPATH:
+baseline: closed_while_worker_active=True, worker_observed_closed=True
+fixed:    closed_while_worker_active=False, worker_observed_closed=False
+The fixture makes the BLOB read pause deterministically and observes its resource lifecycle; it is not the user's full traceback.

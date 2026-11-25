@@ -1,0 +1,30 @@
+{
+  "checks": [
+    "wave does not autoplay at boot",
+    "wave shortcut visible on home",
+    "dedicated wave route",
+    "start stays enabled after selection",
+    "bounded ahead buffer",
+    "queue uses actual provider related results",
+    "successor fully downloaded in real audio vault",
+    "next advances to prepared successor",
+    "selection follows new current track",
+    "no duplicate ids or metadata in active queue",
+    "mode switch rebuilds future, not current",
+    "wave fits 800",
+    "mobile wave nav reachable 800",
+    "wave fits 390",
+    "mobile wave nav reachable 390",
+    "stopped wave rejects stale response",
+    "empty source is honest and retryable",
+    "retry restores queue",
+    "explicit manual track stops wave and ignores old request",
+    "home fits mobile",
+    "mobile nav fits",
+    "wave labels switch to English",
+    "no boot failures",
+    "no runtime errors"
+  ],
+  "errors": [],
+  "scope": "Synthetic metadata with production ranking, native audio, real prefetch and SQLite vault. Not live provider QA."
+}

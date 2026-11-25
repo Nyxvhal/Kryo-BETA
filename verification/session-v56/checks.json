@@ -1,0 +1,32 @@
+{
+  "checks": [
+    "live panel visible on desktop",
+    "empty panel does not invent current track",
+    "panel can be hidden with focus returned",
+    "home no horizontal overflow 1440",
+    "tracks visible in first viewport 1440",
+    "shortcuts reachable 1440",
+    "list rows compact 1440",
+    "home no horizontal overflow 800",
+    "tracks visible in first viewport 800",
+    "shortcuts reachable 800",
+    "list rows compact 800",
+    "mobile queue action opens original queue 800",
+    "home no horizontal overflow 390",
+    "tracks visible in first viewport 390",
+    "shortcuts reachable 390",
+    "list rows compact 390",
+    "mobile queue action opens original queue 390",
+    "real fixture audio plays",
+    "panel pauses native audio",
+    "panel shows actual current title",
+    "queue preview bounded",
+    "upcoming click selects exact queue track",
+    "unchanged queue keeps DOM nodes",
+    "settings no overflow",
+    "optional launch renders when opened",
+    "no runtime errors"
+  ],
+  "errors": [],
+  "scope": "Local fixture, not Windows release certification"
+}

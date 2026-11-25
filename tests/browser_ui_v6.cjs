@@ -1,0 +1,63 @@
+const {chromium}=require('playwright'),fs=require('fs'),path=require('path'),assert=require('assert/strict');
+const root=path.resolve(__dirname,'..'),out=process.env.UI_QA_OUT||root+'/verification/ui-v6';fs.mkdirSync(out,{recursive:true});
+(async()=>{
+ const browser=await chromium.launch({headless:true,executablePath:process.env.CHROMIUM_PATH||'/usr/local/bin/chromium',args:['--no-sandbox']});
+ const page=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'reduce'});let populated=false,failSave=false,failData=false;const errors=[],checks=[],writes=[];
+ let settings={lang:'ru',theme:'studio6',settingsRev:8,noAnim:true,workspace:{compactPlayer:true}};
+ const tracks=[['Свет внутри','Демо-библиотека','kryonyx-vibe-08-winter-aurora.png'],['Тёплый вечер','Демо-библиотека','kryonyx-vibe-06-autumn-dusk.png'],['На своей волне','Демо-библиотека','kryonyx-vibe-13-retrowave.png'],['Медленный город','Демо-библиотека','kryonyx-vibe-12-vaporwave.png']].map(([title,artist,img],i)=>({id:'qa:'+i,title,artist,source:'local',duration:180,thumbnail:'/img/avatars/'+img}));
+ page.on('pageerror',e=>errors.push(String(e)));
+ await page.route('**/api/**',async r=>{
+  const req=r.request(),p=new URL(req.url()).pathname;let data={ok:true,items:[]};
+  if(failData&&['/api/recommend','/api/history'].includes(p))return r.fulfill({status:503,json:{error:'QA: source unavailable'}});
+  if(p==='/api/settings'){
+   if(req.method()==='PUT'){writes.push(req.postDataJSON());if(failSave)return r.fulfill({status:503,json:{error:'QA save failure'}});settings=req.postDataJSON();}data=settings;
+  }else if(p==='/api/health')data={ok:true,sources:[],stats:{}};
+  else if(p==='/api/state')data={value:null};
+  else if(p==='/api/likes')data={items:[],ids:[]};
+  else if(p==='/api/recommend')data={rows:populated?[{kind:'tracks',title:'Демо · вечерняя подборка',items:tracks}]:[]};
+  else if(p==='/api/discovery')data={rows:[]};
+  else if(p==='/api/history')data={items:populated?tracks:[]};
+  else if(p==='/api/search')data={items:tracks};
+  else if(p==='/api/search/extra')data={authors:[],albums:[],playlists:[]};
+  else if(p==='/api/youtube/cookies')data={present:false,signed_in:false,browsers:[]};
+  return r.fulfill({json:data});
+ });
+ await page.route('**/icon.png',r=>r.fulfill({body:fs.readFileSync(root+'/build/icon-1024.png'),contentType:'image/png'}));
+ const check=(label,value)=>{assert(value,label);checks.push(label);};
+ const shot=async(name,w=1440,h=1000)=>{await page.setViewportSize({width:w,height:h});await page.evaluate(()=>{$('toast').classList.remove('on');});await page.waitForTimeout(120);await page.screenshot({path:out+'/'+name+'.png'});check(name+' no document overflow',await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));};
+ const boot=async()=>{await page.goto('http://127.0.0.1:8768');await page.waitForTimeout(1100);check('boot has no errors',await page.evaluate(()=>!(App.bootErrors||[]).length));};
+ await boot();await shot('01-home-empty');
+ await page.keyboard.press('/');check('slash focuses home search',await page.evaluate(()=>document.activeElement.id==='homeQuery'));
+ await page.locator('#homeQuery').fill('Музыка');await page.locator('.home-search-form button').click();await page.waitForTimeout(200);check('search routes and keeps query',await page.evaluate(()=>K.view==='search'&&K.search.query==='Музыка'));await page.evaluate(()=>App.go('home'));
+ await page.locator('.home-new-playlist').click();check('playlist dialog retained',await page.locator('#mNewPl').evaluate(n=>n.classList.contains('on')));await page.evaluate(()=>closeModals());
+ await page.locator('.home-destination').nth(1).click();check('clips shortcut retained',await page.locator('#clips').evaluate(n=>n.classList.contains('on')));await page.evaluate(()=>Clips.close());
+ await page.locator('.home-destination').nth(2).click();check('karaoke without track routes to search',await page.evaluate(()=>K.view==='search'));await page.evaluate(()=>App.go('home'));
+ await page.locator('#navSettings').click();await page.waitForTimeout(100);check('settings auto focus',await page.evaluate(()=>document.activeElement.id==='setFind'));await shot('02-settings-overview');
+ await page.locator('.ui-settings-card').nth(1).click();check('sound shortcut opens existing pane',await page.locator('.pane[data-pane=sound]').evaluate(n=>n.classList.contains('on')));await shot('03-settings-sound');
+ await page.locator('#setFind').fill('абракадабра');await page.waitForTimeout(180);check('search empty state',await page.locator('#uiSettingsSearchInfo').isVisible()&&/Ничего/.test(await page.locator('#uiSettingsSearchInfo').textContent()));await shot('04-settings-empty-search');
+ await page.locator('#setFind').fill('громкость');await page.waitForTimeout(180);check('settings search finds volume',/Найдено/.test(await page.locator('#uiSettingsSearchInfo').textContent()));await shot('05-settings-search');
+ await page.keyboard.press('Escape');check('escape clears search only',await page.locator('#setFind').inputValue()===''&&await page.locator('#mSettings').isVisible());
+ await page.locator('#setTabs [data-pane=workspace]').click();
+ await page.locator('[data-theme-id=daylight6]').click();await page.waitForTimeout(750);check('theme persists through PUT',writes.at(-1)?.theme==='daylight6');check('save feedback confirmed',await page.locator('#uiSaveStatus').getAttribute('data-state')==='saved');await shot('06-settings-light');
+ const noAnim=await page.evaluate(()=>!!S.noAnim);await page.locator('[data-ui-pref=noAnim]').setChecked(!noAnim);await page.waitForTimeout(650);check('quick motion preference persists',writes.at(-1)?.noAnim===!noAnim);check('switch ARIA synced',await page.locator('.sw[data-sw=noAnim]').getAttribute('aria-checked')===String(!noAnim));
+ failSave=true;await page.locator('[data-ui-pref=noAnim]').setChecked(noAnim);await page.waitForTimeout(650);check('save error visible',await page.locator('#uiSaveStatus').getAttribute('data-state')==='error');failSave=false;await page.locator('#uiSaveStatus').click();await page.waitForTimeout(200);check('retry saves settings',await page.locator('#uiSaveStatus').getAttribute('data-state')==='saved');
+ await page.locator('#setClose').click();check('focus returns to settings opener',await page.evaluate(()=>document.activeElement.id==='navSettings'));
+ await shot('07-home-light');
+ populated=true;Object.assign(settings,{theme:'studio6',accent:'#A995FF',accent2:'#70C9BC',bg:'#111216',light:false,flat:true});await boot();check('populated recents',await page.locator('.workspace-recent-track').count()===4);await shot('08-home-demo');await shot('09-home-mobile',390,844);
+ await page.locator('#mobSettings').click();await page.waitForTimeout(100);await shot('10-settings-mobile',390,844);await page.locator('#workspaceSettingsSelect').selectOption('sound');await shot('11-sound-mobile',390,844);
+ await page.evaluate(()=>closeModals());await page.setViewportSize({width:1440,height:1000});
+ // Use a deterministic PCM tone: this validates actual media playback, not a painted player.
+ const sampleRate=22050,samples=sampleRate*8,wav=Buffer.alloc(44+samples*2);wav.write('RIFF');wav.writeUInt32LE(36+samples*2,4);wav.write('WAVE',8);wav.write('fmt ',12);wav.writeUInt32LE(16,16);wav.writeUInt16LE(1,20);wav.writeUInt16LE(1,22);wav.writeUInt32LE(sampleRate,24);wav.writeUInt32LE(sampleRate*2,28);wav.writeUInt16LE(2,32);wav.writeUInt16LE(16,34);wav.write('data',36);wav.writeUInt32LE(samples*2,40);for(let i=0;i<samples;i++)wav.writeInt16LE(Math.round(Math.sin(i*2*Math.PI*220/sampleRate)*2000),44+i*2);
+ await page.route('**/api/stream?*',r=>r.fulfill({body:wav,contentType:'audio/wav'}));
+ await page.locator('.home-feature').click();await page.waitForFunction(()=>Player.audio.currentTime>.1&&!Player.audio.paused);check('real PCM media plays',await page.evaluate(()=>!Player.audio.paused&&Player.current.title==='Свет внутри'));
+ await page.locator('#pPlay').click();check('pause button pauses actual media',await page.evaluate(()=>Player.audio.paused));await page.locator('#pPlay').click();await page.waitForFunction(()=>!Player.audio.paused);check('resume button resumes actual media',true);
+ await page.locator('#pNext').click();await page.waitForFunction(()=>Player.current.title==='Тёплый вечер'&&!Player.audio.paused);check('next button changes actual media',true);await page.evaluate(()=>Player.audio.pause());
+ await page.locator('#navSettings').click();await page.locator('.ui-settings-card').nth(1).click();await page.locator('[data-ui-eq=bass]').click();await page.waitForTimeout(650);check('audio preset updates actual EQ and storage',await page.evaluate(()=>S.eqOn&&S.eqPreset==='bass'&&S.eqGains[0]===7)&&writes.at(-1).eqPreset==='bass');
+ await page.locator('[data-ui-eq=flat]').click();check('balanced preset resets all EQ bands',await page.evaluate(()=>S.eqGains.every(v=>v===0)));
+ const panes=await page.locator('#setTabs [data-pane]').evaluateAll(nodes=>nodes.map(n=>n.dataset.pane));
+ for(const width of [1440,390]){await page.setViewportSize({width,height:width===390?844:1000});for(const name of panes){await page.evaluate(name=>InterfaceV6.openPane(name),name);await page.waitForTimeout(40);check(`settings pane ${name} at ${width} has no horizontal overflow`,await page.locator('.set-body').evaluate(n=>n.scrollWidth<=n.clientWidth+1));}}
+ await page.evaluate(()=>closeModals());await page.setViewportSize({width:1440,height:1000});
+ failData=true;await boot();check('source errors retained',await page.locator('#rows').innerText().then(t=>t.includes('QA: source unavailable')));await shot('12-home-source-error');
+ assert.deepEqual(errors,[]);fs.writeFileSync(out+'/browser-report.json',JSON.stringify({environment:'Isolated local fixtures; no real accounts or catalogues',checks,pageErrors:errors},null,2));
+ await browser.close();console.log('UI_V6_PASS',checks.length);
+})().catch(e=>{console.error(e);process.exit(1)});

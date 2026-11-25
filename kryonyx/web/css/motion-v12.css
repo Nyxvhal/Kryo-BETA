@@ -1,0 +1,24 @@
+/* v12: transform/opacity only; no geometry wobble or forced layout loops. */
+.sk12-artwork{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:16px;font-size:14px}
+.sk12-artwork select{min-height:44px;max-width:100%;padding:8px 12px;border:1px solid var(--line,rgba(128,128,128,.4));border-radius:8px;background:var(--surface,#202020);color:inherit;font:inherit}
+.sk12-artwork select:focus-visible{outline:2px solid var(--accent,#a995ff);outline-offset:3px}
+.sk11-title,.sk10-name{overflow-wrap:anywhere}
+.sk10-hero-copy{min-width:0}.sk10-hero-copy p,.sk10-rights{overflow-wrap:anywhere}
+@keyframes kx12-enter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes kx12-breathe{0%,100%{filter:drop-shadow(0 0 0 transparent)}50%{filter:drop-shadow(0 0 8px var(--accent,#a995ff))}}
+@media(prefers-reduced-motion:no-preference){
+ body:not(.no-anim) .sk10-card{animation:kx12-enter .34s both;animation-delay:calc(var(--kx-order,0)*22ms);transition:transform .22s,border-color .22s,box-shadow .22s}
+ body:not(.no-anim) .sk10-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.12)}
+ body:not(.no-anim) .sk10-hero{animation:kx12-enter .4s both}
+ .sk11-reference{transition:none;transform:none;image-rendering:auto}
+ body:not(.no-anim) :is(.btn,.chip,.side-btn,.sk10-fav){transition:transform .18s,background-color .2s,color .2s,border-color .2s}
+ body:not(.no-anim) :is(.btn,.chip,.sk10-fav):active{transform:scale(.97)}
+ body:not(.no-anim) .modal.on .box{animation:kx12-enter .24s both}
+ body:not(.no-anim).kx12-playing #pCover{animation:kx12-breathe 3s ease-in-out infinite}
+ body:not(.no-anim) :is(.p-progress,.p-fill,#pFill){transition:width .18s linear}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+body.no-anim *,body.no-anim *::before,body.no-anim *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+@media(max-width:600px){.sk12-artwork{align-items:stretch;flex-direction:column}.sk12-artwork select{width:100%}}

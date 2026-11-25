@@ -1,0 +1,23 @@
+PASS lyrics chooser visible: split
+PASS hide button only in disc/viz: split
+PASS lyrics chooser visible: focus
+PASS hide button only in disc/viz: focus
+PASS lyrics chooser visible: cinema
+PASS hide button only in disc/viz: cinema
+PASS lyrics chooser visible: disc
+PASS hide button only in disc/viz: disc
+PASS controls initially visible: disc
+PASS bottom controls hidden: disc
+PASS restore remains visible: disc
+PASS restore bottom controls: disc
+PASS lyrics chooser visible: viz
+AssertionError [ERR_ASSERTION]: hide button only in disc/viz: viz
+    at ok (/vercel/sandbox/data/kryo-work/kryonyx-music/tests/browser_repair_v34.cjs:2:197)
+    at /vercel/sandbox/data/kryo-work/kryonyx-music/tests/browser_repair_v34.cjs:8:3 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

@@ -1,0 +1,12 @@
+KRYO (KRYONYX MUSIC) — SOURCE PACKAGE
+
+Quick start from source:
+- Windows: run start.bat (or: python run.py --browser)
+- Linux / macOS: run bash start.sh
+
+Build Windows EXE & installer:
+- See BUILD.md and run:
+  powershell -NoProfile -ExecutionPolicy Bypass -File .\build\build_windows.ps1
+
+Back up user data in %LOCALAPPDATA%\Kryo before upgrading.
+See LICENSE, THIRD_PARTY_NOTICES.md, ARTWORK_RIGHTS.md, PRIVACY.md, TERMS.md for legal and asset notices.

@@ -1,0 +1,36 @@
+PASS existing third mode now mounts one orbital canvas
+PASS no duplicate frame scheduler or audio context
+PASS background resolution is bounded
+PASS silent source is not presented as real signal
+PASS obsolete return button cannot cover Exit
+PASS scene renders from existing player clock
+PASS generated WAV drives real FFT and radial spectrum
+PASS audio-reactive status is honest
+PASS frequency bands use actual sample rate, not array fractions
+PASS pause freezes scene travel instead of inventing motion
+PASS paused FFT and orbit decay toward silence
+PASS focused seek bar advances five seconds only once
+PASS reduced motion freezes ambient motion but keeps spectrum
+PASS switch atmosphere safely: orbit
+PASS switch atmosphere safely: classic
+PASS switch atmosphere safely: aurora
+PASS adaptive quality can reduce only background resolution
+PASS visualizer localized: en
+PASS visualizer localized: ru
+PASS visualizer localized: es
+PASS visualizer localized: pt
+PASS visualizer localized: de
+PASS visualizer localized: fr
+PASS visualizer localized: it
+PASS visualizer localized: tr
+PASS visualizer localized: pl
+PASS visualizer localized: uk
+PASS visualizer localized: zh
+PASS visualizer localized: ja
+PASS track reset clears radial peaks and transient state
+PASS atmosphere selection is persisted in settings payload
+PASS mobile viewport has no horizontal overflow
+PASS hidden scene does not draw
+PASS visualizer exit uses canonical player close path
+PASS runtime and boot errors absent
+VISUALIZER_V32_PASS 35

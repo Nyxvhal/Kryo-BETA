@@ -1,0 +1,19 @@
+{
+  "checks": [
+    "language and close controls are not covered",
+    "license acceptance cannot be skipped",
+    "privacy acknowledgement also required",
+    "review mirrors selected path",
+    "review mirrors autostart preference",
+    "engine permission failure stays recoverable",
+    "close and language locked during native engine work",
+    "indeterminate progress never invents a percent",
+    "system reduced motion disables progress movement",
+    "success waits for engine acknowledgement",
+    "finish respects launch checkbox",
+    "narrow wizard has no horizontal overflow",
+    "no runtime errors"
+  ],
+  "errors": [],
+  "scope": "Linux Chromium with mock pywebview bridge; native Windows setup/upgrade was not run."
+}

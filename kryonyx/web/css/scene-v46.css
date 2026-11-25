@@ -1,0 +1,18 @@
+/* One 44px grid for every collapsed-sidebar control, including expanded More. */
+body.ui-v46.workspace-rail #side{padding:16px 12px!important;gap:4px!important;overflow-y:auto!important;overflow-x:hidden!important;scrollbar-width:none}
+body.ui-v46.workspace-rail #side::-webkit-scrollbar{display:none}
+body.ui-v46.workspace-rail #side .brand{align-items:center;gap:4px!important;padding:0 0 8px!important;flex-shrink:0}
+body.ui-v46.workspace-rail #side :is(.nav,#sideMoreLabel31){box-sizing:border-box;width:44px!important;min-width:44px!important;height:44px!important;min-height:44px!important;flex:0 0 44px!important;padding:0!important;margin:0 auto!important;gap:0!important;justify-content:center!important;align-items:center!important;border-radius:10px}
+body.ui-v46.workspace-rail #side :is(.nav,#sideMoreLabel31)>svg{width:22px!important;height:22px!important;flex:none!important}
+body.ui-v46.workspace-rail #sideMore31{margin:0!important;padding:0!important;flex:none;width:100%}
+body.ui-v46.workspace-rail #side #sideMore31[open]>.nav{margin-top:4px!important}
+body.ui-v46.workspace-rail #workspaceCollapse{width:44px;height:44px;min-height:44px;margin:0!important;flex:none}
+body.ui-v46.workspace-rail #side #navSettings{margin-top:auto!important}
+/* Keep the lyric layout while replacing only its background layer. */
+body.ui-v46 #now[data-background46="custom"] #nowCustom{display:block!important;visibility:visible!important;z-index:0;filter:blur(var(--kb-blur,0px)) brightness(var(--custom-bright46,1));transform:scale(1.06)}
+body.ui-v46 #now:is([data-background46="custom"],[data-background46="video"]) #coverFlow23{display:none!important}
+body.ui-v46 #now:is([data-background46="custom"],[data-background46="video"]) :is(.disc-stage,.viz-stage){background:transparent!important}
+body.ui-v46 #now[data-background46="custom"] :is(#nowVeil,#nowArtBg,#nowWall,#nowCanvas){display:none!important}
+body.ui-v46 #now[data-background46="video"] #nowVid{display:block!important;visibility:visible!important}
+.effects-setting46 select{min-width:160px;max-width:100%}.effects-setting46 output{font-variant-numeric:tabular-nums;min-width:40px;text-align:right}
+@media(max-width:760px){.effects-setting46{flex-wrap:wrap}.effects-setting46 .l{width:100%}.effects-setting46 select{width:100%}}

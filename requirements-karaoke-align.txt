@@ -1,0 +1,3 @@
+# Optional forced alignment with reference lyrics (installs torch + Whisper).
+-r requirements-karaoke.txt
+stable-ts>=2.18,<3

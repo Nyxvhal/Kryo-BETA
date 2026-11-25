@@ -1,0 +1,33 @@
+{
+  "checks": [
+    "welcome shows two feature cards with icons and three facts",
+    "aurora visual is built (mark, sweep, orbit dots, 22-bar equaliser, 16 burst sparks)",
+    "step pill covers the current step",
+    "header hairline shows step 1 of 5",
+    "language picker and legal tabs use the 12px UI font (v71 shorthand bug fixed)",
+    "idle motion needs no layout or style work on the main thread",
+    "every endless animation moves only transform/opacity",
+    "animations pause while the window is minimised",
+    "and resume when it is shown again",
+    "step change replays the slide-in",
+    "legal text is reflowed into sentences",
+    "the four legal tabs fit on one row",
+    "pill slides to the next step",
+    "header hairline shows step 3 of 5",
+    "options are switches inside cards",
+    "a click anywhere on the option card toggles it and updates the review",
+    "determinate bar fills by transform with the real percentage",
+    "progress ring appears around the mark",
+    "finish: sparks burst once around the check mark",
+    "finish: the check mark is drawn",
+    "launch is a switch too",
+    "660×466: no overflow, footer and heading visible",
+    "660×466: the mark stays inside the visual panel",
+    "660×466: options scroll inside the page, buttons stay put",
+    "narrow: the mark is centred in the top strip",
+    "reduced motion: nothing animates",
+    "no runtime errors"
+  ],
+  "errors": [],
+  "scope": "Linux Chromium with a mock pywebview bridge. The native Windows engine, WebView2 and the PyInstaller setup were not run."
+}

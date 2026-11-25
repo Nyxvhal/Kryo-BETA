@@ -1,0 +1,17 @@
+PASS editing input aborts both old track and extra requests
+PASS new query renders without stale results
+PASS pagination and overlapping extra request both abort
+PASS failed page remains retryable
+PASS retry adds page once without duplicates
+PASS degraded page retains useful rows and remains retryable
+PASS recovered degraded page does not duplicate rows
+PASS partial source failure preserves loaded rows and retry
+PASS retry preserves all source pages without duplicates
+PASS returning to search landing aborts active requests
+PASS caller cancellation does not cancel independent request
+PASS older slow response cannot overwrite newer cache value
+PASS incomplete response is not cached; complete response is cached
+PASS invalidation prevents late cache repopulation
+PASS external cancellation differs from request timeout
+PASS no uncaught browser errors
+SEARCH_CANCELLATION_PASS 16

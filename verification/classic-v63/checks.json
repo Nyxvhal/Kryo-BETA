@@ -1,0 +1,23 @@
+{
+  "checks": [
+    "classic shell loaded without replacement UI",
+    "expanded sidebar is restored",
+    "classic settings sidebar remains present",
+    "no replacement appearance pane",
+    "general settings has visible controls",
+    "sound controls are real existing controls",
+    "video catalog renders real buttons",
+    "three clear video sections",
+    "native video and audio play",
+    "video catalog has no horizontal overflow 800",
+    "video catalog has no horizontal overflow 390",
+    "classic home fits phone",
+    "classic settings section picker reachable on phone",
+    "Wave still downloads real next file",
+    "pause fix survives rollback",
+    "no runtime exceptions",
+    "boot has no failed components"
+  ],
+  "errors": [],
+  "scope": "Classic shell on current production engines. Deterministic catalog and native local audio/video; not live authenticated media or Windows certification."
+}

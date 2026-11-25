@@ -1,0 +1,151 @@
+/* v73 polish: anchored menus, button motion, small fixes. Only transform and
+   opacity animate; everything respects reduced motion. */
+
+/* ---------- Menus: anchored to their button, never slide over it */
+#ctxMenu { transition: opacity .16s var(--ease, ease), transform .2s cubic-bezier(.2, .8, .2, 1), visibility .16s; }
+#ctxMenu:not(.on)[data-side73="up"] { transform: translateY(8px) scale(.97); }
+#ctxMenu:not(.on)[data-side73="down"] { transform: translateY(-8px) scale(.97); }
+#ctxMenu { scrollbar-width: thin; }
+#ctxMenu button:focus-visible { outline: 2px solid var(--accent, #fff); outline-offset: -2px; }
+#ctxMenu button .ic { transition: transform .18s cubic-bezier(.2, .8, .2, 1); }
+#ctxMenu button:hover .ic, #ctxMenu button:focus-visible .ic { transform: translateX(2px); }
+[aria-expanded="true"].ib, button[aria-expanded="true"] { background: var(--surface-2, rgba(255,255,255,.08)); }
+@media (max-height: 760px) {
+  #ctxMenu button { min-height: 36px; padding-top: 6px; padding-bottom: 6px; }
+  #ctxMenu hr { margin: 3px 2px; }
+}
+
+/* ---------- Search: songs first on «All», one filter row, compact header */
+.search-v73 #searchCount26 { display: none; }
+.search-v73 #searchActions26 { flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+.search-v73 #searchActions26 #searchTikTok39 { margin: 0 0 0 auto; order: 9; }
+.search-v73 #sTitle { margin-bottom: 10px; }
+.s73-filterbar { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 10px; margin: 4px 0 6px; }
+.s73-filterbar #searchSources26 { margin: 0; padding: 0; }
+.s73-filterbar #studioFilterToggle { margin: 0 0 0 auto; }
+.search-v73 #studioSearchSummary { margin-top: 4px; }
+.s73-compact #sTracks > :nth-child(n+9) { display: none !important; }
+.s73-compact #sMore { display: none !important; }
+.s73-alltracks { display: flex; align-items: center; gap: 10px; margin: 10px auto 26px; }
+.s73-alltracks[hidden] { display: none; }
+.s73-alltracks .s73-n { font: inherit; font-weight: 700; opacity: .7; font-variant-numeric: tabular-nums; }
+.search-v73 #vSearch.s73-all #sTracksH { margin-top: 8px; }
+@media (min-width: 1241px) and (max-width: 1440px) {
+  .search-grid26:has(> .next-feed26:not([hidden])) { grid-template-columns: minmax(0, 1fr) 284px; gap: 22px; }
+}
+
+/* ---------- Wave lock: dimmed but alive (a click explains, see ui-v73.js) */
+.wave-locked73 { opacity: .42; cursor: help; }
+.wave-locked73:hover, .wave-locked73:focus-visible { opacity: .7; }
+
+/* ---------- Button motion (v73)
+   Older layers pin `transform: none !important` on player buttons, .btn and
+   their icons (v48/v60), so presses and hovers did nothing there. The v73
+   layer animates the individual `scale` / `translate` / `rotate` properties
+   instead: they compose with any existing transform and stay on the
+   compositor. Everything here is off with Settings → Animations, Motion: Off
+   and prefers-reduced-motion (the JS part checks the same switches). */
+:root { --spring73: cubic-bezier(.34, 1.56, .64, 1); --soft73: cubic-bezier(.2, .8, .2, 1); --m73: 1; }
+body[data-motion48="expressive"] { --m73: 1.45; }
+@media (prefers-reduced-motion: no-preference) {
+  /* 1. The colour-only transition lists also get the individual properties. */
+  html body.motion-v73:not(.no-anim):not([data-motion48=off]) :is(#pBtns button, .btn, .chip, .ib, .nav, .set-nav-i, .ar-btn, .home-new-playlist, .card, #now :is(.ib, button), #albumActions78 button, #albumTransport24 button, #albumTools24 button) {
+    transition: background-color var(--motion48, 220ms) ease, color var(--motion48, 220ms) ease,
+                border-color var(--motion48, 220ms) ease, box-shadow var(--motion48, 220ms) ease,
+                opacity var(--motion48, 220ms) ease, transform .18s var(--soft73),
+                scale .42s var(--spring73), translate .42s var(--spring73) !important;
+  }
+  /* 2. Press: quick in, springy out. The older transform-based presses are
+        neutralised so they don't multiply with this one. */
+  html body.motion-v73:not(.no-anim):not([data-motion48=off]) :is(#pBtns button, .btn, .chip, .ib, .nav, .set-nav-i, .ar-btn, .home-new-playlist, .card, #now :is(.ib, button)):not(:disabled):not([aria-disabled=true]):active {
+    transform: none;
+    transition-duration: var(--motion48, 220ms), var(--motion48, 220ms), var(--motion48, 220ms),
+                         var(--motion48, 220ms), var(--motion48, 220ms), .07s, .09s, .09s !important;
+    transition-timing-function: ease, ease, ease, ease, ease, var(--soft73), var(--soft73), var(--soft73) !important;
+  }
+  html body.motion-v73:not(.no-anim):not([data-motion48=off]) :is(.ib, #pBtns button, #now :is(.ib, button)):not(:disabled):not([aria-disabled=true]):active { scale: calc(1 - .12 * var(--m73)); }
+  html body.motion-v73:not(.no-anim):not([data-motion48=off]) #player #pBtns #pPlay:not(:disabled):active { scale: calc(1 - .1 * var(--m73)); transform: none; }
+  html body.motion-v73:not(.no-anim):not([data-motion48=off]) :is(.chip):not(:disabled):not([aria-disabled=true]):active { scale: calc(1 - .06 * var(--m73)); }
+  html body.motion-v73:not(.no-anim):not([data-motion48=off]) :is(.btn, .ar-btn, .home-new-playlist):not(:disabled):not([aria-disabled=true]):active { scale: calc(1 - .04 * var(--m73)); }
+  html body.motion-v73:not(.no-anim):not([data-motion48=off]) :is(.nav, .set-nav-i):not(:disabled):active { scale: calc(1 - .025 * var(--m73)); }
+  html body.motion-v73:not(.no-anim):not([data-motion48=off]) .card:active { scale: calc(1 - .015 * var(--m73)); }
+  /* Disabled and Wave-locked controls don't pretend to press (locked ones shake, see ui-v73.js). */
+  html body.motion-v73 :is(#pBtns button, .btn, .chip, .ib, .nav, .set-nav-i):is(:disabled, [aria-disabled=true]):active { transform: none; scale: none; }
+
+  /* 3. Ink ripple (inserted by Motion73 in ui-v73.js, removed after ~0.5 s). */
+  rip-73 { position: absolute !important; inset: 0 !important; display: block !important; margin: 0 !important; padding: 0 !important;
+    border: 0 !important; border-radius: inherit; overflow: hidden; pointer-events: none !important; z-index: 0; background: none !important;
+    contain: strict; }
+  rip-73 > i { position: absolute; display: block; border-radius: 50%; opacity: 0;
+    background: radial-gradient(closest-side, currentColor 0 62%, color-mix(in srgb, currentColor 40%, transparent) 82%, transparent);
+    translate: -50% -50%; scale: .08; animation: rip73 .52s var(--soft73) forwards; }
+  @keyframes rip73 { 0% { opacity: .22; scale: .08; } 50% { opacity: .14; } 100% { opacity: 0; scale: 1; } }
+  rip-73.burst73 { overflow: visible; contain: layout style; border-radius: 50%; }
+  rip-73.burst73 > i { inset: 0; translate: none; background: none; border: 2px solid var(--accent, #ff5c8a); animation: burst73 .5s ease-out forwards; }
+  @keyframes burst73 { 0% { opacity: .8; scale: .5; } 100% { opacity: 0; scale: 1.7; } }
+  /* Switches: the knob slides (it used to jump) and squishes while held. */
+  html body.motion-v73:not(.no-anim):not([data-motion48=off]) .sw::after {
+    transition: background-color .16s ease, left .3s var(--spring73), scale .2s var(--soft73) !important;
+  }
+  html body.motion-v73:not(.no-anim):not([data-motion48=off]) .sw:active::after { scale: 1.18 .92; }
+}
+.rip73-host { position: relative; }
+
+/* 4. Hover: icons lean in a little (pointer devices only; not inside the clip
+      room, which owns its motion in cinema-v71.css). */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  html body.motion-v73:not(.no-anim):not([data-motion48=off]) :is(.ib, #pBtns button, .btn, .nav, .chip, .set-nav-i) .ic {
+    transition: transform .24s var(--soft73), filter .24s ease, opacity .2s ease,
+                scale .32s var(--spring73), translate .32s var(--spring73), rotate .45s var(--spring73) !important;
+  }
+  html body.motion-v73:not(.no-anim):not([data-motion48=off]) :is(.ib, #pBtns button):not(#pPlay):not(:disabled):not([aria-disabled=true]):not(#clips *):hover > .ic { scale: calc(1 + .1 * var(--m73)); }
+  html body.motion-v73:not(.no-anim):not([data-motion48=off]) :is(.btn, .nav, .set-nav-i):not(:disabled):not(#clips *):hover .ic { scale: calc(1 + .07 * var(--m73)); }
+  html body.motion-v73:not(.no-anim):not([data-motion48=off]) #player #pBtns #pPlay:not(:disabled):hover { scale: calc(1 + .06 * var(--m73)); }
+  html body.motion-v73:not(.no-anim):not([data-motion48=off]) #player #pBtns #pPlay:not(:disabled):hover:active { scale: calc(1 - .08 * var(--m73)); }
+  html body.motion-v73:not(.no-anim):not([data-motion48=off]) :is(.ib, #pBtns button):not(#pPlay):not(:disabled):not([aria-disabled=true]):not(#clips *):hover:active > .ic { scale: 1; }
+}
+
+/* ---------- Clip room: lighter mode after the stutter watchdog (perf-v73.js) */
+body.clip-lite73 #clips #clipStage > video, body.clip-lite73 #clips #clipVideo { box-shadow: none !important; }
+body.clip-lite73 #clips .clip-queue, body.clip-lite73 #clipGate { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+body.clip-lite73 #clipAmbientCanvas66 { display: none !important; }
+
+/* Settings → Themes (v73): the gallery has ~200 cards (~3 500 nodes); only the
+   cards near the visible part of the pane are styled, laid out and painted.
+   Cards already clip their content (overflow:hidden), so nothing changes visually. */
+body.ui-v33 #themeList > .theme { content-visibility: auto; contain-intrinsic-size: auto 200px auto 300px; }
+
+/* Soften sharp edges across controls, surfaces, inputs, and active karaoke toggles. */
+body :is(.ib, .chip) { border-radius: 999px; }
+body :is(.btn, input:not([type="checkbox"]):not([type="radio"]):not([type="range"]), select, textarea) { border-radius: 12px; }
+body :is(.modal, #queue, #ctxMenu, #qPop, .card, .card .art, .shelf, .customize30) { border-radius: max(var(--u52-radius, 14px), 16px); }
+body #now :is(.ib, button):is(.on, [aria-pressed="true"]):not(#albumPlay24):not(#nPlay):not(#s33Play):not(#albumLyrics24) {
+  background: color-mix(in srgb, var(--accent, #c5a4ff) 30%, #ffffff18) !important;
+  color: #fff !important;
+  border: 1px solid color-mix(in srgb, var(--accent, #c5a4ff) 72%, transparent) !important;
+}
+body #now #albumLyrics24:is(.on, [aria-pressed="true"]) {
+  background: #ffffff1c !important;
+  color: #fff !important;
+  border: 0 !important;
+}
+body.ui-v33 :is(#side, #player, #workspaceNavBar, #queue, #mSettings) {
+  background: color-mix(in srgb, var(--u52-panel, var(--bg)) calc(var(--panel-opacity33, .75) * 100%), transparent) !important;
+  background-color: color-mix(in srgb, var(--u52-panel, var(--bg)) calc(var(--panel-opacity33, .75) * 100%), transparent) !important;
+}
+body.ui-v33 #mSettings :is(.set-shell, .set-body, .workspace-settings-head, .workspace-settings-picker) {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+body .plug {
+  background: var(--u52-raised, var(--surface)) !important;
+  border-color: var(--u52-line, var(--line)) !important;
+  border-radius: 16px !important;
+}
+body .plug.is-on {
+  border-color: color-mix(in srgb, var(--u52-accent, var(--accent)) 45%, var(--u52-line, var(--line))) !important;
+}
+body .plug:hover {
+  border-color: var(--u52-accent, var(--accent)) !important;
+  background: color-mix(in srgb, var(--u52-accent, var(--accent)) 8%, var(--u52-raised, var(--surface))) !important;
+}

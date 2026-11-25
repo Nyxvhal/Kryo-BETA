@@ -1,0 +1,68 @@
+/* v14: constrain shared UI geometry instead of patching individual themes. */
+/* Both legacy and workspace collapse switches must produce the same rail. */
+body:is(.nav-rail,.workspace-rail) #side {padding:24px 12px 16px;overflow-x:hidden;align-items:stretch}
+body:is(.nav-rail,.workspace-rail) #side .brand {position:relative;justify-content:center;align-items:center;padding:0 0 20px;gap:8px;flex-direction:column}
+body:is(.nav-rail,.workspace-rail) #side :is(.brand>span,.nav>span,.side-h,#sidePl,.workspace-side-filter,.ui-side-foot,.home-new-playlist) {display:none!important}
+body:is(.nav-rail,.workspace-rail) #side .nav {padding:10px 0;justify-content:center;flex-shrink:0}
+body:is(.nav-rail,.workspace-rail) #workspaceCollapse {position:static;margin:0;min-width:32px}
+/* Shared controls: consistent surfaces, touch targets, keyboard focus, no layout zoom. */
+body :is(.btn,.ib,.chip,.disc-b) {border-radius:12px;transition:background-color .16s,color .16s,border-color .16s,box-shadow .16s}
+body .btn {min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;line-height:1.35}
+body .btn.g {background:var(--surface);border:1px solid var(--line);color:var(--text)}
+body :is(.btn,.ib,.chip,.disc-b):disabled {cursor:not-allowed;opacity:.45}
+body :is(.btn,.ib,.chip,.disc-b):focus-visible {outline:2px solid var(--accent);outline-offset:3px}
+body .ib {flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px}
+body .ib:hover {background:var(--hover);box-shadow:inset 0 0 0 1px var(--line)}
+body .ib.on {background:var(--accent-soft);color:var(--accent)}
+body :is(#pPlay,#nPlay,.disc-play) {border-radius:16px;box-shadow:0 4px 16px color-mix(in srgb,var(--accent) 20%,transparent)}
+/* Long context menus always stay inside the window and remain scrollable. */
+#ctxMenu {max-height:calc(calc(var(--layout-vh37, 1dvh) * 100) - 20px);max-width:calc(calc(var(--layout-vw37, 1vw) * 100) - 20px);overflow-y:auto;overscroll-behavior:contain;background:var(--bg-2);backdrop-filter:none;transition:opacity .14s}
+#ctxMenu button {min-height:44px;flex-shrink:0;white-space:normal}
+/* Theme thumbnails are palettes, not miniature character cards. */
+#themeList .sw-prev {overflow:hidden;min-height:56px}
+#themeList .sk10-library-preview .sk10-preview {min-height:56px}
+#themeList :is(.sk11-title,.sk11-tag,.sk11-reference) {display:none!important}
+#themeList .sk11-swatches {left:14px;bottom:16px}
+#themeList .sk11-emblem {right:10px;top:8px;height:36px;width:48px}
+#themeList .theme {min-width:0;height:auto;align-self:start}
+#themeList .theme-n {white-space:normal;line-height:1.4;overflow-wrap:anywhere}
+#sk10Studio .sk11-reference {transform:none!important;transition:none!important;filter:none!important;image-rendering:auto}
+/* Prevent flex-compression in the video queue (48px covers were overflowing 44px rows). */
+#clips .cs-item {flex-shrink:0;min-height:76px;height:auto;border-radius:12px;box-sizing:border-box}
+#clips .cs-item>span {min-width:0;overflow-wrap:anywhere}
+#clips .cs-item img {flex-shrink:0}
+#clips .cs-controls {flex-wrap:wrap}
+#clips .cs-search,.cs-side-tabs {min-width:0}
+.ui-v9:not(.ui-v45) #clips.theater .cs-layout {grid-template-columns:minmax(0,1fr)}
+.ui-v9:not(.ui-v45) #clips.theater .cs-sidebar {border-top:1px solid var(--line);padding-top:24px}
+/* Mode-specific selectors must beat the later split-mode grid rule. */
+.ui-v9 #now.focus:not(.disc):not(.viz) #nowBody {grid-template-columns:minmax(0,1fr)}
+#nowTop {position:relative;flex-shrink:0;pointer-events:auto;gap:8px}
+#nowTop>div:last-child {flex-wrap:wrap;justify-content:flex-end;gap:6px!important}
+#nowTop .ib {border:1px solid #ffffff24;background:#ffffff0b;border-radius:12px}
+#nowTop .ib:hover,#nowTop .ib.on {background:#ffffff25;border-color:#ffffff60}
+#now :is(#nowTop,#kStage,.ui9-stage-controls) {flex-shrink:0}
+#queue.on~#veil {z-index:94}
+body:has(#queue.on) #veil {z-index:94}
+body:has(.modal.on) #veil {z-index:98}
+body:has(#now.on) #queue {bottom:16px;max-height:calc(calc(var(--layout-vh37, 1dvh) * 100) - 32px)}
+#lyrics .lyr-w.lit {background:none;-webkit-text-fill-color:currentColor;color:var(--stage-lit,var(--text))}
+#lyrics .lyr-l.on .lyr-w {color:var(--stage-lit,var(--text));opacity:1}
+#lyrics .lyr-l:not(.on) .lyr-w {text-shadow:none}
+@media(max-width:760px){
+ #nowTop .ib {min-width:40px;min-height:44px;width:40px}
+ .ui-v9 #now:not(.disc):not(.viz) #nowBody {grid-template-columns:minmax(0,1fr);gap:20px}
+ #nowTop {align-items:flex-start}
+ #clips .cs-item {min-height:76px}
+ body:has(#now.on) #queue {bottom:0;max-height:calc(var(--layout-vh37, 1dvh) * 85)}
+}
+@media(prefers-reduced-motion:reduce){body :is(.btn,.ib,.chip,.disc-b){transition:none}}
+/* The stage is always dark, even when the surrounding app uses light paper. */
+.ui-v9 #now {--text:#f3f1fa;--muted:#c1bdcf;--accent:#c7b8ff;--accent-soft:#c7b8ff24;--line:#ffffff30;--surface:#232431;--surface-2:#303142}
+.ui-v9 #now :is(.ib,.muted,#nStat,#kStageStatus) {color:#d2cedf}
+.ui-v9 #now #nPlay {background:#e7dfff;color:#17151f}
+.ui-v9 #now #nPlay .ic {color:inherit}
+#nowArtBg {transform:none}
+.ui-v9 #now #nPlay {color:#17151f!important}
+.ui-v9 #now #nPlay .ic {color:#17151f!important;fill:currentColor}
+.ui-v9 #now #nPlay:hover {background:#d7caff;transform:none}

@@ -1,0 +1,52 @@
+PASS clean boot with reference scene active
+PASS 1920 reference cover matches x240 y173 and 600px square
+PASS active lyric matches x1000 y432 anchor
+PASS reference 640px text column and 50px type retained
+PASS reference progress matches x372 y907 and 336px width
+PASS metadata is actually centred, not left-aligned marquee
+PASS legacy cover and eye button cannot overlap the scene
+PASS live WebGL mesh compiles
+PASS rendered colour field visibly evolves over real time
+PASS pause control pauses audio while ambient background keeps drifting
+PASS paused background continues quiet movement in v28
+PASS resume restarts actual audio and fluid renderer
+PASS system reduced-motion stops renderer
+PASS application no-animation setting stops renderer
+PASS new volume control changes the actual media volume
+PASS Escape closes popup without leaving reference scene
+PASS new keyboard seek reaches end of actual track
+PASS new keyboard seek returns to start
+LINE_STATE {
+  active: 3,
+  time: 37.5,
+  top: 432,
+  follow: true,
+  scroll: null,
+  scrollTop: 580,
+  client: 1080,
+  rect: {
+    x: 1000,
+    y: 0,
+    width: 640,
+    height: 1080,
+    top: 0,
+    right: 1640,
+    bottom: 1080,
+    left: 1000
+  },
+  activeRef: true,
+  fn: "(instant=false)=>{if(!this.active())return center(instant);const box=$('lyrics'),node=Karaoke.lineNodes[Karaoke.active];if(!box||!node)return;const rect=box.get",
+  padding: '432px',
+  styleHeight: '1080px',
+  anchor: 0.42
+}
+PASS line change aligns the whole next block to the same anchor
+PASS lyrics switch hides text and centres the cover
+page.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('#albumMore24')
+
+    at /vercel/sandbox/data/kryo-work/kryonyx-music/tests/browser_reference_v24.cjs:16:9 {
+  log: [ "  - waiting for locator('#albumMore24')" ],
+  name: 'TimeoutError'
+}

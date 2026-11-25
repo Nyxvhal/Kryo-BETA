@@ -1,0 +1,126 @@
+{
+  "python_tests": 41,
+  "timing_helper_tests": 11,
+  "actual_renderer_checks": 9,
+  "python_syntax": "pass",
+  "all_javascript_syntax": "pass",
+  "actual_cpu_asr": {
+    "engine": "faster-whisper",
+    "device": "cpu",
+    "lines": 1,
+    "words": 22,
+    "cache_reused": true
+  },
+  "actual_cpu_alignment": {
+    "engine": "stable-ts",
+    "device": "cpu",
+    "lines": 1,
+    "words": 22,
+    "cache_reused": true
+  },
+  "audio_sample": "openai/whisper/tests/jfk.flac (English speech, not a song)",
+  "actual_cpu_fallback_when_cuda_requested": "pass; no physical GPU was available",
+  "cuda_runtime_failure_simulation": "pass (unit mock, not physical GPU validation)",
+  "actual_browser_pipeline": {
+    "boot": [],
+    "live": {
+      "precise": true,
+      "words": 22,
+      "source": "stable-ts",
+      "duration": 11
+    },
+    "timing": {
+      "time": 1.2000000000000002,
+      "fill": 50,
+      "clock": 1.2000000000000002
+    },
+    "operations": {
+      "initial": 50,
+      "paused": 100,
+      "rate": 1.5,
+      "back": 0,
+      "end": 100
+    },
+    "modes": {
+      "split": {
+        "mode": "on",
+        "units": 22,
+        "disc": false
+      },
+      "focus": {
+        "mode": "on focus",
+        "units": 22,
+        "disc": false
+      },
+      "cinema": {
+        "mode": "on focus cinema",
+        "units": 22,
+        "disc": false
+      },
+      "disc": {
+        "mode": "on focus disc",
+        "units": 22,
+        "disc": true
+      }
+    },
+    "syllableFill": [
+      100,
+      100,
+      100,
+      50,
+      0,
+      0
+    ],
+    "japaneseText": "こんにちは世界",
+    "lrc": {
+      "synced": true,
+      "precise": false,
+      "guessed": true
+    },
+    "empty": {
+      "lines": 0,
+      "nodes": 0
+    },
+    "overflow": false,
+    "errors": []
+  },
+  "error_and_cancel_api": {
+    "failed_job": "error",
+    "failed_job_cleanup_finished": true,
+    "fallback_retained": true,
+    "cancelled": "cancelled",
+    "cancel_cleanup_finished": true
+  },
+  "existing_workspace_regressions": {
+    "navigationBack": 1,
+    "navigationForward": 2,
+    "boot": [],
+    "libraryFiltered": 1,
+    "pinned": [
+      "1"
+    ],
+    "checkedDidNotPlay": true,
+    "selected": 6,
+    "beforeDedupe": 12,
+    "afterDedupe": 6,
+    "afterUndo": 12,
+    "savedAll": 6,
+    "movedIndex": 1,
+    "persisted": {
+      "pinned": [
+        "1"
+      ],
+      "rail": true
+    },
+    "overflow": false,
+    "errors": []
+  },
+  "not_tested": [
+    "physical CUDA GPU",
+    "Windows GUI/EXE build",
+    "real Demucs separation",
+    "real song recognition/alignment accuracy across eight languages"
+  ],
+  "syllables": "imported explicit timestamps supported; automatic acoustic syllable generation not implemented",
+  "themes": "nine original palette/style/preset files byte-for-byte unchanged"
+}

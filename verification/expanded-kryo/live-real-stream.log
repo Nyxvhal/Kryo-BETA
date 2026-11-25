@@ -1,0 +1,20 @@
+{
+  "id": "yt:dQw4w9WgXcQ",
+  "scope": "real Kryo resolver, HTTP range, stream API and temporary cache; no resolver substitution or credentials",
+  "samples": [
+    {
+      "status": 206,
+      "bytes": 65536,
+      "content_type": "audio/mp4",
+      "range": "bytes 0-65535/3449447"
+    },
+    {
+      "status": 206,
+      "bytes": 65536,
+      "content_type": "audio/mp4",
+      "range": "bytes 0-65535/3449447"
+    }
+  ],
+  "stats_status": 200,
+  "cache_tracks": 0
+}

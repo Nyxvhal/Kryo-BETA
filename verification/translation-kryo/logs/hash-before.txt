@@ -1,0 +1,25 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________ Video44.test_old_karaoke_hash_is_preserved __________________
+
+self = <test_tiktok_v44.Video44 testMethod=test_old_karaoke_hash_is_preserved>
+
+    def test_old_karaoke_hash_is_preserved(self):
+     provenance=json.loads((R/'verification/repair-v44/karaoke-source.json').read_text())
+     # v45/v61 intentionally redesign clips/More/glass/home. These UI styles are not
+     # lyric engines; retain the v42 hashes for every other original file.
+     redesigned_ui={'kryonyx/web/css/clips-v4.css','kryonyx/web/css/experience-v9.css',
+                    'kryonyx/web/css/repair-v14.css','kryonyx/web/css/repair-v38.css',
+                    'kryonyx/web/css/home-v31.css'}
+     for file,digest in provenance['original_sha256'].items():
+>     if file not in redesigned_ui:self.assertEqual(hashlib.sha256((R/file).read_bytes()).hexdigest(),digest,file)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E     AssertionError: 'd324f9e9f4693c001e22264a0844cd87979627c3d5f70cee4c03bcb781db6b77' != 'c86e6f6bedaf94ca7971dbda6da4dad0a66494eeb2a6312c1ce96faabb1d6643'
+E     - d324f9e9f4693c001e22264a0844cd87979627c3d5f70cee4c03bcb781db6b77
+E     + c86e6f6bedaf94ca7971dbda6da4dad0a66494eeb2a6312c1ce96faabb1d6643
+E      : kryonyx/web/js/karaoke.js
+
+tests/test_tiktok_v44.py:17: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_tiktok_v44.py::Video44::test_old_karaoke_hash_is_preserved
+1 failed in 0.48s

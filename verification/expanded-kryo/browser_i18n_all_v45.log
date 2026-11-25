@@ -1,0 +1,9 @@
+page.evaluate: TypeError: Cannot read properties of undefined (reading 'querySelectorAll')
+    at Object.mode (http://127.0.0.1:8779/js/video-v57.js?v=57:36:273)
+    at Object.open (http://127.0.0.1:8779/js/clips.js?v=73:87:191)
+    at eval (eval at evaluate (:311:30), <anonymous>:1:187)
+    at UtilityScript.evaluate (<anonymous>:313:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at /vercel/sandbox/data/kryo-work/kryonyx-music/tests/browser_i18n_all_v45.cjs:4:10 {
+  log: []
+}

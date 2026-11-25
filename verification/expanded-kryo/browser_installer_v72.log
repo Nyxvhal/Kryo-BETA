@@ -1,0 +1,28 @@
+PASS welcome shows two feature cards with icons and three facts
+PASS aurora visual is built (mark, sweep, orbit dots, 22-bar equaliser, 16 burst sparks)
+PASS step pill covers the current step
+PASS header hairline shows step 1 of 5
+PASS language picker and legal tabs use the 12px UI font (v71 shorthand bug fixed)
+PASS idle motion needs no layout or style work on the main thread
+PASS every endless animation moves only transform/opacity
+PASS animations pause while the window is minimised
+PASS and resume when it is shown again
+PASS step change replays the slide-in
+PASS legal text is reflowed into sentences
+PASS the four legal tabs fit on one row
+PASS pill slides to the next step
+PASS header hairline shows step 3 of 5
+PASS options are switches inside cards
+PASS a click anywhere on the option card toggles it and updates the review
+PASS determinate bar fills by transform with the real percentage
+PASS progress ring appears around the mark
+PASS finish: sparks burst once around the check mark
+PASS finish: the check mark is drawn
+PASS launch is a switch too
+PASS 660×466: no overflow, footer and heading visible
+PASS 660×466: the mark stays inside the visual panel
+PASS 660×466: options scroll inside the page, buttons stay put
+PASS narrow: the mark is centred in the top strip
+PASS reduced motion: nothing animates
+PASS no runtime errors
+INSTALLER_V72_PASS 27

@@ -1,0 +1,13 @@
+PASS search result starts real audio and queues all visible results
+PASS natural ended advances to the next search result
+PASS second natural ended advances without skipping or stalling
+PASS repeat off leaves the last track finished rather than auto-looping
+PASS play after completion restarts the completed track
+PASS repeat-one starts the same track again after real completion
+PASS repeat-all wraps from the final result to the first
+PASS crossfade also advances the search queue on the other audio deck
+PASS search result remains playable after completion and transitions
+PASS quick search suggestions queue all shown track matches
+PASS natural ended also advances from a quick search suggestion
+PASS no runtime exceptions
+PLAYBACK_V28_PASS 12

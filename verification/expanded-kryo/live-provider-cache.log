@@ -1,0 +1,31 @@
+{
+  "id": "yt:dQw4w9WgXcQ",
+  "scope": "live provider resolution and real Kryo streams; temporary cache, no credentials",
+  "statuses": [
+    200,
+    200
+  ],
+  "sizes": [
+    3449447,
+    3449447
+  ],
+  "identical": true,
+  "cache_entry": true,
+  "cached_range": {
+    "status": 206,
+    "bytes": 65536,
+    "matches_first_stream": true
+  },
+  "stats_status": 200,
+  "stats": {
+    "tracks": 1,
+    "bytes": 3449447,
+    "mb": 3.3,
+    "disk_bytes": 3473408,
+    "legacy_files": 0,
+    "mode": "internal",
+    "limit_mb": 2048,
+    "storage": "sqlite",
+    "encrypted": false
+  }
+}

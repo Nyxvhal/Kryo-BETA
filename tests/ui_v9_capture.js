@@ -1,0 +1,8 @@
+/* Local screenshot fixture only; not included by the production page. */
+addEventListener('DOMContentLoaded',()=>{const timer=setInterval(async()=>{if(!document.body.classList.contains('ui-v9'))return;const state=new URLSearchParams(location.search).get('capture9');if(!state){clearInterval(timer);return;}clearInterval(timer);
+if(state==='search'){App.go('search');$('q').value='CG5';$('q').focus();Hints.armed=true;await Hints.show('CG5');}
+if(state==='clips'){await Clips.open(null);}
+if(state==='recommend'){await Views.renderHome(false);$('ui8RecTools').scrollIntoView({block:'start'});}
+if(state==='karaoke'||state==='visualizer'){const t={id:'local:capture9',title:'Ночная волна · Демо',artist:'Демо · Северный ветер',source:'local',duration:10,thumbnail:'/img/avatars/kryonyx-vibe-08-winter-aurora.png'};Player.current=t;Player.queue=[t];Player.index=0;Player.wantPlay=false;Player.paintTrack();Player.audio.src='/fixture-tone.wav';await new Promise(r=>{Player.audio.addEventListener('loadedmetadata',r,{once:true});Player.audio.load();if(Player.audio.readyState>=1)r();});Player.audio.currentTime=4.5;await Karaoke.onTrack(t);S.karaokeMode=state==='visualizer'?'viz':'split';S.ui9={...S.ui9,stage:'aurora'};$('now').dataset.performance='aurora';$('ui9StageSkin').value='aurora';App.applyKaraoke();App.openNow();Karaoke.stop();Karaoke.lines=['В городе гаснут огни','Мы выбираем свой ритм','Музыка ближе, чем кажется','Каждая строчка звучит','Ночь оставляет нам свет'].map((text,i)=>({text,time:i*2,end:i*2+2,duration:2,gap:0}));Karaoke.synced=true;Karaoke.render();Karaoke.seek(4.5);KaraokeTools.loaded({lines:Karaoke.lines,synced:true});}
+setTimeout(()=>{$('toast').classList.remove('on');document.activeElement.blur();},300);
+},50);});

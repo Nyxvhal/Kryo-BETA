@@ -1,0 +1,134 @@
+[
+  {
+    "lang": "ru",
+    "covered": 1934,
+    "wrong": [],
+    "clipStatus": "Готов к запуску",
+    "expectedClip": "Выберите клип из очереди или вставьте ссылку YouTube",
+    "hardware": "Авто · GPU / CPU",
+    "expectedHardware": "Авто · GPU / CPU",
+    "portrait": "76 VTuber портреты",
+    "expectedPortrait": "76 VTuber портреты"
+  },
+  {
+    "lang": "es",
+    "covered": 1934,
+    "wrong": [],
+    "clipStatus": "Listo para iniciar",
+    "expectedClip": "Elija un vídeo de la cola o pegue un enlace de YouTube",
+    "hardware": "Automático · GPU / CPU",
+    "expectedHardware": "Automático · GPU / CPU",
+    "portrait": "Retratos de 76 VTuber",
+    "expectedPortrait": "Retratos de 76 VTuber"
+  },
+  {
+    "lang": "pt",
+    "covered": 1934,
+    "wrong": [],
+    "clipStatus": "Pronto para iniciar",
+    "expectedClip": "Escolha um vídeo da fila ou cole um link do YouTube",
+    "hardware": "Automático · GPU/CPU",
+    "expectedHardware": "Automático · GPU/CPU",
+    "portrait": "Retratos 76 VTuber",
+    "expectedPortrait": "Retratos 76 VTuber"
+  },
+  {
+    "lang": "de",
+    "covered": 1934,
+    "wrong": [],
+    "clipStatus": "Startbereit",
+    "expectedClip": "Wählen Sie ein Video aus der Warteschlange oder fügen Sie einen YouTube-Link ein",
+    "hardware": "Automatisch · GPU / CPU",
+    "expectedHardware": "Automatisch · GPU / CPU",
+    "portrait": "76 VTuber-Porträts",
+    "expectedPortrait": "76 VTuber-Porträts"
+  },
+  {
+    "lang": "fr",
+    "covered": 1934,
+    "wrong": [],
+    "clipStatus": "Prêt à démarrer",
+    "expectedClip": "Choisissez une vidéo dans la file d'attente ou collez un lien YouTube",
+    "hardware": "Automatique · GPU / CPU",
+    "expectedHardware": "Automatique · GPU / CPU",
+    "portrait": "Portraits de 76 VTuber",
+    "expectedPortrait": "Portraits de 76 VTuber"
+  },
+  {
+    "lang": "it",
+    "covered": 1934,
+    "wrong": [],
+    "clipStatus": "Pronto per iniziare",
+    "expectedClip": "Scegli un video dalla coda o incolla un collegamento YouTube",
+    "hardware": "Automatico · GPU/CPU",
+    "expectedHardware": "Automatico · GPU/CPU",
+    "portrait": "Ritratti di 76 VTuber",
+    "expectedPortrait": "Ritratti di 76 VTuber"
+  },
+  {
+    "lang": "tr",
+    "covered": 1934,
+    "wrong": [],
+    "clipStatus": "Başlamaya hazır",
+    "expectedClip": "Sıradan bir video seçin veya bir YouTube bağlantısını yapıştırın",
+    "hardware": "Otomatik · GPU / CPU",
+    "expectedHardware": "Otomatik · GPU / CPU",
+    "portrait": "76 VTuber portreleri",
+    "expectedPortrait": "76 VTuber portreleri"
+  },
+  {
+    "lang": "pl",
+    "covered": 1934,
+    "wrong": [],
+    "clipStatus": "Gotowe do uruchomienia",
+    "expectedClip": "Wybierz film z kolejki lub wklej link do YouTube",
+    "hardware": "Automatycznie · Karta graficzna/procesor",
+    "expectedHardware": "Automatycznie · Karta graficzna/procesor",
+    "portrait": "Portrety 76 VTuber",
+    "expectedPortrait": "Portrety 76 VTuber"
+  },
+  {
+    "lang": "uk",
+    "covered": 1934,
+    "wrong": [],
+    "clipStatus": "Готово до запуску",
+    "expectedClip": "Виберіть відео з черги або вставте посилання на YouTube",
+    "hardware": "Авто · GPU / CPU",
+    "expectedHardware": "Авто · GPU / CPU",
+    "portrait": "76 VTuber портрети",
+    "expectedPortrait": "76 VTuber портрети"
+  },
+  {
+    "lang": "zh",
+    "covered": 1934,
+    "wrong": [],
+    "clipStatus": "准备就绪",
+    "expectedClip": "从队列中选择视频或粘贴 YouTube 链接",
+    "hardware": "自动·GPU/CPU",
+    "expectedHardware": "自动·GPU/CPU",
+    "portrait": "76 VTuber写真",
+    "expectedPortrait": "76 VTuber写真"
+  },
+  {
+    "lang": "ja",
+    "covered": 1934,
+    "wrong": [],
+    "clipStatus": "開始できます",
+    "expectedClip": "キューからビデオを選択するか、YouTube リンクを貼り付けます",
+    "hardware": "自動・GPU/CPU",
+    "expectedHardware": "自動・GPU/CPU",
+    "portrait": "76 VTuber ポートレート",
+    "expectedPortrait": "76 VTuber ポートレート"
+  },
+  {
+    "lang": "en",
+    "covered": 1934,
+    "wrong": [],
+    "clipStatus": "Ready to start",
+    "expectedClip": "Choose a video from the queue or paste a YouTube link",
+    "hardware": "Auto · GPU / CPU",
+    "expectedHardware": "Auto · GPU / CPU",
+    "portrait": "76 VTuber portraits",
+    "expectedPortrait": "76 VTuber portraits"
+  }
+]

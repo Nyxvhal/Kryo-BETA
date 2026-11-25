@@ -1,0 +1,12 @@
+AssertionError [ERR_ASSERTION]: 12 natural track ends
+
+10 !== 12
+
+    at /vercel/sandbox/data/kryo-work/kryonyx-music/tests/browser_soak_audio_kryo.cjs:25:9 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 10,
+  expected: 12,
+  operator: 'strictEqual',
+  diff: 'simple'
+}

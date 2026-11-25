@@ -1,0 +1,43 @@
+/* A gentler application surface, without changing selected fonts, artwork or motion. */
+body.workspace-shell :is(#app,#player,#mobNav,#queue,#clips,.modal:not(.karaoke52)){
+ -webkit-font-smoothing:antialiased;
+}
+body.workspace-shell #app :is(h1,h2,h3){font-weight:600!important;letter-spacing:-.018em}
+body.workspace-shell #app :is(.nav,.card .title,.row .title,.workspace-library-title){font-weight:500!important}
+body.workspace-shell #app :is(h1,h2,h3,.nav,.card .title,.row .title,.workspace-library-title),
+body.workspace-shell #player #pTitle{color:color-mix(in srgb,var(--text) 91%,var(--bg))!important}
+body.workspace-shell #player #pTitle{font-weight:500!important;line-height:1.4}
+body.workspace-shell #player #pArtist{font-weight:400!important;line-height:1.4}
+body.workspace-shell #player :is(.track .fill,.track .knob){box-shadow:none!important;filter:none!important}
+/* OLED's pure white controls were especially stark. Keep other palette choices intact. */
+body.oled70.workspace-shell #player :is(#pPlay,#pMobPlay){background:color-mix(in srgb,var(--text) 91%,var(--bg))!important;color:var(--on-fill)!important;box-shadow:none!important}
+body.oled70.workspace-shell #homeHead31 .btn{box-shadow:none!important}
+/* The existing Wave control is a real on/off switch, not a navigation link. */
+body.workspace-shell.ui-v61 #player #pBtns #waveDock61{
+ width:max-content!important;min-width:44px!important;max-width:none!important;aspect-ratio:auto!important;height:44px!important;padding:0 12px!important;
+ display:inline-flex!important;align-items:center;justify-content:center;gap:7px;
+ border:1px solid color-mix(in srgb,var(--text) 26%,transparent)!important;
+ border-radius:12px!important;color:var(--text)!important;background:transparent!important;
+}
+body.workspace-shell.ui-v61 #player #pBtns #waveDock61[aria-pressed=true]{
+ color:var(--text)!important;
+ background:color-mix(in srgb,var(--u52-accent,var(--accent)) 18%,transparent)!important;
+ border-color:color-mix(in srgb,var(--u52-focus,var(--accent)) 60%,transparent)!important;
+}
+#waveDock61 .wave-dock-label76{font-family:inherit;font-size:13px;line-height:1.2;font-weight:500;white-space:nowrap}
+body.workspace-shell.ui-v61 #player #waveDock61 > svg{flex:none}
+@media(max-width:1200px){
+ body.workspace-shell.ui-v61 #player #pBtns #waveDock61{width:44px!important;padding:0!important}
+ #waveDock61 .wave-dock-label76{display:none}
+}
+@media(max-width:650px){body.workspace-shell.ui-v61 #player #pBtns #waveDock61{display:none!important}}
+/* Keep the touch toggle recognizable in the compact player, including when off. */
+body.workspace-shell.ui-v61 #player #waveMobileToggle74{
+ border:1px solid color-mix(in srgb,var(--text) 26%,transparent)!important;
+ border-radius:12px!important;
+}
+body.workspace-shell #app :is(.btn,.chip){font-weight:550!important}
+
+/* Other application panes use the same softer hierarchy; karaoke stays untouched. */
+body.workspace-shell :is(#queue,#clips,.modal:not(.karaoke52)) :is(h1,h2,h3){font-weight:600!important;letter-spacing:-.018em}
+body.workspace-shell :is(#queue,#clips,.modal:not(.karaoke52)) :is(.btn,.chip){font-weight:550!important}

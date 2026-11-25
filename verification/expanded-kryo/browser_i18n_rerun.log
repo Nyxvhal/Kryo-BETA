@@ -1,0 +1,14 @@
+AssertionError [ERR_ASSERTION]: clip status ru
++ actual - expected
+
++ 'Готов к запуску'
+- 'Выберите клип из очереди или вставьте ссылку YouTube'
+
+    at /vercel/sandbox/data/kryo-work/kryonyx-music/tests/browser_i18n_all_v45.cjs:6:84 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 'Готов к запуску',
+  expected: 'Выберите клип из очереди или вставьте ссылку YouTube',
+  operator: 'strictEqual',
+  diff: 'simple'
+}

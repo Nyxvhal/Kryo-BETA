@@ -1,0 +1,11 @@
+/* Stable, equal-height recommendation cards without changing the Classic shell. */
+body.ui-v31 #rows.home-grid31{align-items:stretch}
+body.ui-v31 #rows .track-shell30{height:100%}
+body.ui-v31 #rows .track-shell30>.card{flex:1 1 auto;min-height:0}
+body.ui-v31 #rows .track-actions30{margin-top:auto;min-height:48px;align-items:center}
+body.ui-v31 #rows .track-actions30 .ib{min-width:44px;min-height:44px}
+body.ui-v31 #rows .card .t{line-height:1.4}
+.recommend-toggle66{display:flex;align-items:center;gap:8px;min-height:44px;max-width:280px;font-size:13px;line-height:1.35;color:var(--text);cursor:pointer}
+.recommend-toggle66 input{width:18px;height:18px;accent-color:var(--accent);flex:none}
+@media(max-width:700px){.recommend-toggle66{width:100%;max-width:none}}
+/* v71: the clip ambient background and its menu are styled in cinema-v71.css. */

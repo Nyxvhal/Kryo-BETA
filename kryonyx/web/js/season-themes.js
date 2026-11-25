@@ -1,0 +1,87 @@
+/* Ironmouse seasons 1–4, distinct from alternate OVA costumes. */
+'use strict';
+Object.assign(SKETCH_SKINS, {
+  "vt-ironmouse-season-1": {
+    "name": "Ironmouse · Season 1",
+    "note": "Ketama · 2019",
+    "ink": "#faf1fb",
+    "paper": "#201a28",
+    "sky": "#e19fcf",
+    "gold": "#beb6f0",
+    "blush": "#beb6f0",
+    "coral": "#e19fcf",
+    "dark": true,
+    "doodles": "demon",
+    "tex": "plain",
+    "mark": "dot",
+    "family": "vtuber",
+    "avatar": "portrait-v12-ironmouse-season-1",
+    "referenceVariant": "Season 1",
+    "referenceUrl": "https://www.ironmousemodelindex.com/model0001",
+    "referenceType": "community",
+    "referenceImage": "/img/theme-refs/vt-ironmouse-season-1.webp"
+  },
+  "vt-ironmouse-season-2": {
+    "name": "Ironmouse · Season 2",
+    "note": "Tiny Queen / Nia · 2021",
+    "ink": "#f8edf7",
+    "paper": "#1c1422",
+    "sky": "#e6a0c8",
+    "gold": "#c3acf5",
+    "blush": "#c3acf5",
+    "coral": "#e6a0c8",
+    "dark": true,
+    "doodles": "crown",
+    "tex": "plain",
+    "mark": "dot",
+    "family": "vtuber",
+    "avatar": "portrait-v12-ironmouse-season-2",
+    "referenceVariant": "Season 2",
+    "referenceUrl": "https://www.ironmousemodelindex.com/model0005",
+    "referenceType": "community",
+    "referenceImage": "/img/theme-refs/vt-ironmouse-season-2.webp"
+  },
+  "vt-ironmouse-season-3": {
+    "name": "Ironmouse · Season 3",
+    "note": "Rosuuri · 2023",
+    "ink": "#fcf2fa",
+    "paper": "#21182a",
+    "sky": "#ef9aca",
+    "gold": "#bcb0f4",
+    "blush": "#bcb0f4",
+    "coral": "#ef9aca",
+    "dark": true,
+    "doodles": "bat",
+    "tex": "plain",
+    "mark": "dot",
+    "family": "vtuber",
+    "avatar": "portrait-v12-ironmouse-season-3",
+    "referenceVariant": "Season 3",
+    "referenceUrl": "https://www.ironmousemodelindex.com/model0025",
+    "referenceType": "community",
+    "referenceImage": "/img/theme-refs/vt-ironmouse-season-3.webp"
+  },
+  "vt-ironmouse-season-4": {
+    "name": "Ironmouse · Season 4",
+    "note": "epebe / Rosuuri · 2026",
+    "ink": "#f9effa",
+    "paper": "#17121f",
+    "sky": "#f29bd5",
+    "gold": "#bca4ff",
+    "blush": "#bca4ff",
+    "coral": "#f29bd5",
+    "dark": true,
+    "doodles": "wings",
+    "tex": "plain",
+    "mark": "dot",
+    "family": "vtuber",
+    "avatar": "portrait-v12-ironmouse-season-4",
+    "referenceVariant": "Season 4",
+    "referenceUrl": "https://www.ironmousemodelindex.com/model0053",
+    "referenceType": "community",
+    "referenceImage": "/img/theme-refs/vt-ironmouse-season-4.webp"
+  }
+});
+
+// Seasons keep their palettes but share the creator's current official channel avatar.
+Object.entries(SKETCH_SKINS).filter(([id])=>id.startsWith('vt-ironmouse-season-')).forEach(([id,skin])=>{skin.referenceImage=SKETCH_SKINS['vt-ironmouse'].referenceImage;skin.channelUrl=SKETCH_SKINS['vt-ironmouse'].channelUrl;skin.channelAvatarStatus=SKETCH_SKINS['vt-ironmouse'].channelAvatarStatus;});

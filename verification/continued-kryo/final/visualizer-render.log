@@ -1,0 +1,34 @@
+PASS real WAV drives FFT, not synthetic bars
+PASS one media graph and no second visualization scheduler
+PASS 20 orbital renders create no MediaQueryLists
+PASS audio does not scale full scene or reflow title letter spacing
+PASS paused player releases RAF and housekeeping timer
+PASS paused visible metadata has no perpetual marquee animation
+PASS visualizer has no horizontal overflow 390
+PASS controls have nonoverlapping hit targets 390
+PASS visualizer has no horizontal overflow 800
+PASS controls have nonoverlapping hit targets 800
+PASS visualizer has no horizontal overflow 1440
+PASS controls have nonoverlapping hit targets 1440
+PASS settings hide animation work but not music
+PASS covered marquees pause
+PASS economy setting is persisted in payload
+PASS economy reduces only graphical budget
+PASS spectrum mode remains operational bars
+PASS spectrum mode remains operational mirror
+PASS spectrum mode remains operational dots
+PASS spectrum mode remains operational wave
+PASS spectrum mode remains operational led
+PASS spectrum mode remains operational line
+PASS spectrum mode remains operational spike
+PASS spectrum mode remains operational top
+PASS background mode remains operational orbit
+PASS background mode remains operational classic
+PASS background mode remains operational aurora
+PASS hidden document stops canvas while media continues
+PASS returning document resumes from real media time
+PASS reduced motion keeps audio signal but freezes travel
+PASS seek remains five real seconds, independent of render FPS
+PASS detached marquee releases observers and animation
+PASS rendering preference survives reload
+PASS no runtime errors

@@ -1,0 +1,35 @@
+PASS alignment and unchanged document
+PASS retain successes after connection failure and retry only failed
+PASS mode split
+PASS mode focus
+PASS mode cinema
+PASS mode disc
+LIMITATION visualizer facade is disabled in supplied project
+PASS hide/show and manual scroll
+PASS partial retry
+PASS non-JSON failure
+PASS cancellation
+PASS stale lyrics rejected
+PASS stale target rejected
+PASS stale track rejected
+PASS idempotent initialization
+PASS panel 390x844
+PASS panel 768x900
+PASS panel 1280x720
+PASS panel 1366x768
+PASS panel 1920x1080
+PASS zoomed translation panel 390x844 85%
+PASS zoomed translation panel 390x844 125%
+PASS zoomed translation panel 768x900 85%
+PASS zoomed translation panel 768x900 125%
+PASS zoomed translation panel 1280x720 85%
+PASS zoomed translation panel 1280x720 125%
+PASS zoomed translation panel 1366x768 85%
+PASS zoomed translation panel 1366x768 125%
+PASS zoomed translation panel 1920x1080 85%
+PASS zoomed translation panel 1920x1080 125%
+PASS unsynced text
+PASS outside click
+ALBUM {"p":{"x":8,"y":288.984375,"width":540,"height":361,"top":288.984375,"right":548,"bottom":649.984375,"left":8},"a":{"x":262.390625,"y":657.984375,"width":44,"height":44,"top":657.984375,"right":306.390625,"bottom":701.984375,"left":262.390625},"style":"max-width: 1264px; max-height: 704px; left: 8px; top: 288.984px;","vv":{"offsetTop":0,"height":720,"width":1280},"viewport":[1280,720]}
+PASS album anchor and focus
+PASS no runtime errors

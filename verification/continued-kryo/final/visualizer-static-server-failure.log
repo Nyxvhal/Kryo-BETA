@@ -1,0 +1,21 @@
+PASS existing third mode now mounts one orbital canvas
+PASS no duplicate frame scheduler or audio context
+PASS background resolution is bounded
+PASS silent source is not presented as real signal
+PASS obsolete return button cannot cover Exit
+PASS scene renders from existing player clock
+PASS generated WAV drives real FFT and radial spectrum
+PASS audio-reactive status is honest
+PASS frequency bands use actual sample rate, not array fractions
+PASS pause freezes scene travel instead of inventing motion
+PASS paused FFT and orbit decay toward silence
+AssertionError [ERR_ASSERTION]: focused seek bar advances five seconds only once
+    at check (/vercel/sandbox/data/kryo-work/kryonyx-music/tests/browser_visualizer_v32.cjs:3:193)
+    at /vercel/sandbox/data/kryo-work/kryonyx-music/tests/browser_visualizer_v32.cjs:9:179 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

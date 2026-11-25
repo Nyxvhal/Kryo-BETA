@@ -1,0 +1,945 @@
+[
+  {
+    "themeId": "vt-ironmouse",
+    "name": "Ironmouse",
+    "avatarId": "portrait-v12-ironmouse",
+    "referenceImage": "/img/theme-refs/vt-ironmouse.webp",
+    "page": "https://www.rosuuri.com/vtubers/ironmouse",
+    "imageSource": "https://static.wixstatic.com/media/d49f40_7c9d4136378a455b96a20a0f06bdc54c~mv2.png/v1/fit/w_960,h_1614,q_90/d49f40_7c9d4136378a455b96a20a0f06bdc54c~mv2.png",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Demon Princess · pink, black, hearts"
+  },
+  {
+    "themeId": "vt-gawr-gura",
+    "name": "Gawr Gura",
+    "avatarId": "portrait-v12-gawr-gura",
+    "referenceImage": "/img/theme-refs/vt-gawr-gura.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/gawr-gura/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2024/05/Gawr-Gura_pr-img_01.png",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Shark hoodie blue, white, teeth"
+  },
+  {
+    "themeId": "vt-sameko-saba",
+    "name": "Sameko Saba",
+    "avatarId": "portrait-v12-sameko-saba",
+    "referenceImage": "/img/theme-refs/vt-sameko-saba.webp",
+    "page": "https://www.youtube.com/@SamekoSaba",
+    "imageSource": "https://yt3.googleusercontent.com/gNZv93GVlg3GAco7HTg2OXl_9s2Pm3lG6DxNfOXqPkLRNcM5BSEOAcQGpgQ8AejiEam5ElLG=s900-c-k-c0x00ffffff-no-rj",
+    "kind": "channel-avatar",
+    "credits": [],
+    "note": "Channel avatar"
+  },
+  {
+    "themeId": "vt-mori-calliope",
+    "name": "Mori Calliope",
+    "avatarId": "portrait-v12-mori-calliope",
+    "referenceImage": "/img/theme-refs/vt-mori-calliope.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/mori-calliope/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/07/Mori-Calliope_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Scythe and crown · black, pink, gold"
+  },
+  {
+    "themeId": "vt-takanashi-kiara",
+    "name": "Takanashi Kiara",
+    "avatarId": "portrait-v12-takanashi-kiara",
+    "referenceImage": "/img/theme-refs/vt-takanashi-kiara.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/takanashi-kiara/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/07/Takanashi-Kiara_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Phoenix · orange, turquoise, feathers"
+  },
+  {
+    "themeId": "vt-ninomae-ina-nis",
+    "name": "Ninomae Ina'nis",
+    "avatarId": "portrait-v12-ninomae-ina-nis",
+    "referenceImage": "/img/theme-refs/vt-ninomae-ina-nis.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/ninomae-inanis/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/07/Ninomae-Inanis_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Takodachi purple and gold accents"
+  },
+  {
+    "themeId": "vt-watson-amelia",
+    "name": "Watson Amelia",
+    "avatarId": "portrait-v12-watson-amelia",
+    "referenceImage": "/img/theme-refs/vt-watson-amelia.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/watson-amelia/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/07/Watson-Amelia_pr-img_01.png",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Detective · beige raincoat and pocket watch"
+  },
+  {
+    "themeId": "vt-irys",
+    "name": "IRyS",
+    "avatarId": "portrait-v12-irys",
+    "referenceImage": "/img/theme-refs/vt-irys.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/irys/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/07/IRyS_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Nephilim · wine, white, crystals"
+  },
+  {
+    "themeId": "vt-ceres-fauna",
+    "name": "Ceres Fauna",
+    "avatarId": "portrait-v12-ceres-fauna",
+    "referenceImage": "/img/theme-refs/vt-ceres-fauna.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/ceres-fauna/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2023/10/Ceres-Fauna_pr-img_01.png",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Guardian of nature · branches and greenery"
+  },
+  {
+    "themeId": "vt-ouro-kronii",
+    "name": "Ouro Kronii",
+    "avatarId": "portrait-v12-ouro-kronii",
+    "referenceImage": "/img/theme-refs/vt-ouro-kronii.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/ouro-kronii/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/07/Ouro-Kronii_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Timekeeper · blue, gold, watch"
+  },
+  {
+    "themeId": "vt-nanashi-mumei",
+    "name": "Nanashi Mumei",
+    "avatarId": "portrait-v12-nanashi-mumei",
+    "referenceImage": "/img/theme-refs/vt-nanashi-mumei.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/nanashi-mumei/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2023/10/Nanashi-Mumei_pr-img_01.png",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Civilization · owl feathers and sand tones"
+  },
+  {
+    "themeId": "vt-hakos-baelz",
+    "name": "Hakos Baelz",
+    "avatarId": "portrait-v12-hakos-baelz",
+    "referenceImage": "/img/theme-refs/vt-hakos-baelz.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/hakos-baelz/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/07/Hakos-Baelz_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Chaos · red, black, dice"
+  },
+  {
+    "themeId": "vt-tsukumo-sana",
+    "name": "Tsukumo Sana",
+    "avatarId": "portrait-v12-tsukumo-sana",
+    "referenceImage": "/img/theme-refs/vt-tsukumo-sana.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/tsukumo-sana/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2023/09/Tsukumo-Sana_pr-img_01.png",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Space · orbits, constellations, gold"
+  },
+  {
+    "themeId": "vt-shiori-novella",
+    "name": "Shiori Novella",
+    "avatarId": "portrait-v12-shiori-novella",
+    "referenceImage": "/img/theme-refs/vt-shiori-novella.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/shiori-novella/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2021/07/Shiori-Novella_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Archivist · black, white, yellow eyes"
+  },
+  {
+    "themeId": "vt-koseki-bijou",
+    "name": "Koseki Bijou",
+    "avatarId": "portrait-v12-koseki-bijou",
+    "referenceImage": "/img/theme-refs/vt-koseki-bijou.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/koseki-bijou/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2021/07/Koseki-Bijou_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Crystals Lavender and Stone Gray"
+  },
+  {
+    "themeId": "vt-nerissa-ravencroft",
+    "name": "Nerissa Ravencroft",
+    "avatarId": "portrait-v12-nerissa-ravencroft",
+    "referenceImage": "/img/theme-refs/vt-nerissa-ravencroft.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/nerissa-ravencroft/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2021/07/Nerissa-Ravencroft_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Raven · dark blue, feathers, lilac"
+  },
+  {
+    "themeId": "vt-fuwawa-abyssgard",
+    "name": "Fuwawa Abyssgard",
+    "avatarId": "portrait-v12-fuwawa-abyssgard",
+    "referenceImage": "/img/theme-refs/vt-fuwawa-abyssgard.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/fuwawa-abyssgard/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2021/07/Fuwawa-Abyssgard_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "FuwaMoco · sky blue and white bows"
+  },
+  {
+    "themeId": "vt-mococo-abyssgard",
+    "name": "Mococo Abyssgard",
+    "avatarId": "portrait-v12-mococo-abyssgard",
+    "referenceImage": "/img/theme-refs/vt-mococo-abyssgard.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/mococo-abyssgard/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2021/07/Mococo-Abyssgard_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "FuwaMoco · pink, white, bows"
+  },
+  {
+    "themeId": "vt-elizabeth-rose-bloodflame",
+    "name": "Elizabeth Rose Bloodflame",
+    "avatarId": "portrait-v12-elizabeth-rose-bloodflame",
+    "referenceImage": "/img/theme-refs/vt-elizabeth-rose-bloodflame.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/elizabeth-rose-bloodflame/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2023/07/Elizabeth-Rose-Bloodflame_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Bloodflame · red hair, black, gold"
+  },
+  {
+    "themeId": "vt-gigi-murin",
+    "name": "Gigi Murin",
+    "avatarId": "portrait-v12-gigi-murin",
+    "referenceImage": "/img/theme-refs/vt-gigi-murin.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/gigi-murin/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2023/07/Gigi-Murin_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Gremlin · red, cream, claws"
+  },
+  {
+    "themeId": "vt-cecilia-immergreen",
+    "name": "Cecilia Immergreen",
+    "avatarId": "portrait-v12-cecilia-immergreen",
+    "referenceImage": "/img/theme-refs/vt-cecilia-immergreen.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/cecilia-immergreen/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2023/07/Cecilia-Immergreen_pr-img_01.png",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Automaton · green, gold, violin"
+  },
+  {
+    "themeId": "vt-raora-panthera",
+    "name": "Raora Panthera",
+    "avatarId": "portrait-v12-raora-panthera",
+    "referenceImage": "/img/theme-refs/vt-raora-panthera.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/raora-panthera/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2023/07/Raora-Panthera_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Pink Panther brush and turquoise accents"
+  },
+  {
+    "themeId": "vt-hoshimachi-suisei",
+    "name": "Hoshimachi Suisei",
+    "avatarId": "portrait-v12-hoshimachi-suisei",
+    "referenceImage": "/img/theme-refs/vt-hoshimachi-suisei.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/hoshimachi-suisei/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Hoshimachi-Suisei_pr-img_01.png",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Comet · blue tartan and stars"
+  },
+  {
+    "themeId": "vt-sakura-miko",
+    "name": "Sakura Miko",
+    "avatarId": "portrait-v12-sakura-miko",
+    "referenceImage": "/img/theme-refs/vt-sakura-miko.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/sakuramiko/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Sakura-Miko_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Miko · pink, white, red cords"
+  },
+  {
+    "themeId": "vt-tokino-sora",
+    "name": "Tokino Sora",
+    "avatarId": "portrait-v12-tokino-sora",
+    "referenceImage": "/img/theme-refs/vt-tokino-sora.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/tokino-sora/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Tokino-Sora_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Idol · blue, white, gold stars"
+  },
+  {
+    "themeId": "vt-azki",
+    "name": "AZKi",
+    "avatarId": "portrait-v12-azki",
+    "referenceImage": "/img/theme-refs/vt-azki.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/azki/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/AZKi_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Singer · black, white, pink"
+  },
+  {
+    "themeId": "vt-roboco-san",
+    "name": "Roboco-san",
+    "avatarId": "portrait-v12-roboco-san",
+    "referenceImage": "/img/theme-refs/vt-roboco-san.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/roboco-san/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Robocosan_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Robot · silver, black, pink connections"
+  },
+  {
+    "themeId": "vt-akai-haato",
+    "name": "Akai Haato",
+    "avatarId": "portrait-v12-akai-haato",
+    "referenceImage": "/img/theme-refs/vt-akai-haato.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/akai-haato/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Akai-Haato_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Haachama · blond, red ribbons, blue"
+  },
+  {
+    "themeId": "vt-shirakami-fubuki",
+    "name": "Shirakami Fubuki",
+    "avatarId": "portrait-v12-shirakami-fubuki",
+    "referenceImage": "/img/theme-refs/vt-shirakami-fubuki.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/shirakami-fubuki/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Shirakami-Fubuki_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "White fox · blue, dark blue, tail"
+  },
+  {
+    "themeId": "vt-natsuiro-matsuri",
+    "name": "Natsuiro Matsuri",
+    "avatarId": "portrait-v12-natsuiro-matsuri",
+    "referenceImage": "/img/theme-refs/vt-natsuiro-matsuri.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/natsuiro-matsuri/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Natsuiro-Matsuri_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Summer Festival · chestnut, orange, blue"
+  },
+  {
+    "themeId": "vt-aki-rosenthal",
+    "name": "Aki Rosenthal",
+    "avatarId": "portrait-v12-aki-rosenthal",
+    "referenceImage": "/img/theme-refs/vt-aki-rosenthal.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/aki-rosenthal/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Aki-Rosenthal_pr-img_01.png",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Elf · blonde, pink and turquoise"
+  },
+  {
+    "themeId": "vt-yozora-mel",
+    "name": "Yozora Mel",
+    "avatarId": "portrait-v12-yozora-mel",
+    "referenceImage": "/img/theme-refs/vt-yozora-mel.webp",
+    "page": "https://hololive.wiki/wiki/Yozora_Mel",
+    "imageSource": "https://static.wikitide.net/hololivewiki/thumb/f/fe/Yozora_Mel_-_Portrait_01-2.png/290px-Yozora_Mel_-_Portrait_01-2.png",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Vampire · amber, black, bats"
+  },
+  {
+    "themeId": "vt-minato-aqua",
+    "name": "Minato Aqua",
+    "avatarId": "portrait-v12-minato-aqua",
+    "referenceImage": "/img/theme-refs/vt-minato-aqua.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/minato-aqua/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2023/09/Minato-Aqua_pr-img_01.png",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Maid · mauve, sea bow"
+  },
+  {
+    "themeId": "vt-murasaki-shion",
+    "name": "Murasaki Shion",
+    "avatarId": "portrait-v12-murasaki-shion",
+    "referenceImage": "/img/theme-refs/vt-murasaki-shion.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/murasaki-shion/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Murasaki-Shion_pr-img_01.png",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Witch · purple, hat, crescent"
+  },
+  {
+    "themeId": "vt-nakiri-ayame",
+    "name": "Nakiri Ayame",
+    "avatarId": "portrait-v12-nakiri-ayame",
+    "referenceImage": "/img/theme-refs/vt-nakiri-ayame.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/nakiri-ayame/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Nakiri-Ayame_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "They have silver hair, red horns"
+  },
+  {
+    "themeId": "vt-yuzuki-choco",
+    "name": "Yuzuki Choco",
+    "avatarId": "portrait-v12-yuzuki-choco",
+    "referenceImage": "/img/theme-refs/vt-yuzuki-choco.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/yuzuki-choco/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Yuzuki-Choco_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Demonic nurse · blond and black"
+  },
+  {
+    "themeId": "vt-oozora-subaru",
+    "name": "Oozora Subaru",
+    "avatarId": "portrait-v12-oozora-subaru",
+    "referenceImage": "/img/theme-refs/vt-oozora-subaru.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/oozora-subaru/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Oozora-Subaru_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Sports · green, white, yellow duckling"
+  },
+  {
+    "themeId": "vt-ookami-mio",
+    "name": "Ookami Mio",
+    "avatarId": "portrait-v12-ookami-mio",
+    "referenceImage": "/img/theme-refs/vt-ookami-mio.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/ookami-mio/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Ookami-Mio_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "She-wolf · black, red, green accents"
+  },
+  {
+    "themeId": "vt-nekomata-okayu",
+    "name": "Nekomata Okayu",
+    "avatarId": "portrait-v12-nekomata-okayu",
+    "referenceImage": "/img/theme-refs/vt-nekomata-okayu.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/nekomata-okayu/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Nekomata-Okayu_pr-img_01.png",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Cat · lilac and rice onigiri"
+  },
+  {
+    "themeId": "vt-inugami-korone",
+    "name": "Inugami Korone",
+    "avatarId": "portrait-v12-inugami-korone",
+    "referenceImage": "/img/theme-refs/vt-inugami-korone.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/inugami-korone/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Inugami-Korone_pr-img_01.png",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Dog · chestnut, mustard, bone"
+  },
+  {
+    "themeId": "vt-usada-pekora",
+    "name": "Usada Pekora",
+    "avatarId": "portrait-v12-usada-pekora",
+    "referenceImage": "/img/theme-refs/vt-usada-pekora.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/usada-pekora/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Usada-Pekora_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Rabbit · blue braids and orange carrots"
+  },
+  {
+    "themeId": "vt-uruha-rushia",
+    "name": "Uruha Rushia",
+    "avatarId": "portrait-v12-uruha-rushia",
+    "referenceImage": "/img/theme-refs/vt-uruha-rushia.webp",
+    "page": "https://hololive.wiki/wiki/Uruha_Rushia",
+    "imageSource": "https://static.wikitide.net/hololivewiki/thumb/1/16/Uruha_Rushia_-_Portrait_01.png/290px-Uruha_Rushia_-_Portrait_01.png",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Necromancer · mint, black, butterflies"
+  },
+  {
+    "themeId": "vt-shiranui-flare",
+    "name": "Shiranui Flare",
+    "avatarId": "portrait-v12-shiranui-flare",
+    "referenceImage": "/img/theme-refs/vt-shiranui-flare.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/shiranui-flare/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Shiranui-Flare_pr-img_01.png",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Elf · blond hair, amber, flame"
+  },
+  {
+    "themeId": "vt-shirogane-noel",
+    "name": "Shirogane Noel",
+    "avatarId": "portrait-v12-shirogane-noel",
+    "referenceImage": "/img/theme-refs/vt-shirogane-noel.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/shirogane-noel/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Shirogane-Noel_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Knight · silver, white, dark blue"
+  },
+  {
+    "themeId": "vt-houshou-marine",
+    "name": "Houshou Marine",
+    "avatarId": "portrait-v12-houshou-marine",
+    "referenceImage": "/img/theme-refs/vt-houshou-marine.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/houshou-marine/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Houshou-Marine_pr-img_01.png",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Pirate · burgundy, black, gold anchor"
+  },
+  {
+    "themeId": "vt-amane-kanata",
+    "name": "Amane Kanata",
+    "avatarId": "portrait-v12-amane-kanata",
+    "referenceImage": "/img/theme-refs/vt-amane-kanata.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/amane-kanata/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2024/07/Amane-Kanata_pr-img_01.png",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Angel · white, sky blue, halo"
+  },
+  {
+    "themeId": "vt-kiryu-coco",
+    "name": "Kiryu Coco",
+    "avatarId": "portrait-v12-kiryu-coco",
+    "referenceImage": "/img/theme-refs/vt-kiryu-coco.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/kiryu-coco/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2023/09/Kiryu-Coco_pr-img_01.png",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Dragon · orange, black, purple"
+  },
+  {
+    "themeId": "vt-tsunomaki-watame",
+    "name": "Tsunomaki Watame",
+    "avatarId": "portrait-v12-tsunomaki-watame",
+    "referenceImage": "/img/theme-refs/vt-tsunomaki-watame.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/tsunomaki-watame/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Tsunomaki-Watame_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Lamb · cream wool and golden bells"
+  },
+  {
+    "themeId": "vt-tokoyami-towa",
+    "name": "Tokoyami Towa",
+    "avatarId": "portrait-v12-tokoyami-towa",
+    "referenceImage": "/img/theme-refs/vt-tokoyami-towa.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/tokoyami-towa/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Tokoyami-Towa_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "She-Devil · purple, black, turquoise"
+  },
+  {
+    "themeId": "vt-himemori-luna",
+    "name": "Himemori Luna",
+    "avatarId": "portrait-v12-himemori-luna",
+    "referenceImage": "/img/theme-refs/vt-himemori-luna.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/himemori-luna/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Himemori-Luna_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Princess · pink, candy, moon"
+  },
+  {
+    "themeId": "vt-yukihana-lamy",
+    "name": "Yukihana Lamy",
+    "avatarId": "portrait-v12-yukihana-lamy",
+    "referenceImage": "/img/theme-refs/vt-yukihana-lamy.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/yukihana-lamy/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Yukihana-Lamy_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Snow elf · ice blue and white"
+  },
+  {
+    "themeId": "vt-momosuzu-nene",
+    "name": "Momosuzu Nene",
+    "avatarId": "portrait-v12-momosuzu-nene",
+    "referenceImage": "/img/theme-refs/vt-momosuzu-nene.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/momosuzu-nene/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/06/Momosuzu-Nene_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Tangerine palette · flowers and green bows"
+  },
+  {
+    "themeId": "vt-shishiro-botan",
+    "name": "Shishiro Botan",
+    "avatarId": "portrait-v12-shishiro-botan",
+    "referenceImage": "/img/theme-refs/vt-shishiro-botan.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/shishiro-botan/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/07/Shishiro-Botan_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "White lioness · graphite and military accents"
+  },
+  {
+    "themeId": "vt-omaru-polka",
+    "name": "Omaru Polka",
+    "avatarId": "portrait-v12-omaru-polka",
+    "referenceImage": "/img/theme-refs/vt-omaru-polka.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/omaru-polka/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/07/Omaru-Polka_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Circus · diamonds, red, white, yellow"
+  },
+  {
+    "themeId": "vt-mano-aloe",
+    "name": "Mano Aloe",
+    "avatarId": "portrait-v12-mano-aloe",
+    "referenceImage": "/img/theme-refs/vt-mano-aloe.webp",
+    "page": "https://hololive.wiki/wiki/Mano_Aloe",
+    "imageSource": "https://static.wikitide.net/hololivewiki/thumb/9/98/Mano_Aloe_-_Portrait_01.png/300px-Mano_Aloe_-_Portrait_01.png",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Singer-succubus · pink, black, microphone"
+  },
+  {
+    "themeId": "vt-la-darknesss",
+    "name": "La+ Darknesss",
+    "avatarId": "portrait-v12-la-darknesss",
+    "referenceImage": "/img/theme-refs/vt-la-darknesss.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/la-darknesss/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/07/La-Darknesss_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Dark horns, white hair and golden rings"
+  },
+  {
+    "themeId": "vt-takane-lui",
+    "name": "Takane Lui",
+    "avatarId": "portrait-v12-takane-lui",
+    "referenceImage": "/img/theme-refs/vt-takane-lui.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/takane-lui/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/07/Takane-Lui_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Hawk · dusty rose and black feathers"
+  },
+  {
+    "themeId": "vt-hakui-koyori",
+    "name": "Hakui Koyori",
+    "avatarId": "portrait-v12-hakui-koyori",
+    "referenceImage": "/img/theme-refs/vt-hakui-koyori.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/hakui-koyori/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/07/Hakui-Koyori_pr-img_01.webp",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Scientist · pink, white, laboratory flasks"
+  },
+  {
+    "themeId": "vt-sakamata-chloe",
+    "name": "Sakamata Chloe",
+    "avatarId": "portrait-v12-sakamata-chloe",
+    "referenceImage": "/img/theme-refs/vt-sakamata-chloe.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/sakamata-chloe/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2024/09/Sakamata-Chloe_pr-img_01.png",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Orca · black, white, red cords"
+  },
+  {
+    "themeId": "vt-kazama-iroha",
+    "name": "Kazama Iroha",
+    "avatarId": "portrait-v12-kazama-iroha",
+    "referenceImage": "/img/theme-refs/vt-kazama-iroha.webp",
+    "page": "https://hololive.hololivepro.com/en/talents/kazama-iroha/",
+    "imageSource": "https://hololive.hololivepro.com/wp-content/uploads/2020/07/Kazama-Iroha_pr-img_01.png",
+    "kind": "reference-artwork",
+    "credits": [],
+    "note": "Samurai · blonde, green, blade and ginkgo"
+  },
+  {
+    "themeId": "vt-kson",
+    "name": "Kson",
+    "avatarId": "portrait-v12-kson",
+    "referenceImage": "/img/theme-refs/vt-kson.webp",
+    "page": "https://www.youtube.com/@ksonONAIR",
+    "imageSource": "https://yt3.googleusercontent.com/gYZ7Mj9Je7m9G6CxVqb17DNb6oVFBT0Xy_IKpfVcxIFIvhiuacEZTJdymnW8PJYTTQcKPYeVhw=s900-c-k-c0x00ffffff-no-rj",
+    "kind": "channel-avatar",
+    "credits": [],
+    "note": "Channel avatar"
+  },
+  {
+    "themeId": "vt-henya-the-genius",
+    "name": "Henya the Genius",
+    "avatarId": "portrait-v12-henya-the-genius",
+    "referenceImage": "/img/theme-refs/vt-henya-the-genius.webp",
+    "page": "https://www.youtube.com/@henyathegenius",
+    "imageSource": "https://yt3.googleusercontent.com/hOF1aF6VHGs18DsYt0R3HfVtD8sqL3ElrwnOTjuovAuOy7xBKNbOlK_NKTIKyRUvQDrmwfKMCw=s900-c-k-c0x00ffffff-no-rj",
+    "kind": "channel-avatar",
+    "credits": [],
+    "note": "Channel avatar"
+  },
+  {
+    "themeId": "vt-projekt-melody",
+    "name": "Projekt Melody",
+    "avatarId": "portrait-v12-projekt-melody",
+    "referenceImage": "/img/theme-refs/vt-projekt-melody.webp",
+    "page": "https://www.youtube.com/@ProjektMelody",
+    "imageSource": "https://yt3.googleusercontent.com/ytc/AIdro_kZDVoFZXvoI-XtAfds712M5Ghvr2Rt558lTik7yK_vnLU=s900-c-k-c0x00ffffff-no-rj",
+    "kind": "channel-avatar",
+    "credits": [],
+    "note": "Channel avatar"
+  },
+  {
+    "themeId": "vt-zentreya",
+    "name": "Zentreya",
+    "avatarId": "portrait-v12-zentreya",
+    "referenceImage": "/img/theme-refs/vt-zentreya.webp",
+    "page": "https://www.youtube.com/@Zentreya",
+    "imageSource": "https://yt3.googleusercontent.com/r-hVz3rANHKOGzgH4rni5OAC1A96XOpjGZFE8ziiPaNUActB7yAj7i61Wmt1lUJ7dGAGnW2iq4A=s900-c-k-c0x00ffffff-no-rj",
+    "kind": "channel-avatar",
+    "credits": [],
+    "note": "Channel avatar"
+  },
+  {
+    "themeId": "vt-nyanners",
+    "name": "Nyanners",
+    "avatarId": "portrait-v12-nyanners",
+    "referenceImage": "/img/theme-refs/vt-nyanners.webp",
+    "page": "https://www.youtube.com/@Nyanners",
+    "imageSource": "https://yt3.googleusercontent.com/qu6mXmNrKuBrCfCoAKNeKMgOhcE1IkvYRWUcZk4TemJUNvk733YOW7pP3ism4oTEdpSfYQh5HA=s900-c-k-c0x00ffffff-no-rj",
+    "kind": "channel-avatar",
+    "credits": [],
+    "note": "Channel avatar"
+  },
+  {
+    "themeId": "vt-silvervale",
+    "name": "Silvervale",
+    "avatarId": "portrait-v12-silvervale",
+    "referenceImage": "/img/theme-refs/vt-silvervale.webp",
+    "page": "https://www.youtube.com/@Silvervale",
+    "imageSource": "https://yt3.googleusercontent.com/pC5FwflZas6ba7n6dJjWDMX75ffdQ9JGmER7S6zpvdpKZqdUCSbVplo9J3MFV8DQ1PDB8AZ4Tg=s900-c-k-c0x00ffffff-no-rj",
+    "kind": "channel-avatar",
+    "credits": [],
+    "note": "Channel avatar"
+  },
+  {
+    "themeId": "vt-veibae",
+    "name": "Veibae",
+    "avatarId": "portrait-v12-veibae",
+    "referenceImage": "/img/theme-refs/vt-veibae.webp",
+    "page": "https://www.youtube.com/@Veibae",
+    "imageSource": "https://yt3.googleusercontent.com/ytc/AIdro_nR35Y_uH0aasJ9nUif0bTzWiL9LZtVXjgPHjES-ibPrAo=s900-c-k-c0x00ffffff-no-rj",
+    "kind": "channel-avatar",
+    "credits": [],
+    "note": "Channel avatar"
+  },
+  {
+    "themeId": "vt-froot",
+    "name": "Froot",
+    "avatarId": "portrait-v12-froot",
+    "referenceImage": "/img/theme-refs/vt-froot.webp",
+    "page": "https://www.youtube.com/@ApricotFroot",
+    "imageSource": "https://yt3.googleusercontent.com/oZm3k-p7WnIIKlu4J_tu-G1zjhozUTHajy15eBSv34PBxvKoNUS-2AqHLOL1MHjmFX_UV9Urfg=s900-c-k-c0x00ffffff-no-rj",
+    "kind": "channel-avatar",
+    "credits": [],
+    "note": "Channel avatar"
+  },
+  {
+    "themeId": "vt-haruka-karibu",
+    "name": "Haruka Karibu",
+    "avatarId": "portrait-v12-haruka-karibu",
+    "referenceImage": "/img/theme-refs/vt-haruka-karibu.webp",
+    "page": "https://www.youtube.com/@HarukaKaribu",
+    "imageSource": "https://yt3.googleusercontent.com/mMPeRuDhuoMea7oT6kWnKNKhDVpftnfIkmhIdkXB67ZsiO0mY0hIkUU1_5VyHIVef_jrAl49HWg=s900-c-k-c0x00ffffff-no-rj",
+    "kind": "channel-avatar",
+    "credits": [],
+    "note": "Channel avatar"
+  },
+  {
+    "themeId": "vt-matara-kan",
+    "name": "Matara Kan",
+    "avatarId": "portrait-v12-matara-kan",
+    "referenceImage": "/img/theme-refs/vt-matara-kan.webp",
+    "page": "https://www.youtube.com/@MataraKan",
+    "imageSource": "https://yt3.googleusercontent.com/LvGnRNCwNiozeS0KFQaw7rdzSunKhBP9djcL2qoJZ-MSiZoKRtV67WigTN9uE9HHDXwMBZLWjw=s900-c-k-c0x00ffffff-no-rj",
+    "kind": "channel-avatar",
+    "credits": [],
+    "note": "Channel avatar"
+  },
+  {
+    "themeId": "vt-michi-mochievee",
+    "name": "Michi Mochievee",
+    "avatarId": "portrait-v12-michi-mochievee",
+    "referenceImage": "/img/theme-refs/vt-michi-mochievee.webp",
+    "page": "https://www.youtube.com/@MichiMochievee",
+    "imageSource": "https://yt3.googleusercontent.com/9PZV-nf7AVBWNxVLEbWOIwDqgtp6vyFI2dWQhpRkAnM7g0H11wNJiY7CQKb-ugEQsahK-Zb2UGQ=s900-c-k-c0x00ffffff-no-rj",
+    "kind": "channel-avatar",
+    "credits": [],
+    "note": "Channel avatar"
+  },
+  {
+    "themeId": "vt-kuro-kurenai",
+    "name": "Kuro Kurenai",
+    "avatarId": "portrait-v12-kuro-kurenai",
+    "referenceImage": "/img/theme-refs/vt-kuro-kurenai.webp",
+    "page": "https://www.youtube.com/@K9KURO",
+    "imageSource": "https://yt3.googleusercontent.com/SFhGykBaO-PwP6Jf6XhIGM0ZCDbpIWYEPWIDMo1_4SfWCwZbmPJNWFqkluvOsNrd8odjqly8zg=s900-c-k-c0x00ffffff-no-rj",
+    "kind": "channel-avatar",
+    "credits": [],
+    "note": "Channel avatar"
+  },
+  {
+    "themeId": "vt-shylily",
+    "name": "Shylily",
+    "avatarId": "portrait-v12-shylily",
+    "referenceImage": "/img/theme-refs/vt-shylily.webp",
+    "page": "https://www.youtube.com/@Shylily",
+    "imageSource": "https://yt3.googleusercontent.com/LjD4QdFDyCPW_8ge1ypmmjUzHh-9POjO-TtdYuQrNCZFg80Ri-OIDRsTJMKCyl_FxZuybT-P96o=s900-c-k-c0x00ffffff-no-rj",
+    "kind": "channel-avatar",
+    "credits": [],
+    "note": "Channel avatar"
+  },
+  {
+    "themeId": "vt-bao-the-whale",
+    "name": "Bao the Whale",
+    "avatarId": "portrait-v12-bao-the-whale",
+    "referenceImage": "/img/theme-refs/vt-bao-the-whale.webp",
+    "page": "https://www.youtube.com/@baovtuber",
+    "imageSource": "https://yt3.googleusercontent.com/Vh9zvwmdAlHUowsivXzw43b_ef7j1iY8o2Tc3NaoNbwpNzUfno6u9wLoVoVA1uw8UAVuMe8=s900-c-k-c0x00ffffff-no-rj",
+    "kind": "channel-avatar",
+    "credits": [],
+    "note": "Channel avatar"
+  },
+  {
+    "themeId": "vt-sinder",
+    "name": "Sinder",
+    "avatarId": "portrait-v12-sinder",
+    "referenceImage": "/img/theme-refs/vt-sinder.webp",
+    "page": "https://www.youtube.com/@SinderVTuber",
+    "imageSource": "https://yt3.googleusercontent.com/Vgzv6sRHoNQFBEhsyFtqEab94jFyDS1W2RNqYsj-k_8gmkaLnSqxOop3WoXQ1dddNG_LHX5lvw=s900-c-k-c0x00ffffff-no-rj",
+    "kind": "channel-avatar",
+    "credits": [],
+    "note": "Channel avatar"
+  },
+  {
+    "themeId": "vt-filian",
+    "name": "Filian",
+    "avatarId": "portrait-v12-filian",
+    "referenceImage": "/img/theme-refs/vt-filian.webp",
+    "page": "https://www.twitch.tv/filian",
+    "imageSource": "https://static-cdn.jtvnw.net/jtv_user_pictures/f75d4103-a265-4e21-88b5-44745fc1bf44-profile_image-600x600.png",
+    "kind": "channel-avatar",
+    "credits": [],
+    "note": "Channel avatar"
+  },
+  {
+    "themeId": "vt-neuro-sama",
+    "name": "Neuro-sama",
+    "avatarId": "portrait-v12-neuro-sama",
+    "referenceImage": "/img/theme-refs/vt-neuro-sama.webp",
+    "page": "https://www.youtube.com/@Neurosama",
+    "imageSource": "https://yt3.googleusercontent.com/VsXeCJuSsG3X0sEGzydlHe90mdK8A2-7nhDssAcdxLhMV5CLPHSj9YNnPTa2pR5EZbIciBrMEQ=s900-c-k-c0x00ffffff-no-rj",
+    "kind": "channel-avatar",
+    "credits": [],
+    "note": "Channel avatar"
+  },
+  {
+    "themeId": "vt-ironmouse-season-1",
+    "name": "Ironmouse · Season 1",
+    "avatarId": "portrait-v12-ironmouse-season-1",
+    "referenceImage": "/img/theme-refs/vt-ironmouse-season-1.webp",
+    "page": "https://www.ironmousemodelindex.com/model0001",
+    "imageSource": "https://images.squarespace-cdn.com/content/65a06814ff5ca6207eae84c7/44fe3aa7-6756-40a7-82b0-a3a8479bd90e/MainPNG400_Model0001-min.png",
+    "kind": "season-model",
+    "credits": [
+      [
+        "Concept",
+        "Ironmouse"
+      ],
+      [
+        "Artist",
+        "Ketama"
+      ],
+      [
+        "Rigger",
+        "Ketama"
+      ]
+    ],
+    "note": "Ketama · 2019"
+  },
+  {
+    "themeId": "vt-ironmouse-season-2",
+    "name": "Ironmouse · Season 2",
+    "avatarId": "portrait-v12-ironmouse-season-2",
+    "referenceImage": "/img/theme-refs/vt-ironmouse-season-2.webp",
+    "page": "https://www.ironmousemodelindex.com/model0005",
+    "imageSource": "https://images.squarespace-cdn.com/content/65a06814ff5ca6207eae84c7/90520041-2e42-4c89-8b67-cb64336d2dba/MainPNG400_Model0005-min.png",
+    "kind": "season-model",
+    "credits": [
+      [
+        "Concept",
+        "Ironmouse"
+      ],
+      [
+        "Artist",
+        "Nia"
+      ],
+      [
+        "Rigger",
+        "etctr_"
+      ]
+    ],
+    "note": "Tiny Queen / Nia · 2021"
+  },
+  {
+    "themeId": "vt-ironmouse-season-3",
+    "name": "Ironmouse · Season 3",
+    "avatarId": "portrait-v12-ironmouse-season-3",
+    "referenceImage": "/img/theme-refs/vt-ironmouse-season-3.webp",
+    "page": "https://www.ironmousemodelindex.com/model0025",
+    "imageSource": "https://images.squarespace-cdn.com/content/65a06814ff5ca6207eae84c7/b26f34bd-e497-401c-a19c-d53670bf3eea/MainPNG400_Model0025-min.png",
+    "kind": "season-model",
+    "credits": [
+      [
+        "Concept",
+        "puppeteer7777"
+      ],
+      [
+        "Artist",
+        "Rosuuri"
+      ],
+      [
+        "Rigger",
+        "etctr_"
+      ]
+    ],
+    "note": "Rosuuri · 2023"
+  },
+  {
+    "themeId": "vt-ironmouse-season-4",
+    "name": "Ironmouse · Season 4",
+    "avatarId": "portrait-v12-ironmouse-season-4",
+    "referenceImage": "/img/theme-refs/vt-ironmouse-season-4.webp",
+    "page": "https://www.ironmousemodelindex.com/model0053",
+    "imageSource": "https://images.squarespace-cdn.com/content/65a06814ff5ca6207eae84c7/141655c9-0564-43a3-b682-4ea54dcffc28/MainPNG400_Model0053-min.png",
+    "kind": "season-model",
+    "credits": [
+      [
+        "Concept",
+        "epebe"
+      ],
+      [
+        "Artist",
+        "Rosuuri"
+      ],
+      [
+        "Rigger",
+        "Radd"
+      ]
+    ],
+    "note": "epebe / Rosuuri · 2026"
+  }
+]
