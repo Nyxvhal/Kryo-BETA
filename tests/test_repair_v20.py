@@ -48,10 +48,10 @@ class FinderPureTests(unittest.TestCase):
             p=Path(folder);(p/'web/img/avatars').mkdir(parents=True)
             import shutil
             shutil.copy2(Path(avatars.resource_dir())/'avatars.json',p/'avatars.json')
-            Image.new('RGB',(512,512),'purple').save(p/'web/img/avatars/collection-001-ironmouse.png')
+            Image.new('RGB',(512,512),'purple').save(p/'web/img/avatars/collection-001-fortnite.png')
             with patch.object(avatars,'resource_dir',return_value=folder),patch.object(avatars,'data_dir',return_value=folder):
-                first=avatars.ico_path('collection-001-ironmouse');self.assertEqual(first,avatars.ico_path('collection-001-ironmouse'))
-                chosen=avatars.choose('collection-001-ironmouse');self.assertTrue(Path(chosen['icon']).is_file());self.assertEqual(avatars.current(),'collection-001-ironmouse')
+                first=avatars.ico_path('collection-001-fortnite');self.assertEqual(first,avatars.ico_path('collection-001-fortnite'))
+                chosen=avatars.choose('collection-001-fortnite');self.assertTrue(Path(chosen['icon']).is_file());self.assertEqual(avatars.current(),'collection-001-fortnite')
                 with Image.open(first) as im:self.assertEqual(im.format,'ICO');self.assertIn((256,256),im.ico.sizes());self.assertIn((16,16),im.ico.sizes())
             self.assertFalse((p/'icons').exists())
 

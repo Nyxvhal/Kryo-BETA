@@ -47,7 +47,7 @@ class Recommendations33(unittest.IsolatedAsyncioTestCase):
   from types import SimpleNamespace
   import json,time
   hold=asyncio.Event();calls=[]
-  async def refresh(limit):calls.append(limit);await hold.wait()
+  async def refresh(limit,exclude_ids=None):calls.append(limit);await hold.wait()
   saved=[{'id':'saved','items':[]}];app={};req=SimpleNamespace(query={'fresh':'1'},app=app)
   with patch('kryonyx.server.recommend.cached_rows',return_value=saved),patch('kryonyx.server.recommend.invalidate'),patch('kryonyx.server._refresh_rows',side_effect=refresh),patch('kryonyx.server.extras.fill_thumbnails',new=AsyncMock()):
    before=time.monotonic();a=await server.api_recommend(req);b=await server.api_recommend(req);await asyncio.sleep(0)

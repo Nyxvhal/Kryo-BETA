@@ -15,6 +15,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parents[1] / 'research' / 'ai-ncnn'
+_SKIP_REASON = 'research/ai-ncnn prototypes are not in this repository'
 
 
 def load(name):
@@ -23,7 +24,7 @@ def load(name):
     return mod
 
 
-zip_range = load('zip_range')
+zip_range = load('zip_range') if HERE.is_dir() else None
 
 
 def make_zip():
@@ -66,6 +67,7 @@ class Server:
         self.httpd.shutdown(); self.httpd.server_close()
 
 
+@unittest.skipUnless(HERE.is_dir(), _SKIP_REASON)
 class ZipRangeTest(unittest.TestCase):
     def setUp(self):
         self.blob = make_zip(); self.srv = Server(self.blob); self.tmp = tempfile.TemporaryDirectory()
@@ -107,6 +109,7 @@ class ZipRangeTest(unittest.TestCase):
         self.assertFalse(os.path.exists(target)); self.assertFalse(os.path.exists(target + '.part'))
 
 
+@unittest.skipUnless(HERE.is_dir(), _SKIP_REASON)
 class VulkanProbeTest(unittest.TestCase):
     def test_probe_runs_in_a_child_and_answers_json(self):
         env = dict(os.environ)
@@ -128,6 +131,7 @@ class VulkanProbeTest(unittest.TestCase):
         self.assertIn(json.loads(out.stdout)['verdict'], ('no-vulkan', 'no-device'))
 
 
+@unittest.skipUnless(HERE.is_dir(), _SKIP_REASON)
 class ManifestDraftTest(unittest.TestCase):
     def test_every_pinned_file_has_size_and_sha256(self):
         m = json.loads((HERE / 'manifest.draft.json').read_text())

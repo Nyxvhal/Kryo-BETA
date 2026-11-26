@@ -88,8 +88,10 @@ def collect() -> set[str]:
         clean.add(value)
     # Explicitly audited dynamic keys complement the conservative HTML scanner.
     for relative in ('research/v12/i18n-ui-keys.json','research/v13/i18n-new-keys.json','research/v15/i18n-keys.json','research/tiktok-v39-ui-keys.json'):
-        with open(os.path.join(ROOT,relative),encoding='utf-8') as handle:
-            clean.update(json.load(handle))
+        path = os.path.join(ROOT, relative)
+        if os.path.isfile(path):
+            with open(path, encoding='utf-8') as handle:
+                clean.update(json.load(handle))
     clean.update({"Player", "Hide extra interface", "Mute", "Unmute", "Translation timed out. Please retry."})
     return clean
 
@@ -103,7 +105,7 @@ def packs() -> dict[str, dict]:
         "const src=files.map(f=>fs.readFileSync(path.join(base,f),'utf8')).join('\\n');"
         "const box=vm.createContext({window:{},navigator:{language:'en'},"
         "document:{documentElement:{},body:null},NodeFilter:{SHOW_TEXT:4},"
-        "S:{},addEventListener(){}});"
+        "S:{},App:{boot(){}},addEventListener(){}});"
         "vm.runInContext(src+';globalThis.__P=PACKS;',box);"
         "process.stdout.write(JSON.stringify(box.__P));"
     )

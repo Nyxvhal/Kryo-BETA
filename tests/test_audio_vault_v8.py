@@ -73,7 +73,7 @@ class AudioHTTP(unittest.IsolatedAsyncioTestCase):
   r=await self.client.put('/api/cache/audio',json={'mode':'internal','limit_mb':999});self.assertEqual(r.status,400)
   r=await self.client.get('/api/stream?id=clear');await r.read();r=await self.client.delete('/api/cache/audio');self.assertEqual((await r.json())['removed'],1)
  async def test_avatar_catalog_and_single_download(self):
-  r=await self.client.get('/api/avatars');d=await r.json();self.assertEqual(len(d['items']),692);self.assertEqual(sum(i.get('collection')=='portraits' for i in d['items']),76)
+  r=await self.client.get('/api/avatars');d=await r.json();self.assertEqual(len(d['items']),233);self.assertEqual(sum(i.get('collection')=='signature' for i in d['items']),20)
   item=next(x for x in d['items'] if x['collection']=='signature')
   for fmt in ('png','svg'):
    r=await self.client.get('/api/avatarshop/download/'+item['id']+'?format='+fmt);self.assertEqual(r.status,200);self.assertIn('attachment',r.headers['Content-Disposition']);self.assertTrue(await r.read())

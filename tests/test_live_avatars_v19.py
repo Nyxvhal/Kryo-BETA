@@ -15,7 +15,7 @@ class LiveAvatarTests(unittest.TestCase):
         avatars.set_live_icon_callback(self.old_callback);self.dp.stop();self.tmp.cleanup()
     def test_selection_commits_and_uses_immutable_content_path(self):
         callback=MagicMock();avatars.set_live_icon_callback(callback)
-        result=avatars.choose('collection-001-ironmouse');p=Path(result['icon'])
+        result=avatars.choose('collection-001-fortnite');p=Path(result['icon'])
         source=Path(avatars.ico_path(result['id'])).read_bytes()
         self.assertEqual(p.stem,hashlib.sha256(source).hexdigest())
         self.assertEqual(p.read_bytes(),source);self.assertEqual((self.root/'icon.ico').read_bytes(),source)
@@ -26,7 +26,7 @@ class LiveAvatarTests(unittest.TestCase):
     def test_missing_icon_cannot_claim_success_or_change_selection(self):
         avatars.choose(avatars.DEFAULT_AVATAR);before=(self.root/'icon.ico').read_bytes()
         with patch.object(avatars,'ico_path',return_value=str(self.root/'missing.ico')):
-            with self.assertRaises(ValueError):avatars.choose('collection-001-ironmouse')
+            with self.assertRaises(ValueError):avatars.choose('collection-001-fortnite')
         self.assertEqual(avatars.current(),avatars.DEFAULT_AVATAR)
         self.assertEqual((self.root/'icon.ico').read_bytes(),before)
     def test_state_failure_rolls_back_active_icon(self):
@@ -35,7 +35,7 @@ class LiveAvatarTests(unittest.TestCase):
             if path.endswith('avatar.json'):raise OSError('read-only state')
             return original(path,content)
         with patch.object(avatars,'_atomic_bytes',side_effect=fail):
-            with self.assertRaises(ValueError):avatars.choose('collection-001-ironmouse')
+            with self.assertRaises(ValueError):avatars.choose('collection-001-fortnite')
         self.assertEqual((self.root/'icon.ico').read_bytes(),before)
         self.assertEqual(avatars.current(),avatars.DEFAULT_AVATAR)
     def test_live_update_precedes_shortcut_job_and_selections_are_serial(self):
@@ -44,7 +44,7 @@ class LiveAvatarTests(unittest.TestCase):
             order.append(('links',icon));entered.set();release.wait(2)
             return {'updated':1,'failed':0,'skipped':0}
         with patch.object(avatars,'_windows_supported',return_value=True),patch.object(avatars,'set_window_icon',side_effect=lambda _,icon:order.append(('window',icon)) or True),patch.object(avatars,'_apply_shortcuts',side_effect=shortcuts):
-            a=threading.Thread(target=avatars.choose,args=('collection-001-ironmouse',));a.start();self.assertTrue(entered.wait(2))
+            a=threading.Thread(target=avatars.choose,args=('collection-001-fortnite',));a.start();self.assertTrue(entered.wait(2))
             b=threading.Thread(target=avatars.choose,args=(avatars.DEFAULT_AVATAR,));b.start();time.sleep(.03)
             self.assertEqual([x[0] for x in order],['window','links'])
             release.set();a.join(3);b.join(3)
